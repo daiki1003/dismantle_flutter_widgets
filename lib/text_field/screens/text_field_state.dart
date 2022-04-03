@@ -7,6 +7,7 @@ class TextFieldState with _$TextFieldState {
   const factory TextFieldState({
     @Default(false) bool readonly,
     @Default(true) bool showCursor,
+    @Default(false) bool obscureText,
   }) = _TextFieldState;
 
   factory TextFieldState.empty() {
