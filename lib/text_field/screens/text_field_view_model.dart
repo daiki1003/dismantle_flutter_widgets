@@ -17,4 +17,8 @@ class _TextFieldViewModel extends StateNotifier<TextFieldState> {
   void showCursorToggled() {
     state = state.copyWith(showCursor: !state.showCursor);
   }
+
+  void obscureTextToggled() {
+    state = state.copyWith(obscureText: !state.obscureText);
+  }
 }
