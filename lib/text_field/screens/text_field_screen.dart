@@ -34,6 +34,7 @@ class TextFieldScreen extends HookConsumerWidget {
             showCursor: state.showCursor,
             obscureText: state.obscureText,
             autocorrect: state.autocorrect,
+            enableSuggestions: state.enableSuggestions,
           ),
           const SizedBox(height: 32),
           Expanded(
@@ -60,6 +61,11 @@ class TextFieldScreen extends HookConsumerWidget {
                     text: 'autocorrect',
                     value: state.autocorrect,
                     onToggled: (value) => notifier.autocorrectToggled(),
+                  ),
+                  ToggleButton(
+                    text: 'enableSuggestions',
+                    value: state.enableSuggestions,
+                    onToggled: (value) => notifier.enableSuggestionsToggled(),
                   ),
                 ],
               ),
