@@ -33,4 +33,8 @@ class _TextFieldViewModel extends StateNotifier<TextFieldState> {
   void expandsToggled() {
     state = state.copyWith(expands: !state.expands);
   }
+
+  void enabledToggled() {
+    state = state.copyWith(enabled: !state.enabled);
+  }
 }
