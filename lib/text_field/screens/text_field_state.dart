@@ -13,6 +13,7 @@ class TextFieldState with _$TextFieldState {
     @Default(false) bool expands,
     @Default(true) bool enabled,
     @Default(true) bool enableInteractiveSelection,
+    @Default(true) bool enableIMEPersonalizedLearning,
   }) = _TextFieldState;
 
   factory TextFieldState.empty() {

@@ -24,6 +24,7 @@ mixin _$TextFieldState {
   bool get expands => throw _privateConstructorUsedError;
   bool get enabled => throw _privateConstructorUsedError;
   bool get enableInteractiveSelection => throw _privateConstructorUsedError;
+  bool get enableIMEPersonalizedLearning => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $TextFieldStateCopyWith<TextFieldState> get copyWith =>
@@ -43,7 +44,8 @@ abstract class $TextFieldStateCopyWith<$Res> {
       bool enableSuggestions,
       bool expands,
       bool enabled,
-      bool enableInteractiveSelection});
+      bool enableInteractiveSelection,
+      bool enableIMEPersonalizedLearning});
 }
 
 /// @nodoc
@@ -65,6 +67,7 @@ class _$TextFieldStateCopyWithImpl<$Res>
     Object? expands = freezed,
     Object? enabled = freezed,
     Object? enableInteractiveSelection = freezed,
+    Object? enableIMEPersonalizedLearning = freezed,
   }) {
     return _then(_value.copyWith(
       readonly: readonly == freezed
@@ -99,6 +102,10 @@ class _$TextFieldStateCopyWithImpl<$Res>
           ? _value.enableInteractiveSelection
           : enableInteractiveSelection // ignore: cast_nullable_to_non_nullable
               as bool,
+      enableIMEPersonalizedLearning: enableIMEPersonalizedLearning == freezed
+          ? _value.enableIMEPersonalizedLearning
+          : enableIMEPersonalizedLearning // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -118,7 +125,8 @@ abstract class _$$_TextFieldStateCopyWith<$Res>
       bool enableSuggestions,
       bool expands,
       bool enabled,
-      bool enableInteractiveSelection});
+      bool enableInteractiveSelection,
+      bool enableIMEPersonalizedLearning});
 }
 
 /// @nodoc
@@ -142,6 +150,7 @@ class __$$_TextFieldStateCopyWithImpl<$Res>
     Object? expands = freezed,
     Object? enabled = freezed,
     Object? enableInteractiveSelection = freezed,
+    Object? enableIMEPersonalizedLearning = freezed,
   }) {
     return _then(_$_TextFieldState(
       readonly: readonly == freezed
@@ -176,6 +185,10 @@ class __$$_TextFieldStateCopyWithImpl<$Res>
           ? _value.enableInteractiveSelection
           : enableInteractiveSelection // ignore: cast_nullable_to_non_nullable
               as bool,
+      enableIMEPersonalizedLearning: enableIMEPersonalizedLearning == freezed
+          ? _value.enableIMEPersonalizedLearning
+          : enableIMEPersonalizedLearning // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -191,7 +204,8 @@ class _$_TextFieldState implements _TextFieldState {
       this.enableSuggestions = true,
       this.expands = false,
       this.enabled = true,
-      this.enableInteractiveSelection = true});
+      this.enableInteractiveSelection = true,
+      this.enableIMEPersonalizedLearning = true});
 
   @override
   @JsonKey()
@@ -217,10 +231,13 @@ class _$_TextFieldState implements _TextFieldState {
   @override
   @JsonKey()
   final bool enableInteractiveSelection;
+  @override
+  @JsonKey()
+  final bool enableIMEPersonalizedLearning;
 
   @override
   String toString() {
-    return 'TextFieldState(readonly: $readonly, showCursor: $showCursor, obscureText: $obscureText, autocorrect: $autocorrect, enableSuggestions: $enableSuggestions, expands: $expands, enabled: $enabled, enableInteractiveSelection: $enableInteractiveSelection)';
+    return 'TextFieldState(readonly: $readonly, showCursor: $showCursor, obscureText: $obscureText, autocorrect: $autocorrect, enableSuggestions: $enableSuggestions, expands: $expands, enabled: $enabled, enableInteractiveSelection: $enableInteractiveSelection, enableIMEPersonalizedLearning: $enableIMEPersonalizedLearning)';
   }
 
   @override
@@ -240,7 +257,10 @@ class _$_TextFieldState implements _TextFieldState {
             const DeepCollectionEquality().equals(other.expands, expands) &&
             const DeepCollectionEquality().equals(other.enabled, enabled) &&
             const DeepCollectionEquality().equals(
-                other.enableInteractiveSelection, enableInteractiveSelection));
+                other.enableInteractiveSelection, enableInteractiveSelection) &&
+            const DeepCollectionEquality().equals(
+                other.enableIMEPersonalizedLearning,
+                enableIMEPersonalizedLearning));
   }
 
   @override
@@ -253,7 +273,8 @@ class _$_TextFieldState implements _TextFieldState {
       const DeepCollectionEquality().hash(enableSuggestions),
       const DeepCollectionEquality().hash(expands),
       const DeepCollectionEquality().hash(enabled),
-      const DeepCollectionEquality().hash(enableInteractiveSelection));
+      const DeepCollectionEquality().hash(enableInteractiveSelection),
+      const DeepCollectionEquality().hash(enableIMEPersonalizedLearning));
 
   @JsonKey(ignore: true)
   @override
@@ -270,7 +291,8 @@ abstract class _TextFieldState implements TextFieldState {
       final bool enableSuggestions,
       final bool expands,
       final bool enabled,
-      final bool enableInteractiveSelection}) = _$_TextFieldState;
+      final bool enableInteractiveSelection,
+      final bool enableIMEPersonalizedLearning}) = _$_TextFieldState;
 
   @override
   bool get readonly;
@@ -288,6 +310,8 @@ abstract class _TextFieldState implements TextFieldState {
   bool get enabled;
   @override
   bool get enableInteractiveSelection;
+  @override
+  bool get enableIMEPersonalizedLearning;
   @override
   @JsonKey(ignore: true)
   _$$_TextFieldStateCopyWith<_$_TextFieldState> get copyWith =>

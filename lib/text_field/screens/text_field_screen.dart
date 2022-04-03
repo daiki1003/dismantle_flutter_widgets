@@ -38,6 +38,7 @@ class TextFieldScreen extends HookConsumerWidget {
             expands: state.expands,
             enabled: state.enabled,
             enableInteractiveSelection: state.enableInteractiveSelection,
+            enableIMEPersonalizedLearning: state.enableIMEPersonalizedLearning,
           ),
           const SizedBox(height: 32),
           Expanded(
@@ -85,6 +86,12 @@ class TextFieldScreen extends HookConsumerWidget {
                     value: state.enableInteractiveSelection,
                     onToggled: (value) =>
                         notifier.enableInteractiveSelectionToggled(),
+                  ),
+                  ToggleButton(
+                    text: 'enableIMEPersonalizedLearning',
+                    value: state.enableIMEPersonalizedLearning,
+                    onToggled: (value) =>
+                        notifier.enableIMEPersonalizedLearningToggled(),
                   ),
                 ],
               ),
