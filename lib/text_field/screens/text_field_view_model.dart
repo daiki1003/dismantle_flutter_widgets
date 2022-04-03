@@ -29,4 +29,8 @@ class _TextFieldViewModel extends StateNotifier<TextFieldState> {
   void enableSuggestionsToggled() {
     state = state.copyWith(enableSuggestions: !state.enableSuggestions);
   }
+
+  void expandsToggled() {
+    state = state.copyWith(expands: !state.expands);
+  }
 }
