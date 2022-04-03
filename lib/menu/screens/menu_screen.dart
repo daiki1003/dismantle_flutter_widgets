@@ -3,6 +3,7 @@ import 'package:flutter/material.dart' hide MenuItem;
 import 'package:dismantling/menu/components/menu_item.dart';
 import 'package:dismantling/menu/enum/menu_type.dart';
 import 'package:dismantling/selectable_text/screen/selectable_text_screen.dart';
+import 'package:dismantling/text_field/screens/text_field_screen.dart';
 
 class MenuScreen extends StatelessWidget {
   const MenuScreen({
@@ -26,6 +27,10 @@ class MenuScreen extends StatelessWidget {
                     SelectableTextScreen.route(),
                   );
                   break;
+                case MenuType.textField:
+                  Navigator.of(context).push<void>(
+                    TextFieldScreen.route(),
+                  );
               }
             },
           );
