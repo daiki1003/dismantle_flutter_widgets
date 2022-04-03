@@ -19,6 +19,7 @@ mixin _$TextFieldState {
   bool get readonly => throw _privateConstructorUsedError;
   bool get showCursor => throw _privateConstructorUsedError;
   bool get obscureText => throw _privateConstructorUsedError;
+  bool get autocorrect => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $TextFieldStateCopyWith<TextFieldState> get copyWith =>
@@ -30,7 +31,8 @@ abstract class $TextFieldStateCopyWith<$Res> {
   factory $TextFieldStateCopyWith(
           TextFieldState value, $Res Function(TextFieldState) then) =
       _$TextFieldStateCopyWithImpl<$Res>;
-  $Res call({bool readonly, bool showCursor, bool obscureText});
+  $Res call(
+      {bool readonly, bool showCursor, bool obscureText, bool autocorrect});
 }
 
 /// @nodoc
@@ -47,6 +49,7 @@ class _$TextFieldStateCopyWithImpl<$Res>
     Object? readonly = freezed,
     Object? showCursor = freezed,
     Object? obscureText = freezed,
+    Object? autocorrect = freezed,
   }) {
     return _then(_value.copyWith(
       readonly: readonly == freezed
@@ -61,6 +64,10 @@ class _$TextFieldStateCopyWithImpl<$Res>
           ? _value.obscureText
           : obscureText // ignore: cast_nullable_to_non_nullable
               as bool,
+      autocorrect: autocorrect == freezed
+          ? _value.autocorrect
+          : autocorrect // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -72,7 +79,8 @@ abstract class _$$_TextFieldStateCopyWith<$Res>
           _$_TextFieldState value, $Res Function(_$_TextFieldState) then) =
       __$$_TextFieldStateCopyWithImpl<$Res>;
   @override
-  $Res call({bool readonly, bool showCursor, bool obscureText});
+  $Res call(
+      {bool readonly, bool showCursor, bool obscureText, bool autocorrect});
 }
 
 /// @nodoc
@@ -91,6 +99,7 @@ class __$$_TextFieldStateCopyWithImpl<$Res>
     Object? readonly = freezed,
     Object? showCursor = freezed,
     Object? obscureText = freezed,
+    Object? autocorrect = freezed,
   }) {
     return _then(_$_TextFieldState(
       readonly: readonly == freezed
@@ -105,6 +114,10 @@ class __$$_TextFieldStateCopyWithImpl<$Res>
           ? _value.obscureText
           : obscureText // ignore: cast_nullable_to_non_nullable
               as bool,
+      autocorrect: autocorrect == freezed
+          ? _value.autocorrect
+          : autocorrect // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -115,7 +128,8 @@ class _$_TextFieldState implements _TextFieldState {
   const _$_TextFieldState(
       {this.readonly = false,
       this.showCursor = true,
-      this.obscureText = false});
+      this.obscureText = false,
+      this.autocorrect = true});
 
   @override
   @JsonKey()
@@ -126,10 +140,13 @@ class _$_TextFieldState implements _TextFieldState {
   @override
   @JsonKey()
   final bool obscureText;
+  @override
+  @JsonKey()
+  final bool autocorrect;
 
   @override
   String toString() {
-    return 'TextFieldState(readonly: $readonly, showCursor: $showCursor, obscureText: $obscureText)';
+    return 'TextFieldState(readonly: $readonly, showCursor: $showCursor, obscureText: $obscureText, autocorrect: $autocorrect)';
   }
 
   @override
@@ -141,7 +158,9 @@ class _$_TextFieldState implements _TextFieldState {
             const DeepCollectionEquality()
                 .equals(other.showCursor, showCursor) &&
             const DeepCollectionEquality()
-                .equals(other.obscureText, obscureText));
+                .equals(other.obscureText, obscureText) &&
+            const DeepCollectionEquality()
+                .equals(other.autocorrect, autocorrect));
   }
 
   @override
@@ -149,7 +168,8 @@ class _$_TextFieldState implements _TextFieldState {
       runtimeType,
       const DeepCollectionEquality().hash(readonly),
       const DeepCollectionEquality().hash(showCursor),
-      const DeepCollectionEquality().hash(obscureText));
+      const DeepCollectionEquality().hash(obscureText),
+      const DeepCollectionEquality().hash(autocorrect));
 
   @JsonKey(ignore: true)
   @override
@@ -161,7 +181,8 @@ abstract class _TextFieldState implements TextFieldState {
   const factory _TextFieldState(
       {final bool readonly,
       final bool showCursor,
-      final bool obscureText}) = _$_TextFieldState;
+      final bool obscureText,
+      final bool autocorrect}) = _$_TextFieldState;
 
   @override
   bool get readonly;
@@ -169,6 +190,8 @@ abstract class _TextFieldState implements TextFieldState {
   bool get showCursor;
   @override
   bool get obscureText;
+  @override
+  bool get autocorrect;
   @override
   @JsonKey(ignore: true)
   _$$_TextFieldStateCopyWith<_$_TextFieldState> get copyWith =>

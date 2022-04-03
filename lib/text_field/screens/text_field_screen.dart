@@ -33,6 +33,7 @@ class TextFieldScreen extends HookConsumerWidget {
             readOnly: state.readonly,
             showCursor: state.showCursor,
             obscureText: state.obscureText,
+            autocorrect: state.autocorrect,
           ),
           const SizedBox(height: 32),
           Expanded(
@@ -54,6 +55,11 @@ class TextFieldScreen extends HookConsumerWidget {
                     text: 'obscureText',
                     value: state.obscureText,
                     onToggled: (value) => notifier.obscureTextToggled(),
+                  ),
+                  ToggleButton(
+                    text: 'autocorrect',
+                    value: state.autocorrect,
+                    onToggled: (value) => notifier.autocorrectToggled(),
                   ),
                 ],
               ),

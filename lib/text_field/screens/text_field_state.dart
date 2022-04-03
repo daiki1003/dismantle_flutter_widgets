@@ -8,6 +8,7 @@ class TextFieldState with _$TextFieldState {
     @Default(false) bool readonly,
     @Default(true) bool showCursor,
     @Default(false) bool obscureText,
+    @Default(true) bool autocorrect,
   }) = _TextFieldState;
 
   factory TextFieldState.empty() {

@@ -21,4 +21,8 @@ class _TextFieldViewModel extends StateNotifier<TextFieldState> {
   void obscureTextToggled() {
     state = state.copyWith(obscureText: !state.obscureText);
   }
+
+  void autocorrectToggled() {
+    state = state.copyWith(autocorrect: !state.autocorrect);
+  }
 }
