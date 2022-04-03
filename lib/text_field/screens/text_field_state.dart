@@ -6,6 +6,7 @@ part 'text_field_state.freezed.dart';
 class TextFieldState with _$TextFieldState {
   const factory TextFieldState({
     @Default(false) bool readonly,
+    @Default(true) bool showCursor,
   }) = _TextFieldState;
 
   factory TextFieldState.empty() {

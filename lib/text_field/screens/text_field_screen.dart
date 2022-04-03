@@ -31,6 +31,7 @@ class TextFieldScreen extends HookConsumerWidget {
           TextField(
             controller: controller,
             readOnly: state.readonly,
+            showCursor: state.showCursor,
           ),
           const SizedBox(height: 32),
           Expanded(
@@ -42,6 +43,11 @@ class TextFieldScreen extends HookConsumerWidget {
                     text: 'readonly',
                     value: state.readonly,
                     onToggled: (value) => notifier.readonlyToggled(),
+                  ),
+                  ToggleButton(
+                    text: 'showCursor',
+                    value: state.showCursor,
+                    onToggled: (value) => notifier.showCursorToggled(),
                   ),
                 ],
               ),
