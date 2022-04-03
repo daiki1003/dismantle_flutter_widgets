@@ -13,6 +13,8 @@ dependencies:
     sdk: flutter
 
   pedantic_mono: ^1.17.0
+  flutter_hooks: ^0.18.2+1
+  hooks_riverpod: ^1.0.3
 
   cupertino_icons: ^1.0.2
 
