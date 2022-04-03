@@ -25,4 +25,8 @@ class _TextFieldViewModel extends StateNotifier<TextFieldState> {
   void autocorrectToggled() {
     state = state.copyWith(autocorrect: !state.autocorrect);
   }
+
+  void enableSuggestionsToggled() {
+    state = state.copyWith(enableSuggestions: !state.enableSuggestions);
+  }
 }

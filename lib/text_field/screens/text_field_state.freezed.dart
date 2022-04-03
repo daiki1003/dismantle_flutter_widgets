@@ -22,12 +22,14 @@ class _$TextFieldStateTearOff {
       {bool readonly = false,
       bool showCursor = true,
       bool obscureText = false,
-      bool autocorrect = true}) {
+      bool autocorrect = true,
+      bool enableSuggestions = true}) {
     return _TextFieldState(
       readonly: readonly,
       showCursor: showCursor,
       obscureText: obscureText,
       autocorrect: autocorrect,
+      enableSuggestions: enableSuggestions,
     );
   }
 }
@@ -41,6 +43,7 @@ mixin _$TextFieldState {
   bool get showCursor => throw _privateConstructorUsedError;
   bool get obscureText => throw _privateConstructorUsedError;
   bool get autocorrect => throw _privateConstructorUsedError;
+  bool get enableSuggestions => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $TextFieldStateCopyWith<TextFieldState> get copyWith =>
@@ -53,7 +56,11 @@ abstract class $TextFieldStateCopyWith<$Res> {
           TextFieldState value, $Res Function(TextFieldState) then) =
       _$TextFieldStateCopyWithImpl<$Res>;
   $Res call(
-      {bool readonly, bool showCursor, bool obscureText, bool autocorrect});
+      {bool readonly,
+      bool showCursor,
+      bool obscureText,
+      bool autocorrect,
+      bool enableSuggestions});
 }
 
 /// @nodoc
@@ -71,6 +78,7 @@ class _$TextFieldStateCopyWithImpl<$Res>
     Object? showCursor = freezed,
     Object? obscureText = freezed,
     Object? autocorrect = freezed,
+    Object? enableSuggestions = freezed,
   }) {
     return _then(_value.copyWith(
       readonly: readonly == freezed
@@ -89,6 +97,10 @@ class _$TextFieldStateCopyWithImpl<$Res>
           ? _value.autocorrect
           : autocorrect // ignore: cast_nullable_to_non_nullable
               as bool,
+      enableSuggestions: enableSuggestions == freezed
+          ? _value.enableSuggestions
+          : enableSuggestions // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -101,7 +113,11 @@ abstract class _$TextFieldStateCopyWith<$Res>
       __$TextFieldStateCopyWithImpl<$Res>;
   @override
   $Res call(
-      {bool readonly, bool showCursor, bool obscureText, bool autocorrect});
+      {bool readonly,
+      bool showCursor,
+      bool obscureText,
+      bool autocorrect,
+      bool enableSuggestions});
 }
 
 /// @nodoc
@@ -121,6 +137,7 @@ class __$TextFieldStateCopyWithImpl<$Res>
     Object? showCursor = freezed,
     Object? obscureText = freezed,
     Object? autocorrect = freezed,
+    Object? enableSuggestions = freezed,
   }) {
     return _then(_TextFieldState(
       readonly: readonly == freezed
@@ -139,6 +156,10 @@ class __$TextFieldStateCopyWithImpl<$Res>
           ? _value.autocorrect
           : autocorrect // ignore: cast_nullable_to_non_nullable
               as bool,
+      enableSuggestions: enableSuggestions == freezed
+          ? _value.enableSuggestions
+          : enableSuggestions // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -152,7 +173,8 @@ class _$_TextFieldState
       {this.readonly = false,
       this.showCursor = true,
       this.obscureText = false,
-      this.autocorrect = true});
+      this.autocorrect = true,
+      this.enableSuggestions = true});
 
   @JsonKey()
   @override
@@ -166,10 +188,13 @@ class _$_TextFieldState
   @JsonKey()
   @override
   final bool autocorrect;
+  @JsonKey()
+  @override
+  final bool enableSuggestions;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'TextFieldState(readonly: $readonly, showCursor: $showCursor, obscureText: $obscureText, autocorrect: $autocorrect)';
+    return 'TextFieldState(readonly: $readonly, showCursor: $showCursor, obscureText: $obscureText, autocorrect: $autocorrect, enableSuggestions: $enableSuggestions)';
   }
 
   @override
@@ -180,7 +205,8 @@ class _$_TextFieldState
       ..add(DiagnosticsProperty('readonly', readonly))
       ..add(DiagnosticsProperty('showCursor', showCursor))
       ..add(DiagnosticsProperty('obscureText', obscureText))
-      ..add(DiagnosticsProperty('autocorrect', autocorrect));
+      ..add(DiagnosticsProperty('autocorrect', autocorrect))
+      ..add(DiagnosticsProperty('enableSuggestions', enableSuggestions));
   }
 
   @override
@@ -194,7 +220,9 @@ class _$_TextFieldState
             const DeepCollectionEquality()
                 .equals(other.obscureText, obscureText) &&
             const DeepCollectionEquality()
-                .equals(other.autocorrect, autocorrect));
+                .equals(other.autocorrect, autocorrect) &&
+            const DeepCollectionEquality()
+                .equals(other.enableSuggestions, enableSuggestions));
   }
 
   @override
@@ -203,7 +231,8 @@ class _$_TextFieldState
       const DeepCollectionEquality().hash(readonly),
       const DeepCollectionEquality().hash(showCursor),
       const DeepCollectionEquality().hash(obscureText),
-      const DeepCollectionEquality().hash(autocorrect));
+      const DeepCollectionEquality().hash(autocorrect),
+      const DeepCollectionEquality().hash(enableSuggestions));
 
   @JsonKey(ignore: true)
   @override
@@ -216,7 +245,8 @@ abstract class _TextFieldState implements TextFieldState {
       {bool readonly,
       bool showCursor,
       bool obscureText,
-      bool autocorrect}) = _$_TextFieldState;
+      bool autocorrect,
+      bool enableSuggestions}) = _$_TextFieldState;
 
   @override
   bool get readonly;
@@ -226,6 +256,8 @@ abstract class _TextFieldState implements TextFieldState {
   bool get obscureText;
   @override
   bool get autocorrect;
+  @override
+  bool get enableSuggestions;
   @override
   @JsonKey(ignore: true)
   _$TextFieldStateCopyWith<_TextFieldState> get copyWith =>
