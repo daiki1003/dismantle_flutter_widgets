@@ -37,4 +37,10 @@ class _TextFieldViewModel extends StateNotifier<TextFieldState> {
   void enabledToggled() {
     state = state.copyWith(enabled: !state.enabled);
   }
+
+  void enableInteractiveSelectionToggled() {
+    state = state.copyWith(
+      enableInteractiveSelection: !state.enableInteractiveSelection,
+    );
+  }
 }

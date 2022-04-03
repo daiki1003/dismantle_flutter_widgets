@@ -37,6 +37,7 @@ class TextFieldScreen extends HookConsumerWidget {
             enableSuggestions: state.enableSuggestions,
             expands: state.expands,
             enabled: state.enabled,
+            enableInteractiveSelection: state.enableInteractiveSelection,
           ),
           const SizedBox(height: 32),
           Expanded(
@@ -78,6 +79,12 @@ class TextFieldScreen extends HookConsumerWidget {
                     text: 'enabled',
                     value: state.enabled,
                     onToggled: (value) => notifier.enabledToggled(),
+                  ),
+                  ToggleButton(
+                    text: 'enableInteractiveSelection',
+                    value: state.enableInteractiveSelection,
+                    onToggled: (value) =>
+                        notifier.enableInteractiveSelectionToggled(),
                   ),
                 ],
               ),
