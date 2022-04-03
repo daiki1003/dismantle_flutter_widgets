@@ -22,6 +22,7 @@ mixin _$TextFieldState {
   bool get autocorrect => throw _privateConstructorUsedError;
   bool get enableSuggestions => throw _privateConstructorUsedError;
   bool get expands => throw _privateConstructorUsedError;
+  bool get enabled => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $TextFieldStateCopyWith<TextFieldState> get copyWith =>
@@ -39,7 +40,8 @@ abstract class $TextFieldStateCopyWith<$Res> {
       bool obscureText,
       bool autocorrect,
       bool enableSuggestions,
-      bool expands});
+      bool expands,
+      bool enabled});
 }
 
 /// @nodoc
@@ -59,6 +61,7 @@ class _$TextFieldStateCopyWithImpl<$Res>
     Object? autocorrect = freezed,
     Object? enableSuggestions = freezed,
     Object? expands = freezed,
+    Object? enabled = freezed,
   }) {
     return _then(_value.copyWith(
       readonly: readonly == freezed
@@ -85,6 +88,10 @@ class _$TextFieldStateCopyWithImpl<$Res>
           ? _value.expands
           : expands // ignore: cast_nullable_to_non_nullable
               as bool,
+      enabled: enabled == freezed
+          ? _value.enabled
+          : enabled // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -102,7 +109,8 @@ abstract class _$$_TextFieldStateCopyWith<$Res>
       bool obscureText,
       bool autocorrect,
       bool enableSuggestions,
-      bool expands});
+      bool expands,
+      bool enabled});
 }
 
 /// @nodoc
@@ -124,6 +132,7 @@ class __$$_TextFieldStateCopyWithImpl<$Res>
     Object? autocorrect = freezed,
     Object? enableSuggestions = freezed,
     Object? expands = freezed,
+    Object? enabled = freezed,
   }) {
     return _then(_$_TextFieldState(
       readonly: readonly == freezed
@@ -150,6 +159,10 @@ class __$$_TextFieldStateCopyWithImpl<$Res>
           ? _value.expands
           : expands // ignore: cast_nullable_to_non_nullable
               as bool,
+      enabled: enabled == freezed
+          ? _value.enabled
+          : enabled // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -163,7 +176,8 @@ class _$_TextFieldState implements _TextFieldState {
       this.obscureText = false,
       this.autocorrect = true,
       this.enableSuggestions = true,
-      this.expands = false});
+      this.expands = false,
+      this.enabled = true});
 
   @override
   @JsonKey()
@@ -183,10 +197,13 @@ class _$_TextFieldState implements _TextFieldState {
   @override
   @JsonKey()
   final bool expands;
+  @override
+  @JsonKey()
+  final bool enabled;
 
   @override
   String toString() {
-    return 'TextFieldState(readonly: $readonly, showCursor: $showCursor, obscureText: $obscureText, autocorrect: $autocorrect, enableSuggestions: $enableSuggestions, expands: $expands)';
+    return 'TextFieldState(readonly: $readonly, showCursor: $showCursor, obscureText: $obscureText, autocorrect: $autocorrect, enableSuggestions: $enableSuggestions, expands: $expands, enabled: $enabled)';
   }
 
   @override
@@ -203,7 +220,8 @@ class _$_TextFieldState implements _TextFieldState {
                 .equals(other.autocorrect, autocorrect) &&
             const DeepCollectionEquality()
                 .equals(other.enableSuggestions, enableSuggestions) &&
-            const DeepCollectionEquality().equals(other.expands, expands));
+            const DeepCollectionEquality().equals(other.expands, expands) &&
+            const DeepCollectionEquality().equals(other.enabled, enabled));
   }
 
   @override
@@ -214,7 +232,8 @@ class _$_TextFieldState implements _TextFieldState {
       const DeepCollectionEquality().hash(obscureText),
       const DeepCollectionEquality().hash(autocorrect),
       const DeepCollectionEquality().hash(enableSuggestions),
-      const DeepCollectionEquality().hash(expands));
+      const DeepCollectionEquality().hash(expands),
+      const DeepCollectionEquality().hash(enabled));
 
   @JsonKey(ignore: true)
   @override
@@ -229,7 +248,8 @@ abstract class _TextFieldState implements TextFieldState {
       final bool obscureText,
       final bool autocorrect,
       final bool enableSuggestions,
-      final bool expands}) = _$_TextFieldState;
+      final bool expands,
+      final bool enabled}) = _$_TextFieldState;
 
   @override
   bool get readonly;
@@ -243,6 +263,8 @@ abstract class _TextFieldState implements TextFieldState {
   bool get enableSuggestions;
   @override
   bool get expands;
+  @override
+  bool get enabled;
   @override
   @JsonKey(ignore: true)
   _$$_TextFieldStateCopyWith<_$_TextFieldState> get copyWith =>

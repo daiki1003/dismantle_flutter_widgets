@@ -11,6 +11,7 @@ class TextFieldState with _$TextFieldState {
     @Default(true) bool autocorrect,
     @Default(true) bool enableSuggestions,
     @Default(false) bool expands,
+    @Default(true) bool enabled,
   }) = _TextFieldState;
 
   factory TextFieldState.empty() {
