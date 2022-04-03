@@ -43,4 +43,10 @@ class _TextFieldViewModel extends StateNotifier<TextFieldState> {
       enableInteractiveSelection: !state.enableInteractiveSelection,
     );
   }
+
+  void enableIMEPersonalizedLearningToggled() {
+    state = state.copyWith(
+      enableIMEPersonalizedLearning: !state.enableIMEPersonalizedLearning,
+    );
+  }
 }
