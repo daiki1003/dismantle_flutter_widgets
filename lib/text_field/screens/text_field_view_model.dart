@@ -13,4 +13,8 @@ class _TextFieldViewModel extends StateNotifier<TextFieldState> {
   void readonlyToggled() {
     state = state.copyWith(readonly: !state.readonly);
   }
+
+  void showCursorToggled() {
+    state = state.copyWith(showCursor: !state.showCursor);
+  }
 }
