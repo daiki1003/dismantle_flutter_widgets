@@ -3,3 +3,4 @@ include: package:pedantic_mono/analysis_options.yaml
 analyzer:
   errors:
     sort_pub_dependencies: ignore
+    directives_ordering: false
