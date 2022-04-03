@@ -14,6 +14,7 @@ class TextFieldState with _$TextFieldState {
     @Default(true) bool enableSuggestions,
     @Default(false) bool expands,
     @Default(true) bool enabled,
+    @Default(true) bool enableInteractiveSelection,
   }) = _TextFieldState;
 
   factory TextFieldState.empty() {

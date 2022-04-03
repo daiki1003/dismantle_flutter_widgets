@@ -25,7 +25,8 @@ class _$TextFieldStateTearOff {
       bool autocorrect = true,
       bool enableSuggestions = true,
       bool expands = false,
-      bool enabled = true}) {
+      bool enabled = true,
+      bool enableInteractiveSelection = true}) {
     return _TextFieldState(
       readonly: readonly,
       showCursor: showCursor,
@@ -34,6 +35,7 @@ class _$TextFieldStateTearOff {
       enableSuggestions: enableSuggestions,
       expands: expands,
       enabled: enabled,
+      enableInteractiveSelection: enableInteractiveSelection,
     );
   }
 }
@@ -50,6 +52,7 @@ mixin _$TextFieldState {
   bool get enableSuggestions => throw _privateConstructorUsedError;
   bool get expands => throw _privateConstructorUsedError;
   bool get enabled => throw _privateConstructorUsedError;
+  bool get enableInteractiveSelection => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $TextFieldStateCopyWith<TextFieldState> get copyWith =>
@@ -68,7 +71,8 @@ abstract class $TextFieldStateCopyWith<$Res> {
       bool autocorrect,
       bool enableSuggestions,
       bool expands,
-      bool enabled});
+      bool enabled,
+      bool enableInteractiveSelection});
 }
 
 /// @nodoc
@@ -89,6 +93,7 @@ class _$TextFieldStateCopyWithImpl<$Res>
     Object? enableSuggestions = freezed,
     Object? expands = freezed,
     Object? enabled = freezed,
+    Object? enableInteractiveSelection = freezed,
   }) {
     return _then(_value.copyWith(
       readonly: readonly == freezed
@@ -119,6 +124,10 @@ class _$TextFieldStateCopyWithImpl<$Res>
           ? _value.enabled
           : enabled // ignore: cast_nullable_to_non_nullable
               as bool,
+      enableInteractiveSelection: enableInteractiveSelection == freezed
+          ? _value.enableInteractiveSelection
+          : enableInteractiveSelection // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -137,7 +146,8 @@ abstract class _$TextFieldStateCopyWith<$Res>
       bool autocorrect,
       bool enableSuggestions,
       bool expands,
-      bool enabled});
+      bool enabled,
+      bool enableInteractiveSelection});
 }
 
 /// @nodoc
@@ -160,6 +170,7 @@ class __$TextFieldStateCopyWithImpl<$Res>
     Object? enableSuggestions = freezed,
     Object? expands = freezed,
     Object? enabled = freezed,
+    Object? enableInteractiveSelection = freezed,
   }) {
     return _then(_TextFieldState(
       readonly: readonly == freezed
@@ -190,6 +201,10 @@ class __$TextFieldStateCopyWithImpl<$Res>
           ? _value.enabled
           : enabled // ignore: cast_nullable_to_non_nullable
               as bool,
+      enableInteractiveSelection: enableInteractiveSelection == freezed
+          ? _value.enableInteractiveSelection
+          : enableInteractiveSelection // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -206,7 +221,8 @@ class _$_TextFieldState
       this.autocorrect = true,
       this.enableSuggestions = true,
       this.expands = false,
-      this.enabled = true});
+      this.enabled = true,
+      this.enableInteractiveSelection = true});
 
   @JsonKey()
   @override
@@ -229,10 +245,13 @@ class _$_TextFieldState
   @JsonKey()
   @override
   final bool enabled;
+  @JsonKey()
+  @override
+  final bool enableInteractiveSelection;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'TextFieldState(readonly: $readonly, showCursor: $showCursor, obscureText: $obscureText, autocorrect: $autocorrect, enableSuggestions: $enableSuggestions, expands: $expands, enabled: $enabled)';
+    return 'TextFieldState(readonly: $readonly, showCursor: $showCursor, obscureText: $obscureText, autocorrect: $autocorrect, enableSuggestions: $enableSuggestions, expands: $expands, enabled: $enabled, enableInteractiveSelection: $enableInteractiveSelection)';
   }
 
   @override
@@ -246,7 +265,9 @@ class _$_TextFieldState
       ..add(DiagnosticsProperty('autocorrect', autocorrect))
       ..add(DiagnosticsProperty('enableSuggestions', enableSuggestions))
       ..add(DiagnosticsProperty('expands', expands))
-      ..add(DiagnosticsProperty('enabled', enabled));
+      ..add(DiagnosticsProperty('enabled', enabled))
+      ..add(DiagnosticsProperty(
+          'enableInteractiveSelection', enableInteractiveSelection));
   }
 
   @override
@@ -264,7 +285,9 @@ class _$_TextFieldState
             const DeepCollectionEquality()
                 .equals(other.enableSuggestions, enableSuggestions) &&
             const DeepCollectionEquality().equals(other.expands, expands) &&
-            const DeepCollectionEquality().equals(other.enabled, enabled));
+            const DeepCollectionEquality().equals(other.enabled, enabled) &&
+            const DeepCollectionEquality().equals(
+                other.enableInteractiveSelection, enableInteractiveSelection));
   }
 
   @override
@@ -276,7 +299,8 @@ class _$_TextFieldState
       const DeepCollectionEquality().hash(autocorrect),
       const DeepCollectionEquality().hash(enableSuggestions),
       const DeepCollectionEquality().hash(expands),
-      const DeepCollectionEquality().hash(enabled));
+      const DeepCollectionEquality().hash(enabled),
+      const DeepCollectionEquality().hash(enableInteractiveSelection));
 
   @JsonKey(ignore: true)
   @override
@@ -292,7 +316,8 @@ abstract class _TextFieldState implements TextFieldState {
       bool autocorrect,
       bool enableSuggestions,
       bool expands,
-      bool enabled}) = _$_TextFieldState;
+      bool enabled,
+      bool enableInteractiveSelection}) = _$_TextFieldState;
 
   @override
   bool get readonly;
@@ -308,6 +333,8 @@ abstract class _TextFieldState implements TextFieldState {
   bool get expands;
   @override
   bool get enabled;
+  @override
+  bool get enableInteractiveSelection;
   @override
   @JsonKey(ignore: true)
   _$TextFieldStateCopyWith<_TextFieldState> get copyWith =>
