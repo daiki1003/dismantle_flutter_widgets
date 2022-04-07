@@ -39,6 +39,10 @@ class _TextFieldViewModel extends StateNotifier<TextFieldState> {
     state = state.copyWith(smartDashesType: smartDashesType);
   }
 
+  void smartQuotesTypeUpdated(SmartQuotesType smartQuotesType) {
+    state = state.copyWith(smartQuotesType: smartQuotesType);
+  }
+
   void readonlyToggled() {
     state = state.copyWith(readonly: !state.readonly);
   }

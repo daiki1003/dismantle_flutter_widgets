@@ -14,6 +14,7 @@ class TextFieldState with _$TextFieldState {
     TextAlignVertical? textAlignVertical,
     TextDirection? textDirection,
     SmartDashesType? smartDashesType,
+    SmartQuotesType? smartQuotesType,
     @Default(false) bool readonly,
     @Default(true) bool showCursor,
     @Default(false) bool obscureText,

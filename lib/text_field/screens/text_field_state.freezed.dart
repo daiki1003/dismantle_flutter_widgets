@@ -25,6 +25,7 @@ mixin _$TextFieldState {
       throw _privateConstructorUsedError;
   TextDirection? get textDirection => throw _privateConstructorUsedError;
   SmartDashesType? get smartDashesType => throw _privateConstructorUsedError;
+  SmartQuotesType? get smartQuotesType => throw _privateConstructorUsedError;
   bool get readonly => throw _privateConstructorUsedError;
   bool get showCursor => throw _privateConstructorUsedError;
   bool get obscureText => throw _privateConstructorUsedError;
@@ -53,6 +54,7 @@ abstract class $TextFieldStateCopyWith<$Res> {
       TextAlignVertical? textAlignVertical,
       TextDirection? textDirection,
       SmartDashesType? smartDashesType,
+      SmartQuotesType? smartQuotesType,
       bool readonly,
       bool showCursor,
       bool obscureText,
@@ -82,6 +84,7 @@ class _$TextFieldStateCopyWithImpl<$Res>
     Object? textAlignVertical = freezed,
     Object? textDirection = freezed,
     Object? smartDashesType = freezed,
+    Object? smartQuotesType = freezed,
     Object? readonly = freezed,
     Object? showCursor = freezed,
     Object? obscureText = freezed,
@@ -121,6 +124,10 @@ class _$TextFieldStateCopyWithImpl<$Res>
           ? _value.smartDashesType
           : smartDashesType // ignore: cast_nullable_to_non_nullable
               as SmartDashesType?,
+      smartQuotesType: smartQuotesType == freezed
+          ? _value.smartQuotesType
+          : smartQuotesType // ignore: cast_nullable_to_non_nullable
+              as SmartQuotesType?,
       readonly: readonly == freezed
           ? _value.readonly
           : readonly // ignore: cast_nullable_to_non_nullable
@@ -176,6 +183,7 @@ abstract class _$$_TextFieldStateCopyWith<$Res>
       TextAlignVertical? textAlignVertical,
       TextDirection? textDirection,
       SmartDashesType? smartDashesType,
+      SmartQuotesType? smartQuotesType,
       bool readonly,
       bool showCursor,
       bool obscureText,
@@ -207,6 +215,7 @@ class __$$_TextFieldStateCopyWithImpl<$Res>
     Object? textAlignVertical = freezed,
     Object? textDirection = freezed,
     Object? smartDashesType = freezed,
+    Object? smartQuotesType = freezed,
     Object? readonly = freezed,
     Object? showCursor = freezed,
     Object? obscureText = freezed,
@@ -246,6 +255,10 @@ class __$$_TextFieldStateCopyWithImpl<$Res>
           ? _value.smartDashesType
           : smartDashesType // ignore: cast_nullable_to_non_nullable
               as SmartDashesType?,
+      smartQuotesType: smartQuotesType == freezed
+          ? _value.smartQuotesType
+          : smartQuotesType // ignore: cast_nullable_to_non_nullable
+              as SmartQuotesType?,
       readonly: readonly == freezed
           ? _value.readonly
           : readonly // ignore: cast_nullable_to_non_nullable
@@ -297,6 +310,7 @@ class _$_TextFieldState implements _TextFieldState {
       this.textAlignVertical,
       this.textDirection,
       this.smartDashesType,
+      this.smartQuotesType,
       this.readonly = false,
       this.showCursor = true,
       this.obscureText = false,
@@ -323,6 +337,8 @@ class _$_TextFieldState implements _TextFieldState {
   final TextDirection? textDirection;
   @override
   final SmartDashesType? smartDashesType;
+  @override
+  final SmartQuotesType? smartQuotesType;
   @override
   @JsonKey()
   final bool readonly;
@@ -353,7 +369,7 @@ class _$_TextFieldState implements _TextFieldState {
 
   @override
   String toString() {
-    return 'TextFieldState(keyboardType: $keyboardType, textInputAction: $textInputAction, textCapitalization: $textCapitalization, textAlign: $textAlign, textAlignVertical: $textAlignVertical, textDirection: $textDirection, smartDashesType: $smartDashesType, readonly: $readonly, showCursor: $showCursor, obscureText: $obscureText, autocorrect: $autocorrect, enableSuggestions: $enableSuggestions, expands: $expands, enabled: $enabled, enableInteractiveSelection: $enableInteractiveSelection, enableIMEPersonalizedLearning: $enableIMEPersonalizedLearning)';
+    return 'TextFieldState(keyboardType: $keyboardType, textInputAction: $textInputAction, textCapitalization: $textCapitalization, textAlign: $textAlign, textAlignVertical: $textAlignVertical, textDirection: $textDirection, smartDashesType: $smartDashesType, smartQuotesType: $smartQuotesType, readonly: $readonly, showCursor: $showCursor, obscureText: $obscureText, autocorrect: $autocorrect, enableSuggestions: $enableSuggestions, expands: $expands, enabled: $enabled, enableInteractiveSelection: $enableInteractiveSelection, enableIMEPersonalizedLearning: $enableIMEPersonalizedLearning)';
   }
 
   @override
@@ -374,6 +390,8 @@ class _$_TextFieldState implements _TextFieldState {
                 .equals(other.textDirection, textDirection) &&
             const DeepCollectionEquality()
                 .equals(other.smartDashesType, smartDashesType) &&
+            const DeepCollectionEquality()
+                .equals(other.smartQuotesType, smartQuotesType) &&
             const DeepCollectionEquality().equals(other.readonly, readonly) &&
             const DeepCollectionEquality()
                 .equals(other.showCursor, showCursor) &&
@@ -402,6 +420,7 @@ class _$_TextFieldState implements _TextFieldState {
       const DeepCollectionEquality().hash(textAlignVertical),
       const DeepCollectionEquality().hash(textDirection),
       const DeepCollectionEquality().hash(smartDashesType),
+      const DeepCollectionEquality().hash(smartQuotesType),
       const DeepCollectionEquality().hash(readonly),
       const DeepCollectionEquality().hash(showCursor),
       const DeepCollectionEquality().hash(obscureText),
@@ -427,6 +446,7 @@ abstract class _TextFieldState implements TextFieldState {
       final TextAlignVertical? textAlignVertical,
       final TextDirection? textDirection,
       final SmartDashesType? smartDashesType,
+      final SmartQuotesType? smartQuotesType,
       final bool readonly,
       final bool showCursor,
       final bool obscureText,
@@ -451,6 +471,8 @@ abstract class _TextFieldState implements TextFieldState {
   TextDirection? get textDirection;
   @override
   SmartDashesType? get smartDashesType;
+  @override
+  SmartQuotesType? get smartQuotesType;
   @override
   bool get readonly;
   @override

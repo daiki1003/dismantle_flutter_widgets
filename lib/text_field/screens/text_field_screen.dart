@@ -41,6 +41,7 @@ class TextFieldScreen extends HookConsumerWidget {
             textAlignVertical: state.textAlignVertical,
             textDirection: state.textDirection,
             smartDashesType: state.smartDashesType,
+            smartQuotesType: state.smartQuotesType,
             readOnly: state.readonly,
             showCursor: state.showCursor,
             obscureText: state.obscureText,
@@ -139,6 +140,21 @@ class TextFieldScreen extends HookConsumerWidget {
                     onSelected: (value) async {
                       focusNode.unfocus();
                       notifier.smartDashesTypeUpdated(value);
+                      await Future<void>.delayed(
+                        const Duration(milliseconds: 500),
+                      );
+                      focusNode.requestFocus();
+                    },
+                  ),
+                  const SizedBox(height: 12),
+                  SelectButton<SmartQuotesType>(
+                    label: 'smartQuotesType',
+                    choices: SmartQuotesType.values,
+                    value: state.smartQuotesType,
+                    valueTextBuilder: (value) => value.name,
+                    onSelected: (value) async {
+                      focusNode.unfocus();
+                      notifier.smartQuotesTypeUpdated(value);
                       await Future<void>.delayed(
                         const Duration(milliseconds: 500),
                       );
