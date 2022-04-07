@@ -19,6 +19,10 @@ class _TextFieldViewModel extends StateNotifier<TextFieldState> {
     state = state.copyWith(textInputAction: action);
   }
 
+  void textCapitalizationUpdated(TextCapitalization capitalization) {
+    state = state.copyWith(textCapitalization: capitalization);
+  }
+
   void readonlyToggled() {
     state = state.copyWith(readonly: !state.readonly);
   }

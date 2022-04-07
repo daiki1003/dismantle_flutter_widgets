@@ -9,6 +9,7 @@ class TextFieldState with _$TextFieldState {
   const factory TextFieldState({
     TextInputType? keyboardType,
     TextInputAction? textInputAction,
+    @Default(TextCapitalization.none) TextCapitalization textCapitalization,
     @Default(false) bool readonly,
     @Default(true) bool showCursor,
     @Default(false) bool obscureText,

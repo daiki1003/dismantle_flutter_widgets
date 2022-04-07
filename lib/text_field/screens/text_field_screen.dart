@@ -35,6 +35,7 @@ class TextFieldScreen extends HookConsumerWidget {
             focusNode: focusNode,
             keyboardType: state.keyboardType,
             textInputAction: state.textInputAction,
+            textCapitalization: state.textCapitalization,
             readOnly: state.readonly,
             showCursor: state.showCursor,
             obscureText: state.obscureText,
@@ -75,6 +76,21 @@ class TextFieldScreen extends HookConsumerWidget {
                     onSelected: (value) async {
                       focusNode.unfocus();
                       notifier.textInputActionUpdated(value);
+                      await Future<void>.delayed(
+                        const Duration(milliseconds: 500),
+                      );
+                      focusNode.requestFocus();
+                    },
+                  ),
+                  const SizedBox(height: 12),
+                  SelectButton<TextCapitalization>(
+                    label: 'textCapitalization',
+                    choices: TextCapitalization.values,
+                    value: state.textCapitalization,
+                    valueTextBuilder: (value) => value.name,
+                    onSelected: (value) async {
+                      focusNode.unfocus();
+                      notifier.textCapitalizationUpdated(value);
                       await Future<void>.delayed(
                         const Duration(milliseconds: 500),
                       );

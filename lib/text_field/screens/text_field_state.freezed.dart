@@ -18,6 +18,8 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$TextFieldState {
   TextInputType? get keyboardType => throw _privateConstructorUsedError;
   TextInputAction? get textInputAction => throw _privateConstructorUsedError;
+  TextCapitalization get textCapitalization =>
+      throw _privateConstructorUsedError;
   bool get readonly => throw _privateConstructorUsedError;
   bool get showCursor => throw _privateConstructorUsedError;
   bool get obscureText => throw _privateConstructorUsedError;
@@ -41,6 +43,7 @@ abstract class $TextFieldStateCopyWith<$Res> {
   $Res call(
       {TextInputType? keyboardType,
       TextInputAction? textInputAction,
+      TextCapitalization textCapitalization,
       bool readonly,
       bool showCursor,
       bool obscureText,
@@ -65,6 +68,7 @@ class _$TextFieldStateCopyWithImpl<$Res>
   $Res call({
     Object? keyboardType = freezed,
     Object? textInputAction = freezed,
+    Object? textCapitalization = freezed,
     Object? readonly = freezed,
     Object? showCursor = freezed,
     Object? obscureText = freezed,
@@ -84,6 +88,10 @@ class _$TextFieldStateCopyWithImpl<$Res>
           ? _value.textInputAction
           : textInputAction // ignore: cast_nullable_to_non_nullable
               as TextInputAction?,
+      textCapitalization: textCapitalization == freezed
+          ? _value.textCapitalization
+          : textCapitalization // ignore: cast_nullable_to_non_nullable
+              as TextCapitalization,
       readonly: readonly == freezed
           ? _value.readonly
           : readonly // ignore: cast_nullable_to_non_nullable
@@ -134,6 +142,7 @@ abstract class _$$_TextFieldStateCopyWith<$Res>
   $Res call(
       {TextInputType? keyboardType,
       TextInputAction? textInputAction,
+      TextCapitalization textCapitalization,
       bool readonly,
       bool showCursor,
       bool obscureText,
@@ -160,6 +169,7 @@ class __$$_TextFieldStateCopyWithImpl<$Res>
   $Res call({
     Object? keyboardType = freezed,
     Object? textInputAction = freezed,
+    Object? textCapitalization = freezed,
     Object? readonly = freezed,
     Object? showCursor = freezed,
     Object? obscureText = freezed,
@@ -179,6 +189,10 @@ class __$$_TextFieldStateCopyWithImpl<$Res>
           ? _value.textInputAction
           : textInputAction // ignore: cast_nullable_to_non_nullable
               as TextInputAction?,
+      textCapitalization: textCapitalization == freezed
+          ? _value.textCapitalization
+          : textCapitalization // ignore: cast_nullable_to_non_nullable
+              as TextCapitalization,
       readonly: readonly == freezed
           ? _value.readonly
           : readonly // ignore: cast_nullable_to_non_nullable
@@ -225,6 +239,7 @@ class _$_TextFieldState implements _TextFieldState {
   const _$_TextFieldState(
       {this.keyboardType,
       this.textInputAction,
+      this.textCapitalization = TextCapitalization.none,
       this.readonly = false,
       this.showCursor = true,
       this.obscureText = false,
@@ -239,6 +254,9 @@ class _$_TextFieldState implements _TextFieldState {
   final TextInputType? keyboardType;
   @override
   final TextInputAction? textInputAction;
+  @override
+  @JsonKey()
+  final TextCapitalization textCapitalization;
   @override
   @JsonKey()
   final bool readonly;
@@ -269,7 +287,7 @@ class _$_TextFieldState implements _TextFieldState {
 
   @override
   String toString() {
-    return 'TextFieldState(keyboardType: $keyboardType, textInputAction: $textInputAction, readonly: $readonly, showCursor: $showCursor, obscureText: $obscureText, autocorrect: $autocorrect, enableSuggestions: $enableSuggestions, expands: $expands, enabled: $enabled, enableInteractiveSelection: $enableInteractiveSelection, enableIMEPersonalizedLearning: $enableIMEPersonalizedLearning)';
+    return 'TextFieldState(keyboardType: $keyboardType, textInputAction: $textInputAction, textCapitalization: $textCapitalization, readonly: $readonly, showCursor: $showCursor, obscureText: $obscureText, autocorrect: $autocorrect, enableSuggestions: $enableSuggestions, expands: $expands, enabled: $enabled, enableInteractiveSelection: $enableInteractiveSelection, enableIMEPersonalizedLearning: $enableIMEPersonalizedLearning)';
   }
 
   @override
@@ -281,6 +299,8 @@ class _$_TextFieldState implements _TextFieldState {
                 .equals(other.keyboardType, keyboardType) &&
             const DeepCollectionEquality()
                 .equals(other.textInputAction, textInputAction) &&
+            const DeepCollectionEquality()
+                .equals(other.textCapitalization, textCapitalization) &&
             const DeepCollectionEquality().equals(other.readonly, readonly) &&
             const DeepCollectionEquality()
                 .equals(other.showCursor, showCursor) &&
@@ -304,6 +324,7 @@ class _$_TextFieldState implements _TextFieldState {
       runtimeType,
       const DeepCollectionEquality().hash(keyboardType),
       const DeepCollectionEquality().hash(textInputAction),
+      const DeepCollectionEquality().hash(textCapitalization),
       const DeepCollectionEquality().hash(readonly),
       const DeepCollectionEquality().hash(showCursor),
       const DeepCollectionEquality().hash(obscureText),
@@ -324,6 +345,7 @@ abstract class _TextFieldState implements TextFieldState {
   const factory _TextFieldState(
       {final TextInputType? keyboardType,
       final TextInputAction? textInputAction,
+      final TextCapitalization textCapitalization,
       final bool readonly,
       final bool showCursor,
       final bool obscureText,
@@ -338,6 +360,8 @@ abstract class _TextFieldState implements TextFieldState {
   TextInputType? get keyboardType;
   @override
   TextInputAction? get textInputAction;
+  @override
+  TextCapitalization get textCapitalization;
   @override
   bool get readonly;
   @override
