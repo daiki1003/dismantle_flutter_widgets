@@ -34,6 +34,7 @@ class TextFieldScreen extends HookConsumerWidget {
             controller: controller,
             focusNode: focusNode,
             keyboardType: state.keyboardType,
+            textInputAction: state.textInputAction,
             readOnly: state.readonly,
             showCursor: state.showCursor,
             obscureText: state.obscureText,
@@ -49,6 +50,7 @@ class TextFieldScreen extends HookConsumerWidget {
             child: SingleChildScrollView(
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SelectButton<TextInputType>(
                     label: 'keyboardType',
@@ -58,6 +60,21 @@ class TextFieldScreen extends HookConsumerWidget {
                     onSelected: (value) async {
                       focusNode.unfocus();
                       notifier.keyboardTypeUpdated(value);
+                      await Future<void>.delayed(
+                        const Duration(milliseconds: 500),
+                      );
+                      focusNode.requestFocus();
+                    },
+                  ),
+                  const SizedBox(height: 12),
+                  SelectButton<TextInputAction>(
+                    label: 'textInputAction',
+                    choices: TextInputAction.values,
+                    value: state.textInputAction,
+                    valueTextBuilder: (action) => action.name,
+                    onSelected: (value) async {
+                      focusNode.unfocus();
+                      notifier.textInputActionUpdated(value);
                       await Future<void>.delayed(
                         const Duration(milliseconds: 500),
                       );
