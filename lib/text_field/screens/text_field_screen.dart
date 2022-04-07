@@ -4,6 +4,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import 'package:dismantling/components/callbacks.dart';
+import 'package:dismantling/text_field/enums/text_input_type_ex.dart';
 import 'package:dismantling/text_field/screens/text_field_view_model.dart';
 
 class TextFieldScreen extends HookConsumerWidget {
@@ -20,6 +21,7 @@ class TextFieldScreen extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final controller = useTextEditingController(text: 'Lorem ipsum');
+    final focusNode = useFocusNode();
     final state = ref.watch(textFieldViewModel);
     final notifier = ref.watch(textFieldViewModel.notifier);
 
@@ -30,6 +32,8 @@ class TextFieldScreen extends HookConsumerWidget {
         children: [
           TextField(
             controller: controller,
+            focusNode: focusNode,
+            keyboardType: state.keyboardType,
             readOnly: state.readonly,
             showCursor: state.showCursor,
             obscureText: state.obscureText,
@@ -46,6 +50,20 @@ class TextFieldScreen extends HookConsumerWidget {
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: Column(
                 children: [
+                  _SelectButton<TextInputType>(
+                    text: 'keyboardType',
+                    choices: TextInputType.values,
+                    value: state.keyboardType,
+                    textBuilder: (inputType) => inputType.title,
+                    onSelected: (value) async {
+                      focusNode.unfocus();
+                      notifier.keyboardTypeUpdated(value);
+                      await Future<void>.delayed(
+                        const Duration(milliseconds: 500),
+                      );
+                      focusNode.requestFocus();
+                    },
+                  ),
                   _ToggleButton(
                     text: 'readonly',
                     value: state.readonly,
@@ -129,6 +147,58 @@ class _ToggleButton extends StatelessWidget {
         ),
       ),
       onPressed: () => onToggled(!value),
+    );
+  }
+}
+
+class _SelectButton<T> extends StatelessWidget {
+  const _SelectButton({
+    Key? key,
+    required this.text,
+    required this.choices,
+    required this.value,
+    required this.textBuilder,
+    required this.onSelected,
+  }) : super(key: key);
+
+  final String text;
+  final List<T> choices;
+  final T? value;
+  final String Function(T) textBuilder;
+  final ValueCallback<T> onSelected;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          text,
+          style: const TextStyle(
+            fontSize: 16,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        const SizedBox(height: 12),
+        Wrap(
+          spacing: 4,
+          runSpacing: 4,
+          children: [
+            for (final choice in choices)
+              InkWell(
+                onTap: () => onSelected(choice),
+                child: Chip(
+                  backgroundColor: value == choice
+                      ? Theme.of(context).primaryColorLight
+                      : null,
+                  materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                  labelPadding: const EdgeInsets.symmetric(horizontal: 8),
+                  label: Text(textBuilder(choice)),
+                ),
+              ),
+          ],
+        ),
+      ],
     );
   }
 }

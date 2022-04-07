@@ -19,7 +19,8 @@ class _$TextFieldStateTearOff {
   const _$TextFieldStateTearOff();
 
   _TextFieldState call(
-      {bool readonly = false,
+      {TextInputType? keyboardType,
+      bool readonly = false,
       bool showCursor = true,
       bool obscureText = false,
       bool autocorrect = true,
@@ -29,6 +30,7 @@ class _$TextFieldStateTearOff {
       bool enableInteractiveSelection = true,
       bool enableIMEPersonalizedLearning = true}) {
     return _TextFieldState(
+      keyboardType: keyboardType,
       readonly: readonly,
       showCursor: showCursor,
       obscureText: obscureText,
@@ -47,6 +49,7 @@ const $TextFieldState = _$TextFieldStateTearOff();
 
 /// @nodoc
 mixin _$TextFieldState {
+  TextInputType? get keyboardType => throw _privateConstructorUsedError;
   bool get readonly => throw _privateConstructorUsedError;
   bool get showCursor => throw _privateConstructorUsedError;
   bool get obscureText => throw _privateConstructorUsedError;
@@ -68,7 +71,8 @@ abstract class $TextFieldStateCopyWith<$Res> {
           TextFieldState value, $Res Function(TextFieldState) then) =
       _$TextFieldStateCopyWithImpl<$Res>;
   $Res call(
-      {bool readonly,
+      {TextInputType? keyboardType,
+      bool readonly,
       bool showCursor,
       bool obscureText,
       bool autocorrect,
@@ -90,6 +94,7 @@ class _$TextFieldStateCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? keyboardType = freezed,
     Object? readonly = freezed,
     Object? showCursor = freezed,
     Object? obscureText = freezed,
@@ -101,6 +106,10 @@ class _$TextFieldStateCopyWithImpl<$Res>
     Object? enableIMEPersonalizedLearning = freezed,
   }) {
     return _then(_value.copyWith(
+      keyboardType: keyboardType == freezed
+          ? _value.keyboardType
+          : keyboardType // ignore: cast_nullable_to_non_nullable
+              as TextInputType?,
       readonly: readonly == freezed
           ? _value.readonly
           : readonly // ignore: cast_nullable_to_non_nullable
@@ -149,7 +158,8 @@ abstract class _$TextFieldStateCopyWith<$Res>
       __$TextFieldStateCopyWithImpl<$Res>;
   @override
   $Res call(
-      {bool readonly,
+      {TextInputType? keyboardType,
+      bool readonly,
       bool showCursor,
       bool obscureText,
       bool autocorrect,
@@ -173,6 +183,7 @@ class __$TextFieldStateCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? keyboardType = freezed,
     Object? readonly = freezed,
     Object? showCursor = freezed,
     Object? obscureText = freezed,
@@ -184,6 +195,10 @@ class __$TextFieldStateCopyWithImpl<$Res>
     Object? enableIMEPersonalizedLearning = freezed,
   }) {
     return _then(_TextFieldState(
+      keyboardType: keyboardType == freezed
+          ? _value.keyboardType
+          : keyboardType // ignore: cast_nullable_to_non_nullable
+              as TextInputType?,
       readonly: readonly == freezed
           ? _value.readonly
           : readonly // ignore: cast_nullable_to_non_nullable
@@ -230,7 +245,8 @@ class _$_TextFieldState
     with DiagnosticableTreeMixin
     implements _TextFieldState {
   const _$_TextFieldState(
-      {this.readonly = false,
+      {this.keyboardType,
+      this.readonly = false,
       this.showCursor = true,
       this.obscureText = false,
       this.autocorrect = true,
@@ -240,6 +256,8 @@ class _$_TextFieldState
       this.enableInteractiveSelection = true,
       this.enableIMEPersonalizedLearning = true});
 
+  @override
+  final TextInputType? keyboardType;
   @JsonKey()
   @override
   final bool readonly;
@@ -270,7 +288,7 @@ class _$_TextFieldState
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'TextFieldState(readonly: $readonly, showCursor: $showCursor, obscureText: $obscureText, autocorrect: $autocorrect, enableSuggestions: $enableSuggestions, expands: $expands, enabled: $enabled, enableInteractiveSelection: $enableInteractiveSelection, enableIMEPersonalizedLearning: $enableIMEPersonalizedLearning)';
+    return 'TextFieldState(keyboardType: $keyboardType, readonly: $readonly, showCursor: $showCursor, obscureText: $obscureText, autocorrect: $autocorrect, enableSuggestions: $enableSuggestions, expands: $expands, enabled: $enabled, enableInteractiveSelection: $enableInteractiveSelection, enableIMEPersonalizedLearning: $enableIMEPersonalizedLearning)';
   }
 
   @override
@@ -278,6 +296,7 @@ class _$_TextFieldState
     super.debugFillProperties(properties);
     properties
       ..add(DiagnosticsProperty('type', 'TextFieldState'))
+      ..add(DiagnosticsProperty('keyboardType', keyboardType))
       ..add(DiagnosticsProperty('readonly', readonly))
       ..add(DiagnosticsProperty('showCursor', showCursor))
       ..add(DiagnosticsProperty('obscureText', obscureText))
@@ -296,6 +315,8 @@ class _$_TextFieldState
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _TextFieldState &&
+            const DeepCollectionEquality()
+                .equals(other.keyboardType, keyboardType) &&
             const DeepCollectionEquality().equals(other.readonly, readonly) &&
             const DeepCollectionEquality()
                 .equals(other.showCursor, showCursor) &&
@@ -317,6 +338,7 @@ class _$_TextFieldState
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(keyboardType),
       const DeepCollectionEquality().hash(readonly),
       const DeepCollectionEquality().hash(showCursor),
       const DeepCollectionEquality().hash(obscureText),
@@ -335,7 +357,8 @@ class _$_TextFieldState
 
 abstract class _TextFieldState implements TextFieldState {
   const factory _TextFieldState(
-      {bool readonly,
+      {TextInputType? keyboardType,
+      bool readonly,
       bool showCursor,
       bool obscureText,
       bool autocorrect,
@@ -345,6 +368,8 @@ abstract class _TextFieldState implements TextFieldState {
       bool enableInteractiveSelection,
       bool enableIMEPersonalizedLearning}) = _$_TextFieldState;
 
+  @override
+  TextInputType? get keyboardType;
   @override
   bool get readonly;
   @override

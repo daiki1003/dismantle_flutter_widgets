@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import 'package:dismantling/text_field/screens/text_field_state.dart';
@@ -9,6 +10,10 @@ final textFieldViewModel =
 
 class _TextFieldViewModel extends StateNotifier<TextFieldState> {
   _TextFieldViewModel() : super(TextFieldState.empty());
+
+  void keyboardTypeUpdated(TextInputType type) {
+    state = state.copyWith(keyboardType: type);
+  }
 
   void readonlyToggled() {
     state = state.copyWith(readonly: !state.readonly);
