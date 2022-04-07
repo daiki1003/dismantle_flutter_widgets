@@ -22,6 +22,7 @@ class _$TextFieldStateTearOff {
       {TextInputType? keyboardType,
       TextInputAction? textInputAction,
       TextCapitalization textCapitalization = TextCapitalization.none,
+      TextAlign textAlign = TextAlign.start,
       bool readonly = false,
       bool showCursor = true,
       bool obscureText = false,
@@ -35,6 +36,7 @@ class _$TextFieldStateTearOff {
       keyboardType: keyboardType,
       textInputAction: textInputAction,
       textCapitalization: textCapitalization,
+      textAlign: textAlign,
       readonly: readonly,
       showCursor: showCursor,
       obscureText: obscureText,
@@ -57,6 +59,7 @@ mixin _$TextFieldState {
   TextInputAction? get textInputAction => throw _privateConstructorUsedError;
   TextCapitalization get textCapitalization =>
       throw _privateConstructorUsedError;
+  TextAlign get textAlign => throw _privateConstructorUsedError;
   bool get readonly => throw _privateConstructorUsedError;
   bool get showCursor => throw _privateConstructorUsedError;
   bool get obscureText => throw _privateConstructorUsedError;
@@ -81,6 +84,7 @@ abstract class $TextFieldStateCopyWith<$Res> {
       {TextInputType? keyboardType,
       TextInputAction? textInputAction,
       TextCapitalization textCapitalization,
+      TextAlign textAlign,
       bool readonly,
       bool showCursor,
       bool obscureText,
@@ -106,6 +110,7 @@ class _$TextFieldStateCopyWithImpl<$Res>
     Object? keyboardType = freezed,
     Object? textInputAction = freezed,
     Object? textCapitalization = freezed,
+    Object? textAlign = freezed,
     Object? readonly = freezed,
     Object? showCursor = freezed,
     Object? obscureText = freezed,
@@ -129,6 +134,10 @@ class _$TextFieldStateCopyWithImpl<$Res>
           ? _value.textCapitalization
           : textCapitalization // ignore: cast_nullable_to_non_nullable
               as TextCapitalization,
+      textAlign: textAlign == freezed
+          ? _value.textAlign
+          : textAlign // ignore: cast_nullable_to_non_nullable
+              as TextAlign,
       readonly: readonly == freezed
           ? _value.readonly
           : readonly // ignore: cast_nullable_to_non_nullable
@@ -180,6 +189,7 @@ abstract class _$TextFieldStateCopyWith<$Res>
       {TextInputType? keyboardType,
       TextInputAction? textInputAction,
       TextCapitalization textCapitalization,
+      TextAlign textAlign,
       bool readonly,
       bool showCursor,
       bool obscureText,
@@ -207,6 +217,7 @@ class __$TextFieldStateCopyWithImpl<$Res>
     Object? keyboardType = freezed,
     Object? textInputAction = freezed,
     Object? textCapitalization = freezed,
+    Object? textAlign = freezed,
     Object? readonly = freezed,
     Object? showCursor = freezed,
     Object? obscureText = freezed,
@@ -230,6 +241,10 @@ class __$TextFieldStateCopyWithImpl<$Res>
           ? _value.textCapitalization
           : textCapitalization // ignore: cast_nullable_to_non_nullable
               as TextCapitalization,
+      textAlign: textAlign == freezed
+          ? _value.textAlign
+          : textAlign // ignore: cast_nullable_to_non_nullable
+              as TextAlign,
       readonly: readonly == freezed
           ? _value.readonly
           : readonly // ignore: cast_nullable_to_non_nullable
@@ -279,6 +294,7 @@ class _$_TextFieldState
       {this.keyboardType,
       this.textInputAction,
       this.textCapitalization = TextCapitalization.none,
+      this.textAlign = TextAlign.start,
       this.readonly = false,
       this.showCursor = true,
       this.obscureText = false,
@@ -296,6 +312,9 @@ class _$_TextFieldState
   @JsonKey()
   @override
   final TextCapitalization textCapitalization;
+  @JsonKey()
+  @override
+  final TextAlign textAlign;
   @JsonKey()
   @override
   final bool readonly;
@@ -326,7 +345,7 @@ class _$_TextFieldState
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'TextFieldState(keyboardType: $keyboardType, textInputAction: $textInputAction, textCapitalization: $textCapitalization, readonly: $readonly, showCursor: $showCursor, obscureText: $obscureText, autocorrect: $autocorrect, enableSuggestions: $enableSuggestions, expands: $expands, enabled: $enabled, enableInteractiveSelection: $enableInteractiveSelection, enableIMEPersonalizedLearning: $enableIMEPersonalizedLearning)';
+    return 'TextFieldState(keyboardType: $keyboardType, textInputAction: $textInputAction, textCapitalization: $textCapitalization, textAlign: $textAlign, readonly: $readonly, showCursor: $showCursor, obscureText: $obscureText, autocorrect: $autocorrect, enableSuggestions: $enableSuggestions, expands: $expands, enabled: $enabled, enableInteractiveSelection: $enableInteractiveSelection, enableIMEPersonalizedLearning: $enableIMEPersonalizedLearning)';
   }
 
   @override
@@ -337,6 +356,7 @@ class _$_TextFieldState
       ..add(DiagnosticsProperty('keyboardType', keyboardType))
       ..add(DiagnosticsProperty('textInputAction', textInputAction))
       ..add(DiagnosticsProperty('textCapitalization', textCapitalization))
+      ..add(DiagnosticsProperty('textAlign', textAlign))
       ..add(DiagnosticsProperty('readonly', readonly))
       ..add(DiagnosticsProperty('showCursor', showCursor))
       ..add(DiagnosticsProperty('obscureText', obscureText))
@@ -361,6 +381,7 @@ class _$_TextFieldState
                 .equals(other.textInputAction, textInputAction) &&
             const DeepCollectionEquality()
                 .equals(other.textCapitalization, textCapitalization) &&
+            const DeepCollectionEquality().equals(other.textAlign, textAlign) &&
             const DeepCollectionEquality().equals(other.readonly, readonly) &&
             const DeepCollectionEquality()
                 .equals(other.showCursor, showCursor) &&
@@ -385,6 +406,7 @@ class _$_TextFieldState
       const DeepCollectionEquality().hash(keyboardType),
       const DeepCollectionEquality().hash(textInputAction),
       const DeepCollectionEquality().hash(textCapitalization),
+      const DeepCollectionEquality().hash(textAlign),
       const DeepCollectionEquality().hash(readonly),
       const DeepCollectionEquality().hash(showCursor),
       const DeepCollectionEquality().hash(obscureText),
@@ -406,6 +428,7 @@ abstract class _TextFieldState implements TextFieldState {
       {TextInputType? keyboardType,
       TextInputAction? textInputAction,
       TextCapitalization textCapitalization,
+      TextAlign textAlign,
       bool readonly,
       bool showCursor,
       bool obscureText,
@@ -422,6 +445,8 @@ abstract class _TextFieldState implements TextFieldState {
   TextInputAction? get textInputAction;
   @override
   TextCapitalization get textCapitalization;
+  @override
+  TextAlign get textAlign;
   @override
   bool get readonly;
   @override
