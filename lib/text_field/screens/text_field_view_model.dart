@@ -35,6 +35,10 @@ class _TextFieldViewModel extends StateNotifier<TextFieldState> {
     state = state.copyWith(textDirection: direction);
   }
 
+  void smartDashesTypeUpdated(SmartDashesType smartDashesType) {
+    state = state.copyWith(smartDashesType: smartDashesType);
+  }
+
   void readonlyToggled() {
     state = state.copyWith(readonly: !state.readonly);
   }

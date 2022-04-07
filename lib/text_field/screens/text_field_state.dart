@@ -13,6 +13,7 @@ class TextFieldState with _$TextFieldState {
     @Default(TextAlign.start) TextAlign textAlign,
     TextAlignVertical? textAlignVertical,
     TextDirection? textDirection,
+    SmartDashesType? smartDashesType,
     @Default(false) bool readonly,
     @Default(true) bool showCursor,
     @Default(false) bool obscureText,
