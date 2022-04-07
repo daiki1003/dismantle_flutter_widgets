@@ -9,6 +9,7 @@ part 'text_field_state.freezed.dart';
 class TextFieldState with _$TextFieldState {
   const factory TextFieldState({
     TextInputType? keyboardType,
+    TextInputAction? textInputAction,
     @Default(false) bool readonly,
     @Default(true) bool showCursor,
     @Default(false) bool obscureText,
