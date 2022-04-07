@@ -36,6 +36,7 @@ class TextFieldScreen extends HookConsumerWidget {
             keyboardType: state.keyboardType,
             textInputAction: state.textInputAction,
             textCapitalization: state.textCapitalization,
+            textAlign: state.textAlign,
             readOnly: state.readonly,
             showCursor: state.showCursor,
             obscureText: state.obscureText,
@@ -96,6 +97,14 @@ class TextFieldScreen extends HookConsumerWidget {
                       );
                       focusNode.requestFocus();
                     },
+                  ),
+                  const SizedBox(height: 12),
+                  SelectButton<TextAlign>(
+                    label: 'textAlign',
+                    choices: TextAlign.values,
+                    value: state.textAlign,
+                    valueTextBuilder: (value) => value.name,
+                    onSelected: notifier.textAlignUpdated,
                   ),
                   ToggleButton(
                     text: 'readonly',
