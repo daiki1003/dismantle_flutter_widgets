@@ -16,6 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$TextFieldState {
+  TextInputType? get keyboardType => throw _privateConstructorUsedError;
   bool get readonly => throw _privateConstructorUsedError;
   bool get showCursor => throw _privateConstructorUsedError;
   bool get obscureText => throw _privateConstructorUsedError;
@@ -37,7 +38,8 @@ abstract class $TextFieldStateCopyWith<$Res> {
           TextFieldState value, $Res Function(TextFieldState) then) =
       _$TextFieldStateCopyWithImpl<$Res>;
   $Res call(
-      {bool readonly,
+      {TextInputType? keyboardType,
+      bool readonly,
       bool showCursor,
       bool obscureText,
       bool autocorrect,
@@ -59,6 +61,7 @@ class _$TextFieldStateCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? keyboardType = freezed,
     Object? readonly = freezed,
     Object? showCursor = freezed,
     Object? obscureText = freezed,
@@ -70,6 +73,10 @@ class _$TextFieldStateCopyWithImpl<$Res>
     Object? enableIMEPersonalizedLearning = freezed,
   }) {
     return _then(_value.copyWith(
+      keyboardType: keyboardType == freezed
+          ? _value.keyboardType
+          : keyboardType // ignore: cast_nullable_to_non_nullable
+              as TextInputType?,
       readonly: readonly == freezed
           ? _value.readonly
           : readonly // ignore: cast_nullable_to_non_nullable
@@ -118,7 +125,8 @@ abstract class _$$_TextFieldStateCopyWith<$Res>
       __$$_TextFieldStateCopyWithImpl<$Res>;
   @override
   $Res call(
-      {bool readonly,
+      {TextInputType? keyboardType,
+      bool readonly,
       bool showCursor,
       bool obscureText,
       bool autocorrect,
@@ -142,6 +150,7 @@ class __$$_TextFieldStateCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? keyboardType = freezed,
     Object? readonly = freezed,
     Object? showCursor = freezed,
     Object? obscureText = freezed,
@@ -153,6 +162,10 @@ class __$$_TextFieldStateCopyWithImpl<$Res>
     Object? enableIMEPersonalizedLearning = freezed,
   }) {
     return _then(_$_TextFieldState(
+      keyboardType: keyboardType == freezed
+          ? _value.keyboardType
+          : keyboardType // ignore: cast_nullable_to_non_nullable
+              as TextInputType?,
       readonly: readonly == freezed
           ? _value.readonly
           : readonly // ignore: cast_nullable_to_non_nullable
@@ -197,7 +210,8 @@ class __$$_TextFieldStateCopyWithImpl<$Res>
 
 class _$_TextFieldState implements _TextFieldState {
   const _$_TextFieldState(
-      {this.readonly = false,
+      {this.keyboardType,
+      this.readonly = false,
       this.showCursor = true,
       this.obscureText = false,
       this.autocorrect = true,
@@ -207,6 +221,8 @@ class _$_TextFieldState implements _TextFieldState {
       this.enableInteractiveSelection = true,
       this.enableIMEPersonalizedLearning = true});
 
+  @override
+  final TextInputType? keyboardType;
   @override
   @JsonKey()
   final bool readonly;
@@ -237,7 +253,7 @@ class _$_TextFieldState implements _TextFieldState {
 
   @override
   String toString() {
-    return 'TextFieldState(readonly: $readonly, showCursor: $showCursor, obscureText: $obscureText, autocorrect: $autocorrect, enableSuggestions: $enableSuggestions, expands: $expands, enabled: $enabled, enableInteractiveSelection: $enableInteractiveSelection, enableIMEPersonalizedLearning: $enableIMEPersonalizedLearning)';
+    return 'TextFieldState(keyboardType: $keyboardType, readonly: $readonly, showCursor: $showCursor, obscureText: $obscureText, autocorrect: $autocorrect, enableSuggestions: $enableSuggestions, expands: $expands, enabled: $enabled, enableInteractiveSelection: $enableInteractiveSelection, enableIMEPersonalizedLearning: $enableIMEPersonalizedLearning)';
   }
 
   @override
@@ -245,6 +261,8 @@ class _$_TextFieldState implements _TextFieldState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_TextFieldState &&
+            const DeepCollectionEquality()
+                .equals(other.keyboardType, keyboardType) &&
             const DeepCollectionEquality().equals(other.readonly, readonly) &&
             const DeepCollectionEquality()
                 .equals(other.showCursor, showCursor) &&
@@ -266,6 +284,7 @@ class _$_TextFieldState implements _TextFieldState {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(keyboardType),
       const DeepCollectionEquality().hash(readonly),
       const DeepCollectionEquality().hash(showCursor),
       const DeepCollectionEquality().hash(obscureText),
@@ -284,7 +303,8 @@ class _$_TextFieldState implements _TextFieldState {
 
 abstract class _TextFieldState implements TextFieldState {
   const factory _TextFieldState(
-      {final bool readonly,
+      {final TextInputType? keyboardType,
+      final bool readonly,
       final bool showCursor,
       final bool obscureText,
       final bool autocorrect,
@@ -294,6 +314,8 @@ abstract class _TextFieldState implements TextFieldState {
       final bool enableInteractiveSelection,
       final bool enableIMEPersonalizedLearning}) = _$_TextFieldState;
 
+  @override
+  TextInputType? get keyboardType;
   @override
   bool get readonly;
   @override
