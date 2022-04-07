@@ -39,6 +39,7 @@ class TextFieldScreen extends HookConsumerWidget {
             textCapitalization: state.textCapitalization,
             textAlign: state.textAlign,
             textAlignVertical: state.textAlignVertical,
+            textDirection: state.textDirection,
             readOnly: state.readonly,
             showCursor: state.showCursor,
             obscureText: state.obscureText,
@@ -119,6 +120,14 @@ class TextFieldScreen extends HookConsumerWidget {
                     value: state.textAlignVertical,
                     textBuilder: (value) => value.name,
                     onSelected: notifier.textAlignVerticalUpdated,
+                  ),
+                  const SizedBox(height: 12),
+                  _SelectButton<TextDirection>(
+                    text: 'textDirection',
+                    choices: TextDirection.values,
+                    value: state.textDirection,
+                    textBuilder: (value) => value.name,
+                    onSelected: notifier.textDirectionUpdated,
                   ),
                   _ToggleButton(
                     text: 'readonly',
