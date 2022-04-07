@@ -5,6 +5,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import 'package:dismantling/components.dart';
 import 'package:dismantling/text_field/enums/text_input_type_ex.dart';
+import 'package:dismantling/text_field/enums/text_align_vertical_ex.dart';
 import 'package:dismantling/text_field/screens/text_field_view_model.dart';
 
 class TextFieldScreen extends HookConsumerWidget {
@@ -37,6 +38,7 @@ class TextFieldScreen extends HookConsumerWidget {
             textInputAction: state.textInputAction,
             textCapitalization: state.textCapitalization,
             textAlign: state.textAlign,
+            textAlignVertical: state.textAlignVertical,
             readOnly: state.readonly,
             showCursor: state.showCursor,
             obscureText: state.obscureText,
@@ -105,6 +107,18 @@ class TextFieldScreen extends HookConsumerWidget {
                     value: state.textAlign,
                     valueTextBuilder: (value) => value.name,
                     onSelected: notifier.textAlignUpdated,
+                  ),
+                  const SizedBox(height: 12),
+                  SelectButton<TextAlignVertical>(
+                    label: 'textAlignVertical',
+                    choices: const [
+                      TextAlignVertical.top,
+                      TextAlignVertical.center,
+                      TextAlignVertical.bottom,
+                    ],
+                    value: state.textAlignVertical,
+                    valueTextBuilder: (value) => value.name,
+                    onSelected: notifier.textAlignVerticalUpdated,
                   ),
                   ToggleButton(
                     text: 'readonly',

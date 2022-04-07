@@ -27,6 +27,10 @@ class _TextFieldViewModel extends StateNotifier<TextFieldState> {
     state = state.copyWith(textAlign: align);
   }
 
+  void textAlignVerticalUpdated(TextAlignVertical alignVertical) {
+    state = state.copyWith(textAlignVertical: alignVertical);
+  }
+
   void readonlyToggled() {
     state = state.copyWith(readonly: !state.readonly);
   }

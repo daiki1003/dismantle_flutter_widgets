@@ -11,6 +11,7 @@ class TextFieldState with _$TextFieldState {
     TextInputAction? textInputAction,
     @Default(TextCapitalization.none) TextCapitalization textCapitalization,
     @Default(TextAlign.start) TextAlign textAlign,
+    TextAlignVertical? textAlignVertical,
     @Default(false) bool readonly,
     @Default(true) bool showCursor,
     @Default(false) bool obscureText,
