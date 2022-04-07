@@ -25,6 +25,7 @@ class _$TextFieldStateTearOff {
       TextAlign textAlign = TextAlign.start,
       TextAlignVertical? textAlignVertical,
       TextDirection? textDirection,
+      SmartDashesType? smartDashesType,
       bool readonly = false,
       bool showCursor = true,
       bool obscureText = false,
@@ -41,6 +42,7 @@ class _$TextFieldStateTearOff {
       textAlign: textAlign,
       textAlignVertical: textAlignVertical,
       textDirection: textDirection,
+      smartDashesType: smartDashesType,
       readonly: readonly,
       showCursor: showCursor,
       obscureText: obscureText,
@@ -67,6 +69,7 @@ mixin _$TextFieldState {
   TextAlignVertical? get textAlignVertical =>
       throw _privateConstructorUsedError;
   TextDirection? get textDirection => throw _privateConstructorUsedError;
+  SmartDashesType? get smartDashesType => throw _privateConstructorUsedError;
   bool get readonly => throw _privateConstructorUsedError;
   bool get showCursor => throw _privateConstructorUsedError;
   bool get obscureText => throw _privateConstructorUsedError;
@@ -94,6 +97,7 @@ abstract class $TextFieldStateCopyWith<$Res> {
       TextAlign textAlign,
       TextAlignVertical? textAlignVertical,
       TextDirection? textDirection,
+      SmartDashesType? smartDashesType,
       bool readonly,
       bool showCursor,
       bool obscureText,
@@ -122,6 +126,7 @@ class _$TextFieldStateCopyWithImpl<$Res>
     Object? textAlign = freezed,
     Object? textAlignVertical = freezed,
     Object? textDirection = freezed,
+    Object? smartDashesType = freezed,
     Object? readonly = freezed,
     Object? showCursor = freezed,
     Object? obscureText = freezed,
@@ -157,6 +162,10 @@ class _$TextFieldStateCopyWithImpl<$Res>
           ? _value.textDirection
           : textDirection // ignore: cast_nullable_to_non_nullable
               as TextDirection?,
+      smartDashesType: smartDashesType == freezed
+          ? _value.smartDashesType
+          : smartDashesType // ignore: cast_nullable_to_non_nullable
+              as SmartDashesType?,
       readonly: readonly == freezed
           ? _value.readonly
           : readonly // ignore: cast_nullable_to_non_nullable
@@ -211,6 +220,7 @@ abstract class _$TextFieldStateCopyWith<$Res>
       TextAlign textAlign,
       TextAlignVertical? textAlignVertical,
       TextDirection? textDirection,
+      SmartDashesType? smartDashesType,
       bool readonly,
       bool showCursor,
       bool obscureText,
@@ -241,6 +251,7 @@ class __$TextFieldStateCopyWithImpl<$Res>
     Object? textAlign = freezed,
     Object? textAlignVertical = freezed,
     Object? textDirection = freezed,
+    Object? smartDashesType = freezed,
     Object? readonly = freezed,
     Object? showCursor = freezed,
     Object? obscureText = freezed,
@@ -276,6 +287,10 @@ class __$TextFieldStateCopyWithImpl<$Res>
           ? _value.textDirection
           : textDirection // ignore: cast_nullable_to_non_nullable
               as TextDirection?,
+      smartDashesType: smartDashesType == freezed
+          ? _value.smartDashesType
+          : smartDashesType // ignore: cast_nullable_to_non_nullable
+              as SmartDashesType?,
       readonly: readonly == freezed
           ? _value.readonly
           : readonly // ignore: cast_nullable_to_non_nullable
@@ -328,6 +343,7 @@ class _$_TextFieldState
       this.textAlign = TextAlign.start,
       this.textAlignVertical,
       this.textDirection,
+      this.smartDashesType,
       this.readonly = false,
       this.showCursor = true,
       this.obscureText = false,
@@ -352,6 +368,8 @@ class _$_TextFieldState
   final TextAlignVertical? textAlignVertical;
   @override
   final TextDirection? textDirection;
+  @override
+  final SmartDashesType? smartDashesType;
   @JsonKey()
   @override
   final bool readonly;
@@ -382,7 +400,7 @@ class _$_TextFieldState
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'TextFieldState(keyboardType: $keyboardType, textInputAction: $textInputAction, textCapitalization: $textCapitalization, textAlign: $textAlign, textAlignVertical: $textAlignVertical, textDirection: $textDirection, readonly: $readonly, showCursor: $showCursor, obscureText: $obscureText, autocorrect: $autocorrect, enableSuggestions: $enableSuggestions, expands: $expands, enabled: $enabled, enableInteractiveSelection: $enableInteractiveSelection, enableIMEPersonalizedLearning: $enableIMEPersonalizedLearning)';
+    return 'TextFieldState(keyboardType: $keyboardType, textInputAction: $textInputAction, textCapitalization: $textCapitalization, textAlign: $textAlign, textAlignVertical: $textAlignVertical, textDirection: $textDirection, smartDashesType: $smartDashesType, readonly: $readonly, showCursor: $showCursor, obscureText: $obscureText, autocorrect: $autocorrect, enableSuggestions: $enableSuggestions, expands: $expands, enabled: $enabled, enableInteractiveSelection: $enableInteractiveSelection, enableIMEPersonalizedLearning: $enableIMEPersonalizedLearning)';
   }
 
   @override
@@ -396,6 +414,7 @@ class _$_TextFieldState
       ..add(DiagnosticsProperty('textAlign', textAlign))
       ..add(DiagnosticsProperty('textAlignVertical', textAlignVertical))
       ..add(DiagnosticsProperty('textDirection', textDirection))
+      ..add(DiagnosticsProperty('smartDashesType', smartDashesType))
       ..add(DiagnosticsProperty('readonly', readonly))
       ..add(DiagnosticsProperty('showCursor', showCursor))
       ..add(DiagnosticsProperty('obscureText', obscureText))
@@ -425,6 +444,8 @@ class _$_TextFieldState
                 .equals(other.textAlignVertical, textAlignVertical) &&
             const DeepCollectionEquality()
                 .equals(other.textDirection, textDirection) &&
+            const DeepCollectionEquality()
+                .equals(other.smartDashesType, smartDashesType) &&
             const DeepCollectionEquality().equals(other.readonly, readonly) &&
             const DeepCollectionEquality()
                 .equals(other.showCursor, showCursor) &&
@@ -452,6 +473,7 @@ class _$_TextFieldState
       const DeepCollectionEquality().hash(textAlign),
       const DeepCollectionEquality().hash(textAlignVertical),
       const DeepCollectionEquality().hash(textDirection),
+      const DeepCollectionEquality().hash(smartDashesType),
       const DeepCollectionEquality().hash(readonly),
       const DeepCollectionEquality().hash(showCursor),
       const DeepCollectionEquality().hash(obscureText),
@@ -476,6 +498,7 @@ abstract class _TextFieldState implements TextFieldState {
       TextAlign textAlign,
       TextAlignVertical? textAlignVertical,
       TextDirection? textDirection,
+      SmartDashesType? smartDashesType,
       bool readonly,
       bool showCursor,
       bool obscureText,
@@ -498,6 +521,8 @@ abstract class _TextFieldState implements TextFieldState {
   TextAlignVertical? get textAlignVertical;
   @override
   TextDirection? get textDirection;
+  @override
+  SmartDashesType? get smartDashesType;
   @override
   bool get readonly;
   @override

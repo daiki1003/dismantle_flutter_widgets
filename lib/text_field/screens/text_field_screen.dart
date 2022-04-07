@@ -40,6 +40,7 @@ class TextFieldScreen extends HookConsumerWidget {
             textAlign: state.textAlign,
             textAlignVertical: state.textAlignVertical,
             textDirection: state.textDirection,
+            smartDashesType: state.smartDashesType,
             readOnly: state.readonly,
             showCursor: state.showCursor,
             obscureText: state.obscureText,
@@ -128,6 +129,21 @@ class TextFieldScreen extends HookConsumerWidget {
                     value: state.textDirection,
                     textBuilder: (value) => value.name,
                     onSelected: notifier.textDirectionUpdated,
+                  ),
+                  const SizedBox(height: 12),
+                  _SelectButton<SmartDashesType>(
+                    text: 'smartDashesType',
+                    choices: SmartDashesType.values,
+                    value: state.smartDashesType,
+                    textBuilder: (value) => value.name,
+                    onSelected: (value) async {
+                      focusNode.unfocus();
+                      notifier.smartDashesTypeUpdated(value);
+                      await Future<void>.delayed(
+                        const Duration(milliseconds: 500),
+                      );
+                      focusNode.requestFocus();
+                    },
                   ),
                   _ToggleButton(
                     text: 'readonly',
