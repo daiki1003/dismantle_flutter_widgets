@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -54,6 +56,13 @@ class TextFieldScreen extends HookConsumerWidget {
             enabled: state.enabled,
             enableInteractiveSelection: state.enableInteractiveSelection,
             enableIMEPersonalizedLearning: state.enableIMEPersonalizedLearning,
+            onChanged: (value) => log('TextFieldScreen#onChanged: $value'),
+            onAppPrivateCommand: (key, params) => log(
+              'TextFieldScreen#onAppPrivateCommand: $key: $params',
+            ),
+            onEditingComplete: () => log('TextFieldScreen#onEditingComplete'),
+            onSubmitted: (value) => log('TextFieldScreen#onSubmitted: $value'),
+            onTap: () => log('TextFieldScreen#onTap'),
           ),
           const SizedBox(height: 32),
           Expanded(
