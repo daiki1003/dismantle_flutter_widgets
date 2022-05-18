@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import 'package:dismantling/text_field/screens/text_field_state.dart';
@@ -41,6 +42,10 @@ class _TextFieldViewModel extends StateNotifier<TextFieldState> {
 
   void smartQuotesTypeUpdated(SmartQuotesType smartQuotesType) {
     state = state.copyWith(smartQuotesType: smartQuotesType);
+  }
+
+  void maxLengthEnforcementUpdated(MaxLengthEnforcement maxLengthEnforcement) {
+    state = state.copyWith(maxLengthEnforcement: maxLengthEnforcement);
   }
 
   void readonlyToggled() {

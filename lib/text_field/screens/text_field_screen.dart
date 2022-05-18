@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -42,6 +43,8 @@ class TextFieldScreen extends HookConsumerWidget {
             textDirection: state.textDirection,
             smartDashesType: state.smartDashesType,
             smartQuotesType: state.smartQuotesType,
+            maxLength: 10,
+            maxLengthEnforcement: state.maxLengthEnforcement,
             readOnly: state.readonly,
             showCursor: state.showCursor,
             obscureText: state.obscureText,
@@ -159,6 +162,16 @@ class TextFieldScreen extends HookConsumerWidget {
                         const Duration(milliseconds: 500),
                       );
                       focusNode.requestFocus();
+                    },
+                  ),
+                  const SizedBox(height: 12),
+                  SelectButton<MaxLengthEnforcement>(
+                    label: 'maxLengthEnforcement',
+                    choices: MaxLengthEnforcement.values,
+                    value: state.maxLengthEnforcement,
+                    valueTextBuilder: (value) => value.name,
+                    onSelected: (value) async {
+                      notifier.maxLengthEnforcementUpdated(value);
                     },
                   ),
                   ToggleButton(

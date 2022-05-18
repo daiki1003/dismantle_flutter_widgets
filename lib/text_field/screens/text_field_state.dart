@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -15,6 +16,7 @@ class TextFieldState with _$TextFieldState {
     TextDirection? textDirection,
     SmartDashesType? smartDashesType,
     SmartQuotesType? smartQuotesType,
+    MaxLengthEnforcement? maxLengthEnforcement,
     @Default(false) bool readonly,
     @Default(true) bool showCursor,
     @Default(false) bool obscureText,
