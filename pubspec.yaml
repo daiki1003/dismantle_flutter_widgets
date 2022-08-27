@@ -12,7 +12,7 @@ dependencies:
   flutter:
     sdk: flutter
 
-  pedantic_mono: ^1.17.0
+  pedantic_mono: ^1.19.2
   freezed_annotation: ^1.1.0
   flutter_hooks: ^0.18.2+1
   hooks_riverpod: ^1.0.3
@@ -24,7 +24,6 @@ dev_dependencies:
     sdk: flutter
 
   build_runner: ^2.1.8
-  flutter_lints: ^1.0.0
   freezed: ^1.1.1
 
 flutter:
