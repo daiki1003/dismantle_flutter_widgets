@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import 'package:dismantling/selectable_text/components/selectable_text_state.dart';
@@ -20,5 +21,9 @@ class _SelectableTextViewModel extends StateNotifier<SelectableTextState> {
 
   void cursorHeightUpdated(double height) {
     state = state.copyWith(cursorHeight: height);
+  }
+
+  void cursorRadiusUpdated(Radius radius) {
+    state = state.copyWith(cursorRadius: radius);
   }
 }

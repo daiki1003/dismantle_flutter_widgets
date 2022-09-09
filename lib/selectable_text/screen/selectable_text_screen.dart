@@ -42,6 +42,7 @@ class SelectableTextScreen extends HookConsumerWidget {
                 showCursor: state.showCursor,
                 cursorWidth: state.cursorWidth,
                 cursorHeight: state.cursorHeight,
+                cursorRadius: state.cursorRadius,
               ),
               const SizedBox(height: 32),
               Expanded(
@@ -70,6 +71,19 @@ class SelectableTextScreen extends HookConsumerWidget {
                           max: 50,
                           divisions: 49,
                           onChanged: notifier.cursorHeightUpdated,
+                        ),
+                        // TODO(ashdik): Add Radius.elliptical version
+                        _SliderMenu(
+                          label: 'cursorRadius',
+                          value: state.cursorRadius?.x ?? 0,
+                          min: 0,
+                          max: 25,
+                          divisions: 50,
+                          onChanged: (value) {
+                            notifier.cursorRadiusUpdated(
+                              Radius.circular(value),
+                            );
+                          },
                         ),
                       ].intersperse(
                         const SizedBox(height: 40),
