@@ -12,6 +12,7 @@ class SelectableTextState with _$SelectableTextState {
     double? cursorHeight,
     Radius? cursorRadius,
     @Default(BoxWidthStyle.tight) BoxWidthStyle selectionWidthStyle,
+    @Default(BoxHeightStyle.tight) BoxHeightStyle selectionHeightStyle,
   }) = _SelectableTextState;
 
   factory SelectableTextState.empty() {

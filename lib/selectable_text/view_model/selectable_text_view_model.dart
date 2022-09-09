@@ -31,4 +31,8 @@ class _SelectableTextViewModel extends StateNotifier<SelectableTextState> {
   void selectionWidthStyleUpdated(BoxWidthStyle selectionWidthStyle) {
     state = state.copyWith(selectionWidthStyle: selectionWidthStyle);
   }
+
+  void selectionHeightStyleUpdated(BoxHeightStyle selectionHeightStyle) {
+    state = state.copyWith(selectionHeightStyle: selectionHeightStyle);
+  }
 }

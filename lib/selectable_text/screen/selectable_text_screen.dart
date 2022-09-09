@@ -47,6 +47,7 @@ class SelectableTextScreen extends HookConsumerWidget {
                 cursorHeight: state.cursorHeight,
                 cursorRadius: state.cursorRadius,
                 selectionWidthStyle: state.selectionWidthStyle,
+                selectionHeightStyle: state.selectionHeightStyle,
               ),
               const SizedBox(height: 32),
               Expanded(
@@ -97,6 +98,13 @@ class SelectableTextScreen extends HookConsumerWidget {
                           value: state.selectionWidthStyle,
                           valueTextBuilder: (value) => value.name,
                           onSelected: notifier.selectionWidthStyleUpdated,
+                        ),
+                        SelectButton<BoxHeightStyle>(
+                          label: 'selectionHeightStyle',
+                          choices: BoxHeightStyle.values,
+                          value: state.selectionHeightStyle,
+                          valueTextBuilder: (value) => value.name,
+                          onSelected: notifier.selectionHeightStyleUpdated,
                         ),
                       ].intersperse(
                         const SizedBox(height: 40),
