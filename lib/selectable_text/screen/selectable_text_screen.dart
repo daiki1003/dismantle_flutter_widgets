@@ -1,8 +1,11 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:intersperse/intersperse.dart';
 
+import 'package:dismantling/components/select_button.dart';
 import 'package:dismantling/selectable_text/view_model/selectable_text_view_model.dart';
 
 class SelectableTextScreen extends HookConsumerWidget {
@@ -43,6 +46,7 @@ class SelectableTextScreen extends HookConsumerWidget {
                 cursorWidth: state.cursorWidth,
                 cursorHeight: state.cursorHeight,
                 cursorRadius: state.cursorRadius,
+                selectionWidthStyle: state.selectionWidthStyle,
               ),
               const SizedBox(height: 32),
               Expanded(
@@ -56,34 +60,43 @@ class SelectableTextScreen extends HookConsumerWidget {
                           value: state.showCursor,
                           onToggled: (value) => notifier.showCursorToggled(),
                         ),
-                        _SliderMenu(
-                          label: 'cursorWidth',
-                          value: state.cursorWidth,
-                          min: 1,
-                          max: 20,
-                          divisions: 19,
-                          onChanged: notifier.cursorWidthUpdated,
-                        ),
-                        _SliderMenu(
-                          label: 'cursorHeight',
-                          value: state.cursorHeight ?? 1,
-                          min: 1,
-                          max: 50,
-                          divisions: 49,
-                          onChanged: notifier.cursorHeightUpdated,
-                        ),
-                        // TODO(ashdik): Add Radius.elliptical version
-                        _SliderMenu(
-                          label: 'cursorRadius',
-                          value: state.cursorRadius?.x ?? 0,
-                          min: 0,
-                          max: 25,
-                          divisions: 50,
-                          onChanged: (value) {
-                            notifier.cursorRadiusUpdated(
-                              Radius.circular(value),
-                            );
-                          },
+                        if (state.showCursor) ...[
+                          _SliderMenu(
+                            label: 'cursorWidth',
+                            value: state.cursorWidth,
+                            min: 1,
+                            max: 20,
+                            divisions: 19,
+                            onChanged: notifier.cursorWidthUpdated,
+                          ),
+                          _SliderMenu(
+                            label: 'cursorHeight',
+                            value: state.cursorHeight ?? 1,
+                            min: 1,
+                            max: 50,
+                            divisions: 49,
+                            onChanged: notifier.cursorHeightUpdated,
+                          ),
+                          // TODO(ashdik): Add Radius.elliptical version
+                          _SliderMenu(
+                            label: 'cursorRadius',
+                            value: state.cursorRadius?.x ?? 0,
+                            min: 0,
+                            max: 25,
+                            divisions: 50,
+                            onChanged: (value) {
+                              notifier.cursorRadiusUpdated(
+                                Radius.circular(value),
+                              );
+                            },
+                          ),
+                        ],
+                        SelectButton<BoxWidthStyle>(
+                          label: 'selectionWidthStyle',
+                          choices: BoxWidthStyle.values,
+                          value: state.selectionWidthStyle,
+                          valueTextBuilder: (value) => value.name,
+                          onSelected: notifier.selectionWidthStyleUpdated,
                         ),
                       ].intersperse(
                         const SizedBox(height: 40),

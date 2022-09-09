@@ -20,6 +20,7 @@ mixin _$SelectableTextState {
   double get cursorWidth => throw _privateConstructorUsedError;
   double? get cursorHeight => throw _privateConstructorUsedError;
   Radius? get cursorRadius => throw _privateConstructorUsedError;
+  BoxWidthStyle get selectionWidthStyle => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $SelectableTextStateCopyWith<SelectableTextState> get copyWith =>
@@ -35,7 +36,8 @@ abstract class $SelectableTextStateCopyWith<$Res> {
       {bool showCursor,
       double cursorWidth,
       double? cursorHeight,
-      Radius? cursorRadius});
+      Radius? cursorRadius,
+      BoxWidthStyle selectionWidthStyle});
 }
 
 /// @nodoc
@@ -53,6 +55,7 @@ class _$SelectableTextStateCopyWithImpl<$Res>
     Object? cursorWidth = freezed,
     Object? cursorHeight = freezed,
     Object? cursorRadius = freezed,
+    Object? selectionWidthStyle = freezed,
   }) {
     return _then(_value.copyWith(
       showCursor: showCursor == freezed
@@ -71,6 +74,10 @@ class _$SelectableTextStateCopyWithImpl<$Res>
           ? _value.cursorRadius
           : cursorRadius // ignore: cast_nullable_to_non_nullable
               as Radius?,
+      selectionWidthStyle: selectionWidthStyle == freezed
+          ? _value.selectionWidthStyle
+          : selectionWidthStyle // ignore: cast_nullable_to_non_nullable
+              as BoxWidthStyle,
     ));
   }
 }
@@ -86,7 +93,8 @@ abstract class _$$_SelectableTextStateCopyWith<$Res>
       {bool showCursor,
       double cursorWidth,
       double? cursorHeight,
-      Radius? cursorRadius});
+      Radius? cursorRadius,
+      BoxWidthStyle selectionWidthStyle});
 }
 
 /// @nodoc
@@ -106,6 +114,7 @@ class __$$_SelectableTextStateCopyWithImpl<$Res>
     Object? cursorWidth = freezed,
     Object? cursorHeight = freezed,
     Object? cursorRadius = freezed,
+    Object? selectionWidthStyle = freezed,
   }) {
     return _then(_$_SelectableTextState(
       showCursor: showCursor == freezed
@@ -124,6 +133,10 @@ class __$$_SelectableTextStateCopyWithImpl<$Res>
           ? _value.cursorRadius
           : cursorRadius // ignore: cast_nullable_to_non_nullable
               as Radius?,
+      selectionWidthStyle: selectionWidthStyle == freezed
+          ? _value.selectionWidthStyle
+          : selectionWidthStyle // ignore: cast_nullable_to_non_nullable
+              as BoxWidthStyle,
     ));
   }
 }
@@ -135,7 +148,8 @@ class _$_SelectableTextState implements _SelectableTextState {
       {this.showCursor = false,
       this.cursorWidth = 2,
       this.cursorHeight,
-      this.cursorRadius});
+      this.cursorRadius,
+      this.selectionWidthStyle = BoxWidthStyle.tight});
 
   @override
   @JsonKey()
@@ -147,10 +161,13 @@ class _$_SelectableTextState implements _SelectableTextState {
   final double? cursorHeight;
   @override
   final Radius? cursorRadius;
+  @override
+  @JsonKey()
+  final BoxWidthStyle selectionWidthStyle;
 
   @override
   String toString() {
-    return 'SelectableTextState(showCursor: $showCursor, cursorWidth: $cursorWidth, cursorHeight: $cursorHeight, cursorRadius: $cursorRadius)';
+    return 'SelectableTextState(showCursor: $showCursor, cursorWidth: $cursorWidth, cursorHeight: $cursorHeight, cursorRadius: $cursorRadius, selectionWidthStyle: $selectionWidthStyle)';
   }
 
   @override
@@ -165,7 +182,9 @@ class _$_SelectableTextState implements _SelectableTextState {
             const DeepCollectionEquality()
                 .equals(other.cursorHeight, cursorHeight) &&
             const DeepCollectionEquality()
-                .equals(other.cursorRadius, cursorRadius));
+                .equals(other.cursorRadius, cursorRadius) &&
+            const DeepCollectionEquality()
+                .equals(other.selectionWidthStyle, selectionWidthStyle));
   }
 
   @override
@@ -174,7 +193,8 @@ class _$_SelectableTextState implements _SelectableTextState {
       const DeepCollectionEquality().hash(showCursor),
       const DeepCollectionEquality().hash(cursorWidth),
       const DeepCollectionEquality().hash(cursorHeight),
-      const DeepCollectionEquality().hash(cursorRadius));
+      const DeepCollectionEquality().hash(cursorRadius),
+      const DeepCollectionEquality().hash(selectionWidthStyle));
 
   @JsonKey(ignore: true)
   @override
@@ -188,7 +208,8 @@ abstract class _SelectableTextState implements SelectableTextState {
       {final bool showCursor,
       final double cursorWidth,
       final double? cursorHeight,
-      final Radius? cursorRadius}) = _$_SelectableTextState;
+      final Radius? cursorRadius,
+      final BoxWidthStyle selectionWidthStyle}) = _$_SelectableTextState;
 
   @override
   bool get showCursor;
@@ -198,6 +219,8 @@ abstract class _SelectableTextState implements SelectableTextState {
   double? get cursorHeight;
   @override
   Radius? get cursorRadius;
+  @override
+  BoxWidthStyle get selectionWidthStyle;
   @override
   @JsonKey(ignore: true)
   _$$_SelectableTextStateCopyWith<_$_SelectableTextState> get copyWith =>

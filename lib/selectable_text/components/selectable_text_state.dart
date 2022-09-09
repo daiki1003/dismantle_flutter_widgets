@@ -1,4 +1,5 @@
-import 'package:flutter/material.dart';
+import 'dart:ui';
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'selectable_text_state.freezed.dart';
@@ -10,6 +11,7 @@ class SelectableTextState with _$SelectableTextState {
     @Default(2) double cursorWidth,
     double? cursorHeight,
     Radius? cursorRadius,
+    @Default(BoxWidthStyle.tight) BoxWidthStyle selectionWidthStyle,
   }) = _SelectableTextState;
 
   factory SelectableTextState.empty() {
