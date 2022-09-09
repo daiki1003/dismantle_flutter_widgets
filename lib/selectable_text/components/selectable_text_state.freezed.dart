@@ -18,6 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$SelectableTextState {
   bool get showCursor => throw _privateConstructorUsedError;
   double get cursorWidth => throw _privateConstructorUsedError;
+  double? get cursorHeight => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $SelectableTextStateCopyWith<SelectableTextState> get copyWith =>
@@ -29,7 +30,7 @@ abstract class $SelectableTextStateCopyWith<$Res> {
   factory $SelectableTextStateCopyWith(
           SelectableTextState value, $Res Function(SelectableTextState) then) =
       _$SelectableTextStateCopyWithImpl<$Res>;
-  $Res call({bool showCursor, double cursorWidth});
+  $Res call({bool showCursor, double cursorWidth, double? cursorHeight});
 }
 
 /// @nodoc
@@ -45,6 +46,7 @@ class _$SelectableTextStateCopyWithImpl<$Res>
   $Res call({
     Object? showCursor = freezed,
     Object? cursorWidth = freezed,
+    Object? cursorHeight = freezed,
   }) {
     return _then(_value.copyWith(
       showCursor: showCursor == freezed
@@ -55,6 +57,10 @@ class _$SelectableTextStateCopyWithImpl<$Res>
           ? _value.cursorWidth
           : cursorWidth // ignore: cast_nullable_to_non_nullable
               as double,
+      cursorHeight: cursorHeight == freezed
+          ? _value.cursorHeight
+          : cursorHeight // ignore: cast_nullable_to_non_nullable
+              as double?,
     ));
   }
 }
@@ -66,7 +72,7 @@ abstract class _$$_SelectableTextStateCopyWith<$Res>
           $Res Function(_$_SelectableTextState) then) =
       __$$_SelectableTextStateCopyWithImpl<$Res>;
   @override
-  $Res call({bool showCursor, double cursorWidth});
+  $Res call({bool showCursor, double cursorWidth, double? cursorHeight});
 }
 
 /// @nodoc
@@ -84,6 +90,7 @@ class __$$_SelectableTextStateCopyWithImpl<$Res>
   $Res call({
     Object? showCursor = freezed,
     Object? cursorWidth = freezed,
+    Object? cursorHeight = freezed,
   }) {
     return _then(_$_SelectableTextState(
       showCursor: showCursor == freezed
@@ -94,6 +101,10 @@ class __$$_SelectableTextStateCopyWithImpl<$Res>
           ? _value.cursorWidth
           : cursorWidth // ignore: cast_nullable_to_non_nullable
               as double,
+      cursorHeight: cursorHeight == freezed
+          ? _value.cursorHeight
+          : cursorHeight // ignore: cast_nullable_to_non_nullable
+              as double?,
     ));
   }
 }
@@ -101,7 +112,8 @@ class __$$_SelectableTextStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_SelectableTextState implements _SelectableTextState {
-  const _$_SelectableTextState({this.showCursor = false, this.cursorWidth = 2});
+  const _$_SelectableTextState(
+      {this.showCursor = false, this.cursorWidth = 2, this.cursorHeight});
 
   @override
   @JsonKey()
@@ -109,10 +121,12 @@ class _$_SelectableTextState implements _SelectableTextState {
   @override
   @JsonKey()
   final double cursorWidth;
+  @override
+  final double? cursorHeight;
 
   @override
   String toString() {
-    return 'SelectableTextState(showCursor: $showCursor, cursorWidth: $cursorWidth)';
+    return 'SelectableTextState(showCursor: $showCursor, cursorWidth: $cursorWidth, cursorHeight: $cursorHeight)';
   }
 
   @override
@@ -123,14 +137,17 @@ class _$_SelectableTextState implements _SelectableTextState {
             const DeepCollectionEquality()
                 .equals(other.showCursor, showCursor) &&
             const DeepCollectionEquality()
-                .equals(other.cursorWidth, cursorWidth));
+                .equals(other.cursorWidth, cursorWidth) &&
+            const DeepCollectionEquality()
+                .equals(other.cursorHeight, cursorHeight));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(showCursor),
-      const DeepCollectionEquality().hash(cursorWidth));
+      const DeepCollectionEquality().hash(cursorWidth),
+      const DeepCollectionEquality().hash(cursorHeight));
 
   @JsonKey(ignore: true)
   @override
@@ -142,12 +159,15 @@ class _$_SelectableTextState implements _SelectableTextState {
 abstract class _SelectableTextState implements SelectableTextState {
   const factory _SelectableTextState(
       {final bool showCursor,
-      final double cursorWidth}) = _$_SelectableTextState;
+      final double cursorWidth,
+      final double? cursorHeight}) = _$_SelectableTextState;
 
   @override
   bool get showCursor;
   @override
   double get cursorWidth;
+  @override
+  double? get cursorHeight;
   @override
   @JsonKey(ignore: true)
   _$$_SelectableTextStateCopyWith<_$_SelectableTextState> get copyWith =>

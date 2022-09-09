@@ -41,6 +41,7 @@ class SelectableTextScreen extends HookConsumerWidget {
                 ),
                 showCursor: state.showCursor,
                 cursorWidth: state.cursorWidth,
+                cursorHeight: state.cursorHeight,
               ),
               const SizedBox(height: 32),
               Expanded(
@@ -61,6 +62,14 @@ class SelectableTextScreen extends HookConsumerWidget {
                           max: 20,
                           divisions: 19,
                           onChanged: notifier.cursorWidthUpdated,
+                        ),
+                        _SliderMenu(
+                          label: 'cursorHeight',
+                          value: state.cursorHeight ?? 1,
+                          min: 1,
+                          max: 50,
+                          divisions: 49,
+                          onChanged: notifier.cursorHeightUpdated,
                         ),
                       ].intersperse(
                         const SizedBox(height: 40),

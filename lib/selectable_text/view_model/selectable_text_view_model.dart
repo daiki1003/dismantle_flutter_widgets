@@ -17,4 +17,8 @@ class _SelectableTextViewModel extends StateNotifier<SelectableTextState> {
   void cursorWidthUpdated(double width) {
     state = state.copyWith(cursorWidth: width);
   }
+
+  void cursorHeightUpdated(double height) {
+    state = state.copyWith(cursorHeight: height);
+  }
 }
