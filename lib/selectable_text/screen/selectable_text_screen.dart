@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -48,6 +49,7 @@ class SelectableTextScreen extends HookConsumerWidget {
                 cursorRadius: state.cursorRadius,
                 selectionWidthStyle: state.selectionWidthStyle,
                 selectionHeightStyle: state.selectionHeightStyle,
+                dragStartBehavior: state.dragStartBehavior,
               ),
               const SizedBox(height: 32),
               Expanded(
@@ -105,6 +107,13 @@ class SelectableTextScreen extends HookConsumerWidget {
                           value: state.selectionHeightStyle,
                           valueTextBuilder: (value) => value.name,
                           onSelected: notifier.selectionHeightStyleUpdated,
+                        ),
+                        SelectButton<DragStartBehavior>(
+                          label: 'dragStartBehavior',
+                          choices: DragStartBehavior.values,
+                          value: state.dragStartBehavior,
+                          valueTextBuilder: (value) => value.name,
+                          onSelected: notifier.dragStartBehaviorUpdated,
                         ),
                       ].intersperse(
                         const SizedBox(height: 40),

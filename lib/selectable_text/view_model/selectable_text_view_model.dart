@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:flutter/gestures.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import 'package:dismantling/selectable_text/components/selectable_text_state.dart';
@@ -34,5 +35,9 @@ class _SelectableTextViewModel extends StateNotifier<SelectableTextState> {
 
   void selectionHeightStyleUpdated(BoxHeightStyle selectionHeightStyle) {
     state = state.copyWith(selectionHeightStyle: selectionHeightStyle);
+  }
+
+  void dragStartBehaviorUpdated(DragStartBehavior dragStartBehavior) {
+    state = state.copyWith(dragStartBehavior: dragStartBehavior);
   }
 }
