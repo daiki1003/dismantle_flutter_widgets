@@ -1,3 +1,3 @@
 enum MenuType {
-  textField,
+  selectableText,
 }
