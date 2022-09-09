@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:intersperse/intersperse.dart';
 
 import 'package:dismantling/selectable_text/view_model/selectable_text_view_model.dart';
 
@@ -39,6 +40,7 @@ class SelectableTextScreen extends HookConsumerWidget {
                   height: 1.2,
                 ),
                 showCursor: state.showCursor,
+                cursorWidth: state.cursorWidth,
               ),
               const SizedBox(height: 32),
               Expanded(
@@ -46,10 +48,22 @@ class SelectableTextScreen extends HookConsumerWidget {
                   padding: const EdgeInsets.symmetric(horizontal: 16),
                   child: Column(
                     children: [
-                      _ToggleButton(
-                        text: 'showCursor',
-                        value: state.showCursor,
-                        onToggled: (value) => notifier.showCursorToggled(),
+                      ...<Widget>[
+                        _ToggleButton(
+                          text: 'showCursor',
+                          value: state.showCursor,
+                          onToggled: (value) => notifier.showCursorToggled(),
+                        ),
+                        _SliderMenu(
+                          label: 'cursorWidth',
+                          value: state.cursorWidth,
+                          min: 1,
+                          max: 20,
+                          divisions: 19,
+                          onChanged: notifier.cursorWidthUpdated,
+                        ),
+                      ].intersperse(
+                        const SizedBox(height: 40),
                       ),
                     ],
                   ),
@@ -88,6 +102,62 @@ class _ToggleButton extends StatelessWidget {
         ),
       ),
       onPressed: () => onToggled(!value),
+    );
+  }
+}
+
+class _SliderMenu extends StatelessWidget {
+  const _SliderMenu({
+    required this.label,
+    required this.value,
+    required this.min,
+    required this.max,
+    required this.divisions,
+    required this.onChanged,
+  });
+
+  final String label;
+  final double value;
+  final double min;
+  final double max;
+  final int divisions;
+
+  final ValueChanged<double> onChanged;
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Text(
+          label,
+          style: theme.textTheme.headline6!.copyWith(
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        const SizedBox(height: 20),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(min.toString(), style: theme.textTheme.caption),
+            Text(
+              value.toString(),
+              style: theme.textTheme.titleLarge!.copyWith(
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            Text(max.toString(), style: theme.textTheme.caption),
+          ],
+        ),
+        Slider.adaptive(
+          value: value,
+          min: min,
+          max: max,
+          divisions: divisions,
+          onChanged: onChanged,
+        ),
+      ],
     );
   }
 }

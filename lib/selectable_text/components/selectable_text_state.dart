@@ -6,6 +6,7 @@ part 'selectable_text_state.freezed.dart';
 class SelectableTextState with _$SelectableTextState {
   const factory SelectableTextState({
     @Default(false) bool showCursor,
+    @Default(2) double cursorWidth,
   }) = _SelectableTextState;
 
   factory SelectableTextState.empty() {
