@@ -40,4 +40,10 @@ class _SelectableTextViewModel extends StateNotifier<SelectableTextState> {
   void dragStartBehaviorUpdated(DragStartBehavior dragStartBehavior) {
     state = state.copyWith(dragStartBehavior: dragStartBehavior);
   }
+
+  void enableInteractiveSelectionToggled() {
+    state = state.copyWith(
+      enableInteractiveSelection: !state.enableInteractiveSelection,
+    );
+  }
 }

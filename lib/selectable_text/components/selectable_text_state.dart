@@ -15,6 +15,7 @@ class SelectableTextState with _$SelectableTextState {
     @Default(BoxWidthStyle.tight) BoxWidthStyle selectionWidthStyle,
     @Default(BoxHeightStyle.tight) BoxHeightStyle selectionHeightStyle,
     @Default(DragStartBehavior.start) DragStartBehavior dragStartBehavior,
+    @Default(true) bool enableInteractiveSelection,
   }) = _SelectableTextState;
 
   factory SelectableTextState.empty() {

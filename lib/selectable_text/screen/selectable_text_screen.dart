@@ -50,6 +50,7 @@ class SelectableTextScreen extends HookConsumerWidget {
                 selectionWidthStyle: state.selectionWidthStyle,
                 selectionHeightStyle: state.selectionHeightStyle,
                 dragStartBehavior: state.dragStartBehavior,
+                enableInteractiveSelection: state.enableInteractiveSelection,
               ),
               const SizedBox(height: 32),
               Expanded(
@@ -94,6 +95,12 @@ class SelectableTextScreen extends HookConsumerWidget {
                             },
                           ),
                         ],
+                        _ToggleButton(
+                          text: 'enableInteractiveSelection',
+                          value: state.enableInteractiveSelection,
+                          onToggled: (value) =>
+                              notifier.enableInteractiveSelectionToggled(),
+                        ),
                         SelectButton<BoxWidthStyle>(
                           label: 'selectionWidthStyle',
                           choices: BoxWidthStyle.values,
