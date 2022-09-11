@@ -8,6 +8,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:intersperse/intersperse.dart';
 
 import 'package:dismantling/components/select_button.dart';
+import 'package:dismantling/components/toggle_button.dart';
 import 'package:dismantling/selectable_text/view_model/selectable_text_view_model.dart';
 
 class SelectableTextScreen extends HookConsumerWidget {
@@ -63,7 +64,7 @@ class SelectableTextScreen extends HookConsumerWidget {
                   child: Column(
                     children: [
                       ...<Widget>[
-                        _ToggleButton(
+                        ToggleButton(
                           text: 'showCursor',
                           value: state.showCursor,
                           onToggled: (value) => notifier.showCursorToggled(),
@@ -99,7 +100,7 @@ class SelectableTextScreen extends HookConsumerWidget {
                             },
                           ),
                         ],
-                        _ToggleButton(
+                        ToggleButton(
                           text: 'enableInteractiveSelection',
                           value: state.enableInteractiveSelection,
                           onToggled: (value) =>
@@ -189,35 +190,6 @@ class SelectableTextScreen extends HookConsumerWidget {
           ),
         ),
       ),
-    );
-  }
-}
-
-class _ToggleButton extends StatelessWidget {
-  const _ToggleButton({
-    required this.text,
-    required this.value,
-    required this.onToggled,
-  });
-
-  final String text;
-  final bool value;
-  final ValueChanged<bool> onToggled;
-
-  @override
-  Widget build(BuildContext context) {
-    return OutlinedButton(
-      style: OutlinedButton.styleFrom(
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-      ),
-      child: Text(
-        '$text: $value',
-        style: const TextStyle(
-          fontSize: 16,
-          fontWeight: FontWeight.bold,
-        ),
-      ),
-      onPressed: () => onToggled(!value),
     );
   }
 }
