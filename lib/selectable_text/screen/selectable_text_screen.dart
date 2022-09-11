@@ -53,6 +53,7 @@ class SelectableTextScreen extends HookConsumerWidget {
                 dragStartBehavior: state.dragStartBehavior,
                 enableInteractiveSelection: state.enableInteractiveSelection,
                 selectionControls: state.selectionControls,
+                scrollPhysics: state.scrollPhysics,
               ),
               const SizedBox(height: 32),
               Expanded(
@@ -142,6 +143,32 @@ class SelectableTextScreen extends HookConsumerWidget {
                             throw UnimplementedError();
                           },
                           onSelected: notifier.selectionControlsUpdated,
+                        ),
+                        SelectButton<ScrollPhysics>(
+                          label: 'scrollPhysics',
+                          choices: const [
+                            NeverScrollableScrollPhysics(),
+                            AlwaysScrollableScrollPhysics(),
+                            BouncingScrollPhysics(),
+                            ClampingScrollPhysics(),
+                          ],
+                          value: state.scrollPhysics,
+                          valueTextBuilder: (value) {
+                            if (value is NeverScrollableScrollPhysics) {
+                              return 'never';
+                            }
+                            if (value is AlwaysScrollableScrollPhysics) {
+                              return 'always';
+                            }
+                            if (value is BouncingScrollPhysics) {
+                              return 'bouncing';
+                            }
+                            if (value is ClampingScrollPhysics) {
+                              return 'clamping';
+                            }
+                            throw UnimplementedError();
+                          },
+                          onSelected: notifier.scrollPhysicsUpdated,
                         ),
                       ].intersperse(
                         const SizedBox(height: 40),

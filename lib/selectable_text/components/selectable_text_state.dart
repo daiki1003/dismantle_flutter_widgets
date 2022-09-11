@@ -18,6 +18,7 @@ class SelectableTextState with _$SelectableTextState {
     @Default(DragStartBehavior.start) DragStartBehavior dragStartBehavior,
     @Default(true) bool enableInteractiveSelection,
     TextSelectionControls? selectionControls,
+    ScrollPhysics? scrollPhysics,
   }) = _SelectableTextState;
 
   factory SelectableTextState.empty() {

@@ -53,4 +53,10 @@ class _SelectableTextViewModel extends StateNotifier<SelectableTextState> {
       selectionControls: selectionControls,
     );
   }
+
+  void scrollPhysicsUpdated(ScrollPhysics? scrollPhysics) {
+    state = state.copyWith(
+      scrollPhysics: scrollPhysics,
+    );
+  }
 }
