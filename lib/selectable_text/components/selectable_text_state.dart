@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/gestures.dart';
+import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'selectable_text_state.freezed.dart';
@@ -16,6 +17,7 @@ class SelectableTextState with _$SelectableTextState {
     @Default(BoxHeightStyle.tight) BoxHeightStyle selectionHeightStyle,
     @Default(DragStartBehavior.start) DragStartBehavior dragStartBehavior,
     @Default(true) bool enableInteractiveSelection,
+    TextSelectionControls? selectionControls,
   }) = _SelectableTextState;
 
   factory SelectableTextState.empty() {

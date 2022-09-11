@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
@@ -51,6 +52,7 @@ class SelectableTextScreen extends HookConsumerWidget {
                 selectionHeightStyle: state.selectionHeightStyle,
                 dragStartBehavior: state.dragStartBehavior,
                 enableInteractiveSelection: state.enableInteractiveSelection,
+                selectionControls: state.selectionControls,
               ),
               const SizedBox(height: 32),
               Expanded(
@@ -121,6 +123,25 @@ class SelectableTextScreen extends HookConsumerWidget {
                           value: state.dragStartBehavior,
                           valueTextBuilder: (value) => value.name,
                           onSelected: notifier.dragStartBehaviorUpdated,
+                        ),
+                        // TODO(ashdik): Investigate how to apply dynamically.
+                        SelectButton<TextSelectionControls>(
+                          label: 'selectionControls (未対応)',
+                          choices: [
+                            cupertinoTextSelectionControls,
+                            materialTextSelectionControls,
+                          ],
+                          value: state.selectionControls,
+                          valueTextBuilder: (value) {
+                            if (value is CupertinoTextSelectionControls) {
+                              return 'cupertino';
+                            }
+                            if (value is MaterialTextSelectionControls) {
+                              return 'material';
+                            }
+                            throw UnimplementedError();
+                          },
+                          onSelected: notifier.selectionControlsUpdated,
                         ),
                       ].intersperse(
                         const SizedBox(height: 40),

@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/gestures.dart';
+import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import 'package:dismantling/selectable_text/components/selectable_text_state.dart';
@@ -44,6 +45,12 @@ class _SelectableTextViewModel extends StateNotifier<SelectableTextState> {
   void enableInteractiveSelectionToggled() {
     state = state.copyWith(
       enableInteractiveSelection: !state.enableInteractiveSelection,
+    );
+  }
+
+  void selectionControlsUpdated(TextSelectionControls? selectionControls) {
+    state = state.copyWith(
+      selectionControls: selectionControls,
     );
   }
 }

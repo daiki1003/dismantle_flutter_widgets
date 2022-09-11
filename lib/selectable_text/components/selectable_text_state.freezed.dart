@@ -24,6 +24,8 @@ mixin _$SelectableTextState {
   BoxHeightStyle get selectionHeightStyle => throw _privateConstructorUsedError;
   DragStartBehavior get dragStartBehavior => throw _privateConstructorUsedError;
   bool get enableInteractiveSelection => throw _privateConstructorUsedError;
+  TextSelectionControls? get selectionControls =>
+      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $SelectableTextStateCopyWith<SelectableTextState> get copyWith =>
@@ -43,7 +45,8 @@ abstract class $SelectableTextStateCopyWith<$Res> {
       BoxWidthStyle selectionWidthStyle,
       BoxHeightStyle selectionHeightStyle,
       DragStartBehavior dragStartBehavior,
-      bool enableInteractiveSelection});
+      bool enableInteractiveSelection,
+      TextSelectionControls? selectionControls});
 }
 
 /// @nodoc
@@ -65,6 +68,7 @@ class _$SelectableTextStateCopyWithImpl<$Res>
     Object? selectionHeightStyle = freezed,
     Object? dragStartBehavior = freezed,
     Object? enableInteractiveSelection = freezed,
+    Object? selectionControls = freezed,
   }) {
     return _then(_value.copyWith(
       showCursor: showCursor == freezed
@@ -99,6 +103,10 @@ class _$SelectableTextStateCopyWithImpl<$Res>
           ? _value.enableInteractiveSelection
           : enableInteractiveSelection // ignore: cast_nullable_to_non_nullable
               as bool,
+      selectionControls: selectionControls == freezed
+          ? _value.selectionControls
+          : selectionControls // ignore: cast_nullable_to_non_nullable
+              as TextSelectionControls?,
     ));
   }
 }
@@ -118,7 +126,8 @@ abstract class _$$_SelectableTextStateCopyWith<$Res>
       BoxWidthStyle selectionWidthStyle,
       BoxHeightStyle selectionHeightStyle,
       DragStartBehavior dragStartBehavior,
-      bool enableInteractiveSelection});
+      bool enableInteractiveSelection,
+      TextSelectionControls? selectionControls});
 }
 
 /// @nodoc
@@ -142,6 +151,7 @@ class __$$_SelectableTextStateCopyWithImpl<$Res>
     Object? selectionHeightStyle = freezed,
     Object? dragStartBehavior = freezed,
     Object? enableInteractiveSelection = freezed,
+    Object? selectionControls = freezed,
   }) {
     return _then(_$_SelectableTextState(
       showCursor: showCursor == freezed
@@ -176,6 +186,10 @@ class __$$_SelectableTextStateCopyWithImpl<$Res>
           ? _value.enableInteractiveSelection
           : enableInteractiveSelection // ignore: cast_nullable_to_non_nullable
               as bool,
+      selectionControls: selectionControls == freezed
+          ? _value.selectionControls
+          : selectionControls // ignore: cast_nullable_to_non_nullable
+              as TextSelectionControls?,
     ));
   }
 }
@@ -191,7 +205,8 @@ class _$_SelectableTextState implements _SelectableTextState {
       this.selectionWidthStyle = BoxWidthStyle.tight,
       this.selectionHeightStyle = BoxHeightStyle.tight,
       this.dragStartBehavior = DragStartBehavior.start,
-      this.enableInteractiveSelection = true});
+      this.enableInteractiveSelection = true,
+      this.selectionControls});
 
   @override
   @JsonKey()
@@ -215,10 +230,12 @@ class _$_SelectableTextState implements _SelectableTextState {
   @override
   @JsonKey()
   final bool enableInteractiveSelection;
+  @override
+  final TextSelectionControls? selectionControls;
 
   @override
   String toString() {
-    return 'SelectableTextState(showCursor: $showCursor, cursorWidth: $cursorWidth, cursorHeight: $cursorHeight, cursorRadius: $cursorRadius, selectionWidthStyle: $selectionWidthStyle, selectionHeightStyle: $selectionHeightStyle, dragStartBehavior: $dragStartBehavior, enableInteractiveSelection: $enableInteractiveSelection)';
+    return 'SelectableTextState(showCursor: $showCursor, cursorWidth: $cursorWidth, cursorHeight: $cursorHeight, cursorRadius: $cursorRadius, selectionWidthStyle: $selectionWidthStyle, selectionHeightStyle: $selectionHeightStyle, dragStartBehavior: $dragStartBehavior, enableInteractiveSelection: $enableInteractiveSelection, selectionControls: $selectionControls)';
   }
 
   @override
@@ -241,7 +258,9 @@ class _$_SelectableTextState implements _SelectableTextState {
             const DeepCollectionEquality()
                 .equals(other.dragStartBehavior, dragStartBehavior) &&
             const DeepCollectionEquality().equals(
-                other.enableInteractiveSelection, enableInteractiveSelection));
+                other.enableInteractiveSelection, enableInteractiveSelection) &&
+            const DeepCollectionEquality()
+                .equals(other.selectionControls, selectionControls));
   }
 
   @override
@@ -254,7 +273,8 @@ class _$_SelectableTextState implements _SelectableTextState {
       const DeepCollectionEquality().hash(selectionWidthStyle),
       const DeepCollectionEquality().hash(selectionHeightStyle),
       const DeepCollectionEquality().hash(dragStartBehavior),
-      const DeepCollectionEquality().hash(enableInteractiveSelection));
+      const DeepCollectionEquality().hash(enableInteractiveSelection),
+      const DeepCollectionEquality().hash(selectionControls));
 
   @JsonKey(ignore: true)
   @override
@@ -272,7 +292,8 @@ abstract class _SelectableTextState implements SelectableTextState {
       final BoxWidthStyle selectionWidthStyle,
       final BoxHeightStyle selectionHeightStyle,
       final DragStartBehavior dragStartBehavior,
-      final bool enableInteractiveSelection}) = _$_SelectableTextState;
+      final bool enableInteractiveSelection,
+      final TextSelectionControls? selectionControls}) = _$_SelectableTextState;
 
   @override
   bool get showCursor;
@@ -290,6 +311,8 @@ abstract class _SelectableTextState implements SelectableTextState {
   DragStartBehavior get dragStartBehavior;
   @override
   bool get enableInteractiveSelection;
+  @override
+  TextSelectionControls? get selectionControls;
   @override
   @JsonKey(ignore: true)
   _$$_SelectableTextStateCopyWith<_$_SelectableTextState> get copyWith =>
