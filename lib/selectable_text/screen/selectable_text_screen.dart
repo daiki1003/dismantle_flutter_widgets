@@ -54,6 +54,7 @@ class SelectableTextScreen extends HookConsumerWidget {
                 enableInteractiveSelection: state.enableInteractiveSelection,
                 selectionControls: state.selectionControls,
                 scrollPhysics: state.scrollPhysics,
+                textWidthBasis: state.textWidthBasis,
               ),
               const SizedBox(height: 32),
               Expanded(
@@ -169,6 +170,13 @@ class SelectableTextScreen extends HookConsumerWidget {
                             throw UnimplementedError();
                           },
                           onSelected: notifier.scrollPhysicsUpdated,
+                        ),
+                        SelectButton<TextWidthBasis>(
+                          label: 'textWidthBasis',
+                          choices: TextWidthBasis.values,
+                          value: state.textWidthBasis,
+                          valueTextBuilder: (value) => value.name,
+                          onSelected: notifier.textWidthBasisUpdated,
                         ),
                       ].intersperse(
                         const SizedBox(height: 40),
