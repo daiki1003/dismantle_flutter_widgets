@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'package:dismantling/list_view/screen/list_view_screen.dart';
 import 'package:dismantling/menu/components/menu_item.dart';
 import 'package:dismantling/menu/enum/menu_type.dart';
 import 'package:dismantling/selectable_text/screen/selectable_text_screen.dart';
@@ -29,6 +30,10 @@ class MenuScreen extends StatelessWidget {
                 case MenuType.theme:
                   Navigator.of(context).push<void>(
                     ThemeScreen.route(),
+                  );
+                case MenuType.listView:
+                  Navigator.of(context).push<void>(
+                    ListViewScreen.route(),
                   );
               }
             },
