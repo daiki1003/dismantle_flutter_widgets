@@ -19,7 +19,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        applyElevationOverlayColor: true,
+        materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+        splashFactory: InkSparkle.splashFactory,
+        visualDensity: VisualDensity.compact,
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Colors.blueGrey,
+          elevation: 0,
+        ),
       ),
       home: const MenuScreen(),
     );
