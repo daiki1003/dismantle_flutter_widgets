@@ -1,3 +1,4 @@
 enum MenuType {
   selectableText,
+  theme,
 }
