@@ -15,7 +15,7 @@ dependencies:
   pedantic_mono: ^1.20.0
   freezed_annotation: ^2.2.0
   flutter_hooks: ^0.18.5+1
-  hooks_riverpod: ^1.0.4
+  hooks_riverpod: ^2.1.1
   intersperse: ^2.0.0
 
 dev_dependencies:
