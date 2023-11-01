@@ -26,7 +26,7 @@ class SelectButton<T> extends StatelessWidget {
       children: [
         Text(
           label,
-          style: textTheme.headline6!.copyWith(
+          style: textTheme.titleLarge!.copyWith(
             fontWeight: FontWeight.bold,
           ),
         ),

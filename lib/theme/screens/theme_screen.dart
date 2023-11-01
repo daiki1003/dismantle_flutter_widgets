@@ -160,17 +160,17 @@ class _AssetsAndIcons extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return const Column(
       children: [
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: const <Widget>[
+          children: [
             Icon(Icons.favorite),
             Icon(Icons.audiotrack),
             Icon(Icons.beach_access),
           ],
         ),
-        const CircleAvatar(),
+        CircleAvatar(),
       ],
     );
   }
@@ -596,11 +596,11 @@ class _MaterialComponents extends StatelessWidget {
               showBottomSheet<void>(
                 context: context,
                 builder: (context) {
-                  return SizedBox(
+                  return const SizedBox(
                     width: double.infinity,
                     height: 200,
                     child: Row(
-                      children: const [
+                      children: [
                         Icon(Icons.pentagon),
                         SizedBox(width: 20),
                         Text('asdf'),
@@ -704,7 +704,7 @@ class _MaterialComponents extends StatelessWidget {
                 selected: true,
               ),
               const ChoiceChip(label: Text('ChoiceChip'), selected: true),
-              const ActionChip(label: Text('ActionChip'))
+              const ActionChip(label: Text('ActionChip')),
             ],
           ),
           const CircularProgressIndicator(),
@@ -719,7 +719,7 @@ class _MaterialComponents extends StatelessWidget {
                   DataCell(Text('Cell 1')),
                   DataCell(Text('Cell 2')),
                 ],
-              )
+              ),
             ],
           ),
           const LinearProgressIndicator(),
