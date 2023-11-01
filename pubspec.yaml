@@ -12,18 +12,18 @@ dependencies:
   flutter:
     sdk: flutter
 
-  pedantic_mono: ^1.20.0
-  freezed_annotation: ^2.2.0
-  flutter_hooks: ^0.18.5+1
-  hooks_riverpod: ^2.1.1
+  pedantic_mono: ^1.24.0+1
+  freezed_annotation: ^2.4.1
+  flutter_hooks: ^0.20.3
+  hooks_riverpod: ^2.4.5
   intersperse: ^2.0.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  build_runner: ^2.3.2
-  freezed: ^2.3.0
+  build_runner: ^2.4.6
+  freezed: ^2.4.5
   import_sorter: ^4.6.0
 
 flutter:
