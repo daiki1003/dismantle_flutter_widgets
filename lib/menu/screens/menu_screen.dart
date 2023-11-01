@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart' hide MenuItem;
+import 'package:flutter/material.dart';
 
 import 'package:dismantling/menu/components/menu_item.dart';
 import 'package:dismantling/menu/enum/menu_type.dart';
@@ -26,12 +26,10 @@ class MenuScreen extends StatelessWidget {
                   Navigator.of(context).push<void>(
                     SelectableTextScreen.route(),
                   );
-                  break;
                 case MenuType.theme:
                   Navigator.of(context).push<void>(
                     ThemeScreen.route(),
                   );
-                  break;
               }
             },
           );

@@ -38,8 +38,10 @@ class SelectableTextScreen extends HookConsumerWidget {
                 'abcdefghijklmnopqrstuvwxyz\n'
                 'あいうえおabcdefghijklmnoかきくけこpqrstuvwxyz\n'
                 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, '
-                'sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
-                ' Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris',
+                'sed do eiusmod tempor incididunt'
+                ' ut labore et dolore magna aliqua.'
+                ' Ut enim ad minim veniam, quis nostrud'
+                ' exercitation ullamco laboris',
                 style: const TextStyle(
                   fontSize: 24,
                   height: 1.2,
@@ -248,7 +250,7 @@ class _SliderMenu extends StatelessWidget {
       children: [
         Text(
           label,
-          style: theme.textTheme.headline6!.copyWith(
+          style: theme.textTheme.titleLarge!.copyWith(
             fontWeight: FontWeight.bold,
           ),
         ),
@@ -256,14 +258,14 @@ class _SliderMenu extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(min.toString(), style: theme.textTheme.caption),
+            Text(min.toString(), style: theme.textTheme.bodySmall),
             Text(
               value.toString(),
               style: theme.textTheme.titleLarge!.copyWith(
                 fontWeight: FontWeight.bold,
               ),
             ),
-            Text(max.toString(), style: theme.textTheme.caption),
+            Text(max.toString(), style: theme.textTheme.bodySmall),
           ],
         ),
         Slider.adaptive(
