@@ -9,6 +9,7 @@ part 'list_state.freezed.dart';
 @freezed
 class ListState with _$ListState {
   const factory ListState({
+    @Default(100) int itemCount,
     @Default(ListViewConstructorType.normal)
     ListViewConstructorType constructorType,
     @Default(Axis.vertical) Axis scrollDirection,
@@ -23,6 +24,10 @@ class ListState with _$ListState {
 }
 
 extension ListStateEx on ListState {
+  ListState itemCountUpdated(int itemCount) {
+    return copyWith(itemCount: itemCount);
+  }
+
   ListState constructorTypeUpdated(ListViewConstructorType type) {
     return copyWith(constructorType: type);
   }

@@ -13,6 +13,10 @@ final listViewModel =
 class _ListViewModel extends StateNotifier<ListState> {
   _ListViewModel() : super(ListState.empty());
 
+  void itemCountUpdated(int itemCount) {
+    state = state.itemCountUpdated(itemCount);
+  }
+
   void constructorTypeUpdated(ListViewConstructorType type) {
     state = state.constructorTypeUpdated(type);
   }

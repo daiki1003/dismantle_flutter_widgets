@@ -1,11 +1,13 @@
 import 'dart:math';
 
+import 'package:dismantling/components/slider_menu.dart';
 import 'package:flutter/material.dart';
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:intersperse/intersperse.dart';
 
 import 'package:dismantling/components/select_menu.dart';
+import 'package:dismantling/components/slider_menu.dart';
 import 'package:dismantling/components/toggle_menu.dart';
 import 'package:dismantling/list_view/model/list_view_constructor_type.dart';
 import 'package:dismantling/list_view/view_model/list_view_model.dart';
@@ -28,7 +30,6 @@ class ListViewScreen extends HookConsumerWidget {
 
     final theme = Theme.of(context).textTheme;
 
-    const itemCount = 100;
     Widget createColorBox(int index) {
       return Container(
         height: 25,
@@ -61,14 +62,17 @@ class ListViewScreen extends HookConsumerWidget {
                         reverse: state.reverse,
                         primary: state.primary,
                         physics: state.physics,
-                        children: List.generate(itemCount, createColorBox),
+                        children: List.generate(
+                          state.itemCount,
+                          createColorBox,
+                        ),
                       ),
                     ListViewConstructorType.builder => ListView.builder(
                         scrollDirection: state.scrollDirection,
                         reverse: state.reverse,
                         primary: state.primary,
                         physics: state.physics,
-                        itemCount: itemCount,
+                        itemCount: state.itemCount,
                         itemBuilder: (context, index) => createColorBox(index),
                       ),
                     ListViewConstructorType.separated => ListView.separated(
@@ -76,7 +80,7 @@ class ListViewScreen extends HookConsumerWidget {
                         reverse: state.reverse,
                         primary: state.primary,
                         physics: state.physics,
-                        itemCount: itemCount,
+                        itemCount: state.itemCount,
                         separatorBuilder: (context, index) => const Divider(),
                         itemBuilder: (context, index) => createColorBox(index),
                       ),
@@ -88,6 +92,16 @@ class ListViewScreen extends HookConsumerWidget {
                 child: SingleChildScrollView(
                   child: Column(
                     children: <Widget>[
+                      SliderMenu(
+                        label: 'itemCount',
+                        value: state.itemCount.toDouble(),
+                        min: 0,
+                        max: 200,
+                        divisions: 200 ~/ 5,
+                        onChanged: (itemCount) => notifier.itemCountUpdated(
+                          itemCount.toInt(),
+                        ),
+                      ),
                       SelectMenu<ListViewConstructorType>(
                         label: 'constructorType',
                         choices: ListViewConstructorType.values,

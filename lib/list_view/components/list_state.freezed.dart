@@ -16,6 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$ListState {
+  int get itemCount => throw _privateConstructorUsedError;
   ListViewConstructorType get constructorType =>
       throw _privateConstructorUsedError;
   Axis get scrollDirection => throw _privateConstructorUsedError;
@@ -34,7 +35,8 @@ abstract class $ListStateCopyWith<$Res> {
       _$ListStateCopyWithImpl<$Res, ListState>;
   @useResult
   $Res call(
-      {ListViewConstructorType constructorType,
+      {int itemCount,
+      ListViewConstructorType constructorType,
       Axis scrollDirection,
       bool reverse,
       bool primary,
@@ -54,6 +56,7 @@ class _$ListStateCopyWithImpl<$Res, $Val extends ListState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? itemCount = null,
     Object? constructorType = null,
     Object? scrollDirection = null,
     Object? reverse = null,
@@ -61,6 +64,10 @@ class _$ListStateCopyWithImpl<$Res, $Val extends ListState>
     Object? physics = freezed,
   }) {
     return _then(_value.copyWith(
+      itemCount: null == itemCount
+          ? _value.itemCount
+          : itemCount // ignore: cast_nullable_to_non_nullable
+              as int,
       constructorType: null == constructorType
           ? _value.constructorType
           : constructorType // ignore: cast_nullable_to_non_nullable
@@ -94,7 +101,8 @@ abstract class _$$ListStateImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {ListViewConstructorType constructorType,
+      {int itemCount,
+      ListViewConstructorType constructorType,
       Axis scrollDirection,
       bool reverse,
       bool primary,
@@ -112,6 +120,7 @@ class __$$ListStateImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? itemCount = null,
     Object? constructorType = null,
     Object? scrollDirection = null,
     Object? reverse = null,
@@ -119,6 +128,10 @@ class __$$ListStateImplCopyWithImpl<$Res>
     Object? physics = freezed,
   }) {
     return _then(_$ListStateImpl(
+      itemCount: null == itemCount
+          ? _value.itemCount
+          : itemCount // ignore: cast_nullable_to_non_nullable
+              as int,
       constructorType: null == constructorType
           ? _value.constructorType
           : constructorType // ignore: cast_nullable_to_non_nullable
@@ -147,12 +160,16 @@ class __$$ListStateImplCopyWithImpl<$Res>
 
 class _$ListStateImpl implements _ListState {
   const _$ListStateImpl(
-      {this.constructorType = ListViewConstructorType.normal,
+      {this.itemCount = 100,
+      this.constructorType = ListViewConstructorType.normal,
       this.scrollDirection = Axis.vertical,
       this.reverse = false,
       this.primary = false,
       this.physics});
 
+  @override
+  @JsonKey()
+  final int itemCount;
   @override
   @JsonKey()
   final ListViewConstructorType constructorType;
@@ -170,7 +187,7 @@ class _$ListStateImpl implements _ListState {
 
   @override
   String toString() {
-    return 'ListState(constructorType: $constructorType, scrollDirection: $scrollDirection, reverse: $reverse, primary: $primary, physics: $physics)';
+    return 'ListState(itemCount: $itemCount, constructorType: $constructorType, scrollDirection: $scrollDirection, reverse: $reverse, primary: $primary, physics: $physics)';
   }
 
   @override
@@ -178,6 +195,8 @@ class _$ListStateImpl implements _ListState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ListStateImpl &&
+            (identical(other.itemCount, itemCount) ||
+                other.itemCount == itemCount) &&
             (identical(other.constructorType, constructorType) ||
                 other.constructorType == constructorType) &&
             (identical(other.scrollDirection, scrollDirection) ||
@@ -188,8 +207,8 @@ class _$ListStateImpl implements _ListState {
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, constructorType, scrollDirection, reverse, primary, physics);
+  int get hashCode => Object.hash(runtimeType, itemCount, constructorType,
+      scrollDirection, reverse, primary, physics);
 
   @JsonKey(ignore: true)
   @override
@@ -200,12 +219,15 @@ class _$ListStateImpl implements _ListState {
 
 abstract class _ListState implements ListState {
   const factory _ListState(
-      {final ListViewConstructorType constructorType,
+      {final int itemCount,
+      final ListViewConstructorType constructorType,
       final Axis scrollDirection,
       final bool reverse,
       final bool primary,
       final ScrollPhysics? physics}) = _$ListStateImpl;
 
+  @override
+  int get itemCount;
   @override
   ListViewConstructorType get constructorType;
   @override
