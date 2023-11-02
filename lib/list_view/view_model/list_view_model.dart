@@ -36,4 +36,8 @@ class _ListViewModel extends StateNotifier<ListState> {
   void physicsUpdated(ScrollPhysics physics) {
     state = state.physicsUpdated(physics);
   }
+
+  void shrinkWrapToggled() {
+    state = state.shrinkWrapToggled();
+  }
 }

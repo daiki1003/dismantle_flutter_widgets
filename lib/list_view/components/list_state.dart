@@ -16,6 +16,7 @@ class ListState with _$ListState {
     @Default(false) bool reverse,
     @Default(false) bool primary,
     ScrollPhysics? physics,
+    @Default(false) bool shrinkWrap,
   }) = _ListState;
 
   factory ListState.empty() {
@@ -56,6 +57,12 @@ extension ListStateEx on ListState {
   ListState physicsUpdated(ScrollPhysics physics) {
     return copyWith(
       physics: physics,
+    );
+  }
+
+  ListState shrinkWrapToggled() {
+    return copyWith(
+      shrinkWrap: !shrinkWrap,
     );
   }
 }
