@@ -54,29 +54,34 @@ class ListViewScreen extends HookConsumerWidget {
             children: [
               SizedBox(
                 height: MediaQuery.sizeOf(context).height * 0.4,
-                child: switch (state.constructorType) {
-                  ListViewConstructorType.normal => ListView(
-                      scrollDirection: state.scrollDirection,
-                      reverse: state.reverse,
-                      primary: state.primary,
-                      children: List.generate(itemCount, createColorBox),
-                    ),
-                  ListViewConstructorType.builder => ListView.builder(
-                      scrollDirection: state.scrollDirection,
-                      reverse: state.reverse,
-                      primary: state.primary,
-                      itemCount: itemCount,
-                      itemBuilder: (context, index) => createColorBox(index),
-                    ),
-                  ListViewConstructorType.separated => ListView.separated(
-                      scrollDirection: state.scrollDirection,
-                      reverse: state.reverse,
-                      primary: state.primary,
-                      itemCount: itemCount,
-                      separatorBuilder: (context, index) => const Divider(),
-                      itemBuilder: (context, index) => createColorBox(index),
-                    ),
-                },
+                child: Scrollbar(
+                  child: switch (state.constructorType) {
+                    ListViewConstructorType.normal => ListView(
+                        scrollDirection: state.scrollDirection,
+                        reverse: state.reverse,
+                        primary: state.primary,
+                        physics: state.physics,
+                        children: List.generate(itemCount, createColorBox),
+                      ),
+                    ListViewConstructorType.builder => ListView.builder(
+                        scrollDirection: state.scrollDirection,
+                        reverse: state.reverse,
+                        primary: state.primary,
+                        physics: state.physics,
+                        itemCount: itemCount,
+                        itemBuilder: (context, index) => createColorBox(index),
+                      ),
+                    ListViewConstructorType.separated => ListView.separated(
+                        scrollDirection: state.scrollDirection,
+                        reverse: state.reverse,
+                        primary: state.primary,
+                        physics: state.physics,
+                        itemCount: itemCount,
+                        separatorBuilder: (context, index) => const Divider(),
+                        itemBuilder: (context, index) => createColorBox(index),
+                      ),
+                  },
+                ),
               ),
               const SizedBox(height: 32),
               Expanded(
@@ -106,6 +111,19 @@ class ListViewScreen extends HookConsumerWidget {
                         text: 'primary',
                         value: state.primary,
                         onToggled: (_) => notifier.primaryToggled(),
+                      ),
+                      SelectMenu<ScrollPhysics>(
+                        label: 'physics',
+                        choices: const [
+                          BouncingScrollPhysics(),
+                          RangeMaintainingScrollPhysics(),
+                          NeverScrollableScrollPhysics(),
+                          AlwaysScrollableScrollPhysics(),
+                          ClampingScrollPhysics(),
+                        ],
+                        value: state.physics,
+                        valueTextBuilder: (value) => value.toString(),
+                        onSelected: notifier.physicsUpdated,
                       ),
                     ].intersperse(const SizedBox(height: 32)).toList(),
                   ),

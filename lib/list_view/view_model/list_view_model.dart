@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import 'package:dismantling/list_view/components/list_state.dart';
@@ -25,5 +27,9 @@ class _ListViewModel extends StateNotifier<ListState> {
 
   void primaryToggled() {
     state = state.primaryToggled();
+  }
+
+  void physicsUpdated(ScrollPhysics physics) {
+    state = state.physicsUpdated(physics);
   }
 }

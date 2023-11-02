@@ -21,6 +21,7 @@ mixin _$ListState {
   Axis get scrollDirection => throw _privateConstructorUsedError;
   bool get reverse => throw _privateConstructorUsedError;
   bool get primary => throw _privateConstructorUsedError;
+  ScrollPhysics? get physics => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ListStateCopyWith<ListState> get copyWith =>
@@ -36,7 +37,8 @@ abstract class $ListStateCopyWith<$Res> {
       {ListViewConstructorType constructorType,
       Axis scrollDirection,
       bool reverse,
-      bool primary});
+      bool primary,
+      ScrollPhysics? physics});
 }
 
 /// @nodoc
@@ -56,6 +58,7 @@ class _$ListStateCopyWithImpl<$Res, $Val extends ListState>
     Object? scrollDirection = null,
     Object? reverse = null,
     Object? primary = null,
+    Object? physics = freezed,
   }) {
     return _then(_value.copyWith(
       constructorType: null == constructorType
@@ -74,6 +77,10 @@ class _$ListStateCopyWithImpl<$Res, $Val extends ListState>
           ? _value.primary
           : primary // ignore: cast_nullable_to_non_nullable
               as bool,
+      physics: freezed == physics
+          ? _value.physics
+          : physics // ignore: cast_nullable_to_non_nullable
+              as ScrollPhysics?,
     ) as $Val);
   }
 }
@@ -90,7 +97,8 @@ abstract class _$$ListStateImplCopyWith<$Res>
       {ListViewConstructorType constructorType,
       Axis scrollDirection,
       bool reverse,
-      bool primary});
+      bool primary,
+      ScrollPhysics? physics});
 }
 
 /// @nodoc
@@ -108,6 +116,7 @@ class __$$ListStateImplCopyWithImpl<$Res>
     Object? scrollDirection = null,
     Object? reverse = null,
     Object? primary = null,
+    Object? physics = freezed,
   }) {
     return _then(_$ListStateImpl(
       constructorType: null == constructorType
@@ -126,6 +135,10 @@ class __$$ListStateImplCopyWithImpl<$Res>
           ? _value.primary
           : primary // ignore: cast_nullable_to_non_nullable
               as bool,
+      physics: freezed == physics
+          ? _value.physics
+          : physics // ignore: cast_nullable_to_non_nullable
+              as ScrollPhysics?,
     ));
   }
 }
@@ -137,7 +150,8 @@ class _$ListStateImpl implements _ListState {
       {this.constructorType = ListViewConstructorType.normal,
       this.scrollDirection = Axis.vertical,
       this.reverse = false,
-      this.primary = false});
+      this.primary = false,
+      this.physics});
 
   @override
   @JsonKey()
@@ -151,10 +165,12 @@ class _$ListStateImpl implements _ListState {
   @override
   @JsonKey()
   final bool primary;
+  @override
+  final ScrollPhysics? physics;
 
   @override
   String toString() {
-    return 'ListState(constructorType: $constructorType, scrollDirection: $scrollDirection, reverse: $reverse, primary: $primary)';
+    return 'ListState(constructorType: $constructorType, scrollDirection: $scrollDirection, reverse: $reverse, primary: $primary, physics: $physics)';
   }
 
   @override
@@ -167,12 +183,13 @@ class _$ListStateImpl implements _ListState {
             (identical(other.scrollDirection, scrollDirection) ||
                 other.scrollDirection == scrollDirection) &&
             (identical(other.reverse, reverse) || other.reverse == reverse) &&
-            (identical(other.primary, primary) || other.primary == primary));
+            (identical(other.primary, primary) || other.primary == primary) &&
+            (identical(other.physics, physics) || other.physics == physics));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, constructorType, scrollDirection, reverse, primary);
+      runtimeType, constructorType, scrollDirection, reverse, primary, physics);
 
   @JsonKey(ignore: true)
   @override
@@ -186,7 +203,8 @@ abstract class _ListState implements ListState {
       {final ListViewConstructorType constructorType,
       final Axis scrollDirection,
       final bool reverse,
-      final bool primary}) = _$ListStateImpl;
+      final bool primary,
+      final ScrollPhysics? physics}) = _$ListStateImpl;
 
   @override
   ListViewConstructorType get constructorType;
@@ -196,6 +214,8 @@ abstract class _ListState implements ListState {
   bool get reverse;
   @override
   bool get primary;
+  @override
+  ScrollPhysics? get physics;
   @override
   @JsonKey(ignore: true)
   _$$ListStateImplCopyWith<_$ListStateImpl> get copyWith =>

@@ -14,6 +14,7 @@ class ListState with _$ListState {
     @Default(Axis.vertical) Axis scrollDirection,
     @Default(false) bool reverse,
     @Default(false) bool primary,
+    ScrollPhysics? physics,
   }) = _ListState;
 
   factory ListState.empty() {
@@ -44,6 +45,12 @@ extension ListStateEx on ListState {
   ListState primaryToggled() {
     return copyWith(
       primary: !primary,
+    );
+  }
+
+  ListState physicsUpdated(ScrollPhysics physics) {
+    return copyWith(
+      physics: physics,
     );
   }
 }
