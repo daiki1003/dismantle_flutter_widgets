@@ -13,6 +13,7 @@ class ListState with _$ListState {
     ListViewConstructorType constructorType,
     @Default(Axis.vertical) Axis scrollDirection,
     @Default(false) bool reverse,
+    @Default(false) bool primary,
   }) = _ListState;
 
   factory ListState.empty() {
@@ -37,6 +38,12 @@ extension ListStateEx on ListState {
   ListState reverseToggled() {
     return copyWith(
       reverse: !reverse,
+    );
+  }
+
+  ListState primaryToggled() {
+    return copyWith(
+      primary: !primary,
     );
   }
 }

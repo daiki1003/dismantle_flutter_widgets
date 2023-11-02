@@ -22,4 +22,8 @@ class _ListViewModel extends StateNotifier<ListState> {
   void reverseToggled() {
     state = state.reverseToggled();
   }
+
+  void primaryToggled() {
+    state = state.primaryToggled();
+  }
 }

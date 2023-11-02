@@ -58,17 +58,20 @@ class ListViewScreen extends HookConsumerWidget {
                   ListViewConstructorType.normal => ListView(
                       scrollDirection: state.scrollDirection,
                       reverse: state.reverse,
+                      primary: state.primary,
                       children: List.generate(itemCount, createColorBox),
                     ),
                   ListViewConstructorType.builder => ListView.builder(
                       scrollDirection: state.scrollDirection,
                       reverse: state.reverse,
+                      primary: state.primary,
                       itemCount: itemCount,
                       itemBuilder: (context, index) => createColorBox(index),
                     ),
                   ListViewConstructorType.separated => ListView.separated(
                       scrollDirection: state.scrollDirection,
                       reverse: state.reverse,
+                      primary: state.primary,
                       itemCount: itemCount,
                       separatorBuilder: (context, index) => const Divider(),
                       itemBuilder: (context, index) => createColorBox(index),
@@ -98,6 +101,11 @@ class ListViewScreen extends HookConsumerWidget {
                         text: 'reverse',
                         value: state.reverse,
                         onToggled: (_) => notifier.reverseToggled(),
+                      ),
+                      ToggleMenu(
+                        text: 'primary',
+                        value: state.primary,
+                        onToggled: (_) => notifier.primaryToggled(),
                       ),
                     ].intersperse(const SizedBox(height: 32)).toList(),
                   ),
