@@ -18,6 +18,7 @@ class ListState with _$ListState {
     ScrollPhysics? physics,
     @Default(false) bool shrinkWrap,
     @Default(25.0) double itemExtent,
+    @Default(false) bool withPrototypeItem,
   }) = _ListState;
 
   factory ListState.empty() {
@@ -70,6 +71,12 @@ extension ListStateEx on ListState {
   ListState itemExtentUpdated(double itemExtent) {
     return copyWith(
       itemExtent: itemExtent,
+    );
+  }
+
+  ListState withProtoTypeItemToggled() {
+    return copyWith(
+      withPrototypeItem: !withPrototypeItem,
     );
   }
 }

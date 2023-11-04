@@ -46,6 +46,8 @@ class ListViewScreen extends HookConsumerWidget {
       );
     }
 
+    const prototypeItem = SizedBox(height: 25, width: 200);
+
     return Scaffold(
       appBar: AppBar(title: const Text('ListView')),
       body: SafeArea(
@@ -64,6 +66,8 @@ class ListViewScreen extends HookConsumerWidget {
                         physics: state.physics,
                         shrinkWrap: state.shrinkWrap,
                         itemExtent: state.itemExtent,
+                        prototypeItem:
+                            state.withPrototypeItem ? prototypeItem : null,
                         children: List.generate(
                           state.itemCount,
                           createColorBox,
@@ -76,6 +80,8 @@ class ListViewScreen extends HookConsumerWidget {
                         physics: state.physics,
                         shrinkWrap: state.shrinkWrap,
                         itemExtent: state.itemExtent,
+                        prototypeItem:
+                            state.withPrototypeItem ? prototypeItem : null,
                         itemCount: state.itemCount,
                         itemBuilder: (context, index) => createColorBox(index),
                       ),
@@ -87,6 +93,9 @@ class ListViewScreen extends HookConsumerWidget {
                         shrinkWrap: state.shrinkWrap,
                         // NOTICE: itemExtent is not supported.
                         // itemExtent: state.itemExtent,
+                        // NOTICE: prototypeItem is not supported.
+                        // prototypeItem:
+                        //     state.withPrototypeItem ? prototypeItem : null,
                         itemCount: state.itemCount,
                         separatorBuilder: (context, index) => const Divider(),
                         itemBuilder: (context, index) => createColorBox(index),
@@ -158,6 +167,11 @@ class ListViewScreen extends HookConsumerWidget {
                         max: 100,
                         divisions: 100,
                         onChanged: notifier.itemExtentUpdated,
+                      ),
+                      ToggleMenu(
+                        text: 'protoTypeItem',
+                        value: state.withPrototypeItem,
+                        onToggled: (_) => notifier.withProtoTypeItemToggled(),
                       ),
                     ].intersperse(const SizedBox(height: 32)).toList(),
                   ),

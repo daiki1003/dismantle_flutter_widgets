@@ -44,4 +44,8 @@ class _ListViewModel extends StateNotifier<ListState> {
   void itemExtentUpdated(double itemExtent) {
     state = state.itemExtentUpdated(itemExtent);
   }
+
+  void withProtoTypeItemToggled() {
+    state = state.withProtoTypeItemToggled();
+  }
 }
