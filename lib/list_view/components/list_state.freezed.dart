@@ -24,6 +24,7 @@ mixin _$ListState {
   bool get primary => throw _privateConstructorUsedError;
   ScrollPhysics? get physics => throw _privateConstructorUsedError;
   bool get shrinkWrap => throw _privateConstructorUsedError;
+  double get itemExtent => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ListStateCopyWith<ListState> get copyWith =>
@@ -42,7 +43,8 @@ abstract class $ListStateCopyWith<$Res> {
       bool reverse,
       bool primary,
       ScrollPhysics? physics,
-      bool shrinkWrap});
+      bool shrinkWrap,
+      double itemExtent});
 }
 
 /// @nodoc
@@ -65,6 +67,7 @@ class _$ListStateCopyWithImpl<$Res, $Val extends ListState>
     Object? primary = null,
     Object? physics = freezed,
     Object? shrinkWrap = null,
+    Object? itemExtent = null,
   }) {
     return _then(_value.copyWith(
       itemCount: null == itemCount
@@ -95,6 +98,10 @@ class _$ListStateCopyWithImpl<$Res, $Val extends ListState>
           ? _value.shrinkWrap
           : shrinkWrap // ignore: cast_nullable_to_non_nullable
               as bool,
+      itemExtent: null == itemExtent
+          ? _value.itemExtent
+          : itemExtent // ignore: cast_nullable_to_non_nullable
+              as double,
     ) as $Val);
   }
 }
@@ -114,7 +121,8 @@ abstract class _$$ListStateImplCopyWith<$Res>
       bool reverse,
       bool primary,
       ScrollPhysics? physics,
-      bool shrinkWrap});
+      bool shrinkWrap,
+      double itemExtent});
 }
 
 /// @nodoc
@@ -135,6 +143,7 @@ class __$$ListStateImplCopyWithImpl<$Res>
     Object? primary = null,
     Object? physics = freezed,
     Object? shrinkWrap = null,
+    Object? itemExtent = null,
   }) {
     return _then(_$ListStateImpl(
       itemCount: null == itemCount
@@ -165,6 +174,10 @@ class __$$ListStateImplCopyWithImpl<$Res>
           ? _value.shrinkWrap
           : shrinkWrap // ignore: cast_nullable_to_non_nullable
               as bool,
+      itemExtent: null == itemExtent
+          ? _value.itemExtent
+          : itemExtent // ignore: cast_nullable_to_non_nullable
+              as double,
     ));
   }
 }
@@ -179,7 +192,8 @@ class _$ListStateImpl implements _ListState {
       this.reverse = false,
       this.primary = false,
       this.physics,
-      this.shrinkWrap = false});
+      this.shrinkWrap = false,
+      this.itemExtent = 25.0});
 
   @override
   @JsonKey()
@@ -201,10 +215,13 @@ class _$ListStateImpl implements _ListState {
   @override
   @JsonKey()
   final bool shrinkWrap;
+  @override
+  @JsonKey()
+  final double itemExtent;
 
   @override
   String toString() {
-    return 'ListState(itemCount: $itemCount, constructorType: $constructorType, scrollDirection: $scrollDirection, reverse: $reverse, primary: $primary, physics: $physics, shrinkWrap: $shrinkWrap)';
+    return 'ListState(itemCount: $itemCount, constructorType: $constructorType, scrollDirection: $scrollDirection, reverse: $reverse, primary: $primary, physics: $physics, shrinkWrap: $shrinkWrap, itemExtent: $itemExtent)';
   }
 
   @override
@@ -222,12 +239,14 @@ class _$ListStateImpl implements _ListState {
             (identical(other.primary, primary) || other.primary == primary) &&
             (identical(other.physics, physics) || other.physics == physics) &&
             (identical(other.shrinkWrap, shrinkWrap) ||
-                other.shrinkWrap == shrinkWrap));
+                other.shrinkWrap == shrinkWrap) &&
+            (identical(other.itemExtent, itemExtent) ||
+                other.itemExtent == itemExtent));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, itemCount, constructorType,
-      scrollDirection, reverse, primary, physics, shrinkWrap);
+      scrollDirection, reverse, primary, physics, shrinkWrap, itemExtent);
 
   @JsonKey(ignore: true)
   @override
@@ -244,7 +263,8 @@ abstract class _ListState implements ListState {
       final bool reverse,
       final bool primary,
       final ScrollPhysics? physics,
-      final bool shrinkWrap}) = _$ListStateImpl;
+      final bool shrinkWrap,
+      final double itemExtent}) = _$ListStateImpl;
 
   @override
   int get itemCount;
@@ -260,6 +280,8 @@ abstract class _ListState implements ListState {
   ScrollPhysics? get physics;
   @override
   bool get shrinkWrap;
+  @override
+  double get itemExtent;
   @override
   @JsonKey(ignore: true)
   _$$ListStateImplCopyWith<_$ListStateImpl> get copyWith =>

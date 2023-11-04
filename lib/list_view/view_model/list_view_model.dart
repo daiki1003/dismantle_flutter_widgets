@@ -40,4 +40,8 @@ class _ListViewModel extends StateNotifier<ListState> {
   void shrinkWrapToggled() {
     state = state.shrinkWrapToggled();
   }
+
+  void itemExtentUpdated(double itemExtent) {
+    state = state.itemExtentUpdated(itemExtent);
+  }
 }

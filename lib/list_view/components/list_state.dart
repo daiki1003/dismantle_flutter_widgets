@@ -17,6 +17,7 @@ class ListState with _$ListState {
     @Default(false) bool primary,
     ScrollPhysics? physics,
     @Default(false) bool shrinkWrap,
+    @Default(25.0) double itemExtent,
   }) = _ListState;
 
   factory ListState.empty() {
@@ -63,6 +64,12 @@ extension ListStateEx on ListState {
   ListState shrinkWrapToggled() {
     return copyWith(
       shrinkWrap: !shrinkWrap,
+    );
+  }
+
+  ListState itemExtentUpdated(double itemExtent) {
+    return copyWith(
+      itemExtent: itemExtent,
     );
   }
 }
