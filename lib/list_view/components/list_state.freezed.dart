@@ -32,6 +32,8 @@ mixin _$ListState {
   double? get cacheExtent => throw _privateConstructorUsedError;
   int? get semanticChildCount => throw _privateConstructorUsedError;
   DragStartBehavior get dragStartBehavior => throw _privateConstructorUsedError;
+  ScrollViewKeyboardDismissBehavior get keyboardDismissBehavior =>
+      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ListStateCopyWith<ListState> get copyWith =>
@@ -58,7 +60,8 @@ abstract class $ListStateCopyWith<$Res> {
       bool addSemanticIndexes,
       double? cacheExtent,
       int? semanticChildCount,
-      DragStartBehavior dragStartBehavior});
+      DragStartBehavior dragStartBehavior,
+      ScrollViewKeyboardDismissBehavior keyboardDismissBehavior});
 }
 
 /// @nodoc
@@ -89,6 +92,7 @@ class _$ListStateCopyWithImpl<$Res, $Val extends ListState>
     Object? cacheExtent = freezed,
     Object? semanticChildCount = freezed,
     Object? dragStartBehavior = null,
+    Object? keyboardDismissBehavior = null,
   }) {
     return _then(_value.copyWith(
       itemCount: null == itemCount
@@ -151,6 +155,10 @@ class _$ListStateCopyWithImpl<$Res, $Val extends ListState>
           ? _value.dragStartBehavior
           : dragStartBehavior // ignore: cast_nullable_to_non_nullable
               as DragStartBehavior,
+      keyboardDismissBehavior: null == keyboardDismissBehavior
+          ? _value.keyboardDismissBehavior
+          : keyboardDismissBehavior // ignore: cast_nullable_to_non_nullable
+              as ScrollViewKeyboardDismissBehavior,
     ) as $Val);
   }
 }
@@ -178,7 +186,8 @@ abstract class _$$ListStateImplCopyWith<$Res>
       bool addSemanticIndexes,
       double? cacheExtent,
       int? semanticChildCount,
-      DragStartBehavior dragStartBehavior});
+      DragStartBehavior dragStartBehavior,
+      ScrollViewKeyboardDismissBehavior keyboardDismissBehavior});
 }
 
 /// @nodoc
@@ -207,6 +216,7 @@ class __$$ListStateImplCopyWithImpl<$Res>
     Object? cacheExtent = freezed,
     Object? semanticChildCount = freezed,
     Object? dragStartBehavior = null,
+    Object? keyboardDismissBehavior = null,
   }) {
     return _then(_$ListStateImpl(
       itemCount: null == itemCount
@@ -269,6 +279,10 @@ class __$$ListStateImplCopyWithImpl<$Res>
           ? _value.dragStartBehavior
           : dragStartBehavior // ignore: cast_nullable_to_non_nullable
               as DragStartBehavior,
+      keyboardDismissBehavior: null == keyboardDismissBehavior
+          ? _value.keyboardDismissBehavior
+          : keyboardDismissBehavior // ignore: cast_nullable_to_non_nullable
+              as ScrollViewKeyboardDismissBehavior,
     ));
   }
 }
@@ -291,7 +305,8 @@ class _$ListStateImpl implements _ListState {
       this.addSemanticIndexes = true,
       this.cacheExtent,
       this.semanticChildCount,
-      this.dragStartBehavior = DragStartBehavior.start});
+      this.dragStartBehavior = DragStartBehavior.start,
+      this.keyboardDismissBehavior = ScrollViewKeyboardDismissBehavior.manual});
 
   @override
   @JsonKey()
@@ -335,10 +350,13 @@ class _$ListStateImpl implements _ListState {
   @override
   @JsonKey()
   final DragStartBehavior dragStartBehavior;
+  @override
+  @JsonKey()
+  final ScrollViewKeyboardDismissBehavior keyboardDismissBehavior;
 
   @override
   String toString() {
-    return 'ListState(itemCount: $itemCount, constructorType: $constructorType, scrollDirection: $scrollDirection, reverse: $reverse, primary: $primary, physics: $physics, shrinkWrap: $shrinkWrap, itemExtent: $itemExtent, withPrototypeItem: $withPrototypeItem, addAutomaticKeepAlives: $addAutomaticKeepAlives, addRepaintBoundaries: $addRepaintBoundaries, addSemanticIndexes: $addSemanticIndexes, cacheExtent: $cacheExtent, semanticChildCount: $semanticChildCount, dragStartBehavior: $dragStartBehavior)';
+    return 'ListState(itemCount: $itemCount, constructorType: $constructorType, scrollDirection: $scrollDirection, reverse: $reverse, primary: $primary, physics: $physics, shrinkWrap: $shrinkWrap, itemExtent: $itemExtent, withPrototypeItem: $withPrototypeItem, addAutomaticKeepAlives: $addAutomaticKeepAlives, addRepaintBoundaries: $addRepaintBoundaries, addSemanticIndexes: $addSemanticIndexes, cacheExtent: $cacheExtent, semanticChildCount: $semanticChildCount, dragStartBehavior: $dragStartBehavior, keyboardDismissBehavior: $keyboardDismissBehavior)';
   }
 
   @override
@@ -372,7 +390,10 @@ class _$ListStateImpl implements _ListState {
             (identical(other.semanticChildCount, semanticChildCount) ||
                 other.semanticChildCount == semanticChildCount) &&
             (identical(other.dragStartBehavior, dragStartBehavior) ||
-                other.dragStartBehavior == dragStartBehavior));
+                other.dragStartBehavior == dragStartBehavior) &&
+            (identical(
+                    other.keyboardDismissBehavior, keyboardDismissBehavior) ||
+                other.keyboardDismissBehavior == keyboardDismissBehavior));
   }
 
   @override
@@ -392,7 +413,8 @@ class _$ListStateImpl implements _ListState {
       addSemanticIndexes,
       cacheExtent,
       semanticChildCount,
-      dragStartBehavior);
+      dragStartBehavior,
+      keyboardDismissBehavior);
 
   @JsonKey(ignore: true)
   @override
@@ -403,21 +425,23 @@ class _$ListStateImpl implements _ListState {
 
 abstract class _ListState implements ListState {
   const factory _ListState(
-      {final int itemCount,
-      final ListViewConstructorType constructorType,
-      final Axis scrollDirection,
-      final bool reverse,
-      final bool primary,
-      final ScrollPhysics? physics,
-      final bool shrinkWrap,
-      final double itemExtent,
-      final bool withPrototypeItem,
-      final bool addAutomaticKeepAlives,
-      final bool addRepaintBoundaries,
-      final bool addSemanticIndexes,
-      final double? cacheExtent,
-      final int? semanticChildCount,
-      final DragStartBehavior dragStartBehavior}) = _$ListStateImpl;
+          {final int itemCount,
+          final ListViewConstructorType constructorType,
+          final Axis scrollDirection,
+          final bool reverse,
+          final bool primary,
+          final ScrollPhysics? physics,
+          final bool shrinkWrap,
+          final double itemExtent,
+          final bool withPrototypeItem,
+          final bool addAutomaticKeepAlives,
+          final bool addRepaintBoundaries,
+          final bool addSemanticIndexes,
+          final double? cacheExtent,
+          final int? semanticChildCount,
+          final DragStartBehavior dragStartBehavior,
+          final ScrollViewKeyboardDismissBehavior keyboardDismissBehavior}) =
+      _$ListStateImpl;
 
   @override
   int get itemCount;
@@ -449,6 +473,8 @@ abstract class _ListState implements ListState {
   int? get semanticChildCount;
   @override
   DragStartBehavior get dragStartBehavior;
+  @override
+  ScrollViewKeyboardDismissBehavior get keyboardDismissBehavior;
   @override
   @JsonKey(ignore: true)
   _$$ListStateImplCopyWith<_$ListStateImpl> get copyWith =>

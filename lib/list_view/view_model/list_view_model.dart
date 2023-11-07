@@ -73,4 +73,10 @@ class _ListViewModel extends StateNotifier<ListState> {
   void dragStartBehaviorUpdated(DragStartBehavior dragStartBehavior) {
     state = state.dragStartBehaviorUpdated(dragStartBehavior);
   }
+
+  void keyboardDismissBehaviorUpdated(
+    ScrollViewKeyboardDismissBehavior keyboardDismissBehavior,
+  ) {
+    state = state.keyboardDismissBehaviorUpdated(keyboardDismissBehavior);
+  }
 }

@@ -26,6 +26,8 @@ class ListState with _$ListState {
     double? cacheExtent,
     int? semanticChildCount,
     @Default(DragStartBehavior.start) DragStartBehavior dragStartBehavior,
+    @Default(ScrollViewKeyboardDismissBehavior.manual)
+    ScrollViewKeyboardDismissBehavior keyboardDismissBehavior,
   }) = _ListState;
 
   factory ListState.empty() {
@@ -117,5 +119,11 @@ extension ListStateEx on ListState {
 
   ListState dragStartBehaviorUpdated(DragStartBehavior dragStartBehavior) {
     return copyWith(dragStartBehavior: dragStartBehavior);
+  }
+
+  ListState keyboardDismissBehaviorUpdated(
+    ScrollViewKeyboardDismissBehavior keyboardDismissBehavior,
+  ) {
+    return copyWith(keyboardDismissBehavior: keyboardDismissBehavior);
   }
 }

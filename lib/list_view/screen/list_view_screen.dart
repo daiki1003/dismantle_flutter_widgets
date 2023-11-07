@@ -74,6 +74,7 @@ class ListViewScreen extends HookConsumerWidget {
                         cacheExtent: state.cacheExtent,
                         semanticChildCount: state.semanticChildCount,
                         dragStartBehavior: state.dragStartBehavior,
+                        keyboardDismissBehavior: state.keyboardDismissBehavior,
                         children: List.generate(
                           state.itemCount,
                           createColorBox,
@@ -94,6 +95,7 @@ class ListViewScreen extends HookConsumerWidget {
                         cacheExtent: state.cacheExtent,
                         semanticChildCount: state.semanticChildCount,
                         dragStartBehavior: state.dragStartBehavior,
+                        keyboardDismissBehavior: state.keyboardDismissBehavior,
                         itemCount: state.itemCount,
                         itemBuilder: (context, index) => createColorBox(index),
                       ),
@@ -115,6 +117,7 @@ class ListViewScreen extends HookConsumerWidget {
                         // NOTICE: semanticChildCount is not supported.
                         // semanticChildCount: state.semanticChildCount,
                         dragStartBehavior: state.dragStartBehavior,
+                        keyboardDismissBehavior: state.keyboardDismissBehavior,
                         itemCount: state.itemCount,
                         separatorBuilder: (context, index) => const Divider(),
                         itemBuilder: (context, index) => createColorBox(index),
@@ -234,6 +237,13 @@ class ListViewScreen extends HookConsumerWidget {
                         value: state.dragStartBehavior,
                         valueTextBuilder: (value) => value.toString(),
                         onSelected: notifier.dragStartBehaviorUpdated,
+                      ),
+                      SelectMenu<ScrollViewKeyboardDismissBehavior>(
+                        label: 'keyboardDismissBehavior',
+                        choices: ScrollViewKeyboardDismissBehavior.values,
+                        value: state.keyboardDismissBehavior,
+                        valueTextBuilder: (value) => value.toString(),
+                        onSelected: notifier.keyboardDismissBehaviorUpdated,
                       ),
                     ].intersperse(const SizedBox(height: 32)).toList(),
                   ),
