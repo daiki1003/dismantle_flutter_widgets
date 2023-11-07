@@ -52,4 +52,8 @@ class _ListViewModel extends StateNotifier<ListState> {
   void addAutomaticKeepAlivesToggled() {
     state = state.addAutomaticKeepAlivesToggled();
   }
+
+  void addRepaintBoundariesToggled() {
+    state = state.addRepaintBoundariesToggled();
+  }
 }

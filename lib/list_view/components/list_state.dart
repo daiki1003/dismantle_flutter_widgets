@@ -20,6 +20,7 @@ class ListState with _$ListState {
     @Default(25.0) double itemExtent,
     @Default(false) bool withPrototypeItem,
     @Default(true) bool addAutomaticKeepAlives,
+    @Default(true) bool addRepaintBoundaries,
   }) = _ListState;
 
   factory ListState.empty() {
@@ -84,6 +85,12 @@ extension ListStateEx on ListState {
   ListState addAutomaticKeepAlivesToggled() {
     return copyWith(
       addAutomaticKeepAlives: !addAutomaticKeepAlives,
+    );
+  }
+
+  ListState addRepaintBoundariesToggled() {
+    return copyWith(
+      addRepaintBoundaries: !addRepaintBoundaries,
     );
   }
 }

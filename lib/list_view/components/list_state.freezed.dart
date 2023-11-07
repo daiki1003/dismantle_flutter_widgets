@@ -27,6 +27,7 @@ mixin _$ListState {
   double get itemExtent => throw _privateConstructorUsedError;
   bool get withPrototypeItem => throw _privateConstructorUsedError;
   bool get addAutomaticKeepAlives => throw _privateConstructorUsedError;
+  bool get addRepaintBoundaries => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ListStateCopyWith<ListState> get copyWith =>
@@ -48,7 +49,8 @@ abstract class $ListStateCopyWith<$Res> {
       bool shrinkWrap,
       double itemExtent,
       bool withPrototypeItem,
-      bool addAutomaticKeepAlives});
+      bool addAutomaticKeepAlives,
+      bool addRepaintBoundaries});
 }
 
 /// @nodoc
@@ -74,6 +76,7 @@ class _$ListStateCopyWithImpl<$Res, $Val extends ListState>
     Object? itemExtent = null,
     Object? withPrototypeItem = null,
     Object? addAutomaticKeepAlives = null,
+    Object? addRepaintBoundaries = null,
   }) {
     return _then(_value.copyWith(
       itemCount: null == itemCount
@@ -116,6 +119,10 @@ class _$ListStateCopyWithImpl<$Res, $Val extends ListState>
           ? _value.addAutomaticKeepAlives
           : addAutomaticKeepAlives // ignore: cast_nullable_to_non_nullable
               as bool,
+      addRepaintBoundaries: null == addRepaintBoundaries
+          ? _value.addRepaintBoundaries
+          : addRepaintBoundaries // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -138,7 +145,8 @@ abstract class _$$ListStateImplCopyWith<$Res>
       bool shrinkWrap,
       double itemExtent,
       bool withPrototypeItem,
-      bool addAutomaticKeepAlives});
+      bool addAutomaticKeepAlives,
+      bool addRepaintBoundaries});
 }
 
 /// @nodoc
@@ -162,6 +170,7 @@ class __$$ListStateImplCopyWithImpl<$Res>
     Object? itemExtent = null,
     Object? withPrototypeItem = null,
     Object? addAutomaticKeepAlives = null,
+    Object? addRepaintBoundaries = null,
   }) {
     return _then(_$ListStateImpl(
       itemCount: null == itemCount
@@ -204,6 +213,10 @@ class __$$ListStateImplCopyWithImpl<$Res>
           ? _value.addAutomaticKeepAlives
           : addAutomaticKeepAlives // ignore: cast_nullable_to_non_nullable
               as bool,
+      addRepaintBoundaries: null == addRepaintBoundaries
+          ? _value.addRepaintBoundaries
+          : addRepaintBoundaries // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -221,7 +234,8 @@ class _$ListStateImpl implements _ListState {
       this.shrinkWrap = false,
       this.itemExtent = 25.0,
       this.withPrototypeItem = false,
-      this.addAutomaticKeepAlives = true});
+      this.addAutomaticKeepAlives = true,
+      this.addRepaintBoundaries = true});
 
   @override
   @JsonKey()
@@ -252,10 +266,13 @@ class _$ListStateImpl implements _ListState {
   @override
   @JsonKey()
   final bool addAutomaticKeepAlives;
+  @override
+  @JsonKey()
+  final bool addRepaintBoundaries;
 
   @override
   String toString() {
-    return 'ListState(itemCount: $itemCount, constructorType: $constructorType, scrollDirection: $scrollDirection, reverse: $reverse, primary: $primary, physics: $physics, shrinkWrap: $shrinkWrap, itemExtent: $itemExtent, withPrototypeItem: $withPrototypeItem, addAutomaticKeepAlives: $addAutomaticKeepAlives)';
+    return 'ListState(itemCount: $itemCount, constructorType: $constructorType, scrollDirection: $scrollDirection, reverse: $reverse, primary: $primary, physics: $physics, shrinkWrap: $shrinkWrap, itemExtent: $itemExtent, withPrototypeItem: $withPrototypeItem, addAutomaticKeepAlives: $addAutomaticKeepAlives, addRepaintBoundaries: $addRepaintBoundaries)';
   }
 
   @override
@@ -279,7 +296,9 @@ class _$ListStateImpl implements _ListState {
             (identical(other.withPrototypeItem, withPrototypeItem) ||
                 other.withPrototypeItem == withPrototypeItem) &&
             (identical(other.addAutomaticKeepAlives, addAutomaticKeepAlives) ||
-                other.addAutomaticKeepAlives == addAutomaticKeepAlives));
+                other.addAutomaticKeepAlives == addAutomaticKeepAlives) &&
+            (identical(other.addRepaintBoundaries, addRepaintBoundaries) ||
+                other.addRepaintBoundaries == addRepaintBoundaries));
   }
 
   @override
@@ -294,7 +313,8 @@ class _$ListStateImpl implements _ListState {
       shrinkWrap,
       itemExtent,
       withPrototypeItem,
-      addAutomaticKeepAlives);
+      addAutomaticKeepAlives,
+      addRepaintBoundaries);
 
   @JsonKey(ignore: true)
   @override
@@ -314,7 +334,8 @@ abstract class _ListState implements ListState {
       final bool shrinkWrap,
       final double itemExtent,
       final bool withPrototypeItem,
-      final bool addAutomaticKeepAlives}) = _$ListStateImpl;
+      final bool addAutomaticKeepAlives,
+      final bool addRepaintBoundaries}) = _$ListStateImpl;
 
   @override
   int get itemCount;
@@ -336,6 +357,8 @@ abstract class _ListState implements ListState {
   bool get withPrototypeItem;
   @override
   bool get addAutomaticKeepAlives;
+  @override
+  bool get addRepaintBoundaries;
   @override
   @JsonKey(ignore: true)
   _$$ListStateImplCopyWith<_$ListStateImpl> get copyWith =>
