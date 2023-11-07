@@ -60,4 +60,8 @@ class _ListViewModel extends StateNotifier<ListState> {
   void addSemanticIndexesToggled() {
     state = state.addSemanticIndexesToggled();
   }
+
+  void cacheExtentUpdated(double cacheExtent) {
+    state = state.cacheExtentUpdated(cacheExtent);
+  }
 }

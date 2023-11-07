@@ -71,6 +71,7 @@ class ListViewScreen extends HookConsumerWidget {
                         addAutomaticKeepAlives: state.addAutomaticKeepAlives,
                         addRepaintBoundaries: state.addRepaintBoundaries,
                         addSemanticIndexes: state.addSemanticIndexes,
+                        cacheExtent: state.cacheExtent,
                         children: List.generate(
                           state.itemCount,
                           createColorBox,
@@ -88,6 +89,7 @@ class ListViewScreen extends HookConsumerWidget {
                         addAutomaticKeepAlives: state.addAutomaticKeepAlives,
                         addRepaintBoundaries: state.addRepaintBoundaries,
                         addSemanticIndexes: state.addSemanticIndexes,
+                        cacheExtent: state.cacheExtent,
                         itemCount: state.itemCount,
                         itemBuilder: (context, index) => createColorBox(index),
                       ),
@@ -105,6 +107,7 @@ class ListViewScreen extends HookConsumerWidget {
                         addAutomaticKeepAlives: state.addAutomaticKeepAlives,
                         addRepaintBoundaries: state.addRepaintBoundaries,
                         addSemanticIndexes: state.addSemanticIndexes,
+                        cacheExtent: state.cacheExtent,
                         itemCount: state.itemCount,
                         separatorBuilder: (context, index) => const Divider(),
                         itemBuilder: (context, index) => createColorBox(index),
@@ -176,6 +179,14 @@ class ListViewScreen extends HookConsumerWidget {
                         max: 100,
                         divisions: 100,
                         onChanged: notifier.itemExtentUpdated,
+                      ),
+                      SliderMenu(
+                        label: 'cacheExtent',
+                        value: state.cacheExtent ?? 0,
+                        min: 0,
+                        max: 100,
+                        divisions: 100,
+                        onChanged: notifier.cacheExtentUpdated,
                       ),
                       ToggleMenu(
                         text: 'protoTypeItem',

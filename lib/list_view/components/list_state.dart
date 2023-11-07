@@ -22,6 +22,7 @@ class ListState with _$ListState {
     @Default(true) bool addAutomaticKeepAlives,
     @Default(true) bool addRepaintBoundaries,
     @Default(true) bool addSemanticIndexes,
+    double? cacheExtent,
   }) = _ListState;
 
   factory ListState.empty() {
@@ -98,6 +99,12 @@ extension ListStateEx on ListState {
   ListState addSemanticIndexesToggled() {
     return copyWith(
       addSemanticIndexes: !addSemanticIndexes,
+    );
+  }
+
+  ListState cacheExtentUpdated(double cacheExtent) {
+    return copyWith(
+      cacheExtent: cacheExtent,
     );
   }
 }

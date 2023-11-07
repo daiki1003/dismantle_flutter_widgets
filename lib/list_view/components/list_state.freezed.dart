@@ -29,6 +29,7 @@ mixin _$ListState {
   bool get addAutomaticKeepAlives => throw _privateConstructorUsedError;
   bool get addRepaintBoundaries => throw _privateConstructorUsedError;
   bool get addSemanticIndexes => throw _privateConstructorUsedError;
+  double? get cacheExtent => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ListStateCopyWith<ListState> get copyWith =>
@@ -52,7 +53,8 @@ abstract class $ListStateCopyWith<$Res> {
       bool withPrototypeItem,
       bool addAutomaticKeepAlives,
       bool addRepaintBoundaries,
-      bool addSemanticIndexes});
+      bool addSemanticIndexes,
+      double? cacheExtent});
 }
 
 /// @nodoc
@@ -80,6 +82,7 @@ class _$ListStateCopyWithImpl<$Res, $Val extends ListState>
     Object? addAutomaticKeepAlives = null,
     Object? addRepaintBoundaries = null,
     Object? addSemanticIndexes = null,
+    Object? cacheExtent = freezed,
   }) {
     return _then(_value.copyWith(
       itemCount: null == itemCount
@@ -130,6 +133,10 @@ class _$ListStateCopyWithImpl<$Res, $Val extends ListState>
           ? _value.addSemanticIndexes
           : addSemanticIndexes // ignore: cast_nullable_to_non_nullable
               as bool,
+      cacheExtent: freezed == cacheExtent
+          ? _value.cacheExtent
+          : cacheExtent // ignore: cast_nullable_to_non_nullable
+              as double?,
     ) as $Val);
   }
 }
@@ -154,7 +161,8 @@ abstract class _$$ListStateImplCopyWith<$Res>
       bool withPrototypeItem,
       bool addAutomaticKeepAlives,
       bool addRepaintBoundaries,
-      bool addSemanticIndexes});
+      bool addSemanticIndexes,
+      double? cacheExtent});
 }
 
 /// @nodoc
@@ -180,6 +188,7 @@ class __$$ListStateImplCopyWithImpl<$Res>
     Object? addAutomaticKeepAlives = null,
     Object? addRepaintBoundaries = null,
     Object? addSemanticIndexes = null,
+    Object? cacheExtent = freezed,
   }) {
     return _then(_$ListStateImpl(
       itemCount: null == itemCount
@@ -230,6 +239,10 @@ class __$$ListStateImplCopyWithImpl<$Res>
           ? _value.addSemanticIndexes
           : addSemanticIndexes // ignore: cast_nullable_to_non_nullable
               as bool,
+      cacheExtent: freezed == cacheExtent
+          ? _value.cacheExtent
+          : cacheExtent // ignore: cast_nullable_to_non_nullable
+              as double?,
     ));
   }
 }
@@ -249,7 +262,8 @@ class _$ListStateImpl implements _ListState {
       this.withPrototypeItem = false,
       this.addAutomaticKeepAlives = true,
       this.addRepaintBoundaries = true,
-      this.addSemanticIndexes = true});
+      this.addSemanticIndexes = true,
+      this.cacheExtent});
 
   @override
   @JsonKey()
@@ -286,10 +300,12 @@ class _$ListStateImpl implements _ListState {
   @override
   @JsonKey()
   final bool addSemanticIndexes;
+  @override
+  final double? cacheExtent;
 
   @override
   String toString() {
-    return 'ListState(itemCount: $itemCount, constructorType: $constructorType, scrollDirection: $scrollDirection, reverse: $reverse, primary: $primary, physics: $physics, shrinkWrap: $shrinkWrap, itemExtent: $itemExtent, withPrototypeItem: $withPrototypeItem, addAutomaticKeepAlives: $addAutomaticKeepAlives, addRepaintBoundaries: $addRepaintBoundaries, addSemanticIndexes: $addSemanticIndexes)';
+    return 'ListState(itemCount: $itemCount, constructorType: $constructorType, scrollDirection: $scrollDirection, reverse: $reverse, primary: $primary, physics: $physics, shrinkWrap: $shrinkWrap, itemExtent: $itemExtent, withPrototypeItem: $withPrototypeItem, addAutomaticKeepAlives: $addAutomaticKeepAlives, addRepaintBoundaries: $addRepaintBoundaries, addSemanticIndexes: $addSemanticIndexes, cacheExtent: $cacheExtent)';
   }
 
   @override
@@ -317,7 +333,9 @@ class _$ListStateImpl implements _ListState {
             (identical(other.addRepaintBoundaries, addRepaintBoundaries) ||
                 other.addRepaintBoundaries == addRepaintBoundaries) &&
             (identical(other.addSemanticIndexes, addSemanticIndexes) ||
-                other.addSemanticIndexes == addSemanticIndexes));
+                other.addSemanticIndexes == addSemanticIndexes) &&
+            (identical(other.cacheExtent, cacheExtent) ||
+                other.cacheExtent == cacheExtent));
   }
 
   @override
@@ -334,7 +352,8 @@ class _$ListStateImpl implements _ListState {
       withPrototypeItem,
       addAutomaticKeepAlives,
       addRepaintBoundaries,
-      addSemanticIndexes);
+      addSemanticIndexes,
+      cacheExtent);
 
   @JsonKey(ignore: true)
   @override
@@ -356,7 +375,8 @@ abstract class _ListState implements ListState {
       final bool withPrototypeItem,
       final bool addAutomaticKeepAlives,
       final bool addRepaintBoundaries,
-      final bool addSemanticIndexes}) = _$ListStateImpl;
+      final bool addSemanticIndexes,
+      final double? cacheExtent}) = _$ListStateImpl;
 
   @override
   int get itemCount;
@@ -382,6 +402,8 @@ abstract class _ListState implements ListState {
   bool get addRepaintBoundaries;
   @override
   bool get addSemanticIndexes;
+  @override
+  double? get cacheExtent;
   @override
   @JsonKey(ignore: true)
   _$$ListStateImplCopyWith<_$ListStateImpl> get copyWith =>
