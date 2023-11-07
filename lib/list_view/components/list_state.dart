@@ -23,6 +23,7 @@ class ListState with _$ListState {
     @Default(true) bool addRepaintBoundaries,
     @Default(true) bool addSemanticIndexes,
     double? cacheExtent,
+    int? semanticChildCount,
   }) = _ListState;
 
   factory ListState.empty() {
@@ -106,5 +107,9 @@ extension ListStateEx on ListState {
     return copyWith(
       cacheExtent: cacheExtent,
     );
+  }
+
+  ListState semanticChildCountUpdated(int semanticChildCount) {
+    return copyWith(semanticChildCount: semanticChildCount);
   }
 }

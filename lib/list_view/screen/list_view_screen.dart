@@ -1,6 +1,5 @@
 import 'dart:math';
 
-import 'package:dismantling/components/slider_menu.dart';
 import 'package:flutter/material.dart';
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -72,6 +71,7 @@ class ListViewScreen extends HookConsumerWidget {
                         addRepaintBoundaries: state.addRepaintBoundaries,
                         addSemanticIndexes: state.addSemanticIndexes,
                         cacheExtent: state.cacheExtent,
+                        semanticChildCount: state.semanticChildCount,
                         children: List.generate(
                           state.itemCount,
                           createColorBox,
@@ -90,6 +90,7 @@ class ListViewScreen extends HookConsumerWidget {
                         addRepaintBoundaries: state.addRepaintBoundaries,
                         addSemanticIndexes: state.addSemanticIndexes,
                         cacheExtent: state.cacheExtent,
+                        semanticChildCount: state.semanticChildCount,
                         itemCount: state.itemCount,
                         itemBuilder: (context, index) => createColorBox(index),
                       ),
@@ -108,6 +109,8 @@ class ListViewScreen extends HookConsumerWidget {
                         addRepaintBoundaries: state.addRepaintBoundaries,
                         addSemanticIndexes: state.addSemanticIndexes,
                         cacheExtent: state.cacheExtent,
+                        // NOTICE: semanticChildCount is not supported.
+                        // semanticChildCount: state.semanticChildCount,
                         itemCount: state.itemCount,
                         separatorBuilder: (context, index) => const Divider(),
                         itemBuilder: (context, index) => createColorBox(index),
@@ -128,6 +131,17 @@ class ListViewScreen extends HookConsumerWidget {
                         divisions: 200 ~/ 5,
                         onChanged: (itemCount) => notifier.itemCountUpdated(
                           itemCount.toInt(),
+                        ),
+                      ),
+                      SliderMenu(
+                        label: 'semanticChildCount',
+                        value: state.semanticChildCount?.toDouble() ?? 0,
+                        min: 0,
+                        max: 200,
+                        divisions: 200 ~/ 5,
+                        onChanged: (semanticChildCount) =>
+                            notifier.semanticChildCountUpdated(
+                          semanticChildCount.toInt(),
                         ),
                       ),
                       SelectMenu<ListViewConstructorType>(
@@ -208,8 +222,7 @@ class ListViewScreen extends HookConsumerWidget {
                       ToggleMenu(
                         text: 'addSemanticIndexes',
                         value: state.addSemanticIndexes,
-                        onToggled: (_) =>
-                            notifier.addSemanticIndexesToggled(),
+                        onToggled: (_) => notifier.addSemanticIndexesToggled(),
                       ),
                     ].intersperse(const SizedBox(height: 32)).toList(),
                   ),

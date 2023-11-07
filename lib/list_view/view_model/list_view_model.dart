@@ -64,4 +64,8 @@ class _ListViewModel extends StateNotifier<ListState> {
   void cacheExtentUpdated(double cacheExtent) {
     state = state.cacheExtentUpdated(cacheExtent);
   }
+
+  void semanticChildCountUpdated(int semanticChildCount) {
+    state = state.semanticChildCountUpdated(semanticChildCount);
+  }
 }
