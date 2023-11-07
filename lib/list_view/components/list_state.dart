@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -24,6 +25,7 @@ class ListState with _$ListState {
     @Default(true) bool addSemanticIndexes,
     double? cacheExtent,
     int? semanticChildCount,
+    @Default(DragStartBehavior.start) DragStartBehavior dragStartBehavior,
   }) = _ListState;
 
   factory ListState.empty() {
@@ -111,5 +113,9 @@ extension ListStateEx on ListState {
 
   ListState semanticChildCountUpdated(int semanticChildCount) {
     return copyWith(semanticChildCount: semanticChildCount);
+  }
+
+  ListState dragStartBehaviorUpdated(DragStartBehavior dragStartBehavior) {
+    return copyWith(dragStartBehavior: dragStartBehavior);
   }
 }

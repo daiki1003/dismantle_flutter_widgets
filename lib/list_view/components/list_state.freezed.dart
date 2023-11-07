@@ -31,6 +31,7 @@ mixin _$ListState {
   bool get addSemanticIndexes => throw _privateConstructorUsedError;
   double? get cacheExtent => throw _privateConstructorUsedError;
   int? get semanticChildCount => throw _privateConstructorUsedError;
+  DragStartBehavior get dragStartBehavior => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ListStateCopyWith<ListState> get copyWith =>
@@ -56,7 +57,8 @@ abstract class $ListStateCopyWith<$Res> {
       bool addRepaintBoundaries,
       bool addSemanticIndexes,
       double? cacheExtent,
-      int? semanticChildCount});
+      int? semanticChildCount,
+      DragStartBehavior dragStartBehavior});
 }
 
 /// @nodoc
@@ -86,6 +88,7 @@ class _$ListStateCopyWithImpl<$Res, $Val extends ListState>
     Object? addSemanticIndexes = null,
     Object? cacheExtent = freezed,
     Object? semanticChildCount = freezed,
+    Object? dragStartBehavior = null,
   }) {
     return _then(_value.copyWith(
       itemCount: null == itemCount
@@ -144,6 +147,10 @@ class _$ListStateCopyWithImpl<$Res, $Val extends ListState>
           ? _value.semanticChildCount
           : semanticChildCount // ignore: cast_nullable_to_non_nullable
               as int?,
+      dragStartBehavior: null == dragStartBehavior
+          ? _value.dragStartBehavior
+          : dragStartBehavior // ignore: cast_nullable_to_non_nullable
+              as DragStartBehavior,
     ) as $Val);
   }
 }
@@ -170,7 +177,8 @@ abstract class _$$ListStateImplCopyWith<$Res>
       bool addRepaintBoundaries,
       bool addSemanticIndexes,
       double? cacheExtent,
-      int? semanticChildCount});
+      int? semanticChildCount,
+      DragStartBehavior dragStartBehavior});
 }
 
 /// @nodoc
@@ -198,6 +206,7 @@ class __$$ListStateImplCopyWithImpl<$Res>
     Object? addSemanticIndexes = null,
     Object? cacheExtent = freezed,
     Object? semanticChildCount = freezed,
+    Object? dragStartBehavior = null,
   }) {
     return _then(_$ListStateImpl(
       itemCount: null == itemCount
@@ -256,6 +265,10 @@ class __$$ListStateImplCopyWithImpl<$Res>
           ? _value.semanticChildCount
           : semanticChildCount // ignore: cast_nullable_to_non_nullable
               as int?,
+      dragStartBehavior: null == dragStartBehavior
+          ? _value.dragStartBehavior
+          : dragStartBehavior // ignore: cast_nullable_to_non_nullable
+              as DragStartBehavior,
     ));
   }
 }
@@ -277,7 +290,8 @@ class _$ListStateImpl implements _ListState {
       this.addRepaintBoundaries = true,
       this.addSemanticIndexes = true,
       this.cacheExtent,
-      this.semanticChildCount});
+      this.semanticChildCount,
+      this.dragStartBehavior = DragStartBehavior.start});
 
   @override
   @JsonKey()
@@ -318,10 +332,13 @@ class _$ListStateImpl implements _ListState {
   final double? cacheExtent;
   @override
   final int? semanticChildCount;
+  @override
+  @JsonKey()
+  final DragStartBehavior dragStartBehavior;
 
   @override
   String toString() {
-    return 'ListState(itemCount: $itemCount, constructorType: $constructorType, scrollDirection: $scrollDirection, reverse: $reverse, primary: $primary, physics: $physics, shrinkWrap: $shrinkWrap, itemExtent: $itemExtent, withPrototypeItem: $withPrototypeItem, addAutomaticKeepAlives: $addAutomaticKeepAlives, addRepaintBoundaries: $addRepaintBoundaries, addSemanticIndexes: $addSemanticIndexes, cacheExtent: $cacheExtent, semanticChildCount: $semanticChildCount)';
+    return 'ListState(itemCount: $itemCount, constructorType: $constructorType, scrollDirection: $scrollDirection, reverse: $reverse, primary: $primary, physics: $physics, shrinkWrap: $shrinkWrap, itemExtent: $itemExtent, withPrototypeItem: $withPrototypeItem, addAutomaticKeepAlives: $addAutomaticKeepAlives, addRepaintBoundaries: $addRepaintBoundaries, addSemanticIndexes: $addSemanticIndexes, cacheExtent: $cacheExtent, semanticChildCount: $semanticChildCount, dragStartBehavior: $dragStartBehavior)';
   }
 
   @override
@@ -353,7 +370,9 @@ class _$ListStateImpl implements _ListState {
             (identical(other.cacheExtent, cacheExtent) ||
                 other.cacheExtent == cacheExtent) &&
             (identical(other.semanticChildCount, semanticChildCount) ||
-                other.semanticChildCount == semanticChildCount));
+                other.semanticChildCount == semanticChildCount) &&
+            (identical(other.dragStartBehavior, dragStartBehavior) ||
+                other.dragStartBehavior == dragStartBehavior));
   }
 
   @override
@@ -372,7 +391,8 @@ class _$ListStateImpl implements _ListState {
       addRepaintBoundaries,
       addSemanticIndexes,
       cacheExtent,
-      semanticChildCount);
+      semanticChildCount,
+      dragStartBehavior);
 
   @JsonKey(ignore: true)
   @override
@@ -396,7 +416,8 @@ abstract class _ListState implements ListState {
       final bool addRepaintBoundaries,
       final bool addSemanticIndexes,
       final double? cacheExtent,
-      final int? semanticChildCount}) = _$ListStateImpl;
+      final int? semanticChildCount,
+      final DragStartBehavior dragStartBehavior}) = _$ListStateImpl;
 
   @override
   int get itemCount;
@@ -426,6 +447,8 @@ abstract class _ListState implements ListState {
   double? get cacheExtent;
   @override
   int? get semanticChildCount;
+  @override
+  DragStartBehavior get dragStartBehavior;
   @override
   @JsonKey(ignore: true)
   _$$ListStateImplCopyWith<_$ListStateImpl> get copyWith =>

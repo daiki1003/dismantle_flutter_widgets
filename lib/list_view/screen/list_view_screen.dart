@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -72,6 +73,7 @@ class ListViewScreen extends HookConsumerWidget {
                         addSemanticIndexes: state.addSemanticIndexes,
                         cacheExtent: state.cacheExtent,
                         semanticChildCount: state.semanticChildCount,
+                        dragStartBehavior: state.dragStartBehavior,
                         children: List.generate(
                           state.itemCount,
                           createColorBox,
@@ -91,6 +93,7 @@ class ListViewScreen extends HookConsumerWidget {
                         addSemanticIndexes: state.addSemanticIndexes,
                         cacheExtent: state.cacheExtent,
                         semanticChildCount: state.semanticChildCount,
+                        dragStartBehavior: state.dragStartBehavior,
                         itemCount: state.itemCount,
                         itemBuilder: (context, index) => createColorBox(index),
                       ),
@@ -111,6 +114,7 @@ class ListViewScreen extends HookConsumerWidget {
                         cacheExtent: state.cacheExtent,
                         // NOTICE: semanticChildCount is not supported.
                         // semanticChildCount: state.semanticChildCount,
+                        dragStartBehavior: state.dragStartBehavior,
                         itemCount: state.itemCount,
                         separatorBuilder: (context, index) => const Divider(),
                         itemBuilder: (context, index) => createColorBox(index),
@@ -223,6 +227,13 @@ class ListViewScreen extends HookConsumerWidget {
                         text: 'addSemanticIndexes',
                         value: state.addSemanticIndexes,
                         onToggled: (_) => notifier.addSemanticIndexesToggled(),
+                      ),
+                      SelectMenu<DragStartBehavior>(
+                        label: 'dragStartBehavior',
+                        choices: DragStartBehavior.values,
+                        value: state.dragStartBehavior,
+                        valueTextBuilder: (value) => value.toString(),
+                        onSelected: notifier.dragStartBehaviorUpdated,
                       ),
                     ].intersperse(const SizedBox(height: 32)).toList(),
                   ),

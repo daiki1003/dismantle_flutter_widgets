@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -67,5 +68,9 @@ class _ListViewModel extends StateNotifier<ListState> {
 
   void semanticChildCountUpdated(int semanticChildCount) {
     state = state.semanticChildCountUpdated(semanticChildCount);
+  }
+
+  void dragStartBehaviorUpdated(DragStartBehavior dragStartBehavior) {
+    state = state.dragStartBehaviorUpdated(dragStartBehavior);
   }
 }
