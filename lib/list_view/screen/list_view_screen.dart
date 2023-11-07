@@ -75,6 +75,7 @@ class ListViewScreen extends HookConsumerWidget {
                         semanticChildCount: state.semanticChildCount,
                         dragStartBehavior: state.dragStartBehavior,
                         keyboardDismissBehavior: state.keyboardDismissBehavior,
+                        restorationId: state.withRestorationId ? 'test' : null,
                         children: List.generate(
                           state.itemCount,
                           createColorBox,
@@ -96,6 +97,7 @@ class ListViewScreen extends HookConsumerWidget {
                         semanticChildCount: state.semanticChildCount,
                         dragStartBehavior: state.dragStartBehavior,
                         keyboardDismissBehavior: state.keyboardDismissBehavior,
+                        restorationId: state.withRestorationId ? 'test' : null,
                         itemCount: state.itemCount,
                         itemBuilder: (context, index) => createColorBox(index),
                       ),
@@ -118,6 +120,7 @@ class ListViewScreen extends HookConsumerWidget {
                         // semanticChildCount: state.semanticChildCount,
                         dragStartBehavior: state.dragStartBehavior,
                         keyboardDismissBehavior: state.keyboardDismissBehavior,
+                        restorationId: state.withRestorationId ? 'test' : null,
                         itemCount: state.itemCount,
                         separatorBuilder: (context, index) => const Divider(),
                         itemBuilder: (context, index) => createColorBox(index),
@@ -225,6 +228,11 @@ class ListViewScreen extends HookConsumerWidget {
                         value: state.addRepaintBoundaries,
                         onToggled: (_) =>
                             notifier.addRepaintBoundariesToggled(),
+                      ),
+                      ToggleMenu(
+                        text: 'withRestorationId',
+                        value: state.withRestorationId,
+                        onToggled: (_) => notifier.withRestorationIdToggled(),
                       ),
                       ToggleMenu(
                         text: 'addSemanticIndexes',

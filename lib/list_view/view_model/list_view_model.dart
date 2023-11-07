@@ -79,4 +79,8 @@ class _ListViewModel extends StateNotifier<ListState> {
   ) {
     state = state.keyboardDismissBehaviorUpdated(keyboardDismissBehavior);
   }
+
+  void withRestorationIdToggled() {
+    state = state.withRestorationIdToggled();
+  }
 }

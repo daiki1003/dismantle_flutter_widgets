@@ -28,6 +28,7 @@ class ListState with _$ListState {
     @Default(DragStartBehavior.start) DragStartBehavior dragStartBehavior,
     @Default(ScrollViewKeyboardDismissBehavior.manual)
     ScrollViewKeyboardDismissBehavior keyboardDismissBehavior,
+    @Default(true) bool withRestorationId,
   }) = _ListState;
 
   factory ListState.empty() {
@@ -125,5 +126,9 @@ extension ListStateEx on ListState {
     ScrollViewKeyboardDismissBehavior keyboardDismissBehavior,
   ) {
     return copyWith(keyboardDismissBehavior: keyboardDismissBehavior);
+  }
+
+  ListState withRestorationIdToggled() {
+    return copyWith(withRestorationId: !withRestorationId);
   }
 }
