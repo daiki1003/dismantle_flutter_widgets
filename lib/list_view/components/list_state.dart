@@ -19,6 +19,7 @@ class ListState with _$ListState {
     @Default(false) bool shrinkWrap,
     @Default(25.0) double itemExtent,
     @Default(false) bool withPrototypeItem,
+    @Default(true) bool addAutomaticKeepAlives,
   }) = _ListState;
 
   factory ListState.empty() {
@@ -77,6 +78,12 @@ extension ListStateEx on ListState {
   ListState withProtoTypeItemToggled() {
     return copyWith(
       withPrototypeItem: !withPrototypeItem,
+    );
+  }
+
+  ListState addAutomaticKeepAlivesToggled() {
+    return copyWith(
+      addAutomaticKeepAlives: !addAutomaticKeepAlives,
     );
   }
 }

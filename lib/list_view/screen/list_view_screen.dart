@@ -68,6 +68,7 @@ class ListViewScreen extends HookConsumerWidget {
                         itemExtent: state.itemExtent,
                         prototypeItem:
                             state.withPrototypeItem ? prototypeItem : null,
+                        addAutomaticKeepAlives: state.addAutomaticKeepAlives,
                         children: List.generate(
                           state.itemCount,
                           createColorBox,
@@ -82,6 +83,7 @@ class ListViewScreen extends HookConsumerWidget {
                         itemExtent: state.itemExtent,
                         prototypeItem:
                             state.withPrototypeItem ? prototypeItem : null,
+                        addAutomaticKeepAlives: state.addAutomaticKeepAlives,
                         itemCount: state.itemCount,
                         itemBuilder: (context, index) => createColorBox(index),
                       ),
@@ -96,6 +98,7 @@ class ListViewScreen extends HookConsumerWidget {
                         // NOTICE: prototypeItem is not supported.
                         // prototypeItem:
                         //     state.withPrototypeItem ? prototypeItem : null,
+                        addAutomaticKeepAlives: state.addAutomaticKeepAlives,
                         itemCount: state.itemCount,
                         separatorBuilder: (context, index) => const Divider(),
                         itemBuilder: (context, index) => createColorBox(index),
@@ -172,6 +175,12 @@ class ListViewScreen extends HookConsumerWidget {
                         text: 'protoTypeItem',
                         value: state.withPrototypeItem,
                         onToggled: (_) => notifier.withProtoTypeItemToggled(),
+                      ),
+                      ToggleMenu(
+                        text: 'addAutomaticKeepAlives',
+                        value: state.addAutomaticKeepAlives,
+                        onToggled: (_) =>
+                            notifier.addAutomaticKeepAlivesToggled(),
                       ),
                     ].intersperse(const SizedBox(height: 32)).toList(),
                   ),

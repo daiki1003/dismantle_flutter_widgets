@@ -26,6 +26,7 @@ mixin _$ListState {
   bool get shrinkWrap => throw _privateConstructorUsedError;
   double get itemExtent => throw _privateConstructorUsedError;
   bool get withPrototypeItem => throw _privateConstructorUsedError;
+  bool get addAutomaticKeepAlives => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ListStateCopyWith<ListState> get copyWith =>
@@ -46,7 +47,8 @@ abstract class $ListStateCopyWith<$Res> {
       ScrollPhysics? physics,
       bool shrinkWrap,
       double itemExtent,
-      bool withPrototypeItem});
+      bool withPrototypeItem,
+      bool addAutomaticKeepAlives});
 }
 
 /// @nodoc
@@ -71,6 +73,7 @@ class _$ListStateCopyWithImpl<$Res, $Val extends ListState>
     Object? shrinkWrap = null,
     Object? itemExtent = null,
     Object? withPrototypeItem = null,
+    Object? addAutomaticKeepAlives = null,
   }) {
     return _then(_value.copyWith(
       itemCount: null == itemCount
@@ -109,6 +112,10 @@ class _$ListStateCopyWithImpl<$Res, $Val extends ListState>
           ? _value.withPrototypeItem
           : withPrototypeItem // ignore: cast_nullable_to_non_nullable
               as bool,
+      addAutomaticKeepAlives: null == addAutomaticKeepAlives
+          ? _value.addAutomaticKeepAlives
+          : addAutomaticKeepAlives // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -130,7 +137,8 @@ abstract class _$$ListStateImplCopyWith<$Res>
       ScrollPhysics? physics,
       bool shrinkWrap,
       double itemExtent,
-      bool withPrototypeItem});
+      bool withPrototypeItem,
+      bool addAutomaticKeepAlives});
 }
 
 /// @nodoc
@@ -153,6 +161,7 @@ class __$$ListStateImplCopyWithImpl<$Res>
     Object? shrinkWrap = null,
     Object? itemExtent = null,
     Object? withPrototypeItem = null,
+    Object? addAutomaticKeepAlives = null,
   }) {
     return _then(_$ListStateImpl(
       itemCount: null == itemCount
@@ -191,6 +200,10 @@ class __$$ListStateImplCopyWithImpl<$Res>
           ? _value.withPrototypeItem
           : withPrototypeItem // ignore: cast_nullable_to_non_nullable
               as bool,
+      addAutomaticKeepAlives: null == addAutomaticKeepAlives
+          ? _value.addAutomaticKeepAlives
+          : addAutomaticKeepAlives // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -207,7 +220,8 @@ class _$ListStateImpl implements _ListState {
       this.physics,
       this.shrinkWrap = false,
       this.itemExtent = 25.0,
-      this.withPrototypeItem = false});
+      this.withPrototypeItem = false,
+      this.addAutomaticKeepAlives = true});
 
   @override
   @JsonKey()
@@ -235,10 +249,13 @@ class _$ListStateImpl implements _ListState {
   @override
   @JsonKey()
   final bool withPrototypeItem;
+  @override
+  @JsonKey()
+  final bool addAutomaticKeepAlives;
 
   @override
   String toString() {
-    return 'ListState(itemCount: $itemCount, constructorType: $constructorType, scrollDirection: $scrollDirection, reverse: $reverse, primary: $primary, physics: $physics, shrinkWrap: $shrinkWrap, itemExtent: $itemExtent, withPrototypeItem: $withPrototypeItem)';
+    return 'ListState(itemCount: $itemCount, constructorType: $constructorType, scrollDirection: $scrollDirection, reverse: $reverse, primary: $primary, physics: $physics, shrinkWrap: $shrinkWrap, itemExtent: $itemExtent, withPrototypeItem: $withPrototypeItem, addAutomaticKeepAlives: $addAutomaticKeepAlives)';
   }
 
   @override
@@ -260,7 +277,9 @@ class _$ListStateImpl implements _ListState {
             (identical(other.itemExtent, itemExtent) ||
                 other.itemExtent == itemExtent) &&
             (identical(other.withPrototypeItem, withPrototypeItem) ||
-                other.withPrototypeItem == withPrototypeItem));
+                other.withPrototypeItem == withPrototypeItem) &&
+            (identical(other.addAutomaticKeepAlives, addAutomaticKeepAlives) ||
+                other.addAutomaticKeepAlives == addAutomaticKeepAlives));
   }
 
   @override
@@ -274,7 +293,8 @@ class _$ListStateImpl implements _ListState {
       physics,
       shrinkWrap,
       itemExtent,
-      withPrototypeItem);
+      withPrototypeItem,
+      addAutomaticKeepAlives);
 
   @JsonKey(ignore: true)
   @override
@@ -293,7 +313,8 @@ abstract class _ListState implements ListState {
       final ScrollPhysics? physics,
       final bool shrinkWrap,
       final double itemExtent,
-      final bool withPrototypeItem}) = _$ListStateImpl;
+      final bool withPrototypeItem,
+      final bool addAutomaticKeepAlives}) = _$ListStateImpl;
 
   @override
   int get itemCount;
@@ -313,6 +334,8 @@ abstract class _ListState implements ListState {
   double get itemExtent;
   @override
   bool get withPrototypeItem;
+  @override
+  bool get addAutomaticKeepAlives;
   @override
   @JsonKey(ignore: true)
   _$$ListStateImplCopyWith<_$ListStateImpl> get copyWith =>

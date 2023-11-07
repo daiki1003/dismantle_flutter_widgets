@@ -48,4 +48,8 @@ class _ListViewModel extends StateNotifier<ListState> {
   void withProtoTypeItemToggled() {
     state = state.withProtoTypeItemToggled();
   }
+
+  void addAutomaticKeepAlivesToggled() {
+    state = state.addAutomaticKeepAlivesToggled();
+  }
 }
