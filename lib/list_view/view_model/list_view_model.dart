@@ -56,4 +56,8 @@ class _ListViewModel extends StateNotifier<ListState> {
   void addRepaintBoundariesToggled() {
     state = state.addRepaintBoundariesToggled();
   }
+
+  void addSemanticIndexesToggled() {
+    state = state.addSemanticIndexesToggled();
+  }
 }

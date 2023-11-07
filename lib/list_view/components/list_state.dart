@@ -21,6 +21,7 @@ class ListState with _$ListState {
     @Default(false) bool withPrototypeItem,
     @Default(true) bool addAutomaticKeepAlives,
     @Default(true) bool addRepaintBoundaries,
+    @Default(true) bool addSemanticIndexes,
   }) = _ListState;
 
   factory ListState.empty() {
@@ -91,6 +92,12 @@ extension ListStateEx on ListState {
   ListState addRepaintBoundariesToggled() {
     return copyWith(
       addRepaintBoundaries: !addRepaintBoundaries,
+    );
+  }
+
+  ListState addSemanticIndexesToggled() {
+    return copyWith(
+      addSemanticIndexes: !addSemanticIndexes,
     );
   }
 }

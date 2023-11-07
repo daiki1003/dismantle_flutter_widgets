@@ -28,6 +28,7 @@ mixin _$ListState {
   bool get withPrototypeItem => throw _privateConstructorUsedError;
   bool get addAutomaticKeepAlives => throw _privateConstructorUsedError;
   bool get addRepaintBoundaries => throw _privateConstructorUsedError;
+  bool get addSemanticIndexes => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ListStateCopyWith<ListState> get copyWith =>
@@ -50,7 +51,8 @@ abstract class $ListStateCopyWith<$Res> {
       double itemExtent,
       bool withPrototypeItem,
       bool addAutomaticKeepAlives,
-      bool addRepaintBoundaries});
+      bool addRepaintBoundaries,
+      bool addSemanticIndexes});
 }
 
 /// @nodoc
@@ -77,6 +79,7 @@ class _$ListStateCopyWithImpl<$Res, $Val extends ListState>
     Object? withPrototypeItem = null,
     Object? addAutomaticKeepAlives = null,
     Object? addRepaintBoundaries = null,
+    Object? addSemanticIndexes = null,
   }) {
     return _then(_value.copyWith(
       itemCount: null == itemCount
@@ -123,6 +126,10 @@ class _$ListStateCopyWithImpl<$Res, $Val extends ListState>
           ? _value.addRepaintBoundaries
           : addRepaintBoundaries // ignore: cast_nullable_to_non_nullable
               as bool,
+      addSemanticIndexes: null == addSemanticIndexes
+          ? _value.addSemanticIndexes
+          : addSemanticIndexes // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -146,7 +153,8 @@ abstract class _$$ListStateImplCopyWith<$Res>
       double itemExtent,
       bool withPrototypeItem,
       bool addAutomaticKeepAlives,
-      bool addRepaintBoundaries});
+      bool addRepaintBoundaries,
+      bool addSemanticIndexes});
 }
 
 /// @nodoc
@@ -171,6 +179,7 @@ class __$$ListStateImplCopyWithImpl<$Res>
     Object? withPrototypeItem = null,
     Object? addAutomaticKeepAlives = null,
     Object? addRepaintBoundaries = null,
+    Object? addSemanticIndexes = null,
   }) {
     return _then(_$ListStateImpl(
       itemCount: null == itemCount
@@ -217,6 +226,10 @@ class __$$ListStateImplCopyWithImpl<$Res>
           ? _value.addRepaintBoundaries
           : addRepaintBoundaries // ignore: cast_nullable_to_non_nullable
               as bool,
+      addSemanticIndexes: null == addSemanticIndexes
+          ? _value.addSemanticIndexes
+          : addSemanticIndexes // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -235,7 +248,8 @@ class _$ListStateImpl implements _ListState {
       this.itemExtent = 25.0,
       this.withPrototypeItem = false,
       this.addAutomaticKeepAlives = true,
-      this.addRepaintBoundaries = true});
+      this.addRepaintBoundaries = true,
+      this.addSemanticIndexes = true});
 
   @override
   @JsonKey()
@@ -269,10 +283,13 @@ class _$ListStateImpl implements _ListState {
   @override
   @JsonKey()
   final bool addRepaintBoundaries;
+  @override
+  @JsonKey()
+  final bool addSemanticIndexes;
 
   @override
   String toString() {
-    return 'ListState(itemCount: $itemCount, constructorType: $constructorType, scrollDirection: $scrollDirection, reverse: $reverse, primary: $primary, physics: $physics, shrinkWrap: $shrinkWrap, itemExtent: $itemExtent, withPrototypeItem: $withPrototypeItem, addAutomaticKeepAlives: $addAutomaticKeepAlives, addRepaintBoundaries: $addRepaintBoundaries)';
+    return 'ListState(itemCount: $itemCount, constructorType: $constructorType, scrollDirection: $scrollDirection, reverse: $reverse, primary: $primary, physics: $physics, shrinkWrap: $shrinkWrap, itemExtent: $itemExtent, withPrototypeItem: $withPrototypeItem, addAutomaticKeepAlives: $addAutomaticKeepAlives, addRepaintBoundaries: $addRepaintBoundaries, addSemanticIndexes: $addSemanticIndexes)';
   }
 
   @override
@@ -298,7 +315,9 @@ class _$ListStateImpl implements _ListState {
             (identical(other.addAutomaticKeepAlives, addAutomaticKeepAlives) ||
                 other.addAutomaticKeepAlives == addAutomaticKeepAlives) &&
             (identical(other.addRepaintBoundaries, addRepaintBoundaries) ||
-                other.addRepaintBoundaries == addRepaintBoundaries));
+                other.addRepaintBoundaries == addRepaintBoundaries) &&
+            (identical(other.addSemanticIndexes, addSemanticIndexes) ||
+                other.addSemanticIndexes == addSemanticIndexes));
   }
 
   @override
@@ -314,7 +333,8 @@ class _$ListStateImpl implements _ListState {
       itemExtent,
       withPrototypeItem,
       addAutomaticKeepAlives,
-      addRepaintBoundaries);
+      addRepaintBoundaries,
+      addSemanticIndexes);
 
   @JsonKey(ignore: true)
   @override
@@ -335,7 +355,8 @@ abstract class _ListState implements ListState {
       final double itemExtent,
       final bool withPrototypeItem,
       final bool addAutomaticKeepAlives,
-      final bool addRepaintBoundaries}) = _$ListStateImpl;
+      final bool addRepaintBoundaries,
+      final bool addSemanticIndexes}) = _$ListStateImpl;
 
   @override
   int get itemCount;
@@ -359,6 +380,8 @@ abstract class _ListState implements ListState {
   bool get addAutomaticKeepAlives;
   @override
   bool get addRepaintBoundaries;
+  @override
+  bool get addSemanticIndexes;
   @override
   @JsonKey(ignore: true)
   _$$ListStateImplCopyWith<_$ListStateImpl> get copyWith =>

@@ -70,6 +70,7 @@ class ListViewScreen extends HookConsumerWidget {
                             state.withPrototypeItem ? prototypeItem : null,
                         addAutomaticKeepAlives: state.addAutomaticKeepAlives,
                         addRepaintBoundaries: state.addRepaintBoundaries,
+                        addSemanticIndexes: state.addSemanticIndexes,
                         children: List.generate(
                           state.itemCount,
                           createColorBox,
@@ -86,6 +87,7 @@ class ListViewScreen extends HookConsumerWidget {
                             state.withPrototypeItem ? prototypeItem : null,
                         addAutomaticKeepAlives: state.addAutomaticKeepAlives,
                         addRepaintBoundaries: state.addRepaintBoundaries,
+                        addSemanticIndexes: state.addSemanticIndexes,
                         itemCount: state.itemCount,
                         itemBuilder: (context, index) => createColorBox(index),
                       ),
@@ -102,6 +104,7 @@ class ListViewScreen extends HookConsumerWidget {
                         //     state.withPrototypeItem ? prototypeItem : null,
                         addAutomaticKeepAlives: state.addAutomaticKeepAlives,
                         addRepaintBoundaries: state.addRepaintBoundaries,
+                        addSemanticIndexes: state.addSemanticIndexes,
                         itemCount: state.itemCount,
                         separatorBuilder: (context, index) => const Divider(),
                         itemBuilder: (context, index) => createColorBox(index),
@@ -190,6 +193,12 @@ class ListViewScreen extends HookConsumerWidget {
                         value: state.addRepaintBoundaries,
                         onToggled: (_) =>
                             notifier.addRepaintBoundariesToggled(),
+                      ),
+                      ToggleMenu(
+                        text: 'addSemanticIndexes',
+                        value: state.addSemanticIndexes,
+                        onToggled: (_) =>
+                            notifier.addSemanticIndexesToggled(),
                       ),
                     ].intersperse(const SizedBox(height: 32)).toList(),
                   ),
