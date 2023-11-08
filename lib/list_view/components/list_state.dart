@@ -29,6 +29,7 @@ class ListState with _$ListState {
     @Default(ScrollViewKeyboardDismissBehavior.manual)
     ScrollViewKeyboardDismissBehavior keyboardDismissBehavior,
     @Default(true) bool withRestorationId,
+    @Default(Clip.hardEdge) Clip clipBehavior,
   }) = _ListState;
 
   factory ListState.empty() {
@@ -130,5 +131,9 @@ extension ListStateEx on ListState {
 
   ListState withRestorationIdToggled() {
     return copyWith(withRestorationId: !withRestorationId);
+  }
+
+  ListState clipBehaviorUpdated(Clip clipBehavior) {
+    return copyWith(clipBehavior: clipBehavior);
   }
 }

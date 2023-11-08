@@ -83,4 +83,8 @@ class _ListViewModel extends StateNotifier<ListState> {
   void withRestorationIdToggled() {
     state = state.withRestorationIdToggled();
   }
+
+  void clipBehaviorUpdated(Clip clipBehavior) {
+    state = state.clipBehaviorUpdated(clipBehavior);
+  }
 }

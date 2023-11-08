@@ -35,6 +35,7 @@ mixin _$ListState {
   ScrollViewKeyboardDismissBehavior get keyboardDismissBehavior =>
       throw _privateConstructorUsedError;
   bool get withRestorationId => throw _privateConstructorUsedError;
+  Clip get clipBehavior => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ListStateCopyWith<ListState> get copyWith =>
@@ -63,7 +64,8 @@ abstract class $ListStateCopyWith<$Res> {
       int? semanticChildCount,
       DragStartBehavior dragStartBehavior,
       ScrollViewKeyboardDismissBehavior keyboardDismissBehavior,
-      bool withRestorationId});
+      bool withRestorationId,
+      Clip clipBehavior});
 }
 
 /// @nodoc
@@ -96,6 +98,7 @@ class _$ListStateCopyWithImpl<$Res, $Val extends ListState>
     Object? dragStartBehavior = null,
     Object? keyboardDismissBehavior = null,
     Object? withRestorationId = null,
+    Object? clipBehavior = null,
   }) {
     return _then(_value.copyWith(
       itemCount: null == itemCount
@@ -166,6 +169,10 @@ class _$ListStateCopyWithImpl<$Res, $Val extends ListState>
           ? _value.withRestorationId
           : withRestorationId // ignore: cast_nullable_to_non_nullable
               as bool,
+      clipBehavior: null == clipBehavior
+          ? _value.clipBehavior
+          : clipBehavior // ignore: cast_nullable_to_non_nullable
+              as Clip,
     ) as $Val);
   }
 }
@@ -195,7 +202,8 @@ abstract class _$$ListStateImplCopyWith<$Res>
       int? semanticChildCount,
       DragStartBehavior dragStartBehavior,
       ScrollViewKeyboardDismissBehavior keyboardDismissBehavior,
-      bool withRestorationId});
+      bool withRestorationId,
+      Clip clipBehavior});
 }
 
 /// @nodoc
@@ -226,6 +234,7 @@ class __$$ListStateImplCopyWithImpl<$Res>
     Object? dragStartBehavior = null,
     Object? keyboardDismissBehavior = null,
     Object? withRestorationId = null,
+    Object? clipBehavior = null,
   }) {
     return _then(_$ListStateImpl(
       itemCount: null == itemCount
@@ -296,6 +305,10 @@ class __$$ListStateImplCopyWithImpl<$Res>
           ? _value.withRestorationId
           : withRestorationId // ignore: cast_nullable_to_non_nullable
               as bool,
+      clipBehavior: null == clipBehavior
+          ? _value.clipBehavior
+          : clipBehavior // ignore: cast_nullable_to_non_nullable
+              as Clip,
     ));
   }
 }
@@ -320,7 +333,8 @@ class _$ListStateImpl implements _ListState {
       this.semanticChildCount,
       this.dragStartBehavior = DragStartBehavior.start,
       this.keyboardDismissBehavior = ScrollViewKeyboardDismissBehavior.manual,
-      this.withRestorationId = true});
+      this.withRestorationId = true,
+      this.clipBehavior = Clip.hardEdge});
 
   @override
   @JsonKey()
@@ -370,10 +384,13 @@ class _$ListStateImpl implements _ListState {
   @override
   @JsonKey()
   final bool withRestorationId;
+  @override
+  @JsonKey()
+  final Clip clipBehavior;
 
   @override
   String toString() {
-    return 'ListState(itemCount: $itemCount, constructorType: $constructorType, scrollDirection: $scrollDirection, reverse: $reverse, primary: $primary, physics: $physics, shrinkWrap: $shrinkWrap, itemExtent: $itemExtent, withPrototypeItem: $withPrototypeItem, addAutomaticKeepAlives: $addAutomaticKeepAlives, addRepaintBoundaries: $addRepaintBoundaries, addSemanticIndexes: $addSemanticIndexes, cacheExtent: $cacheExtent, semanticChildCount: $semanticChildCount, dragStartBehavior: $dragStartBehavior, keyboardDismissBehavior: $keyboardDismissBehavior, withRestorationId: $withRestorationId)';
+    return 'ListState(itemCount: $itemCount, constructorType: $constructorType, scrollDirection: $scrollDirection, reverse: $reverse, primary: $primary, physics: $physics, shrinkWrap: $shrinkWrap, itemExtent: $itemExtent, withPrototypeItem: $withPrototypeItem, addAutomaticKeepAlives: $addAutomaticKeepAlives, addRepaintBoundaries: $addRepaintBoundaries, addSemanticIndexes: $addSemanticIndexes, cacheExtent: $cacheExtent, semanticChildCount: $semanticChildCount, dragStartBehavior: $dragStartBehavior, keyboardDismissBehavior: $keyboardDismissBehavior, withRestorationId: $withRestorationId, clipBehavior: $clipBehavior)';
   }
 
   @override
@@ -412,7 +429,9 @@ class _$ListStateImpl implements _ListState {
                     other.keyboardDismissBehavior, keyboardDismissBehavior) ||
                 other.keyboardDismissBehavior == keyboardDismissBehavior) &&
             (identical(other.withRestorationId, withRestorationId) ||
-                other.withRestorationId == withRestorationId));
+                other.withRestorationId == withRestorationId) &&
+            (identical(other.clipBehavior, clipBehavior) ||
+                other.clipBehavior == clipBehavior));
   }
 
   @override
@@ -434,7 +453,8 @@ class _$ListStateImpl implements _ListState {
       semanticChildCount,
       dragStartBehavior,
       keyboardDismissBehavior,
-      withRestorationId);
+      withRestorationId,
+      clipBehavior);
 
   @JsonKey(ignore: true)
   @override
@@ -461,7 +481,8 @@ abstract class _ListState implements ListState {
       final int? semanticChildCount,
       final DragStartBehavior dragStartBehavior,
       final ScrollViewKeyboardDismissBehavior keyboardDismissBehavior,
-      final bool withRestorationId}) = _$ListStateImpl;
+      final bool withRestorationId,
+      final Clip clipBehavior}) = _$ListStateImpl;
 
   @override
   int get itemCount;
@@ -497,6 +518,8 @@ abstract class _ListState implements ListState {
   ScrollViewKeyboardDismissBehavior get keyboardDismissBehavior;
   @override
   bool get withRestorationId;
+  @override
+  Clip get clipBehavior;
   @override
   @JsonKey(ignore: true)
   _$$ListStateImplCopyWith<_$ListStateImpl> get copyWith =>
