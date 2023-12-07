@@ -60,6 +60,7 @@ class TextFieldDecorationScreen extends HookConsumerWidget {
                           (_) => 'hintText',
                         ).join('\n'),
                   hintStyle: state.appliesHintStyle ? style : null,
+                  hintTextDirection: state.hintTextDirection,
                 ),
               ),
               const SizedBox(height: 32),
@@ -157,6 +158,16 @@ class TextFieldDecorationScreen extends HookConsumerWidget {
                         onToggled: (_) {
                           viewModel.toggleAppliesHintStyle();
                         },
+                      ),
+                      SelectMenu<TextDirection?>(
+                        label: 'hintTextDirection',
+                        choices: const [
+                          null,
+                          ...TextDirection.values,
+                        ],
+                        value: state.hintTextDirection,
+                        valueTextBuilder: (d) => d?.toString() ?? 'null',
+                        onSelected: viewModel.hintTextDirectionUpdated,
                       ),
                     ].intersperse(const SizedBox(height: 32)).toList(),
                   ),

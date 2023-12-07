@@ -56,4 +56,8 @@ class TextFieldDecorationViewModel extends _$TextFieldDecorationViewModel {
   void toggleAppliesHintStyle() {
     state = state.appliesHintStyleToggled();
   }
+
+  void hintTextDirectionUpdated(TextDirection? hintTextDirection) {
+    state = state.hintTextDirectionUpdated(hintTextDirection);
+  }
 }
