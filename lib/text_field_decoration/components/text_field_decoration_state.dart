@@ -27,6 +27,7 @@ class TextFieldDecorationState with _$TextFieldDecorationState {
     FloatingLabelBehavior? floatingLabelBehavior,
     FloatingLabelAlignment? floatingLabelAlignment,
     @Default(false) bool isCollapsed,
+    @Default(false) bool isDense,
   }) = _TextFieldDecorationState;
 
   factory TextFieldDecorationState.empty() {
@@ -119,5 +120,9 @@ extension TextFieldDecorationStateEx on TextFieldDecorationState {
 
   TextFieldDecorationState isCollapsedToggled() {
     return copyWith(isCollapsed: !isCollapsed);
+  }
+
+  TextFieldDecorationState isDenseToggled() {
+    return copyWith(isDense: !isDense);
   }
 }

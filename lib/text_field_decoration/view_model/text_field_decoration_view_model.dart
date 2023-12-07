@@ -96,4 +96,8 @@ class TextFieldDecorationViewModel extends _$TextFieldDecorationViewModel {
   void toggleIsCollapsed() {
     state = state.isCollapsedToggled();
   }
+
+  void toggleIsDense() {
+    state = state.isDenseToggled();
+  }
 }

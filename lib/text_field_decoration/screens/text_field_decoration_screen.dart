@@ -74,6 +74,7 @@ class TextFieldDecorationScreen extends HookConsumerWidget {
                   floatingLabelBehavior: state.floatingLabelBehavior,
                   floatingLabelAlignment: state.floatingLabelAlignment,
                   isCollapsed: state.isCollapsed,
+                  isDense: state.isDense,
                 ),
               ),
               const SizedBox(height: 32),
@@ -252,6 +253,13 @@ class TextFieldDecorationScreen extends HookConsumerWidget {
                         value: state.isCollapsed,
                         onToggled: (_) {
                           viewModel.toggleIsCollapsed();
+                        },
+                      ),
+                      ToggleMenu(
+                        text: 'isDense',
+                        value: state.isDense,
+                        onToggled: (_) {
+                          viewModel.toggleIsDense();
                         },
                       ),
                     ].intersperse(const SizedBox(height: 32)).toList(),

@@ -38,6 +38,7 @@ mixin _$TextFieldDecorationState {
   FloatingLabelAlignment? get floatingLabelAlignment =>
       throw _privateConstructorUsedError;
   bool get isCollapsed => throw _privateConstructorUsedError;
+  bool get isDense => throw _privateConstructorUsedError;
 
   /// Create a copy of TextFieldDecorationState
   /// with the given fields replaced by the non-null parameter values.
@@ -72,7 +73,8 @@ abstract class $TextFieldDecorationStateCopyWith<$Res> {
       int? errorMaxLines,
       FloatingLabelBehavior? floatingLabelBehavior,
       FloatingLabelAlignment? floatingLabelAlignment,
-      bool isCollapsed});
+      bool isCollapsed,
+      bool isDense});
 }
 
 /// @nodoc
@@ -111,6 +113,7 @@ class _$TextFieldDecorationStateCopyWithImpl<$Res,
     Object? floatingLabelBehavior = freezed,
     Object? floatingLabelAlignment = freezed,
     Object? isCollapsed = null,
+    Object? isDense = null,
   }) {
     return _then(_value.copyWith(
       showsIcon: null == showsIcon
@@ -193,6 +196,10 @@ class _$TextFieldDecorationStateCopyWithImpl<$Res,
           ? _value.isCollapsed
           : isCollapsed // ignore: cast_nullable_to_non_nullable
               as bool,
+      isDense: null == isDense
+          ? _value.isDense
+          : isDense // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -226,7 +233,8 @@ abstract class _$$TextFieldDecorationStateImplCopyWith<$Res>
       int? errorMaxLines,
       FloatingLabelBehavior? floatingLabelBehavior,
       FloatingLabelAlignment? floatingLabelAlignment,
-      bool isCollapsed});
+      bool isCollapsed,
+      bool isDense});
 }
 
 /// @nodoc
@@ -264,6 +272,7 @@ class __$$TextFieldDecorationStateImplCopyWithImpl<$Res>
     Object? floatingLabelBehavior = freezed,
     Object? floatingLabelAlignment = freezed,
     Object? isCollapsed = null,
+    Object? isDense = null,
   }) {
     return _then(_$TextFieldDecorationStateImpl(
       showsIcon: null == showsIcon
@@ -346,6 +355,10 @@ class __$$TextFieldDecorationStateImplCopyWithImpl<$Res>
           ? _value.isCollapsed
           : isCollapsed // ignore: cast_nullable_to_non_nullable
               as bool,
+      isDense: null == isDense
+          ? _value.isDense
+          : isDense // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -373,7 +386,8 @@ class _$TextFieldDecorationStateImpl implements _TextFieldDecorationState {
       this.errorMaxLines,
       this.floatingLabelBehavior,
       this.floatingLabelAlignment,
-      this.isCollapsed = false});
+      this.isCollapsed = false,
+      this.isDense = false});
 
   @override
   @JsonKey()
@@ -428,10 +442,13 @@ class _$TextFieldDecorationStateImpl implements _TextFieldDecorationState {
   @override
   @JsonKey()
   final bool isCollapsed;
+  @override
+  @JsonKey()
+  final bool isDense;
 
   @override
   String toString() {
-    return 'TextFieldDecorationState(showsIcon: $showsIcon, iconColor: $iconColor, showsLabel: $showsLabel, showsLabelText: $showsLabelText, appliesLabelStyle: $appliesLabelStyle, appliesFloatingLabelStyle: $appliesFloatingLabelStyle, helperTextLines: $helperTextLines, appliesHelperStyle: $appliesHelperStyle, helperMaxLines: $helperMaxLines, hintTextLines: $hintTextLines, appliesHintStyle: $appliesHintStyle, hintTextDirection: $hintTextDirection, hintMaxLines: $hintMaxLines, showsError: $showsError, errorTextLines: $errorTextLines, appliesErrorStyle: $appliesErrorStyle, errorMaxLines: $errorMaxLines, floatingLabelBehavior: $floatingLabelBehavior, floatingLabelAlignment: $floatingLabelAlignment, isCollapsed: $isCollapsed)';
+    return 'TextFieldDecorationState(showsIcon: $showsIcon, iconColor: $iconColor, showsLabel: $showsLabel, showsLabelText: $showsLabelText, appliesLabelStyle: $appliesLabelStyle, appliesFloatingLabelStyle: $appliesFloatingLabelStyle, helperTextLines: $helperTextLines, appliesHelperStyle: $appliesHelperStyle, helperMaxLines: $helperMaxLines, hintTextLines: $hintTextLines, appliesHintStyle: $appliesHintStyle, hintTextDirection: $hintTextDirection, hintMaxLines: $hintMaxLines, showsError: $showsError, errorTextLines: $errorTextLines, appliesErrorStyle: $appliesErrorStyle, errorMaxLines: $errorMaxLines, floatingLabelBehavior: $floatingLabelBehavior, floatingLabelAlignment: $floatingLabelAlignment, isCollapsed: $isCollapsed, isDense: $isDense)';
   }
 
   @override
@@ -479,7 +496,8 @@ class _$TextFieldDecorationStateImpl implements _TextFieldDecorationState {
             (identical(other.floatingLabelAlignment, floatingLabelAlignment) ||
                 other.floatingLabelAlignment == floatingLabelAlignment) &&
             (identical(other.isCollapsed, isCollapsed) ||
-                other.isCollapsed == isCollapsed));
+                other.isCollapsed == isCollapsed) &&
+            (identical(other.isDense, isDense) || other.isDense == isDense));
   }
 
   @override
@@ -504,7 +522,8 @@ class _$TextFieldDecorationStateImpl implements _TextFieldDecorationState {
         errorMaxLines,
         floatingLabelBehavior,
         floatingLabelAlignment,
-        isCollapsed
+        isCollapsed,
+        isDense
       ]);
 
   /// Create a copy of TextFieldDecorationState
@@ -538,7 +557,8 @@ abstract class _TextFieldDecorationState implements TextFieldDecorationState {
       final int? errorMaxLines,
       final FloatingLabelBehavior? floatingLabelBehavior,
       final FloatingLabelAlignment? floatingLabelAlignment,
-      final bool isCollapsed}) = _$TextFieldDecorationStateImpl;
+      final bool isCollapsed,
+      final bool isDense}) = _$TextFieldDecorationStateImpl;
 
   @override
   bool get showsIcon;
@@ -580,6 +600,8 @@ abstract class _TextFieldDecorationState implements TextFieldDecorationState {
   FloatingLabelAlignment? get floatingLabelAlignment;
   @override
   bool get isCollapsed;
+  @override
+  bool get isDense;
 
   /// Create a copy of TextFieldDecorationState
   /// with the given fields replaced by the non-null parameter values.
