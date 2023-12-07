@@ -82,6 +82,10 @@ class TextFieldDecorationScreen extends HookConsumerWidget {
                   prefixIcon: state.showsPrefixIcon
                       ? const Icon(Icons.visibility)
                       : null,
+                  prefixIconConstraints: BoxConstraints(
+                    minWidth: state.prefixIconConstraints,
+                    minHeight: state.prefixIconConstraints,
+                  ),
                 ),
               ),
               const SizedBox(height: 32),
@@ -275,6 +279,14 @@ class TextFieldDecorationScreen extends HookConsumerWidget {
                         onToggled: (_) {
                           viewModel.toggleShowsPrefixIcon();
                         },
+                      ),
+                      SliderMenu(
+                        label: 'prefixIconConstraints',
+                        value: state.prefixIconConstraints,
+                        min: 0,
+                        max: 32,
+                        divisions: 16,
+                        onChanged: viewModel.prefixIconConstraintsUpdated,
                       ),
                     ].intersperse(const SizedBox(height: 32)).toList(),
                   ),
