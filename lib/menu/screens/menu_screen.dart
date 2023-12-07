@@ -4,6 +4,7 @@ import 'package:dismantling/list_view/screen/list_view_screen.dart';
 import 'package:dismantling/menu/components/menu_item.dart';
 import 'package:dismantling/menu/enum/menu_type.dart';
 import 'package:dismantling/selectable_text/screen/selectable_text_screen.dart';
+import 'package:dismantling/text_field_decoration/screens/text_field_decoration_screen.dart';
 import 'package:dismantling/theme/screens/theme_screen.dart';
 
 class MenuScreen extends StatelessWidget {
@@ -34,6 +35,10 @@ class MenuScreen extends StatelessWidget {
                 case MenuType.listView:
                   Navigator.of(context).push<void>(
                     ListViewScreen.route(),
+                  );
+                case MenuType.textFieldDecoration:
+                  Navigator.of(context).push<void>(
+                    TextFieldDecorationScreen.route(),
                   );
               }
             },
