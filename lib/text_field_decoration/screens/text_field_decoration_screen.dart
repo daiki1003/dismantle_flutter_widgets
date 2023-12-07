@@ -63,6 +63,12 @@ class TextFieldDecorationScreen extends HookConsumerWidget {
                   hintTextDirection: state.hintTextDirection,
                   hintMaxLines: state.hintMaxLines,
                   error: state.showsError ? const Icon(Icons.error) : null,
+                  errorText: state.errorTextLines == 0
+                      ? null
+                      : List.generate(
+                          state.errorTextLines,
+                          (_) => 'errorText',
+                        ).join('\n'),
                 ),
               ),
               const SizedBox(height: 32),
@@ -187,6 +193,16 @@ class TextFieldDecorationScreen extends HookConsumerWidget {
                         onToggled: (_) {
                           viewModel.toggleShowsError();
                         },
+                      ),
+                      SliderMenu(
+                        label: 'error',
+                        value: state.errorTextLines.toDouble(),
+                        min: 0,
+                        max: 5,
+                        divisions: 5,
+                        onChanged: (v) => viewModel.errorTextLinesUpdated(
+                          v.toInt(),
+                        ),
                       ),
                     ].intersperse(const SizedBox(height: 32)).toList(),
                   ),

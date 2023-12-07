@@ -30,6 +30,7 @@ mixin _$TextFieldDecorationState {
   TextDirection? get hintTextDirection => throw _privateConstructorUsedError;
   int? get hintMaxLines => throw _privateConstructorUsedError;
   bool get showsError => throw _privateConstructorUsedError;
+  int get errorTextLines => throw _privateConstructorUsedError;
 
   /// Create a copy of TextFieldDecorationState
   /// with the given fields replaced by the non-null parameter values.
@@ -58,7 +59,8 @@ abstract class $TextFieldDecorationStateCopyWith<$Res> {
       bool appliesHintStyle,
       TextDirection? hintTextDirection,
       int? hintMaxLines,
-      bool showsError});
+      bool showsError,
+      int errorTextLines});
 }
 
 /// @nodoc
@@ -91,6 +93,7 @@ class _$TextFieldDecorationStateCopyWithImpl<$Res,
     Object? hintTextDirection = freezed,
     Object? hintMaxLines = freezed,
     Object? showsError = null,
+    Object? errorTextLines = null,
   }) {
     return _then(_value.copyWith(
       showsIcon: null == showsIcon
@@ -149,6 +152,10 @@ class _$TextFieldDecorationStateCopyWithImpl<$Res,
           ? _value.showsError
           : showsError // ignore: cast_nullable_to_non_nullable
               as bool,
+      errorTextLines: null == errorTextLines
+          ? _value.errorTextLines
+          : errorTextLines // ignore: cast_nullable_to_non_nullable
+              as int,
     ) as $Val);
   }
 }
@@ -176,7 +183,8 @@ abstract class _$$TextFieldDecorationStateImplCopyWith<$Res>
       bool appliesHintStyle,
       TextDirection? hintTextDirection,
       int? hintMaxLines,
-      bool showsError});
+      bool showsError,
+      int errorTextLines});
 }
 
 /// @nodoc
@@ -208,6 +216,7 @@ class __$$TextFieldDecorationStateImplCopyWithImpl<$Res>
     Object? hintTextDirection = freezed,
     Object? hintMaxLines = freezed,
     Object? showsError = null,
+    Object? errorTextLines = null,
   }) {
     return _then(_$TextFieldDecorationStateImpl(
       showsIcon: null == showsIcon
@@ -266,6 +275,10 @@ class __$$TextFieldDecorationStateImplCopyWithImpl<$Res>
           ? _value.showsError
           : showsError // ignore: cast_nullable_to_non_nullable
               as bool,
+      errorTextLines: null == errorTextLines
+          ? _value.errorTextLines
+          : errorTextLines // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -287,7 +300,8 @@ class _$TextFieldDecorationStateImpl implements _TextFieldDecorationState {
       this.appliesHintStyle = false,
       this.hintTextDirection,
       this.hintMaxLines,
-      this.showsError = false});
+      this.showsError = false,
+      this.errorTextLines = 0});
 
   @override
   @JsonKey()
@@ -327,10 +341,13 @@ class _$TextFieldDecorationStateImpl implements _TextFieldDecorationState {
   @override
   @JsonKey()
   final bool showsError;
+  @override
+  @JsonKey()
+  final int errorTextLines;
 
   @override
   String toString() {
-    return 'TextFieldDecorationState(showsIcon: $showsIcon, iconColor: $iconColor, showsLabel: $showsLabel, showsLabelText: $showsLabelText, appliesLabelStyle: $appliesLabelStyle, appliesFloatingLabelStyle: $appliesFloatingLabelStyle, helperTextLines: $helperTextLines, appliesHelperStyle: $appliesHelperStyle, helperMaxLines: $helperMaxLines, hintTextLines: $hintTextLines, appliesHintStyle: $appliesHintStyle, hintTextDirection: $hintTextDirection, hintMaxLines: $hintMaxLines, showsError: $showsError)';
+    return 'TextFieldDecorationState(showsIcon: $showsIcon, iconColor: $iconColor, showsLabel: $showsLabel, showsLabelText: $showsLabelText, appliesLabelStyle: $appliesLabelStyle, appliesFloatingLabelStyle: $appliesFloatingLabelStyle, helperTextLines: $helperTextLines, appliesHelperStyle: $appliesHelperStyle, helperMaxLines: $helperMaxLines, hintTextLines: $hintTextLines, appliesHintStyle: $appliesHintStyle, hintTextDirection: $hintTextDirection, hintMaxLines: $hintMaxLines, showsError: $showsError, errorTextLines: $errorTextLines)';
   }
 
   @override
@@ -366,7 +383,9 @@ class _$TextFieldDecorationStateImpl implements _TextFieldDecorationState {
             (identical(other.hintMaxLines, hintMaxLines) ||
                 other.hintMaxLines == hintMaxLines) &&
             (identical(other.showsError, showsError) ||
-                other.showsError == showsError));
+                other.showsError == showsError) &&
+            (identical(other.errorTextLines, errorTextLines) ||
+                other.errorTextLines == errorTextLines));
   }
 
   @override
@@ -385,7 +404,8 @@ class _$TextFieldDecorationStateImpl implements _TextFieldDecorationState {
       appliesHintStyle,
       hintTextDirection,
       hintMaxLines,
-      showsError);
+      showsError,
+      errorTextLines);
 
   /// Create a copy of TextFieldDecorationState
   /// with the given fields replaced by the non-null parameter values.
@@ -412,7 +432,8 @@ abstract class _TextFieldDecorationState implements TextFieldDecorationState {
       final bool appliesHintStyle,
       final TextDirection? hintTextDirection,
       final int? hintMaxLines,
-      final bool showsError}) = _$TextFieldDecorationStateImpl;
+      final bool showsError,
+      final int errorTextLines}) = _$TextFieldDecorationStateImpl;
 
   @override
   bool get showsIcon;
@@ -442,6 +463,8 @@ abstract class _TextFieldDecorationState implements TextFieldDecorationState {
   int? get hintMaxLines;
   @override
   bool get showsError;
+  @override
+  int get errorTextLines;
 
   /// Create a copy of TextFieldDecorationState
   /// with the given fields replaced by the non-null parameter values.

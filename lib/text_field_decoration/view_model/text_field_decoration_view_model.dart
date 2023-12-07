@@ -68,4 +68,8 @@ class TextFieldDecorationViewModel extends _$TextFieldDecorationViewModel {
   void toggleShowsError() {
     state = state.showsErrorToggled();
   }
+
+  void errorTextLinesUpdated(int errorTextLines) {
+    state = state.errorTextLinesUpdated(errorTextLines);
+  }
 }
