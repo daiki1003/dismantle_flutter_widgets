@@ -39,6 +39,7 @@ mixin _$TextFieldDecorationState {
       throw _privateConstructorUsedError;
   bool get isCollapsed => throw _privateConstructorUsedError;
   bool get isDense => throw _privateConstructorUsedError;
+  double get contentPadding => throw _privateConstructorUsedError;
 
   /// Create a copy of TextFieldDecorationState
   /// with the given fields replaced by the non-null parameter values.
@@ -74,7 +75,8 @@ abstract class $TextFieldDecorationStateCopyWith<$Res> {
       FloatingLabelBehavior? floatingLabelBehavior,
       FloatingLabelAlignment? floatingLabelAlignment,
       bool isCollapsed,
-      bool isDense});
+      bool isDense,
+      double contentPadding});
 }
 
 /// @nodoc
@@ -114,6 +116,7 @@ class _$TextFieldDecorationStateCopyWithImpl<$Res,
     Object? floatingLabelAlignment = freezed,
     Object? isCollapsed = null,
     Object? isDense = null,
+    Object? contentPadding = null,
   }) {
     return _then(_value.copyWith(
       showsIcon: null == showsIcon
@@ -200,6 +203,10 @@ class _$TextFieldDecorationStateCopyWithImpl<$Res,
           ? _value.isDense
           : isDense // ignore: cast_nullable_to_non_nullable
               as bool,
+      contentPadding: null == contentPadding
+          ? _value.contentPadding
+          : contentPadding // ignore: cast_nullable_to_non_nullable
+              as double,
     ) as $Val);
   }
 }
@@ -234,7 +241,8 @@ abstract class _$$TextFieldDecorationStateImplCopyWith<$Res>
       FloatingLabelBehavior? floatingLabelBehavior,
       FloatingLabelAlignment? floatingLabelAlignment,
       bool isCollapsed,
-      bool isDense});
+      bool isDense,
+      double contentPadding});
 }
 
 /// @nodoc
@@ -273,6 +281,7 @@ class __$$TextFieldDecorationStateImplCopyWithImpl<$Res>
     Object? floatingLabelAlignment = freezed,
     Object? isCollapsed = null,
     Object? isDense = null,
+    Object? contentPadding = null,
   }) {
     return _then(_$TextFieldDecorationStateImpl(
       showsIcon: null == showsIcon
@@ -359,6 +368,10 @@ class __$$TextFieldDecorationStateImplCopyWithImpl<$Res>
           ? _value.isDense
           : isDense // ignore: cast_nullable_to_non_nullable
               as bool,
+      contentPadding: null == contentPadding
+          ? _value.contentPadding
+          : contentPadding // ignore: cast_nullable_to_non_nullable
+              as double,
     ));
   }
 }
@@ -387,7 +400,8 @@ class _$TextFieldDecorationStateImpl implements _TextFieldDecorationState {
       this.floatingLabelBehavior,
       this.floatingLabelAlignment,
       this.isCollapsed = false,
-      this.isDense = false});
+      this.isDense = false,
+      this.contentPadding = 0});
 
   @override
   @JsonKey()
@@ -445,10 +459,13 @@ class _$TextFieldDecorationStateImpl implements _TextFieldDecorationState {
   @override
   @JsonKey()
   final bool isDense;
+  @override
+  @JsonKey()
+  final double contentPadding;
 
   @override
   String toString() {
-    return 'TextFieldDecorationState(showsIcon: $showsIcon, iconColor: $iconColor, showsLabel: $showsLabel, showsLabelText: $showsLabelText, appliesLabelStyle: $appliesLabelStyle, appliesFloatingLabelStyle: $appliesFloatingLabelStyle, helperTextLines: $helperTextLines, appliesHelperStyle: $appliesHelperStyle, helperMaxLines: $helperMaxLines, hintTextLines: $hintTextLines, appliesHintStyle: $appliesHintStyle, hintTextDirection: $hintTextDirection, hintMaxLines: $hintMaxLines, showsError: $showsError, errorTextLines: $errorTextLines, appliesErrorStyle: $appliesErrorStyle, errorMaxLines: $errorMaxLines, floatingLabelBehavior: $floatingLabelBehavior, floatingLabelAlignment: $floatingLabelAlignment, isCollapsed: $isCollapsed, isDense: $isDense)';
+    return 'TextFieldDecorationState(showsIcon: $showsIcon, iconColor: $iconColor, showsLabel: $showsLabel, showsLabelText: $showsLabelText, appliesLabelStyle: $appliesLabelStyle, appliesFloatingLabelStyle: $appliesFloatingLabelStyle, helperTextLines: $helperTextLines, appliesHelperStyle: $appliesHelperStyle, helperMaxLines: $helperMaxLines, hintTextLines: $hintTextLines, appliesHintStyle: $appliesHintStyle, hintTextDirection: $hintTextDirection, hintMaxLines: $hintMaxLines, showsError: $showsError, errorTextLines: $errorTextLines, appliesErrorStyle: $appliesErrorStyle, errorMaxLines: $errorMaxLines, floatingLabelBehavior: $floatingLabelBehavior, floatingLabelAlignment: $floatingLabelAlignment, isCollapsed: $isCollapsed, isDense: $isDense, contentPadding: $contentPadding)';
   }
 
   @override
@@ -497,7 +514,9 @@ class _$TextFieldDecorationStateImpl implements _TextFieldDecorationState {
                 other.floatingLabelAlignment == floatingLabelAlignment) &&
             (identical(other.isCollapsed, isCollapsed) ||
                 other.isCollapsed == isCollapsed) &&
-            (identical(other.isDense, isDense) || other.isDense == isDense));
+            (identical(other.isDense, isDense) || other.isDense == isDense) &&
+            (identical(other.contentPadding, contentPadding) ||
+                other.contentPadding == contentPadding));
   }
 
   @override
@@ -523,7 +542,8 @@ class _$TextFieldDecorationStateImpl implements _TextFieldDecorationState {
         floatingLabelBehavior,
         floatingLabelAlignment,
         isCollapsed,
-        isDense
+        isDense,
+        contentPadding
       ]);
 
   /// Create a copy of TextFieldDecorationState
@@ -558,7 +578,8 @@ abstract class _TextFieldDecorationState implements TextFieldDecorationState {
       final FloatingLabelBehavior? floatingLabelBehavior,
       final FloatingLabelAlignment? floatingLabelAlignment,
       final bool isCollapsed,
-      final bool isDense}) = _$TextFieldDecorationStateImpl;
+      final bool isDense,
+      final double contentPadding}) = _$TextFieldDecorationStateImpl;
 
   @override
   bool get showsIcon;
@@ -602,6 +623,8 @@ abstract class _TextFieldDecorationState implements TextFieldDecorationState {
   bool get isCollapsed;
   @override
   bool get isDense;
+  @override
+  double get contentPadding;
 
   /// Create a copy of TextFieldDecorationState
   /// with the given fields replaced by the non-null parameter values.

@@ -75,6 +75,10 @@ class TextFieldDecorationScreen extends HookConsumerWidget {
                   floatingLabelAlignment: state.floatingLabelAlignment,
                   isCollapsed: state.isCollapsed,
                   isDense: state.isDense,
+                  contentPadding: EdgeInsets.symmetric(
+                    horizontal: state.contentPadding,
+                    vertical: state.contentPadding / 2,
+                  ),
                 ),
               ),
               const SizedBox(height: 32),

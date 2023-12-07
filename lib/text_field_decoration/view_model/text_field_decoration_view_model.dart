@@ -100,4 +100,10 @@ class TextFieldDecorationViewModel extends _$TextFieldDecorationViewModel {
   void toggleIsDense() {
     state = state.isDenseToggled();
   }
+
+  void contentPaddingUpdated(
+    double contentPadding,
+  ) {
+    state = state.contentPaddingUpdated(contentPadding);
+  }
 }
