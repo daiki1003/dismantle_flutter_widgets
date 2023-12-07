@@ -88,6 +88,12 @@ class TextFieldDecorationScreen extends HookConsumerWidget {
                   ),
                   prefix:
                       state.showsPrefix ? const Icon(Icons.visibility) : null,
+                  prefixText: state.prefixTextLines == 0
+                      ? null
+                      : List.generate(
+                          state.prefixTextLines,
+                          (_) => 'prefixText',
+                        ).join('\n'),
                 ),
               ),
               const SizedBox(height: 32),
@@ -296,6 +302,16 @@ class TextFieldDecorationScreen extends HookConsumerWidget {
                         onToggled: (_) {
                           viewModel.toggleShowsPrefix();
                         },
+                      ),
+                      SliderMenu(
+                        label: 'prefixText',
+                        value: state.prefixTextLines.toDouble(),
+                        min: 0,
+                        max: 5,
+                        divisions: 5,
+                        onChanged: (v) => viewModel.prefixTextLinesUpdated(
+                          v.toInt(),
+                        ),
                       ),
                     ].intersperse(const SizedBox(height: 32)).toList(),
                   ),

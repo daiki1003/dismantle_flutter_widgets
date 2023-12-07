@@ -7,7 +7,7 @@ part of 'text_field_decoration_view_model.dart';
 // **************************************************************************
 
 String _$textFieldDecorationViewModelHash() =>
-    r'8a1a248d5954d088c11e65e5edcc1bcdd569bd5f';
+    r'5862ab76e750ee857e2e819c3788f2d9abf16f09';
 
 /// See also [TextFieldDecorationViewModel].
 @ProviderFor(TextFieldDecorationViewModel)

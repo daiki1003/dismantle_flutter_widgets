@@ -120,4 +120,8 @@ class TextFieldDecorationViewModel extends _$TextFieldDecorationViewModel {
   void toggleShowsPrefix() {
     state = state.showsPrefixToggled();
   }
+
+  void prefixTextLinesUpdated(int prefixTextLines) {
+    state = state.prefixTextLinesUpdated(prefixTextLines);
+  }
 }
