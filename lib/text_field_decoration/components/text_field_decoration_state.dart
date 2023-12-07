@@ -20,6 +20,7 @@ class TextFieldDecorationState with _$TextFieldDecorationState {
     @Default(false) bool appliesHintStyle,
     TextDirection? hintTextDirection,
     int? hintMaxLines,
+    @Default(false) bool showsError,
   }) = _TextFieldDecorationState;
 
   factory TextFieldDecorationState.empty() {
@@ -80,5 +81,9 @@ extension TextFieldDecorationStateEx on TextFieldDecorationState {
 
   TextFieldDecorationState hintMaxLinesUpdated(int? hintMaxLines) {
     return copyWith(hintMaxLines: hintMaxLines);
+  }
+
+  TextFieldDecorationState showsErrorToggled() {
+    return copyWith(showsError: !showsError);
   }
 }

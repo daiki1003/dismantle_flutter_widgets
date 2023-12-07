@@ -64,4 +64,8 @@ class TextFieldDecorationViewModel extends _$TextFieldDecorationViewModel {
   void hintMaxLinesUpdated(int? hintMaxLines) {
     state = state.hintMaxLinesUpdated(hintMaxLines);
   }
+
+  void toggleShowsError() {
+    state = state.showsErrorToggled();
+  }
 }
