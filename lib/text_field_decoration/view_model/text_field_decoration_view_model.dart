@@ -92,4 +92,8 @@ class TextFieldDecorationViewModel extends _$TextFieldDecorationViewModel {
   ) {
     state = state.floatingLabelAlignmentUpdated(floatingLabelAlignment);
   }
+
+  void toggleIsCollapsed() {
+    state = state.isCollapsedToggled();
+  }
 }

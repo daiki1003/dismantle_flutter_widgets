@@ -73,6 +73,7 @@ class TextFieldDecorationScreen extends HookConsumerWidget {
                   errorMaxLines: state.errorMaxLines,
                   floatingLabelBehavior: state.floatingLabelBehavior,
                   floatingLabelAlignment: state.floatingLabelAlignment,
+                  isCollapsed: state.isCollapsed,
                 ),
               ),
               const SizedBox(height: 32),
@@ -245,6 +246,13 @@ class TextFieldDecorationScreen extends HookConsumerWidget {
                         value: state.floatingLabelAlignment,
                         valueTextBuilder: (d) => d?.toString() ?? 'null',
                         onSelected: viewModel.floatingLabelAlignmentUpdated,
+                      ),
+                      ToggleMenu(
+                        text: 'isCollapsed',
+                        value: state.isCollapsed,
+                        onToggled: (_) {
+                          viewModel.toggleIsCollapsed();
+                        },
                       ),
                     ].intersperse(const SizedBox(height: 32)).toList(),
                   ),

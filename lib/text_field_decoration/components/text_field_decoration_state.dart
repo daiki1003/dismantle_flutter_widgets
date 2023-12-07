@@ -26,6 +26,7 @@ class TextFieldDecorationState with _$TextFieldDecorationState {
     int? errorMaxLines,
     FloatingLabelBehavior? floatingLabelBehavior,
     FloatingLabelAlignment? floatingLabelAlignment,
+    @Default(false) bool isCollapsed,
   }) = _TextFieldDecorationState;
 
   factory TextFieldDecorationState.empty() {
@@ -114,5 +115,9 @@ extension TextFieldDecorationStateEx on TextFieldDecorationState {
     FloatingLabelAlignment? floatingLabelAlignment,
   ) {
     return copyWith(floatingLabelAlignment: floatingLabelAlignment);
+  }
+
+  TextFieldDecorationState isCollapsedToggled() {
+    return copyWith(isCollapsed: !isCollapsed);
   }
 }
