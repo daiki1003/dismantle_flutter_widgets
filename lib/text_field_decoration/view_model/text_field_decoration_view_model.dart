@@ -80,4 +80,10 @@ class TextFieldDecorationViewModel extends _$TextFieldDecorationViewModel {
   void errorMaxLinesUpdated(int? errorMaxLines) {
     state = state.errorMaxLinesUpdated(errorMaxLines);
   }
+
+  void floatingLabelBehaviorUpdated(
+    FloatingLabelBehavior? floatingLabelBehavior,
+  ) {
+    state = state.floatingLabelBehaviorUpdated(floatingLabelBehavior);
+  }
 }

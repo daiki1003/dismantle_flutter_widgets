@@ -24,6 +24,7 @@ class TextFieldDecorationState with _$TextFieldDecorationState {
     @Default(0) int errorTextLines,
     @Default(false) bool appliesErrorStyle,
     int? errorMaxLines,
+    FloatingLabelBehavior? floatingLabelBehavior,
   }) = _TextFieldDecorationState;
 
   factory TextFieldDecorationState.empty() {
@@ -100,5 +101,11 @@ extension TextFieldDecorationStateEx on TextFieldDecorationState {
 
   TextFieldDecorationState errorMaxLinesUpdated(int? errorMaxLines) {
     return copyWith(errorMaxLines: errorMaxLines);
+  }
+
+  TextFieldDecorationState floatingLabelBehaviorUpdated(
+    FloatingLabelBehavior? floatingLabelBehavior,
+  ) {
+    return copyWith(floatingLabelBehavior: floatingLabelBehavior);
   }
 }

@@ -71,6 +71,7 @@ class TextFieldDecorationScreen extends HookConsumerWidget {
                         ).join('\n'),
                   errorStyle: state.appliesErrorStyle ? style : null,
                   errorMaxLines: state.errorMaxLines,
+                  floatingLabelBehavior: state.floatingLabelBehavior,
                 ),
               ),
               const SizedBox(height: 32),
@@ -222,6 +223,16 @@ class TextFieldDecorationScreen extends HookConsumerWidget {
                         onChanged: (v) => viewModel.errorMaxLinesUpdated(
                           v.toInt(),
                         ),
+                      ),
+                      SelectMenu<FloatingLabelBehavior?>(
+                        label: 'floatingLabelBehavior',
+                        choices: const [
+                          null,
+                          ...FloatingLabelBehavior.values,
+                        ],
+                        value: state.floatingLabelBehavior,
+                        valueTextBuilder: (d) => d?.toString() ?? 'null',
+                        onSelected: viewModel.floatingLabelBehaviorUpdated,
                       ),
                     ].intersperse(const SizedBox(height: 32)).toList(),
                   ),
