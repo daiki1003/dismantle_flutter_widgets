@@ -34,6 +34,7 @@ class TextFieldDecorationScreen extends HookConsumerWidget {
                 decoration: InputDecoration(
                   icon: state.showsIcon ? const Icon(Icons.visibility) : null,
                   iconColor: state.iconColor,
+                  label: state.showsLabel ? const Text('label') : null,
                 ),
               ),
               const SizedBox(height: 32),
@@ -55,6 +56,13 @@ class TextFieldDecorationScreen extends HookConsumerWidget {
                         valueTextBuilder: (color) =>
                             color?.toString() ?? 'null',
                         onSelected: viewModel.iconColorUpdated,
+                      ),
+                      ToggleMenu(
+                        text: 'label',
+                        value: state.showsLabel,
+                        onToggled: (_) {
+                          viewModel.toggleShowsLabel();
+                        },
                       ),
                     ].intersperse(const SizedBox(height: 32)).toList(),
                   ),

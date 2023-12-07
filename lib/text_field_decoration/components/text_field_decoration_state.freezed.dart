@@ -18,6 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$TextFieldDecorationState {
   bool get showsIcon => throw _privateConstructorUsedError;
   Color? get iconColor => throw _privateConstructorUsedError;
+  bool get showsLabel => throw _privateConstructorUsedError;
 
   /// Create a copy of TextFieldDecorationState
   /// with the given fields replaced by the non-null parameter values.
@@ -32,7 +33,7 @@ abstract class $TextFieldDecorationStateCopyWith<$Res> {
           $Res Function(TextFieldDecorationState) then) =
       _$TextFieldDecorationStateCopyWithImpl<$Res, TextFieldDecorationState>;
   @useResult
-  $Res call({bool showsIcon, Color? iconColor});
+  $Res call({bool showsIcon, Color? iconColor, bool showsLabel});
 }
 
 /// @nodoc
@@ -53,6 +54,7 @@ class _$TextFieldDecorationStateCopyWithImpl<$Res,
   $Res call({
     Object? showsIcon = null,
     Object? iconColor = freezed,
+    Object? showsLabel = null,
   }) {
     return _then(_value.copyWith(
       showsIcon: null == showsIcon
@@ -63,6 +65,10 @@ class _$TextFieldDecorationStateCopyWithImpl<$Res,
           ? _value.iconColor
           : iconColor // ignore: cast_nullable_to_non_nullable
               as Color?,
+      showsLabel: null == showsLabel
+          ? _value.showsLabel
+          : showsLabel // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -76,7 +82,7 @@ abstract class _$$TextFieldDecorationStateImplCopyWith<$Res>
       __$$TextFieldDecorationStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({bool showsIcon, Color? iconColor});
+  $Res call({bool showsIcon, Color? iconColor, bool showsLabel});
 }
 
 /// @nodoc
@@ -96,6 +102,7 @@ class __$$TextFieldDecorationStateImplCopyWithImpl<$Res>
   $Res call({
     Object? showsIcon = null,
     Object? iconColor = freezed,
+    Object? showsLabel = null,
   }) {
     return _then(_$TextFieldDecorationStateImpl(
       showsIcon: null == showsIcon
@@ -106,6 +113,10 @@ class __$$TextFieldDecorationStateImplCopyWithImpl<$Res>
           ? _value.iconColor
           : iconColor // ignore: cast_nullable_to_non_nullable
               as Color?,
+      showsLabel: null == showsLabel
+          ? _value.showsLabel
+          : showsLabel // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -114,17 +125,20 @@ class __$$TextFieldDecorationStateImplCopyWithImpl<$Res>
 
 class _$TextFieldDecorationStateImpl implements _TextFieldDecorationState {
   const _$TextFieldDecorationStateImpl(
-      {this.showsIcon = false, this.iconColor});
+      {this.showsIcon = false, this.iconColor, this.showsLabel = false});
 
   @override
   @JsonKey()
   final bool showsIcon;
   @override
   final Color? iconColor;
+  @override
+  @JsonKey()
+  final bool showsLabel;
 
   @override
   String toString() {
-    return 'TextFieldDecorationState(showsIcon: $showsIcon, iconColor: $iconColor)';
+    return 'TextFieldDecorationState(showsIcon: $showsIcon, iconColor: $iconColor, showsLabel: $showsLabel)';
   }
 
   @override
@@ -135,11 +149,14 @@ class _$TextFieldDecorationStateImpl implements _TextFieldDecorationState {
             (identical(other.showsIcon, showsIcon) ||
                 other.showsIcon == showsIcon) &&
             (identical(other.iconColor, iconColor) ||
-                other.iconColor == iconColor));
+                other.iconColor == iconColor) &&
+            (identical(other.showsLabel, showsLabel) ||
+                other.showsLabel == showsLabel));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, showsIcon, iconColor);
+  int get hashCode =>
+      Object.hash(runtimeType, showsIcon, iconColor, showsLabel);
 
   /// Create a copy of TextFieldDecorationState
   /// with the given fields replaced by the non-null parameter values.
@@ -154,12 +171,15 @@ class _$TextFieldDecorationStateImpl implements _TextFieldDecorationState {
 abstract class _TextFieldDecorationState implements TextFieldDecorationState {
   const factory _TextFieldDecorationState(
       {final bool showsIcon,
-      final Color? iconColor}) = _$TextFieldDecorationStateImpl;
+      final Color? iconColor,
+      final bool showsLabel}) = _$TextFieldDecorationStateImpl;
 
   @override
   bool get showsIcon;
   @override
   Color? get iconColor;
+  @override
+  bool get showsLabel;
 
   /// Create a copy of TextFieldDecorationState
   /// with the given fields replaced by the non-null parameter values.

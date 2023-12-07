@@ -20,4 +20,8 @@ class TextFieldDecorationViewModel extends _$TextFieldDecorationViewModel {
   void iconColorUpdated(Color? iconColor) {
     state = state.iconColorUpdated(iconColor);
   }
+
+  void toggleShowsLabel() {
+    state = state.showsLabelToggled();
+  }
 }
