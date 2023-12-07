@@ -60,4 +60,8 @@ class TextFieldDecorationViewModel extends _$TextFieldDecorationViewModel {
   void hintTextDirectionUpdated(TextDirection? hintTextDirection) {
     state = state.hintTextDirectionUpdated(hintTextDirection);
   }
+
+  void hintMaxLinesUpdated(int? hintMaxLines) {
+    state = state.hintMaxLinesUpdated(hintMaxLines);
+  }
 }

@@ -19,6 +19,7 @@ class TextFieldDecorationState with _$TextFieldDecorationState {
     @Default(0) int hintTextLines,
     @Default(false) bool appliesHintStyle,
     TextDirection? hintTextDirection,
+    int? hintMaxLines,
   }) = _TextFieldDecorationState;
 
   factory TextFieldDecorationState.empty() {
@@ -75,5 +76,9 @@ extension TextFieldDecorationStateEx on TextFieldDecorationState {
     TextDirection? hintTextDirection,
   ) {
     return copyWith(hintTextDirection: hintTextDirection);
+  }
+
+  TextFieldDecorationState hintMaxLinesUpdated(int? hintMaxLines) {
+    return copyWith(hintMaxLines: hintMaxLines);
   }
 }
