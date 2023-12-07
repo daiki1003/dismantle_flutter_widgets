@@ -70,6 +70,7 @@ class TextFieldDecorationScreen extends HookConsumerWidget {
                           (_) => 'errorText',
                         ).join('\n'),
                   errorStyle: state.appliesErrorStyle ? style : null,
+                  errorMaxLines: state.errorMaxLines,
                 ),
               ),
               const SizedBox(height: 32),
@@ -211,6 +212,16 @@ class TextFieldDecorationScreen extends HookConsumerWidget {
                         onToggled: (_) {
                           viewModel.toggleAppliesErrorStyle();
                         },
+                      ),
+                      SliderMenu(
+                        label: 'errorMaxLines',
+                        value: (state.errorMaxLines ?? 1).toDouble(),
+                        min: 1,
+                        max: 5,
+                        divisions: 4,
+                        onChanged: (v) => viewModel.errorMaxLinesUpdated(
+                          v.toInt(),
+                        ),
                       ),
                     ].intersperse(const SizedBox(height: 32)).toList(),
                   ),

@@ -76,4 +76,8 @@ class TextFieldDecorationViewModel extends _$TextFieldDecorationViewModel {
   void toggleAppliesErrorStyle() {
     state = state.appliesErrorStyleToggled();
   }
+
+  void errorMaxLinesUpdated(int? errorMaxLines) {
+    state = state.errorMaxLinesUpdated(errorMaxLines);
+  }
 }
