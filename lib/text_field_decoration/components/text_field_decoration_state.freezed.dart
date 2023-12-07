@@ -22,8 +22,9 @@ mixin _$TextFieldDecorationState {
   bool get showsLabelText => throw _privateConstructorUsedError;
   bool get appliesLabelStyle => throw _privateConstructorUsedError;
   bool get appliesFloatingLabelStyle => throw _privateConstructorUsedError;
-  bool get showsHelperText => throw _privateConstructorUsedError;
+  int get helperTextLines => throw _privateConstructorUsedError;
   bool get appliesHelperStyle => throw _privateConstructorUsedError;
+  int? get helperMaxLines => throw _privateConstructorUsedError;
 
   /// Create a copy of TextFieldDecorationState
   /// with the given fields replaced by the non-null parameter values.
@@ -45,8 +46,9 @@ abstract class $TextFieldDecorationStateCopyWith<$Res> {
       bool showsLabelText,
       bool appliesLabelStyle,
       bool appliesFloatingLabelStyle,
-      bool showsHelperText,
-      bool appliesHelperStyle});
+      int helperTextLines,
+      bool appliesHelperStyle,
+      int? helperMaxLines});
 }
 
 /// @nodoc
@@ -71,8 +73,9 @@ class _$TextFieldDecorationStateCopyWithImpl<$Res,
     Object? showsLabelText = null,
     Object? appliesLabelStyle = null,
     Object? appliesFloatingLabelStyle = null,
-    Object? showsHelperText = null,
+    Object? helperTextLines = null,
     Object? appliesHelperStyle = null,
+    Object? helperMaxLines = freezed,
   }) {
     return _then(_value.copyWith(
       showsIcon: null == showsIcon
@@ -99,14 +102,18 @@ class _$TextFieldDecorationStateCopyWithImpl<$Res,
           ? _value.appliesFloatingLabelStyle
           : appliesFloatingLabelStyle // ignore: cast_nullable_to_non_nullable
               as bool,
-      showsHelperText: null == showsHelperText
-          ? _value.showsHelperText
-          : showsHelperText // ignore: cast_nullable_to_non_nullable
-              as bool,
+      helperTextLines: null == helperTextLines
+          ? _value.helperTextLines
+          : helperTextLines // ignore: cast_nullable_to_non_nullable
+              as int,
       appliesHelperStyle: null == appliesHelperStyle
           ? _value.appliesHelperStyle
           : appliesHelperStyle // ignore: cast_nullable_to_non_nullable
               as bool,
+      helperMaxLines: freezed == helperMaxLines
+          ? _value.helperMaxLines
+          : helperMaxLines // ignore: cast_nullable_to_non_nullable
+              as int?,
     ) as $Val);
   }
 }
@@ -127,8 +134,9 @@ abstract class _$$TextFieldDecorationStateImplCopyWith<$Res>
       bool showsLabelText,
       bool appliesLabelStyle,
       bool appliesFloatingLabelStyle,
-      bool showsHelperText,
-      bool appliesHelperStyle});
+      int helperTextLines,
+      bool appliesHelperStyle,
+      int? helperMaxLines});
 }
 
 /// @nodoc
@@ -152,8 +160,9 @@ class __$$TextFieldDecorationStateImplCopyWithImpl<$Res>
     Object? showsLabelText = null,
     Object? appliesLabelStyle = null,
     Object? appliesFloatingLabelStyle = null,
-    Object? showsHelperText = null,
+    Object? helperTextLines = null,
     Object? appliesHelperStyle = null,
+    Object? helperMaxLines = freezed,
   }) {
     return _then(_$TextFieldDecorationStateImpl(
       showsIcon: null == showsIcon
@@ -180,14 +189,18 @@ class __$$TextFieldDecorationStateImplCopyWithImpl<$Res>
           ? _value.appliesFloatingLabelStyle
           : appliesFloatingLabelStyle // ignore: cast_nullable_to_non_nullable
               as bool,
-      showsHelperText: null == showsHelperText
-          ? _value.showsHelperText
-          : showsHelperText // ignore: cast_nullable_to_non_nullable
-              as bool,
+      helperTextLines: null == helperTextLines
+          ? _value.helperTextLines
+          : helperTextLines // ignore: cast_nullable_to_non_nullable
+              as int,
       appliesHelperStyle: null == appliesHelperStyle
           ? _value.appliesHelperStyle
           : appliesHelperStyle // ignore: cast_nullable_to_non_nullable
               as bool,
+      helperMaxLines: freezed == helperMaxLines
+          ? _value.helperMaxLines
+          : helperMaxLines // ignore: cast_nullable_to_non_nullable
+              as int?,
     ));
   }
 }
@@ -202,8 +215,9 @@ class _$TextFieldDecorationStateImpl implements _TextFieldDecorationState {
       this.showsLabelText = false,
       this.appliesLabelStyle = false,
       this.appliesFloatingLabelStyle = false,
-      this.showsHelperText = false,
-      this.appliesHelperStyle = false});
+      this.helperTextLines = 0,
+      this.appliesHelperStyle = false,
+      this.helperMaxLines});
 
   @override
   @JsonKey()
@@ -224,14 +238,16 @@ class _$TextFieldDecorationStateImpl implements _TextFieldDecorationState {
   final bool appliesFloatingLabelStyle;
   @override
   @JsonKey()
-  final bool showsHelperText;
+  final int helperTextLines;
   @override
   @JsonKey()
   final bool appliesHelperStyle;
+  @override
+  final int? helperMaxLines;
 
   @override
   String toString() {
-    return 'TextFieldDecorationState(showsIcon: $showsIcon, iconColor: $iconColor, showsLabel: $showsLabel, showsLabelText: $showsLabelText, appliesLabelStyle: $appliesLabelStyle, appliesFloatingLabelStyle: $appliesFloatingLabelStyle, showsHelperText: $showsHelperText, appliesHelperStyle: $appliesHelperStyle)';
+    return 'TextFieldDecorationState(showsIcon: $showsIcon, iconColor: $iconColor, showsLabel: $showsLabel, showsLabelText: $showsLabelText, appliesLabelStyle: $appliesLabelStyle, appliesFloatingLabelStyle: $appliesFloatingLabelStyle, helperTextLines: $helperTextLines, appliesHelperStyle: $appliesHelperStyle, helperMaxLines: $helperMaxLines)';
   }
 
   @override
@@ -252,10 +268,12 @@ class _$TextFieldDecorationStateImpl implements _TextFieldDecorationState {
             (identical(other.appliesFloatingLabelStyle,
                     appliesFloatingLabelStyle) ||
                 other.appliesFloatingLabelStyle == appliesFloatingLabelStyle) &&
-            (identical(other.showsHelperText, showsHelperText) ||
-                other.showsHelperText == showsHelperText) &&
+            (identical(other.helperTextLines, helperTextLines) ||
+                other.helperTextLines == helperTextLines) &&
             (identical(other.appliesHelperStyle, appliesHelperStyle) ||
-                other.appliesHelperStyle == appliesHelperStyle));
+                other.appliesHelperStyle == appliesHelperStyle) &&
+            (identical(other.helperMaxLines, helperMaxLines) ||
+                other.helperMaxLines == helperMaxLines));
   }
 
   @override
@@ -267,8 +285,9 @@ class _$TextFieldDecorationStateImpl implements _TextFieldDecorationState {
       showsLabelText,
       appliesLabelStyle,
       appliesFloatingLabelStyle,
-      showsHelperText,
-      appliesHelperStyle);
+      helperTextLines,
+      appliesHelperStyle,
+      helperMaxLines);
 
   /// Create a copy of TextFieldDecorationState
   /// with the given fields replaced by the non-null parameter values.
@@ -288,8 +307,9 @@ abstract class _TextFieldDecorationState implements TextFieldDecorationState {
       final bool showsLabelText,
       final bool appliesLabelStyle,
       final bool appliesFloatingLabelStyle,
-      final bool showsHelperText,
-      final bool appliesHelperStyle}) = _$TextFieldDecorationStateImpl;
+      final int helperTextLines,
+      final bool appliesHelperStyle,
+      final int? helperMaxLines}) = _$TextFieldDecorationStateImpl;
 
   @override
   bool get showsIcon;
@@ -304,9 +324,11 @@ abstract class _TextFieldDecorationState implements TextFieldDecorationState {
   @override
   bool get appliesFloatingLabelStyle;
   @override
-  bool get showsHelperText;
+  int get helperTextLines;
   @override
   bool get appliesHelperStyle;
+  @override
+  int? get helperMaxLines;
 
   /// Create a copy of TextFieldDecorationState
   /// with the given fields replaced by the non-null parameter values.

@@ -37,11 +37,15 @@ class TextFieldDecorationViewModel extends _$TextFieldDecorationViewModel {
     state = state.appliesFloatingLabelStyleToggled();
   }
 
-  void toggleShowsHelperText() {
-    state = state.showsHelperTextToggled();
+  void helperTextLinesUpdated(int helperTextLines) {
+    state = state.helperTextLinesUpdated(helperTextLines);
   }
 
   void toggleAppliesHelperStyle() {
     state = state.appliesHelperStyleToggled();
+  }
+
+  void helperMaxLinesUpdated(int? helperMaxLines) {
+    state = state.helperMaxLinesUpdated(helperMaxLines);
   }
 }

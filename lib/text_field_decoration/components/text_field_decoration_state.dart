@@ -13,8 +13,9 @@ class TextFieldDecorationState with _$TextFieldDecorationState {
     @Default(false) bool showsLabelText,
     @Default(false) bool appliesLabelStyle,
     @Default(false) bool appliesFloatingLabelStyle,
-    @Default(false) bool showsHelperText,
+    @Default(0) int helperTextLines,
     @Default(false) bool appliesHelperStyle,
+    int? helperMaxLines,
   }) = _TextFieldDecorationState;
 
   factory TextFieldDecorationState.empty() {
@@ -47,11 +48,15 @@ extension TextFieldDecorationStateEx on TextFieldDecorationState {
     return copyWith(appliesFloatingLabelStyle: !appliesFloatingLabelStyle);
   }
 
-  TextFieldDecorationState showsHelperTextToggled() {
-    return copyWith(showsHelperText: !showsHelperText);
+  TextFieldDecorationState helperTextLinesUpdated(int helperTextLines) {
+    return copyWith(helperTextLines: helperTextLines);
   }
 
   TextFieldDecorationState appliesHelperStyleToggled() {
     return copyWith(appliesHelperStyle: !appliesHelperStyle);
+  }
+
+  TextFieldDecorationState helperMaxLinesUpdated(int? helperMaxLines) {
+    return copyWith(helperMaxLines: helperMaxLines);
   }
 }

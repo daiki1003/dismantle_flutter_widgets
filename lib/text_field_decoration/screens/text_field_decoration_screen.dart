@@ -5,6 +5,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:intersperse/intersperse.dart';
 
 import 'package:dismantling/components/toggle_menu.dart';
+import 'package:dismantling/components/slider_menu.dart';
 import 'package:dismantling/text_field_decoration/view_model/text_field_decoration_view_model.dart';
 
 class TextFieldDecorationScreen extends HookConsumerWidget {
@@ -44,8 +45,14 @@ class TextFieldDecorationScreen extends HookConsumerWidget {
                   labelStyle: state.appliesLabelStyle ? style : null,
                   floatingLabelStyle:
                       state.appliesFloatingLabelStyle ? style : null,
-                  helperText: state.showsHelperText ? 'helperText' : null,
+                  helperText: state.helperTextLines == 0
+                      ? null
+                      : List.generate(
+                          state.helperTextLines,
+                          (_) => 'helperText',
+                        ).join('\n'),
                   helperStyle: state.appliesHelperStyle ? style : null,
+                  helperMaxLines: state.helperMaxLines,
                 ),
               ),
               const SizedBox(height: 32),
@@ -100,12 +107,25 @@ class TextFieldDecorationScreen extends HookConsumerWidget {
                           viewModel.toggleAppliesFloatingLabelStyle();
                         },
                       ),
-                      ToggleMenu(
-                        text: 'helperText',
-                        value: state.showsHelperText,
-                        onToggled: (_) {
-                          viewModel.toggleShowsHelperText();
-                        },
+                      SliderMenu(
+                        label: 'helperTextLines',
+                        value: state.helperTextLines.toDouble(),
+                        min: 0,
+                        max: 5,
+                        divisions: 5,
+                        onChanged: (v) => viewModel.helperTextLinesUpdated(
+                          v.toInt(),
+                        ),
+                      ),
+                      SliderMenu(
+                        label: 'helperMaxLines',
+                        value: (state.helperMaxLines ?? 1).toDouble(),
+                        min: 1,
+                        max: 5,
+                        divisions: 4,
+                        onChanged: (v) => viewModel.helperMaxLinesUpdated(
+                          v.toInt(),
+                        ),
                       ),
                       ToggleMenu(
                         text: 'helperStyle',
