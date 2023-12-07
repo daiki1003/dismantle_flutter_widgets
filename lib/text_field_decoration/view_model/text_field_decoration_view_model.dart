@@ -48,4 +48,8 @@ class TextFieldDecorationViewModel extends _$TextFieldDecorationViewModel {
   void helperMaxLinesUpdated(int? helperMaxLines) {
     state = state.helperMaxLinesUpdated(helperMaxLines);
   }
+
+  void hintTextLinesUpdated(int hintTextLines) {
+    state = state.hintTextLinesUpdated(hintTextLines);
+  }
 }

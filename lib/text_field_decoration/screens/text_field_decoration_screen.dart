@@ -53,6 +53,12 @@ class TextFieldDecorationScreen extends HookConsumerWidget {
                         ).join('\n'),
                   helperStyle: state.appliesHelperStyle ? style : null,
                   helperMaxLines: state.helperMaxLines,
+                  hintText: state.hintTextLines == 0
+                      ? null
+                      : List.generate(
+                          state.hintTextLines,
+                          (_) => 'hintText',
+                        ).join('\n'),
                 ),
               ),
               const SizedBox(height: 32),
@@ -133,6 +139,16 @@ class TextFieldDecorationScreen extends HookConsumerWidget {
                         onToggled: (_) {
                           viewModel.toggleAppliesHelperStyle();
                         },
+                      ),
+                      SliderMenu(
+                        label: 'hintText',
+                        value: state.hintTextLines.toDouble(),
+                        min: 0,
+                        max: 5,
+                        divisions: 5,
+                        onChanged: (v) => viewModel.hintTextLinesUpdated(
+                          v.toInt(),
+                        ),
                       ),
                     ].intersperse(const SizedBox(height: 32)).toList(),
                   ),
