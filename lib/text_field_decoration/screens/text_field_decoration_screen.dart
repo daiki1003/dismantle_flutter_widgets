@@ -79,6 +79,9 @@ class TextFieldDecorationScreen extends HookConsumerWidget {
                     horizontal: state.contentPadding,
                     vertical: state.contentPadding / 2,
                   ),
+                  prefixIcon: state.showsPrefixIcon
+                      ? const Icon(Icons.visibility)
+                      : null,
                 ),
               ),
               const SizedBox(height: 32),
@@ -264,6 +267,13 @@ class TextFieldDecorationScreen extends HookConsumerWidget {
                         value: state.isDense,
                         onToggled: (_) {
                           viewModel.toggleIsDense();
+                        },
+                      ),
+                      ToggleMenu(
+                        text: 'prefixIcon',
+                        value: state.showsPrefixIcon,
+                        onToggled: (_) {
+                          viewModel.toggleShowsPrefixIcon();
                         },
                       ),
                     ].intersperse(const SizedBox(height: 32)).toList(),

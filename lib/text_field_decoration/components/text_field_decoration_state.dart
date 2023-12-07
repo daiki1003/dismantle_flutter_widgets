@@ -29,6 +29,7 @@ class TextFieldDecorationState with _$TextFieldDecorationState {
     @Default(false) bool isCollapsed,
     @Default(false) bool isDense,
     @Default(0) double contentPadding,
+    @Default(false) bool showsPrefixIcon,
   }) = _TextFieldDecorationState;
 
   factory TextFieldDecorationState.empty() {
@@ -129,5 +130,9 @@ extension TextFieldDecorationStateEx on TextFieldDecorationState {
 
   TextFieldDecorationState contentPaddingUpdated(double contentPadding) {
     return copyWith(contentPadding: contentPadding);
+  }
+
+  TextFieldDecorationState showsPrefixIconToggled() {
+    return copyWith(showsPrefixIcon: !showsPrefixIcon);
   }
 }

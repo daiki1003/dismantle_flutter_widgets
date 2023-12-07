@@ -40,6 +40,7 @@ mixin _$TextFieldDecorationState {
   bool get isCollapsed => throw _privateConstructorUsedError;
   bool get isDense => throw _privateConstructorUsedError;
   double get contentPadding => throw _privateConstructorUsedError;
+  bool get showsPrefixIcon => throw _privateConstructorUsedError;
 
   /// Create a copy of TextFieldDecorationState
   /// with the given fields replaced by the non-null parameter values.
@@ -76,7 +77,8 @@ abstract class $TextFieldDecorationStateCopyWith<$Res> {
       FloatingLabelAlignment? floatingLabelAlignment,
       bool isCollapsed,
       bool isDense,
-      double contentPadding});
+      double contentPadding,
+      bool showsPrefixIcon});
 }
 
 /// @nodoc
@@ -117,6 +119,7 @@ class _$TextFieldDecorationStateCopyWithImpl<$Res,
     Object? isCollapsed = null,
     Object? isDense = null,
     Object? contentPadding = null,
+    Object? showsPrefixIcon = null,
   }) {
     return _then(_value.copyWith(
       showsIcon: null == showsIcon
@@ -207,6 +210,10 @@ class _$TextFieldDecorationStateCopyWithImpl<$Res,
           ? _value.contentPadding
           : contentPadding // ignore: cast_nullable_to_non_nullable
               as double,
+      showsPrefixIcon: null == showsPrefixIcon
+          ? _value.showsPrefixIcon
+          : showsPrefixIcon // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -242,7 +249,8 @@ abstract class _$$TextFieldDecorationStateImplCopyWith<$Res>
       FloatingLabelAlignment? floatingLabelAlignment,
       bool isCollapsed,
       bool isDense,
-      double contentPadding});
+      double contentPadding,
+      bool showsPrefixIcon});
 }
 
 /// @nodoc
@@ -282,6 +290,7 @@ class __$$TextFieldDecorationStateImplCopyWithImpl<$Res>
     Object? isCollapsed = null,
     Object? isDense = null,
     Object? contentPadding = null,
+    Object? showsPrefixIcon = null,
   }) {
     return _then(_$TextFieldDecorationStateImpl(
       showsIcon: null == showsIcon
@@ -372,6 +381,10 @@ class __$$TextFieldDecorationStateImplCopyWithImpl<$Res>
           ? _value.contentPadding
           : contentPadding // ignore: cast_nullable_to_non_nullable
               as double,
+      showsPrefixIcon: null == showsPrefixIcon
+          ? _value.showsPrefixIcon
+          : showsPrefixIcon // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -401,7 +414,8 @@ class _$TextFieldDecorationStateImpl implements _TextFieldDecorationState {
       this.floatingLabelAlignment,
       this.isCollapsed = false,
       this.isDense = false,
-      this.contentPadding = 0});
+      this.contentPadding = 0,
+      this.showsPrefixIcon = false});
 
   @override
   @JsonKey()
@@ -462,10 +476,13 @@ class _$TextFieldDecorationStateImpl implements _TextFieldDecorationState {
   @override
   @JsonKey()
   final double contentPadding;
+  @override
+  @JsonKey()
+  final bool showsPrefixIcon;
 
   @override
   String toString() {
-    return 'TextFieldDecorationState(showsIcon: $showsIcon, iconColor: $iconColor, showsLabel: $showsLabel, showsLabelText: $showsLabelText, appliesLabelStyle: $appliesLabelStyle, appliesFloatingLabelStyle: $appliesFloatingLabelStyle, helperTextLines: $helperTextLines, appliesHelperStyle: $appliesHelperStyle, helperMaxLines: $helperMaxLines, hintTextLines: $hintTextLines, appliesHintStyle: $appliesHintStyle, hintTextDirection: $hintTextDirection, hintMaxLines: $hintMaxLines, showsError: $showsError, errorTextLines: $errorTextLines, appliesErrorStyle: $appliesErrorStyle, errorMaxLines: $errorMaxLines, floatingLabelBehavior: $floatingLabelBehavior, floatingLabelAlignment: $floatingLabelAlignment, isCollapsed: $isCollapsed, isDense: $isDense, contentPadding: $contentPadding)';
+    return 'TextFieldDecorationState(showsIcon: $showsIcon, iconColor: $iconColor, showsLabel: $showsLabel, showsLabelText: $showsLabelText, appliesLabelStyle: $appliesLabelStyle, appliesFloatingLabelStyle: $appliesFloatingLabelStyle, helperTextLines: $helperTextLines, appliesHelperStyle: $appliesHelperStyle, helperMaxLines: $helperMaxLines, hintTextLines: $hintTextLines, appliesHintStyle: $appliesHintStyle, hintTextDirection: $hintTextDirection, hintMaxLines: $hintMaxLines, showsError: $showsError, errorTextLines: $errorTextLines, appliesErrorStyle: $appliesErrorStyle, errorMaxLines: $errorMaxLines, floatingLabelBehavior: $floatingLabelBehavior, floatingLabelAlignment: $floatingLabelAlignment, isCollapsed: $isCollapsed, isDense: $isDense, contentPadding: $contentPadding, showsPrefixIcon: $showsPrefixIcon)';
   }
 
   @override
@@ -516,7 +533,9 @@ class _$TextFieldDecorationStateImpl implements _TextFieldDecorationState {
                 other.isCollapsed == isCollapsed) &&
             (identical(other.isDense, isDense) || other.isDense == isDense) &&
             (identical(other.contentPadding, contentPadding) ||
-                other.contentPadding == contentPadding));
+                other.contentPadding == contentPadding) &&
+            (identical(other.showsPrefixIcon, showsPrefixIcon) ||
+                other.showsPrefixIcon == showsPrefixIcon));
   }
 
   @override
@@ -543,7 +562,8 @@ class _$TextFieldDecorationStateImpl implements _TextFieldDecorationState {
         floatingLabelAlignment,
         isCollapsed,
         isDense,
-        contentPadding
+        contentPadding,
+        showsPrefixIcon
       ]);
 
   /// Create a copy of TextFieldDecorationState
@@ -579,7 +599,8 @@ abstract class _TextFieldDecorationState implements TextFieldDecorationState {
       final FloatingLabelAlignment? floatingLabelAlignment,
       final bool isCollapsed,
       final bool isDense,
-      final double contentPadding}) = _$TextFieldDecorationStateImpl;
+      final double contentPadding,
+      final bool showsPrefixIcon}) = _$TextFieldDecorationStateImpl;
 
   @override
   bool get showsIcon;
@@ -625,6 +646,8 @@ abstract class _TextFieldDecorationState implements TextFieldDecorationState {
   bool get isDense;
   @override
   double get contentPadding;
+  @override
+  bool get showsPrefixIcon;
 
   /// Create a copy of TextFieldDecorationState
   /// with the given fields replaced by the non-null parameter values.

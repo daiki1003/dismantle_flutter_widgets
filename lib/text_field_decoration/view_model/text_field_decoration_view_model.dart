@@ -106,4 +106,8 @@ class TextFieldDecorationViewModel extends _$TextFieldDecorationViewModel {
   ) {
     state = state.contentPaddingUpdated(contentPadding);
   }
+
+  void toggleShowsPrefixIcon() {
+    state = state.showsPrefixIconToggled();
+  }
 }
