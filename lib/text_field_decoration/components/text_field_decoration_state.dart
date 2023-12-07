@@ -22,6 +22,7 @@ class TextFieldDecorationState with _$TextFieldDecorationState {
     int? hintMaxLines,
     @Default(false) bool showsError,
     @Default(0) int errorTextLines,
+    @Default(false) bool appliesErrorStyle,
   }) = _TextFieldDecorationState;
 
   factory TextFieldDecorationState.empty() {
@@ -90,5 +91,9 @@ extension TextFieldDecorationStateEx on TextFieldDecorationState {
 
   TextFieldDecorationState errorTextLinesUpdated(int errorTextLines) {
     return copyWith(errorTextLines: errorTextLines);
+  }
+
+  TextFieldDecorationState appliesErrorStyleToggled() {
+    return copyWith(appliesErrorStyle: !appliesErrorStyle);
   }
 }

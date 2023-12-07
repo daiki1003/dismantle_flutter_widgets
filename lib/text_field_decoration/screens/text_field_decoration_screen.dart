@@ -69,6 +69,7 @@ class TextFieldDecorationScreen extends HookConsumerWidget {
                           state.errorTextLines,
                           (_) => 'errorText',
                         ).join('\n'),
+                  errorStyle: state.appliesErrorStyle ? style : null,
                 ),
               ),
               const SizedBox(height: 32),
@@ -203,6 +204,13 @@ class TextFieldDecorationScreen extends HookConsumerWidget {
                         onChanged: (v) => viewModel.errorTextLinesUpdated(
                           v.toInt(),
                         ),
+                      ),
+                      ToggleMenu(
+                        text: 'errorStyle',
+                        value: state.appliesErrorStyle,
+                        onToggled: (_) {
+                          viewModel.toggleAppliesErrorStyle();
+                        },
                       ),
                     ].intersperse(const SizedBox(height: 32)).toList(),
                   ),
