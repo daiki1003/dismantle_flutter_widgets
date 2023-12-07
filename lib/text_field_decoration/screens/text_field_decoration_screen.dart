@@ -23,6 +23,11 @@ class TextFieldDecorationScreen extends HookConsumerWidget {
     final state = ref.watch(textFieldDecorationViewModelProvider);
     final viewModel = ref.watch(textFieldDecorationViewModelProvider.notifier);
 
+    const style = TextStyle(
+      color: Colors.red,
+      fontWeight: FontWeight.bold,
+    );
+
     return Scaffold(
       appBar: AppBar(title: const Text('TextField.decoration')),
       body: SafeArea(
@@ -36,6 +41,7 @@ class TextFieldDecorationScreen extends HookConsumerWidget {
                   iconColor: state.iconColor,
                   label: state.showsLabel ? const Text('label') : null,
                   labelText: state.showsLabelText ? 'labelText' : null,
+                  labelStyle: state.appliesLabelStyle ? style : null,
                 ),
               ),
               const SizedBox(height: 32),
@@ -75,6 +81,13 @@ class TextFieldDecorationScreen extends HookConsumerWidget {
                             : (_) {
                                 viewModel.toggleShowsLabelText();
                               },
+                      ),
+                      ToggleMenu(
+                        text: 'labelStyle',
+                        value: state.appliesLabelStyle,
+                        onToggled: (_) {
+                          viewModel.toggleAppliesLabelStyle();
+                        },
                       ),
                     ].intersperse(const SizedBox(height: 32)).toList(),
                   ),

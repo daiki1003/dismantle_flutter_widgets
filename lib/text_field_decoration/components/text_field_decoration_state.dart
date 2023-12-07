@@ -11,6 +11,7 @@ class TextFieldDecorationState with _$TextFieldDecorationState {
     Color? iconColor,
     @Default(false) bool showsLabel,
     @Default(false) bool showsLabelText,
+    @Default(false) bool appliesLabelStyle,
   }) = _TextFieldDecorationState;
 
   factory TextFieldDecorationState.empty() {
@@ -33,5 +34,9 @@ extension TextFieldDecorationStateEx on TextFieldDecorationState {
 
   TextFieldDecorationState showsLabelTextToggled() {
     return copyWith(showsLabelText: !showsLabelText);
+  }
+
+  TextFieldDecorationState appliesLabelStyleToggled() {
+    return copyWith(appliesLabelStyle: !appliesLabelStyle);
   }
 }

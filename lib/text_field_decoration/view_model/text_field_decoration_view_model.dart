@@ -28,4 +28,8 @@ class TextFieldDecorationViewModel extends _$TextFieldDecorationViewModel {
   void toggleShowsLabelText() {
     state = state.showsLabelTextToggled();
   }
+
+  void toggleAppliesLabelStyle() {
+    state = state.appliesLabelStyleToggled();
+  }
 }
