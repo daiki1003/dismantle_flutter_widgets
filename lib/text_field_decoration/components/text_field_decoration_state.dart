@@ -33,6 +33,7 @@ class TextFieldDecorationState with _$TextFieldDecorationState {
     @Default(0) double prefixIconConstraints,
     @Default(false) bool showsPrefix,
     @Default(0) int prefixTextLines,
+    @Default(false) bool appliesPrefixStyle,
   }) = _TextFieldDecorationState;
 
   factory TextFieldDecorationState.empty() {
@@ -151,5 +152,9 @@ extension TextFieldDecorationStateEx on TextFieldDecorationState {
 
   TextFieldDecorationState prefixTextLinesUpdated(int prefixTextLines) {
     return copyWith(prefixTextLines: prefixTextLines);
+  }
+
+  TextFieldDecorationState appliesPrefixStyleToggled() {
+    return copyWith(appliesPrefixStyle: !appliesPrefixStyle);
   }
 }

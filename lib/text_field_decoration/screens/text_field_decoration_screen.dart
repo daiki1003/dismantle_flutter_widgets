@@ -94,6 +94,7 @@ class TextFieldDecorationScreen extends HookConsumerWidget {
                           state.prefixTextLines,
                           (_) => 'prefixText',
                         ).join('\n'),
+                  prefixStyle: state.appliesPrefixStyle ? style : null,
                 ),
               ),
               const SizedBox(height: 32),
@@ -312,6 +313,13 @@ class TextFieldDecorationScreen extends HookConsumerWidget {
                         onChanged: (v) => viewModel.prefixTextLinesUpdated(
                           v.toInt(),
                         ),
+                      ),
+                      ToggleMenu(
+                        text: 'prefixStyle',
+                        value: state.appliesPrefixStyle,
+                        onToggled: (_) {
+                          viewModel.toggleAppliesPrefixStyle();
+                        },
                       ),
                     ].intersperse(const SizedBox(height: 32)).toList(),
                   ),

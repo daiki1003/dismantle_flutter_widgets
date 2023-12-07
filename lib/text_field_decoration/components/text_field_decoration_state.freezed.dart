@@ -44,6 +44,7 @@ mixin _$TextFieldDecorationState {
   double get prefixIconConstraints => throw _privateConstructorUsedError;
   bool get showsPrefix => throw _privateConstructorUsedError;
   int get prefixTextLines => throw _privateConstructorUsedError;
+  bool get appliesPrefixStyle => throw _privateConstructorUsedError;
 
   /// Create a copy of TextFieldDecorationState
   /// with the given fields replaced by the non-null parameter values.
@@ -84,7 +85,8 @@ abstract class $TextFieldDecorationStateCopyWith<$Res> {
       bool showsPrefixIcon,
       double prefixIconConstraints,
       bool showsPrefix,
-      int prefixTextLines});
+      int prefixTextLines,
+      bool appliesPrefixStyle});
 }
 
 /// @nodoc
@@ -129,6 +131,7 @@ class _$TextFieldDecorationStateCopyWithImpl<$Res,
     Object? prefixIconConstraints = null,
     Object? showsPrefix = null,
     Object? prefixTextLines = null,
+    Object? appliesPrefixStyle = null,
   }) {
     return _then(_value.copyWith(
       showsIcon: null == showsIcon
@@ -235,6 +238,10 @@ class _$TextFieldDecorationStateCopyWithImpl<$Res,
           ? _value.prefixTextLines
           : prefixTextLines // ignore: cast_nullable_to_non_nullable
               as int,
+      appliesPrefixStyle: null == appliesPrefixStyle
+          ? _value.appliesPrefixStyle
+          : appliesPrefixStyle // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -274,7 +281,8 @@ abstract class _$$TextFieldDecorationStateImplCopyWith<$Res>
       bool showsPrefixIcon,
       double prefixIconConstraints,
       bool showsPrefix,
-      int prefixTextLines});
+      int prefixTextLines,
+      bool appliesPrefixStyle});
 }
 
 /// @nodoc
@@ -318,6 +326,7 @@ class __$$TextFieldDecorationStateImplCopyWithImpl<$Res>
     Object? prefixIconConstraints = null,
     Object? showsPrefix = null,
     Object? prefixTextLines = null,
+    Object? appliesPrefixStyle = null,
   }) {
     return _then(_$TextFieldDecorationStateImpl(
       showsIcon: null == showsIcon
@@ -424,6 +433,10 @@ class __$$TextFieldDecorationStateImplCopyWithImpl<$Res>
           ? _value.prefixTextLines
           : prefixTextLines // ignore: cast_nullable_to_non_nullable
               as int,
+      appliesPrefixStyle: null == appliesPrefixStyle
+          ? _value.appliesPrefixStyle
+          : appliesPrefixStyle // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -457,7 +470,8 @@ class _$TextFieldDecorationStateImpl implements _TextFieldDecorationState {
       this.showsPrefixIcon = false,
       this.prefixIconConstraints = 0,
       this.showsPrefix = false,
-      this.prefixTextLines = 0});
+      this.prefixTextLines = 0,
+      this.appliesPrefixStyle = false});
 
   @override
   @JsonKey()
@@ -530,10 +544,13 @@ class _$TextFieldDecorationStateImpl implements _TextFieldDecorationState {
   @override
   @JsonKey()
   final int prefixTextLines;
+  @override
+  @JsonKey()
+  final bool appliesPrefixStyle;
 
   @override
   String toString() {
-    return 'TextFieldDecorationState(showsIcon: $showsIcon, iconColor: $iconColor, showsLabel: $showsLabel, showsLabelText: $showsLabelText, appliesLabelStyle: $appliesLabelStyle, appliesFloatingLabelStyle: $appliesFloatingLabelStyle, helperTextLines: $helperTextLines, appliesHelperStyle: $appliesHelperStyle, helperMaxLines: $helperMaxLines, hintTextLines: $hintTextLines, appliesHintStyle: $appliesHintStyle, hintTextDirection: $hintTextDirection, hintMaxLines: $hintMaxLines, showsError: $showsError, errorTextLines: $errorTextLines, appliesErrorStyle: $appliesErrorStyle, errorMaxLines: $errorMaxLines, floatingLabelBehavior: $floatingLabelBehavior, floatingLabelAlignment: $floatingLabelAlignment, isCollapsed: $isCollapsed, isDense: $isDense, contentPadding: $contentPadding, showsPrefixIcon: $showsPrefixIcon, prefixIconConstraints: $prefixIconConstraints, showsPrefix: $showsPrefix, prefixTextLines: $prefixTextLines)';
+    return 'TextFieldDecorationState(showsIcon: $showsIcon, iconColor: $iconColor, showsLabel: $showsLabel, showsLabelText: $showsLabelText, appliesLabelStyle: $appliesLabelStyle, appliesFloatingLabelStyle: $appliesFloatingLabelStyle, helperTextLines: $helperTextLines, appliesHelperStyle: $appliesHelperStyle, helperMaxLines: $helperMaxLines, hintTextLines: $hintTextLines, appliesHintStyle: $appliesHintStyle, hintTextDirection: $hintTextDirection, hintMaxLines: $hintMaxLines, showsError: $showsError, errorTextLines: $errorTextLines, appliesErrorStyle: $appliesErrorStyle, errorMaxLines: $errorMaxLines, floatingLabelBehavior: $floatingLabelBehavior, floatingLabelAlignment: $floatingLabelAlignment, isCollapsed: $isCollapsed, isDense: $isDense, contentPadding: $contentPadding, showsPrefixIcon: $showsPrefixIcon, prefixIconConstraints: $prefixIconConstraints, showsPrefix: $showsPrefix, prefixTextLines: $prefixTextLines, appliesPrefixStyle: $appliesPrefixStyle)';
   }
 
   @override
@@ -592,7 +609,9 @@ class _$TextFieldDecorationStateImpl implements _TextFieldDecorationState {
             (identical(other.showsPrefix, showsPrefix) ||
                 other.showsPrefix == showsPrefix) &&
             (identical(other.prefixTextLines, prefixTextLines) ||
-                other.prefixTextLines == prefixTextLines));
+                other.prefixTextLines == prefixTextLines) &&
+            (identical(other.appliesPrefixStyle, appliesPrefixStyle) ||
+                other.appliesPrefixStyle == appliesPrefixStyle));
   }
 
   @override
@@ -623,7 +642,8 @@ class _$TextFieldDecorationStateImpl implements _TextFieldDecorationState {
         showsPrefixIcon,
         prefixIconConstraints,
         showsPrefix,
-        prefixTextLines
+        prefixTextLines,
+        appliesPrefixStyle
       ]);
 
   /// Create a copy of TextFieldDecorationState
@@ -663,7 +683,8 @@ abstract class _TextFieldDecorationState implements TextFieldDecorationState {
       final bool showsPrefixIcon,
       final double prefixIconConstraints,
       final bool showsPrefix,
-      final int prefixTextLines}) = _$TextFieldDecorationStateImpl;
+      final int prefixTextLines,
+      final bool appliesPrefixStyle}) = _$TextFieldDecorationStateImpl;
 
   @override
   bool get showsIcon;
@@ -717,6 +738,8 @@ abstract class _TextFieldDecorationState implements TextFieldDecorationState {
   bool get showsPrefix;
   @override
   int get prefixTextLines;
+  @override
+  bool get appliesPrefixStyle;
 
   /// Create a copy of TextFieldDecorationState
   /// with the given fields replaced by the non-null parameter values.

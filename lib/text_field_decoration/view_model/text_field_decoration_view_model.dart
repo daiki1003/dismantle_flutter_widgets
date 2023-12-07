@@ -124,4 +124,8 @@ class TextFieldDecorationViewModel extends _$TextFieldDecorationViewModel {
   void prefixTextLinesUpdated(int prefixTextLines) {
     state = state.prefixTextLinesUpdated(prefixTextLines);
   }
+
+  void toggleAppliesPrefixStyle() {
+    state = state.appliesPrefixStyleToggled();
+  }
 }
