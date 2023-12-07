@@ -32,4 +32,8 @@ class TextFieldDecorationViewModel extends _$TextFieldDecorationViewModel {
   void toggleAppliesLabelStyle() {
     state = state.appliesLabelStyleToggled();
   }
+
+  void toggleAppliesFloatingLabelStyle() {
+    state = state.appliesFloatingLabelStyleToggled();
+  }
 }

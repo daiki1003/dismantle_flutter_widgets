@@ -12,6 +12,7 @@ class TextFieldDecorationState with _$TextFieldDecorationState {
     @Default(false) bool showsLabel,
     @Default(false) bool showsLabelText,
     @Default(false) bool appliesLabelStyle,
+    @Default(false) bool appliesFloatingLabelStyle,
   }) = _TextFieldDecorationState;
 
   factory TextFieldDecorationState.empty() {
@@ -38,5 +39,9 @@ extension TextFieldDecorationStateEx on TextFieldDecorationState {
 
   TextFieldDecorationState appliesLabelStyleToggled() {
     return copyWith(appliesLabelStyle: !appliesLabelStyle);
+  }
+
+  TextFieldDecorationState appliesFloatingLabelStyleToggled() {
+    return copyWith(appliesFloatingLabelStyle: !appliesFloatingLabelStyle);
   }
 }
