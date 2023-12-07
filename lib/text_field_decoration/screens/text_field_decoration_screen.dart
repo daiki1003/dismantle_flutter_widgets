@@ -44,6 +44,7 @@ class TextFieldDecorationScreen extends HookConsumerWidget {
                   labelStyle: state.appliesLabelStyle ? style : null,
                   floatingLabelStyle:
                       state.appliesFloatingLabelStyle ? style : null,
+                  helperText: state.showsHelperText ? 'helperText' : null,
                 ),
               ),
               const SizedBox(height: 32),
@@ -96,6 +97,13 @@ class TextFieldDecorationScreen extends HookConsumerWidget {
                         value: state.appliesFloatingLabelStyle,
                         onToggled: (_) {
                           viewModel.toggleAppliesFloatingLabelStyle();
+                        },
+                      ),
+                      ToggleMenu(
+                        text: 'helperText',
+                        value: state.showsHelperText,
+                        onToggled: (_) {
+                          viewModel.toggleShowsHelperText();
                         },
                       ),
                     ].intersperse(const SizedBox(height: 32)).toList(),
