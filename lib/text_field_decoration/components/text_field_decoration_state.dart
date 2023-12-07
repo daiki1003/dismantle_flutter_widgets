@@ -31,6 +31,7 @@ class TextFieldDecorationState with _$TextFieldDecorationState {
     @Default(0) double contentPadding,
     @Default(false) bool showsPrefixIcon,
     @Default(0) double prefixIconConstraints,
+    @Default(false) bool showsPrefix,
   }) = _TextFieldDecorationState;
 
   factory TextFieldDecorationState.empty() {
@@ -141,5 +142,9 @@ extension TextFieldDecorationStateEx on TextFieldDecorationState {
     double prefixIconConstraints,
   ) {
     return copyWith(prefixIconConstraints: prefixIconConstraints);
+  }
+
+  TextFieldDecorationState showsPrefixToggled() {
+    return copyWith(showsPrefix: !showsPrefix);
   }
 }

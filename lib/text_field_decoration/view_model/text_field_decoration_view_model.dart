@@ -116,4 +116,8 @@ class TextFieldDecorationViewModel extends _$TextFieldDecorationViewModel {
   ) {
     state = state.prefixIconConstraintsUpdated(prefixIconConstraints);
   }
+
+  void toggleShowsPrefix() {
+    state = state.showsPrefixToggled();
+  }
 }
