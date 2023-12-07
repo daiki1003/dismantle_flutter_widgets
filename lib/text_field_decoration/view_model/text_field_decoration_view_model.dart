@@ -40,4 +40,8 @@ class TextFieldDecorationViewModel extends _$TextFieldDecorationViewModel {
   void toggleShowsHelperText() {
     state = state.showsHelperTextToggled();
   }
+
+  void toggleAppliesHelperStyle() {
+    state = state.appliesHelperStyleToggled();
+  }
 }

@@ -23,6 +23,7 @@ mixin _$TextFieldDecorationState {
   bool get appliesLabelStyle => throw _privateConstructorUsedError;
   bool get appliesFloatingLabelStyle => throw _privateConstructorUsedError;
   bool get showsHelperText => throw _privateConstructorUsedError;
+  bool get appliesHelperStyle => throw _privateConstructorUsedError;
 
   /// Create a copy of TextFieldDecorationState
   /// with the given fields replaced by the non-null parameter values.
@@ -44,7 +45,8 @@ abstract class $TextFieldDecorationStateCopyWith<$Res> {
       bool showsLabelText,
       bool appliesLabelStyle,
       bool appliesFloatingLabelStyle,
-      bool showsHelperText});
+      bool showsHelperText,
+      bool appliesHelperStyle});
 }
 
 /// @nodoc
@@ -70,6 +72,7 @@ class _$TextFieldDecorationStateCopyWithImpl<$Res,
     Object? appliesLabelStyle = null,
     Object? appliesFloatingLabelStyle = null,
     Object? showsHelperText = null,
+    Object? appliesHelperStyle = null,
   }) {
     return _then(_value.copyWith(
       showsIcon: null == showsIcon
@@ -100,6 +103,10 @@ class _$TextFieldDecorationStateCopyWithImpl<$Res,
           ? _value.showsHelperText
           : showsHelperText // ignore: cast_nullable_to_non_nullable
               as bool,
+      appliesHelperStyle: null == appliesHelperStyle
+          ? _value.appliesHelperStyle
+          : appliesHelperStyle // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -120,7 +127,8 @@ abstract class _$$TextFieldDecorationStateImplCopyWith<$Res>
       bool showsLabelText,
       bool appliesLabelStyle,
       bool appliesFloatingLabelStyle,
-      bool showsHelperText});
+      bool showsHelperText,
+      bool appliesHelperStyle});
 }
 
 /// @nodoc
@@ -145,6 +153,7 @@ class __$$TextFieldDecorationStateImplCopyWithImpl<$Res>
     Object? appliesLabelStyle = null,
     Object? appliesFloatingLabelStyle = null,
     Object? showsHelperText = null,
+    Object? appliesHelperStyle = null,
   }) {
     return _then(_$TextFieldDecorationStateImpl(
       showsIcon: null == showsIcon
@@ -175,6 +184,10 @@ class __$$TextFieldDecorationStateImplCopyWithImpl<$Res>
           ? _value.showsHelperText
           : showsHelperText // ignore: cast_nullable_to_non_nullable
               as bool,
+      appliesHelperStyle: null == appliesHelperStyle
+          ? _value.appliesHelperStyle
+          : appliesHelperStyle // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -189,7 +202,8 @@ class _$TextFieldDecorationStateImpl implements _TextFieldDecorationState {
       this.showsLabelText = false,
       this.appliesLabelStyle = false,
       this.appliesFloatingLabelStyle = false,
-      this.showsHelperText = false});
+      this.showsHelperText = false,
+      this.appliesHelperStyle = false});
 
   @override
   @JsonKey()
@@ -211,10 +225,13 @@ class _$TextFieldDecorationStateImpl implements _TextFieldDecorationState {
   @override
   @JsonKey()
   final bool showsHelperText;
+  @override
+  @JsonKey()
+  final bool appliesHelperStyle;
 
   @override
   String toString() {
-    return 'TextFieldDecorationState(showsIcon: $showsIcon, iconColor: $iconColor, showsLabel: $showsLabel, showsLabelText: $showsLabelText, appliesLabelStyle: $appliesLabelStyle, appliesFloatingLabelStyle: $appliesFloatingLabelStyle, showsHelperText: $showsHelperText)';
+    return 'TextFieldDecorationState(showsIcon: $showsIcon, iconColor: $iconColor, showsLabel: $showsLabel, showsLabelText: $showsLabelText, appliesLabelStyle: $appliesLabelStyle, appliesFloatingLabelStyle: $appliesFloatingLabelStyle, showsHelperText: $showsHelperText, appliesHelperStyle: $appliesHelperStyle)';
   }
 
   @override
@@ -236,7 +253,9 @@ class _$TextFieldDecorationStateImpl implements _TextFieldDecorationState {
                     appliesFloatingLabelStyle) ||
                 other.appliesFloatingLabelStyle == appliesFloatingLabelStyle) &&
             (identical(other.showsHelperText, showsHelperText) ||
-                other.showsHelperText == showsHelperText));
+                other.showsHelperText == showsHelperText) &&
+            (identical(other.appliesHelperStyle, appliesHelperStyle) ||
+                other.appliesHelperStyle == appliesHelperStyle));
   }
 
   @override
@@ -248,7 +267,8 @@ class _$TextFieldDecorationStateImpl implements _TextFieldDecorationState {
       showsLabelText,
       appliesLabelStyle,
       appliesFloatingLabelStyle,
-      showsHelperText);
+      showsHelperText,
+      appliesHelperStyle);
 
   /// Create a copy of TextFieldDecorationState
   /// with the given fields replaced by the non-null parameter values.
@@ -268,7 +288,8 @@ abstract class _TextFieldDecorationState implements TextFieldDecorationState {
       final bool showsLabelText,
       final bool appliesLabelStyle,
       final bool appliesFloatingLabelStyle,
-      final bool showsHelperText}) = _$TextFieldDecorationStateImpl;
+      final bool showsHelperText,
+      final bool appliesHelperStyle}) = _$TextFieldDecorationStateImpl;
 
   @override
   bool get showsIcon;
@@ -284,6 +305,8 @@ abstract class _TextFieldDecorationState implements TextFieldDecorationState {
   bool get appliesFloatingLabelStyle;
   @override
   bool get showsHelperText;
+  @override
+  bool get appliesHelperStyle;
 
   /// Create a copy of TextFieldDecorationState
   /// with the given fields replaced by the non-null parameter values.
