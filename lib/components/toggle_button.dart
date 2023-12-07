@@ -10,7 +10,7 @@ class ToggleButton extends StatelessWidget {
 
   final String text;
   final bool value;
-  final ValueChanged<bool> onToggled;
+  final ValueChanged<bool>? onToggled;
 
   @override
   Widget build(BuildContext context) {
@@ -18,6 +18,7 @@ class ToggleButton extends StatelessWidget {
       style: OutlinedButton.styleFrom(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       ),
+      onPressed: onToggled != null ? () => onToggled!(!value) : null,
       child: Text(
         '$text: $value',
         style: const TextStyle(
@@ -25,7 +26,6 @@ class ToggleButton extends StatelessWidget {
           fontWeight: FontWeight.bold,
         ),
       ),
-      onPressed: () => onToggled(!value),
     );
   }
 }
