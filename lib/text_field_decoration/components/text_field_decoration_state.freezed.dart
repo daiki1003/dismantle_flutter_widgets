@@ -35,6 +35,8 @@ mixin _$TextFieldDecorationState {
   int? get errorMaxLines => throw _privateConstructorUsedError;
   FloatingLabelBehavior? get floatingLabelBehavior =>
       throw _privateConstructorUsedError;
+  FloatingLabelAlignment? get floatingLabelAlignment =>
+      throw _privateConstructorUsedError;
 
   /// Create a copy of TextFieldDecorationState
   /// with the given fields replaced by the non-null parameter values.
@@ -67,7 +69,8 @@ abstract class $TextFieldDecorationStateCopyWith<$Res> {
       int errorTextLines,
       bool appliesErrorStyle,
       int? errorMaxLines,
-      FloatingLabelBehavior? floatingLabelBehavior});
+      FloatingLabelBehavior? floatingLabelBehavior,
+      FloatingLabelAlignment? floatingLabelAlignment});
 }
 
 /// @nodoc
@@ -104,6 +107,7 @@ class _$TextFieldDecorationStateCopyWithImpl<$Res,
     Object? appliesErrorStyle = null,
     Object? errorMaxLines = freezed,
     Object? floatingLabelBehavior = freezed,
+    Object? floatingLabelAlignment = freezed,
   }) {
     return _then(_value.copyWith(
       showsIcon: null == showsIcon
@@ -178,6 +182,10 @@ class _$TextFieldDecorationStateCopyWithImpl<$Res,
           ? _value.floatingLabelBehavior
           : floatingLabelBehavior // ignore: cast_nullable_to_non_nullable
               as FloatingLabelBehavior?,
+      floatingLabelAlignment: freezed == floatingLabelAlignment
+          ? _value.floatingLabelAlignment
+          : floatingLabelAlignment // ignore: cast_nullable_to_non_nullable
+              as FloatingLabelAlignment?,
     ) as $Val);
   }
 }
@@ -209,7 +217,8 @@ abstract class _$$TextFieldDecorationStateImplCopyWith<$Res>
       int errorTextLines,
       bool appliesErrorStyle,
       int? errorMaxLines,
-      FloatingLabelBehavior? floatingLabelBehavior});
+      FloatingLabelBehavior? floatingLabelBehavior,
+      FloatingLabelAlignment? floatingLabelAlignment});
 }
 
 /// @nodoc
@@ -245,6 +254,7 @@ class __$$TextFieldDecorationStateImplCopyWithImpl<$Res>
     Object? appliesErrorStyle = null,
     Object? errorMaxLines = freezed,
     Object? floatingLabelBehavior = freezed,
+    Object? floatingLabelAlignment = freezed,
   }) {
     return _then(_$TextFieldDecorationStateImpl(
       showsIcon: null == showsIcon
@@ -319,6 +329,10 @@ class __$$TextFieldDecorationStateImplCopyWithImpl<$Res>
           ? _value.floatingLabelBehavior
           : floatingLabelBehavior // ignore: cast_nullable_to_non_nullable
               as FloatingLabelBehavior?,
+      floatingLabelAlignment: freezed == floatingLabelAlignment
+          ? _value.floatingLabelAlignment
+          : floatingLabelAlignment // ignore: cast_nullable_to_non_nullable
+              as FloatingLabelAlignment?,
     ));
   }
 }
@@ -344,7 +358,8 @@ class _$TextFieldDecorationStateImpl implements _TextFieldDecorationState {
       this.errorTextLines = 0,
       this.appliesErrorStyle = false,
       this.errorMaxLines,
-      this.floatingLabelBehavior});
+      this.floatingLabelBehavior,
+      this.floatingLabelAlignment});
 
   @override
   @JsonKey()
@@ -394,10 +409,12 @@ class _$TextFieldDecorationStateImpl implements _TextFieldDecorationState {
   final int? errorMaxLines;
   @override
   final FloatingLabelBehavior? floatingLabelBehavior;
+  @override
+  final FloatingLabelAlignment? floatingLabelAlignment;
 
   @override
   String toString() {
-    return 'TextFieldDecorationState(showsIcon: $showsIcon, iconColor: $iconColor, showsLabel: $showsLabel, showsLabelText: $showsLabelText, appliesLabelStyle: $appliesLabelStyle, appliesFloatingLabelStyle: $appliesFloatingLabelStyle, helperTextLines: $helperTextLines, appliesHelperStyle: $appliesHelperStyle, helperMaxLines: $helperMaxLines, hintTextLines: $hintTextLines, appliesHintStyle: $appliesHintStyle, hintTextDirection: $hintTextDirection, hintMaxLines: $hintMaxLines, showsError: $showsError, errorTextLines: $errorTextLines, appliesErrorStyle: $appliesErrorStyle, errorMaxLines: $errorMaxLines, floatingLabelBehavior: $floatingLabelBehavior)';
+    return 'TextFieldDecorationState(showsIcon: $showsIcon, iconColor: $iconColor, showsLabel: $showsLabel, showsLabelText: $showsLabelText, appliesLabelStyle: $appliesLabelStyle, appliesFloatingLabelStyle: $appliesFloatingLabelStyle, helperTextLines: $helperTextLines, appliesHelperStyle: $appliesHelperStyle, helperMaxLines: $helperMaxLines, hintTextLines: $hintTextLines, appliesHintStyle: $appliesHintStyle, hintTextDirection: $hintTextDirection, hintMaxLines: $hintMaxLines, showsError: $showsError, errorTextLines: $errorTextLines, appliesErrorStyle: $appliesErrorStyle, errorMaxLines: $errorMaxLines, floatingLabelBehavior: $floatingLabelBehavior, floatingLabelAlignment: $floatingLabelAlignment)';
   }
 
   @override
@@ -441,30 +458,34 @@ class _$TextFieldDecorationStateImpl implements _TextFieldDecorationState {
             (identical(other.errorMaxLines, errorMaxLines) ||
                 other.errorMaxLines == errorMaxLines) &&
             (identical(other.floatingLabelBehavior, floatingLabelBehavior) ||
-                other.floatingLabelBehavior == floatingLabelBehavior));
+                other.floatingLabelBehavior == floatingLabelBehavior) &&
+            (identical(other.floatingLabelAlignment, floatingLabelAlignment) ||
+                other.floatingLabelAlignment == floatingLabelAlignment));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      showsIcon,
-      iconColor,
-      showsLabel,
-      showsLabelText,
-      appliesLabelStyle,
-      appliesFloatingLabelStyle,
-      helperTextLines,
-      appliesHelperStyle,
-      helperMaxLines,
-      hintTextLines,
-      appliesHintStyle,
-      hintTextDirection,
-      hintMaxLines,
-      showsError,
-      errorTextLines,
-      appliesErrorStyle,
-      errorMaxLines,
-      floatingLabelBehavior);
+  int get hashCode => Object.hashAll([
+        runtimeType,
+        showsIcon,
+        iconColor,
+        showsLabel,
+        showsLabelText,
+        appliesLabelStyle,
+        appliesFloatingLabelStyle,
+        helperTextLines,
+        appliesHelperStyle,
+        helperMaxLines,
+        hintTextLines,
+        appliesHintStyle,
+        hintTextDirection,
+        hintMaxLines,
+        showsError,
+        errorTextLines,
+        appliesErrorStyle,
+        errorMaxLines,
+        floatingLabelBehavior,
+        floatingLabelAlignment
+      ]);
 
   /// Create a copy of TextFieldDecorationState
   /// with the given fields replaced by the non-null parameter values.
@@ -495,7 +516,8 @@ abstract class _TextFieldDecorationState implements TextFieldDecorationState {
           final int errorTextLines,
           final bool appliesErrorStyle,
           final int? errorMaxLines,
-          final FloatingLabelBehavior? floatingLabelBehavior}) =
+          final FloatingLabelBehavior? floatingLabelBehavior,
+          final FloatingLabelAlignment? floatingLabelAlignment}) =
       _$TextFieldDecorationStateImpl;
 
   @override
@@ -534,6 +556,8 @@ abstract class _TextFieldDecorationState implements TextFieldDecorationState {
   int? get errorMaxLines;
   @override
   FloatingLabelBehavior? get floatingLabelBehavior;
+  @override
+  FloatingLabelAlignment? get floatingLabelAlignment;
 
   /// Create a copy of TextFieldDecorationState
   /// with the given fields replaced by the non-null parameter values.

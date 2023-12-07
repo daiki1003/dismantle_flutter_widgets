@@ -86,4 +86,10 @@ class TextFieldDecorationViewModel extends _$TextFieldDecorationViewModel {
   ) {
     state = state.floatingLabelBehaviorUpdated(floatingLabelBehavior);
   }
+
+  void floatingLabelAlignmentUpdated(
+    FloatingLabelAlignment? floatingLabelAlignment,
+  ) {
+    state = state.floatingLabelAlignmentUpdated(floatingLabelAlignment);
+  }
 }
