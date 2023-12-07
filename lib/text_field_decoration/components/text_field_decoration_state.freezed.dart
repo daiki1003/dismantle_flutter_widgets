@@ -17,6 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$TextFieldDecorationState {
   bool get showsIcon => throw _privateConstructorUsedError;
+  Color? get iconColor => throw _privateConstructorUsedError;
 
   /// Create a copy of TextFieldDecorationState
   /// with the given fields replaced by the non-null parameter values.
@@ -31,7 +32,7 @@ abstract class $TextFieldDecorationStateCopyWith<$Res> {
           $Res Function(TextFieldDecorationState) then) =
       _$TextFieldDecorationStateCopyWithImpl<$Res, TextFieldDecorationState>;
   @useResult
-  $Res call({bool showsIcon});
+  $Res call({bool showsIcon, Color? iconColor});
 }
 
 /// @nodoc
@@ -51,12 +52,17 @@ class _$TextFieldDecorationStateCopyWithImpl<$Res,
   @override
   $Res call({
     Object? showsIcon = null,
+    Object? iconColor = freezed,
   }) {
     return _then(_value.copyWith(
       showsIcon: null == showsIcon
           ? _value.showsIcon
           : showsIcon // ignore: cast_nullable_to_non_nullable
               as bool,
+      iconColor: freezed == iconColor
+          ? _value.iconColor
+          : iconColor // ignore: cast_nullable_to_non_nullable
+              as Color?,
     ) as $Val);
   }
 }
@@ -70,7 +76,7 @@ abstract class _$$TextFieldDecorationStateImplCopyWith<$Res>
       __$$TextFieldDecorationStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({bool showsIcon});
+  $Res call({bool showsIcon, Color? iconColor});
 }
 
 /// @nodoc
@@ -89,12 +95,17 @@ class __$$TextFieldDecorationStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? showsIcon = null,
+    Object? iconColor = freezed,
   }) {
     return _then(_$TextFieldDecorationStateImpl(
       showsIcon: null == showsIcon
           ? _value.showsIcon
           : showsIcon // ignore: cast_nullable_to_non_nullable
               as bool,
+      iconColor: freezed == iconColor
+          ? _value.iconColor
+          : iconColor // ignore: cast_nullable_to_non_nullable
+              as Color?,
     ));
   }
 }
@@ -102,15 +113,18 @@ class __$$TextFieldDecorationStateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$TextFieldDecorationStateImpl implements _TextFieldDecorationState {
-  const _$TextFieldDecorationStateImpl({this.showsIcon = false});
+  const _$TextFieldDecorationStateImpl(
+      {this.showsIcon = false, this.iconColor});
 
   @override
   @JsonKey()
   final bool showsIcon;
+  @override
+  final Color? iconColor;
 
   @override
   String toString() {
-    return 'TextFieldDecorationState(showsIcon: $showsIcon)';
+    return 'TextFieldDecorationState(showsIcon: $showsIcon, iconColor: $iconColor)';
   }
 
   @override
@@ -119,11 +133,13 @@ class _$TextFieldDecorationStateImpl implements _TextFieldDecorationState {
         (other.runtimeType == runtimeType &&
             other is _$TextFieldDecorationStateImpl &&
             (identical(other.showsIcon, showsIcon) ||
-                other.showsIcon == showsIcon));
+                other.showsIcon == showsIcon) &&
+            (identical(other.iconColor, iconColor) ||
+                other.iconColor == iconColor));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, showsIcon);
+  int get hashCode => Object.hash(runtimeType, showsIcon, iconColor);
 
   /// Create a copy of TextFieldDecorationState
   /// with the given fields replaced by the non-null parameter values.
@@ -136,11 +152,14 @@ class _$TextFieldDecorationStateImpl implements _TextFieldDecorationState {
 }
 
 abstract class _TextFieldDecorationState implements TextFieldDecorationState {
-  const factory _TextFieldDecorationState({final bool showsIcon}) =
-      _$TextFieldDecorationStateImpl;
+  const factory _TextFieldDecorationState(
+      {final bool showsIcon,
+      final Color? iconColor}) = _$TextFieldDecorationStateImpl;
 
   @override
   bool get showsIcon;
+  @override
+  Color? get iconColor;
 
   /// Create a copy of TextFieldDecorationState
   /// with the given fields replaced by the non-null parameter values.

@@ -1,3 +1,4 @@
+import 'package:dismantling/components/select_menu.dart';
 import 'package:flutter/material.dart';
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -32,6 +33,7 @@ class TextFieldDecorationScreen extends HookConsumerWidget {
               TextField(
                 decoration: InputDecoration(
                   icon: state.showsIcon ? const Icon(Icons.visibility) : null,
+                  iconColor: state.iconColor,
                 ),
               ),
               const SizedBox(height: 32),
@@ -45,6 +47,14 @@ class TextFieldDecorationScreen extends HookConsumerWidget {
                         onToggled: (_) {
                           viewModel.toggleShowsIcon();
                         },
+                      ),
+                      SelectMenu<Color?>(
+                        label: 'iconColor',
+                        choices: const [Colors.green, Colors.red, null],
+                        value: state.iconColor,
+                        valueTextBuilder: (color) =>
+                            color?.toString() ?? 'null',
+                        onSelected: viewModel.iconColorUpdated,
                       ),
                     ].intersperse(const SizedBox(height: 32)).toList(),
                   ),

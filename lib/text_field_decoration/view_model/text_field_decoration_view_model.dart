@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import 'package:dismantling/text_field_decoration/components/text_field_decoration_state.dart';
@@ -13,5 +15,9 @@ class TextFieldDecorationViewModel extends _$TextFieldDecorationViewModel {
 
   void toggleShowsIcon() {
     state = state.showsIconToggled();
+  }
+
+  void iconColorUpdated(Color? iconColor) {
+    state = state.iconColorUpdated(iconColor);
   }
 }
