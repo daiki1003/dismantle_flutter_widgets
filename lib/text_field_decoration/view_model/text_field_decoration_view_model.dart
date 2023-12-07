@@ -128,4 +128,8 @@ class TextFieldDecorationViewModel extends _$TextFieldDecorationViewModel {
   void toggleAppliesPrefixStyle() {
     state = state.appliesPrefixStyleToggled();
   }
+
+  void prefixIconColorUpdated(Color? prefixIconColor) {
+    state = state.prefixIconColorUpdated(prefixIconColor);
+  }
 }

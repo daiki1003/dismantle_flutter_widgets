@@ -34,6 +34,7 @@ class TextFieldDecorationState with _$TextFieldDecorationState {
     @Default(false) bool showsPrefix,
     @Default(0) int prefixTextLines,
     @Default(false) bool appliesPrefixStyle,
+    Color? prefixIconColor,
   }) = _TextFieldDecorationState;
 
   factory TextFieldDecorationState.empty() {
@@ -156,5 +157,9 @@ extension TextFieldDecorationStateEx on TextFieldDecorationState {
 
   TextFieldDecorationState appliesPrefixStyleToggled() {
     return copyWith(appliesPrefixStyle: !appliesPrefixStyle);
+  }
+
+  TextFieldDecorationState prefixIconColorUpdated(Color? prefixIconColor) {
+    return copyWith(prefixIconColor: prefixIconColor);
   }
 }

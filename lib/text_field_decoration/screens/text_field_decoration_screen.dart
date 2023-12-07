@@ -95,6 +95,7 @@ class TextFieldDecorationScreen extends HookConsumerWidget {
                           (_) => 'prefixText',
                         ).join('\n'),
                   prefixStyle: state.appliesPrefixStyle ? style : null,
+                  prefixIconColor: state.prefixIconColor,
                 ),
               ),
               const SizedBox(height: 32),
@@ -320,6 +321,14 @@ class TextFieldDecorationScreen extends HookConsumerWidget {
                         onToggled: (_) {
                           viewModel.toggleAppliesPrefixStyle();
                         },
+                      ),
+                      SelectMenu<Color?>(
+                        label: 'prefixIconColor',
+                        choices: const [Colors.green, Colors.red, null],
+                        value: state.prefixIconColor,
+                        valueTextBuilder: (color) =>
+                            color?.toString() ?? 'null',
+                        onSelected: viewModel.prefixIconColorUpdated,
                       ),
                     ].intersperse(const SizedBox(height: 32)).toList(),
                   ),
