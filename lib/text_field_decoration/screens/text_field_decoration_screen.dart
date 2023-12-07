@@ -59,6 +59,7 @@ class TextFieldDecorationScreen extends HookConsumerWidget {
                           state.hintTextLines,
                           (_) => 'hintText',
                         ).join('\n'),
+                  hintStyle: state.appliesHintStyle ? style : null,
                 ),
               ),
               const SizedBox(height: 32),
@@ -149,6 +150,13 @@ class TextFieldDecorationScreen extends HookConsumerWidget {
                         onChanged: (v) => viewModel.hintTextLinesUpdated(
                           v.toInt(),
                         ),
+                      ),
+                      ToggleMenu(
+                        text: 'hintStyle',
+                        value: state.appliesHintStyle,
+                        onToggled: (_) {
+                          viewModel.toggleAppliesHintStyle();
+                        },
                       ),
                     ].intersperse(const SizedBox(height: 32)).toList(),
                   ),

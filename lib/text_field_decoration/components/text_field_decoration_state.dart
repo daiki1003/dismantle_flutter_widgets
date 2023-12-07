@@ -17,6 +17,7 @@ class TextFieldDecorationState with _$TextFieldDecorationState {
     @Default(false) bool appliesHelperStyle,
     int? helperMaxLines,
     @Default(0) int hintTextLines,
+    @Default(false) bool appliesHintStyle,
   }) = _TextFieldDecorationState;
 
   factory TextFieldDecorationState.empty() {
@@ -63,5 +64,9 @@ extension TextFieldDecorationStateEx on TextFieldDecorationState {
 
   TextFieldDecorationState hintTextLinesUpdated(int hintTextLines) {
     return copyWith(hintTextLines: hintTextLines);
+  }
+
+  TextFieldDecorationState appliesHintStyleToggled() {
+    return copyWith(appliesHintStyle: !appliesHintStyle);
   }
 }

@@ -52,4 +52,8 @@ class TextFieldDecorationViewModel extends _$TextFieldDecorationViewModel {
   void hintTextLinesUpdated(int hintTextLines) {
     state = state.hintTextLinesUpdated(hintTextLines);
   }
+
+  void toggleAppliesHintStyle() {
+    state = state.appliesHintStyleToggled();
+  }
 }
