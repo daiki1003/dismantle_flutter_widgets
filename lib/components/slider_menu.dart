@@ -17,7 +17,7 @@ class SliderMenu extends StatelessWidget {
   final double max;
   final int divisions;
 
-  final ValueChanged<double> onChanged;
+  final ValueChanged<double>? onChanged;
 
   @override
   Widget build(BuildContext context) {
