@@ -9,7 +9,7 @@ import 'package:intersperse/intersperse.dart';
 
 import 'package:dismantling/components/select_menu.dart';
 import 'package:dismantling/components/slider_menu.dart';
-import 'package:dismantling/components/toggle_button.dart';
+import 'package:dismantling/components/toggle_menu.dart';
 import 'package:dismantling/selectable_text/view_model/selectable_text_view_model.dart';
 
 class SelectableTextScreen extends HookConsumerWidget {
@@ -67,7 +67,7 @@ class SelectableTextScreen extends HookConsumerWidget {
                   child: Column(
                     children: [
                       ...<Widget>[
-                        ToggleButton(
+                        ToggleMenu(
                           text: 'showCursor',
                           value: state.showCursor,
                           onToggled: (value) => notifier.showCursorToggled(),
@@ -103,7 +103,7 @@ class SelectableTextScreen extends HookConsumerWidget {
                             },
                           ),
                         ],
-                        ToggleButton(
+                        ToggleMenu(
                           text: 'enableInteractiveSelection',
                           value: state.enableInteractiveSelection,
                           onToggled: (value) =>
@@ -182,9 +182,7 @@ class SelectableTextScreen extends HookConsumerWidget {
                           valueTextBuilder: (value) => value.name,
                           onSelected: notifier.textWidthBasisUpdated,
                         ),
-                      ].intersperse(
-                        const SizedBox(height: 40),
-                      ),
+                      ].intersperse(const SizedBox(height: 16)),
                     ],
                   ),
                 ),
