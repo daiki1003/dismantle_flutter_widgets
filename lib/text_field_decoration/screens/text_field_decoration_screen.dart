@@ -98,6 +98,8 @@ class TextFieldDecorationScreen extends HookConsumerWidget {
                   prefixIconColor: state.prefixIconColor,
                   suffixIconColor: state.suffixIconColor,
                   counterStyle: state.appliesCounterStyle ? style : null,
+                    filled: state.filled,
+                    fillColor: state.fillColor,
                 ),
               ),
               const SizedBox(height: 32),
@@ -347,6 +349,14 @@ class TextFieldDecorationScreen extends HookConsumerWidget {
                           viewModel.toggleAppliesCounterStyle();
                         },
                       ),
+                        SelectMenu<Color?>(
+                          label: 'fillColor',
+                          choices: const [Colors.green, Colors.red, null],
+                          value: state.fillColor,
+                          valueTextBuilder: (color) =>
+                              color?.toString() ?? 'null',
+                          onSelected: viewModel.fillColorUpdated,
+                        ),
                     ].intersperse(const SizedBox(height: 32)).toList(),
                   ),
                 ),

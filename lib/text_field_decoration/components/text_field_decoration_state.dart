@@ -44,6 +44,8 @@ class TextFieldDecorationState with _$TextFieldDecorationState {
     @Default(false) bool showsCounter,
     @Default(false) bool showsCounterText,
     @Default(false) bool appliesCounterStyle,
+    @Default(false) bool filled,
+    Color? fillColor,
   }) = _TextFieldDecorationState;
 
   TextFieldDecorationState._();
@@ -213,5 +215,13 @@ extension TextFieldDecorationStateEx on TextFieldDecorationState {
 
   TextFieldDecorationState appliesCounterStyleToggled() {
     return copyWith(appliesCounterStyle: !appliesCounterStyle);
+  }
+
+  TextFieldDecorationState filledToggled() {
+    return copyWith(filled: !filled);
+  }
+
+  TextFieldDecorationState fillColorUpdated(Color? fillColor) {
+    return copyWith(fillColor: fillColor);
   }
 }

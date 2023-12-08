@@ -170,4 +170,12 @@ class TextFieldDecorationViewModel extends _$TextFieldDecorationViewModel {
   void toggleAppliesCounterStyle() {
     state = state.appliesCounterStyleToggled();
   }
+
+  void toggleFilled() {
+    state = state.filledToggled();
+  }
+
+  void fillColorUpdated(Color? fillColor) {
+    state = state.fillColorUpdated(fillColor);
+  }
 }

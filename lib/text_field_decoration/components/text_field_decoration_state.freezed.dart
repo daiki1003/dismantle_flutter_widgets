@@ -55,6 +55,8 @@ mixin _$TextFieldDecorationState {
   bool get showsCounter => throw _privateConstructorUsedError;
   bool get showsCounterText => throw _privateConstructorUsedError;
   bool get appliesCounterStyle => throw _privateConstructorUsedError;
+  bool get filled => throw _privateConstructorUsedError;
+  Color? get fillColor => throw _privateConstructorUsedError;
 
   /// Create a copy of TextFieldDecorationState
   /// with the given fields replaced by the non-null parameter values.
@@ -106,7 +108,9 @@ abstract class $TextFieldDecorationStateCopyWith<$Res> {
       Color? suffixIconColor,
       bool showsCounter,
       bool showsCounterText,
-      bool appliesCounterStyle});
+      bool appliesCounterStyle,
+      bool filled,
+      Color? fillColor});
 }
 
 /// @nodoc
@@ -162,6 +166,8 @@ class _$TextFieldDecorationStateCopyWithImpl<$Res,
     Object? showsCounter = null,
     Object? showsCounterText = null,
     Object? appliesCounterStyle = null,
+    Object? filled = null,
+    Object? fillColor = freezed,
   }) {
     return _then(_value.copyWith(
       showsIcon: null == showsIcon
@@ -312,6 +318,14 @@ class _$TextFieldDecorationStateCopyWithImpl<$Res,
           ? _value.appliesCounterStyle
           : appliesCounterStyle // ignore: cast_nullable_to_non_nullable
               as bool,
+      filled: null == filled
+          ? _value.filled
+          : filled // ignore: cast_nullable_to_non_nullable
+              as bool,
+      fillColor: freezed == fillColor
+          ? _value.fillColor
+          : fillColor // ignore: cast_nullable_to_non_nullable
+              as Color?,
     ) as $Val);
   }
 }
@@ -362,7 +376,9 @@ abstract class _$$TextFieldDecorationStateImplCopyWith<$Res>
       Color? suffixIconColor,
       bool showsCounter,
       bool showsCounterText,
-      bool appliesCounterStyle});
+      bool appliesCounterStyle,
+      bool filled,
+      Color? fillColor});
 }
 
 /// @nodoc
@@ -417,6 +433,8 @@ class __$$TextFieldDecorationStateImplCopyWithImpl<$Res>
     Object? showsCounter = null,
     Object? showsCounterText = null,
     Object? appliesCounterStyle = null,
+    Object? filled = null,
+    Object? fillColor = freezed,
   }) {
     return _then(_$TextFieldDecorationStateImpl(
       showsIcon: null == showsIcon
@@ -567,6 +585,14 @@ class __$$TextFieldDecorationStateImplCopyWithImpl<$Res>
           ? _value.appliesCounterStyle
           : appliesCounterStyle // ignore: cast_nullable_to_non_nullable
               as bool,
+      filled: null == filled
+          ? _value.filled
+          : filled // ignore: cast_nullable_to_non_nullable
+              as bool,
+      fillColor: freezed == fillColor
+          ? _value.fillColor
+          : fillColor // ignore: cast_nullable_to_non_nullable
+              as Color?,
     ));
   }
 }
@@ -611,7 +637,9 @@ class _$TextFieldDecorationStateImpl extends _TextFieldDecorationState {
       this.suffixIconColor,
       this.showsCounter = false,
       this.showsCounterText = false,
-      this.appliesCounterStyle = false})
+      this.appliesCounterStyle = false,
+      this.filled = false,
+      this.fillColor})
       : super._();
 
   @override
@@ -716,10 +744,15 @@ class _$TextFieldDecorationStateImpl extends _TextFieldDecorationState {
   @override
   @JsonKey()
   final bool appliesCounterStyle;
+  @override
+  @JsonKey()
+  final bool filled;
+  @override
+  final Color? fillColor;
 
   @override
   String toString() {
-    return 'TextFieldDecorationState(showsIcon: $showsIcon, iconColor: $iconColor, showsLabel: $showsLabel, showsLabelText: $showsLabelText, appliesLabelStyle: $appliesLabelStyle, appliesFloatingLabelStyle: $appliesFloatingLabelStyle, helperTextLines: $helperTextLines, appliesHelperStyle: $appliesHelperStyle, helperMaxLines: $helperMaxLines, hintTextLines: $hintTextLines, appliesHintStyle: $appliesHintStyle, hintTextDirection: $hintTextDirection, hintMaxLines: $hintMaxLines, showsError: $showsError, errorTextLines: $errorTextLines, appliesErrorStyle: $appliesErrorStyle, errorMaxLines: $errorMaxLines, floatingLabelBehavior: $floatingLabelBehavior, floatingLabelAlignment: $floatingLabelAlignment, isCollapsed: $isCollapsed, isDense: $isDense, contentPadding: $contentPadding, showsPrefixIcon: $showsPrefixIcon, prefixIconConstraints: $prefixIconConstraints, showsPrefix: $showsPrefix, prefixTextLines: $prefixTextLines, appliesPrefixStyle: $appliesPrefixStyle, prefixIconColor: $prefixIconColor, showsSuffixIcon: $showsSuffixIcon, suffixIconConstraints: $suffixIconConstraints, showsSuffix: $showsSuffix, suffixTextLines: $suffixTextLines, appliesSuffixStyle: $appliesSuffixStyle, suffixIconColor: $suffixIconColor, showsCounter: $showsCounter, showsCounterText: $showsCounterText, appliesCounterStyle: $appliesCounterStyle)';
+    return 'TextFieldDecorationState(showsIcon: $showsIcon, iconColor: $iconColor, showsLabel: $showsLabel, showsLabelText: $showsLabelText, appliesLabelStyle: $appliesLabelStyle, appliesFloatingLabelStyle: $appliesFloatingLabelStyle, helperTextLines: $helperTextLines, appliesHelperStyle: $appliesHelperStyle, helperMaxLines: $helperMaxLines, hintTextLines: $hintTextLines, appliesHintStyle: $appliesHintStyle, hintTextDirection: $hintTextDirection, hintMaxLines: $hintMaxLines, showsError: $showsError, errorTextLines: $errorTextLines, appliesErrorStyle: $appliesErrorStyle, errorMaxLines: $errorMaxLines, floatingLabelBehavior: $floatingLabelBehavior, floatingLabelAlignment: $floatingLabelAlignment, isCollapsed: $isCollapsed, isDense: $isDense, contentPadding: $contentPadding, showsPrefixIcon: $showsPrefixIcon, prefixIconConstraints: $prefixIconConstraints, showsPrefix: $showsPrefix, prefixTextLines: $prefixTextLines, appliesPrefixStyle: $appliesPrefixStyle, prefixIconColor: $prefixIconColor, showsSuffixIcon: $showsSuffixIcon, suffixIconConstraints: $suffixIconConstraints, showsSuffix: $showsSuffix, suffixTextLines: $suffixTextLines, appliesSuffixStyle: $appliesSuffixStyle, suffixIconColor: $suffixIconColor, showsCounter: $showsCounter, showsCounterText: $showsCounterText, appliesCounterStyle: $appliesCounterStyle, filled: $filled, fillColor: $fillColor)';
   }
 
   @override
@@ -797,7 +830,9 @@ class _$TextFieldDecorationStateImpl extends _TextFieldDecorationState {
             (identical(other.showsCounter, showsCounter) ||
                 other.showsCounter == showsCounter) &&
             (identical(other.showsCounterText, showsCounterText) || other.showsCounterText == showsCounterText) &&
-            (identical(other.appliesCounterStyle, appliesCounterStyle) || other.appliesCounterStyle == appliesCounterStyle));
+            (identical(other.appliesCounterStyle, appliesCounterStyle) || other.appliesCounterStyle == appliesCounterStyle) &&
+            (identical(other.filled, filled) || other.filled == filled) &&
+            (identical(other.fillColor, fillColor) || other.fillColor == fillColor));
   }
 
   @override
@@ -839,7 +874,9 @@ class _$TextFieldDecorationStateImpl extends _TextFieldDecorationState {
         suffixIconColor,
         showsCounter,
         showsCounterText,
-        appliesCounterStyle
+        appliesCounterStyle,
+        filled,
+        fillColor
       ]);
 
   /// Create a copy of TextFieldDecorationState
@@ -890,7 +927,9 @@ abstract class _TextFieldDecorationState extends TextFieldDecorationState {
       final Color? suffixIconColor,
       final bool showsCounter,
       final bool showsCounterText,
-      final bool appliesCounterStyle}) = _$TextFieldDecorationStateImpl;
+      final bool appliesCounterStyle,
+      final bool filled,
+      final Color? fillColor}) = _$TextFieldDecorationStateImpl;
   _TextFieldDecorationState._() : super._();
 
   @override
@@ -967,6 +1006,10 @@ abstract class _TextFieldDecorationState extends TextFieldDecorationState {
   bool get showsCounterText;
   @override
   bool get appliesCounterStyle;
+  @override
+  bool get filled;
+  @override
+  Color? get fillColor;
 
   /// Create a copy of TextFieldDecorationState
   /// with the given fields replaced by the non-null parameter values.
