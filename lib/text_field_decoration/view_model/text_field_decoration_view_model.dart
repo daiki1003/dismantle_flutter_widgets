@@ -178,4 +178,12 @@ class TextFieldDecorationViewModel extends _$TextFieldDecorationViewModel {
   void fillColorUpdated(Color? fillColor) {
     state = state.fillColorUpdated(fillColor);
   }
+
+  void focusColorUpdated(Color? focusColor) {
+    state = state.focusColorUpdated(focusColor);
+  }
+
+  void hoverColorUpdated(Color? hoverColor) {
+    state = state.hoverColorUpdated(hoverColor);
+  }
 }

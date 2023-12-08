@@ -46,6 +46,8 @@ class TextFieldDecorationState with _$TextFieldDecorationState {
     @Default(false) bool appliesCounterStyle,
     @Default(false) bool filled,
     Color? fillColor,
+    Color? focusColor,
+    Color? hoverColor,
   }) = _TextFieldDecorationState;
 
   TextFieldDecorationState._();
@@ -223,5 +225,13 @@ extension TextFieldDecorationStateEx on TextFieldDecorationState {
 
   TextFieldDecorationState fillColorUpdated(Color? fillColor) {
     return copyWith(fillColor: fillColor);
+  }
+
+  TextFieldDecorationState focusColorUpdated(Color? focusColor) {
+    return copyWith(focusColor: focusColor);
+  }
+
+  TextFieldDecorationState hoverColorUpdated(Color? hoverColor) {
+    return copyWith(hoverColor: hoverColor);
   }
 }

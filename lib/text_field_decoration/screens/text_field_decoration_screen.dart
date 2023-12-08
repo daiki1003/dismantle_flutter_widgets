@@ -98,8 +98,10 @@ class TextFieldDecorationScreen extends HookConsumerWidget {
                   prefixIconColor: state.prefixIconColor,
                   suffixIconColor: state.suffixIconColor,
                   counterStyle: state.appliesCounterStyle ? style : null,
-                    filled: state.filled,
-                    fillColor: state.fillColor,
+                  filled: state.filled,
+                  fillColor: state.fillColor,
+                  focusColor: state.focusColor,
+                  hoverColor: state.hoverColor,
                 ),
               ),
               const SizedBox(height: 32),
@@ -349,14 +351,30 @@ class TextFieldDecorationScreen extends HookConsumerWidget {
                           viewModel.toggleAppliesCounterStyle();
                         },
                       ),
-                        SelectMenu<Color?>(
-                          label: 'fillColor',
-                          choices: const [Colors.green, Colors.red, null],
-                          value: state.fillColor,
-                          valueTextBuilder: (color) =>
-                              color?.toString() ?? 'null',
-                          onSelected: viewModel.fillColorUpdated,
-                        ),
+                      SelectMenu<Color?>(
+                        label: 'fillColor',
+                        choices: const [Colors.green, Colors.red, null],
+                        value: state.fillColor,
+                        valueTextBuilder: (color) =>
+                            color?.toString() ?? 'null',
+                        onSelected: viewModel.fillColorUpdated,
+                      ),
+                      SelectMenu<Color?>(
+                        label: 'focusColor',
+                        choices: const [Colors.green, Colors.red, null],
+                        value: state.focusColor,
+                        valueTextBuilder: (color) =>
+                            color?.toString() ?? 'null',
+                        onSelected: viewModel.focusColorUpdated,
+                      ),
+                      SelectMenu<Color?>(
+                        label: 'hoverColor',
+                        choices: const [Colors.green, Colors.red, null],
+                        value: state.hoverColor,
+                        valueTextBuilder: (color) =>
+                            color?.toString() ?? 'null',
+                        onSelected: viewModel.hoverColorUpdated,
+                      ),
                     ].intersperse(const SizedBox(height: 32)).toList(),
                   ),
                 ),
