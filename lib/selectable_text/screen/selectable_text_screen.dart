@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:intersperse/intersperse.dart';
 
-import 'package:dismantling/components/select_button.dart';
+import 'package:dismantling/components/select_menu.dart';
 import 'package:dismantling/components/slider_menu.dart';
 import 'package:dismantling/components/toggle_button.dart';
 import 'package:dismantling/selectable_text/view_model/selectable_text_view_model.dart';
@@ -109,21 +109,21 @@ class SelectableTextScreen extends HookConsumerWidget {
                           onToggled: (value) =>
                               notifier.enableInteractiveSelectionToggled(),
                         ),
-                        SelectButton<BoxWidthStyle>(
+                        SelectMenu<BoxWidthStyle>(
                           label: 'selectionWidthStyle',
                           choices: BoxWidthStyle.values,
                           value: state.selectionWidthStyle,
                           valueTextBuilder: (value) => value.name,
                           onSelected: notifier.selectionWidthStyleUpdated,
                         ),
-                        SelectButton<BoxHeightStyle>(
+                        SelectMenu<BoxHeightStyle>(
                           label: 'selectionHeightStyle',
                           choices: BoxHeightStyle.values,
                           value: state.selectionHeightStyle,
                           valueTextBuilder: (value) => value.name,
                           onSelected: notifier.selectionHeightStyleUpdated,
                         ),
-                        SelectButton<DragStartBehavior>(
+                        SelectMenu<DragStartBehavior>(
                           label: 'dragStartBehavior',
                           choices: DragStartBehavior.values,
                           value: state.dragStartBehavior,
@@ -131,7 +131,7 @@ class SelectableTextScreen extends HookConsumerWidget {
                           onSelected: notifier.dragStartBehaviorUpdated,
                         ),
                         // TODO(ashdik): Investigate how to apply dynamically.
-                        SelectButton<TextSelectionControls>(
+                        SelectMenu<TextSelectionControls>(
                           label: 'selectionControls (未対応)',
                           choices: [
                             cupertinoTextSelectionControls,
@@ -149,7 +149,7 @@ class SelectableTextScreen extends HookConsumerWidget {
                           },
                           onSelected: notifier.selectionControlsUpdated,
                         ),
-                        SelectButton<ScrollPhysics>(
+                        SelectMenu<ScrollPhysics>(
                           label: 'scrollPhysics',
                           choices: const [
                             NeverScrollableScrollPhysics(),
@@ -175,7 +175,7 @@ class SelectableTextScreen extends HookConsumerWidget {
                           },
                           onSelected: notifier.scrollPhysicsUpdated,
                         ),
-                        SelectButton<TextWidthBasis>(
+                        SelectMenu<TextWidthBasis>(
                           label: 'textWidthBasis',
                           choices: TextWidthBasis.values,
                           value: state.textWidthBasis,

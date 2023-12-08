@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class SelectButton<T> extends StatelessWidget {
-  const SelectButton({
+class SelectMenu<T> extends StatelessWidget {
+  const SelectMenu({
     super.key,
     required this.label,
     required this.choices,
@@ -26,9 +26,7 @@ class SelectButton<T> extends StatelessWidget {
       children: [
         Text(
           label,
-          style: textTheme.titleLarge!.copyWith(
-            fontWeight: FontWeight.bold,
-          ),
+          style: textTheme.titleLarge,
         ),
         const SizedBox(height: 16),
         Wrap(
@@ -44,7 +42,7 @@ class SelectButton<T> extends StatelessWidget {
                       : null,
                   materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
                   labelPadding: const EdgeInsets.symmetric(horizontal: 8),
-                  label: Text(valueTextBuilder(choice)),
+                  label: Text('.${valueTextBuilder(choice).split('.').last}'),
                 ),
               ),
           ],
