@@ -6,7 +6,7 @@ part 'text_field_decoration_state.freezed.dart';
 
 @freezed
 class TextFieldDecorationState with _$TextFieldDecorationState {
-  const factory TextFieldDecorationState({
+  factory TextFieldDecorationState({
     @Default(false) bool showsIcon,
     Color? iconColor,
     @Default(false) bool showsLabel,
@@ -35,11 +35,22 @@ class TextFieldDecorationState with _$TextFieldDecorationState {
     @Default(0) int prefixTextLines,
     @Default(false) bool appliesPrefixStyle,
     Color? prefixIconColor,
+    @Default(false) bool showsSuffixIcon,
+    @Default(0) double suffixIconConstraints,
+    @Default(false) bool showsSuffix,
+    @Default(0) int suffixTextLines,
+    @Default(false) bool appliesSuffixStyle,
+    Color? suffixIconColor,
   }) = _TextFieldDecorationState;
 
+  TextFieldDecorationState._();
+
   factory TextFieldDecorationState.empty() {
-    return const TextFieldDecorationState();
+    return TextFieldDecorationState();
   }
+
+  late final hasPrefixText = 0 < prefixTextLines;
+  late final hasSuffixText = 0 < suffixTextLines;
 }
 
 extension TextFieldDecorationStateEx on TextFieldDecorationState {
@@ -161,5 +172,31 @@ extension TextFieldDecorationStateEx on TextFieldDecorationState {
 
   TextFieldDecorationState prefixIconColorUpdated(Color? prefixIconColor) {
     return copyWith(prefixIconColor: prefixIconColor);
+  }
+
+  TextFieldDecorationState showsSuffixIconToggled() {
+    return copyWith(showsSuffixIcon: !showsSuffixIcon);
+  }
+
+  TextFieldDecorationState suffixIconConstraintsUpdated(
+    double suffixIconConstraints,
+  ) {
+    return copyWith(suffixIconConstraints: suffixIconConstraints);
+  }
+
+  TextFieldDecorationState showsSuffixToggled() {
+    return copyWith(showsSuffix: !showsSuffix);
+  }
+
+  TextFieldDecorationState suffixTextLinesUpdated(int suffixTextLines) {
+    return copyWith(suffixTextLines: suffixTextLines);
+  }
+
+  TextFieldDecorationState appliesSuffixStyleToggled() {
+    return copyWith(appliesSuffixStyle: !appliesSuffixStyle);
+  }
+
+  TextFieldDecorationState suffixIconColorUpdated(Color? suffixIconColor) {
+    return copyWith(suffixIconColor: suffixIconColor);
   }
 }

@@ -132,4 +132,30 @@ class TextFieldDecorationViewModel extends _$TextFieldDecorationViewModel {
   void prefixIconColorUpdated(Color? prefixIconColor) {
     state = state.prefixIconColorUpdated(prefixIconColor);
   }
+
+  void toggleShowsSuffixIcon() {
+    state = state.showsSuffixIconToggled();
+  }
+
+  void suffixIconConstraintsUpdated(
+    double suffixIconConstraints,
+  ) {
+    state = state.suffixIconConstraintsUpdated(suffixIconConstraints);
+  }
+
+  void toggleShowsSuffix() {
+    state = state.showsSuffixToggled();
+  }
+
+  void suffixTextLinesUpdated(int suffixTextLines) {
+    state = state.suffixTextLinesUpdated(suffixTextLines);
+  }
+
+  void toggleAppliesSuffixStyle() {
+    state = state.appliesSuffixStyleToggled();
+  }
+
+  void suffixIconColorUpdated(Color? suffixIconColor) {
+    state = state.suffixIconColorUpdated(suffixIconColor);
+  }
 }
