@@ -41,6 +41,9 @@ class TextFieldDecorationState with _$TextFieldDecorationState {
     @Default(0) int suffixTextLines,
     @Default(false) bool appliesSuffixStyle,
     Color? suffixIconColor,
+    @Default(false) bool showsCounter,
+    @Default(false) bool showsCounterText,
+    @Default(false) bool appliesCounterStyle,
   }) = _TextFieldDecorationState;
 
   TextFieldDecorationState._();
@@ -198,5 +201,17 @@ extension TextFieldDecorationStateEx on TextFieldDecorationState {
 
   TextFieldDecorationState suffixIconColorUpdated(Color? suffixIconColor) {
     return copyWith(suffixIconColor: suffixIconColor);
+  }
+
+  TextFieldDecorationState showsCounterToggled() {
+    return copyWith(showsCounter: !showsCounter);
+  }
+
+  TextFieldDecorationState showsCounterTextToggled() {
+    return copyWith(showsCounterText: !showsCounterText);
+  }
+
+  TextFieldDecorationState appliesCounterStyleToggled() {
+    return copyWith(appliesCounterStyle: !appliesCounterStyle);
   }
 }

@@ -158,4 +158,16 @@ class TextFieldDecorationViewModel extends _$TextFieldDecorationViewModel {
   void suffixIconColorUpdated(Color? suffixIconColor) {
     state = state.suffixIconColorUpdated(suffixIconColor);
   }
+
+  void toggleShowsCounter() {
+    state = state.showsCounterToggled();
+  }
+
+  void toggleShowsCounterText() {
+    state = state.showsCounterTextToggled();
+  }
+
+  void toggleAppliesCounterStyle() {
+    state = state.appliesCounterStyleToggled();
+  }
 }
