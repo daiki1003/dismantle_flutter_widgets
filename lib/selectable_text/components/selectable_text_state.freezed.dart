@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'selectable_text_state.dart';
 
@@ -12,7 +12,7 @@ part of 'selectable_text_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$SelectableTextState {
@@ -38,7 +38,8 @@ mixin _$SelectableTextState {
 abstract class $SelectableTextStateCopyWith<$Res> {
   factory $SelectableTextStateCopyWith(
           SelectableTextState value, $Res Function(SelectableTextState) then) =
-      _$SelectableTextStateCopyWithImpl<$Res>;
+      _$SelectableTextStateCopyWithImpl<$Res, SelectableTextState>;
+  @useResult
   $Res call(
       {bool showCursor,
       double cursorWidth,
@@ -54,84 +55,87 @@ abstract class $SelectableTextStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$SelectableTextStateCopyWithImpl<$Res>
+class _$SelectableTextStateCopyWithImpl<$Res, $Val extends SelectableTextState>
     implements $SelectableTextStateCopyWith<$Res> {
   _$SelectableTextStateCopyWithImpl(this._value, this._then);
 
-  final SelectableTextState _value;
   // ignore: unused_field
-  final $Res Function(SelectableTextState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? showCursor = freezed,
-    Object? cursorWidth = freezed,
+    Object? showCursor = null,
+    Object? cursorWidth = null,
     Object? cursorHeight = freezed,
     Object? cursorRadius = freezed,
-    Object? selectionWidthStyle = freezed,
-    Object? selectionHeightStyle = freezed,
-    Object? dragStartBehavior = freezed,
-    Object? enableInteractiveSelection = freezed,
+    Object? selectionWidthStyle = null,
+    Object? selectionHeightStyle = null,
+    Object? dragStartBehavior = null,
+    Object? enableInteractiveSelection = null,
     Object? selectionControls = freezed,
     Object? scrollPhysics = freezed,
     Object? textWidthBasis = freezed,
   }) {
     return _then(_value.copyWith(
-      showCursor: showCursor == freezed
+      showCursor: null == showCursor
           ? _value.showCursor
           : showCursor // ignore: cast_nullable_to_non_nullable
               as bool,
-      cursorWidth: cursorWidth == freezed
+      cursorWidth: null == cursorWidth
           ? _value.cursorWidth
           : cursorWidth // ignore: cast_nullable_to_non_nullable
               as double,
-      cursorHeight: cursorHeight == freezed
+      cursorHeight: freezed == cursorHeight
           ? _value.cursorHeight
           : cursorHeight // ignore: cast_nullable_to_non_nullable
               as double?,
-      cursorRadius: cursorRadius == freezed
+      cursorRadius: freezed == cursorRadius
           ? _value.cursorRadius
           : cursorRadius // ignore: cast_nullable_to_non_nullable
               as Radius?,
-      selectionWidthStyle: selectionWidthStyle == freezed
+      selectionWidthStyle: null == selectionWidthStyle
           ? _value.selectionWidthStyle
           : selectionWidthStyle // ignore: cast_nullable_to_non_nullable
               as BoxWidthStyle,
-      selectionHeightStyle: selectionHeightStyle == freezed
+      selectionHeightStyle: null == selectionHeightStyle
           ? _value.selectionHeightStyle
           : selectionHeightStyle // ignore: cast_nullable_to_non_nullable
               as BoxHeightStyle,
-      dragStartBehavior: dragStartBehavior == freezed
+      dragStartBehavior: null == dragStartBehavior
           ? _value.dragStartBehavior
           : dragStartBehavior // ignore: cast_nullable_to_non_nullable
               as DragStartBehavior,
-      enableInteractiveSelection: enableInteractiveSelection == freezed
+      enableInteractiveSelection: null == enableInteractiveSelection
           ? _value.enableInteractiveSelection
           : enableInteractiveSelection // ignore: cast_nullable_to_non_nullable
               as bool,
-      selectionControls: selectionControls == freezed
+      selectionControls: freezed == selectionControls
           ? _value.selectionControls
           : selectionControls // ignore: cast_nullable_to_non_nullable
               as TextSelectionControls?,
-      scrollPhysics: scrollPhysics == freezed
+      scrollPhysics: freezed == scrollPhysics
           ? _value.scrollPhysics
           : scrollPhysics // ignore: cast_nullable_to_non_nullable
               as ScrollPhysics?,
-      textWidthBasis: textWidthBasis == freezed
+      textWidthBasis: freezed == textWidthBasis
           ? _value.textWidthBasis
           : textWidthBasis // ignore: cast_nullable_to_non_nullable
               as TextWidthBasis?,
-    ));
+    ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$_SelectableTextStateCopyWith<$Res>
+abstract class _$$SelectableTextStateImplCopyWith<$Res>
     implements $SelectableTextStateCopyWith<$Res> {
-  factory _$$_SelectableTextStateCopyWith(_$_SelectableTextState value,
-          $Res Function(_$_SelectableTextState) then) =
-      __$$_SelectableTextStateCopyWithImpl<$Res>;
+  factory _$$SelectableTextStateImplCopyWith(_$SelectableTextStateImpl value,
+          $Res Function(_$SelectableTextStateImpl) then) =
+      __$$SelectableTextStateImplCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {bool showCursor,
       double cursorWidth,
@@ -147,72 +151,70 @@ abstract class _$$_SelectableTextStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_SelectableTextStateCopyWithImpl<$Res>
-    extends _$SelectableTextStateCopyWithImpl<$Res>
-    implements _$$_SelectableTextStateCopyWith<$Res> {
-  __$$_SelectableTextStateCopyWithImpl(_$_SelectableTextState _value,
-      $Res Function(_$_SelectableTextState) _then)
-      : super(_value, (v) => _then(v as _$_SelectableTextState));
+class __$$SelectableTextStateImplCopyWithImpl<$Res>
+    extends _$SelectableTextStateCopyWithImpl<$Res, _$SelectableTextStateImpl>
+    implements _$$SelectableTextStateImplCopyWith<$Res> {
+  __$$SelectableTextStateImplCopyWithImpl(_$SelectableTextStateImpl _value,
+      $Res Function(_$SelectableTextStateImpl) _then)
+      : super(_value, _then);
 
-  @override
-  _$_SelectableTextState get _value => super._value as _$_SelectableTextState;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? showCursor = freezed,
-    Object? cursorWidth = freezed,
+    Object? showCursor = null,
+    Object? cursorWidth = null,
     Object? cursorHeight = freezed,
     Object? cursorRadius = freezed,
-    Object? selectionWidthStyle = freezed,
-    Object? selectionHeightStyle = freezed,
-    Object? dragStartBehavior = freezed,
-    Object? enableInteractiveSelection = freezed,
+    Object? selectionWidthStyle = null,
+    Object? selectionHeightStyle = null,
+    Object? dragStartBehavior = null,
+    Object? enableInteractiveSelection = null,
     Object? selectionControls = freezed,
     Object? scrollPhysics = freezed,
     Object? textWidthBasis = freezed,
   }) {
-    return _then(_$_SelectableTextState(
-      showCursor: showCursor == freezed
+    return _then(_$SelectableTextStateImpl(
+      showCursor: null == showCursor
           ? _value.showCursor
           : showCursor // ignore: cast_nullable_to_non_nullable
               as bool,
-      cursorWidth: cursorWidth == freezed
+      cursorWidth: null == cursorWidth
           ? _value.cursorWidth
           : cursorWidth // ignore: cast_nullable_to_non_nullable
               as double,
-      cursorHeight: cursorHeight == freezed
+      cursorHeight: freezed == cursorHeight
           ? _value.cursorHeight
           : cursorHeight // ignore: cast_nullable_to_non_nullable
               as double?,
-      cursorRadius: cursorRadius == freezed
+      cursorRadius: freezed == cursorRadius
           ? _value.cursorRadius
           : cursorRadius // ignore: cast_nullable_to_non_nullable
               as Radius?,
-      selectionWidthStyle: selectionWidthStyle == freezed
+      selectionWidthStyle: null == selectionWidthStyle
           ? _value.selectionWidthStyle
           : selectionWidthStyle // ignore: cast_nullable_to_non_nullable
               as BoxWidthStyle,
-      selectionHeightStyle: selectionHeightStyle == freezed
+      selectionHeightStyle: null == selectionHeightStyle
           ? _value.selectionHeightStyle
           : selectionHeightStyle // ignore: cast_nullable_to_non_nullable
               as BoxHeightStyle,
-      dragStartBehavior: dragStartBehavior == freezed
+      dragStartBehavior: null == dragStartBehavior
           ? _value.dragStartBehavior
           : dragStartBehavior // ignore: cast_nullable_to_non_nullable
               as DragStartBehavior,
-      enableInteractiveSelection: enableInteractiveSelection == freezed
+      enableInteractiveSelection: null == enableInteractiveSelection
           ? _value.enableInteractiveSelection
           : enableInteractiveSelection // ignore: cast_nullable_to_non_nullable
               as bool,
-      selectionControls: selectionControls == freezed
+      selectionControls: freezed == selectionControls
           ? _value.selectionControls
           : selectionControls // ignore: cast_nullable_to_non_nullable
               as TextSelectionControls?,
-      scrollPhysics: scrollPhysics == freezed
+      scrollPhysics: freezed == scrollPhysics
           ? _value.scrollPhysics
           : scrollPhysics // ignore: cast_nullable_to_non_nullable
               as ScrollPhysics?,
-      textWidthBasis: textWidthBasis == freezed
+      textWidthBasis: freezed == textWidthBasis
           ? _value.textWidthBasis
           : textWidthBasis // ignore: cast_nullable_to_non_nullable
               as TextWidthBasis?,
@@ -222,8 +224,8 @@ class __$$_SelectableTextStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_SelectableTextState implements _SelectableTextState {
-  const _$_SelectableTextState(
+class _$SelectableTextStateImpl implements _SelectableTextState {
+  const _$SelectableTextStateImpl(
       {this.showCursor = false,
       this.cursorWidth = 2,
       this.cursorHeight,
@@ -271,53 +273,56 @@ class _$_SelectableTextState implements _SelectableTextState {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_SelectableTextState &&
-            const DeepCollectionEquality()
-                .equals(other.showCursor, showCursor) &&
-            const DeepCollectionEquality()
-                .equals(other.cursorWidth, cursorWidth) &&
-            const DeepCollectionEquality()
-                .equals(other.cursorHeight, cursorHeight) &&
-            const DeepCollectionEquality()
-                .equals(other.cursorRadius, cursorRadius) &&
-            const DeepCollectionEquality()
-                .equals(other.selectionWidthStyle, selectionWidthStyle) &&
-            const DeepCollectionEquality()
-                .equals(other.selectionHeightStyle, selectionHeightStyle) &&
-            const DeepCollectionEquality()
-                .equals(other.dragStartBehavior, dragStartBehavior) &&
-            const DeepCollectionEquality().equals(
-                other.enableInteractiveSelection, enableInteractiveSelection) &&
-            const DeepCollectionEquality()
-                .equals(other.selectionControls, selectionControls) &&
-            const DeepCollectionEquality()
-                .equals(other.scrollPhysics, scrollPhysics) &&
-            const DeepCollectionEquality()
-                .equals(other.textWidthBasis, textWidthBasis));
+            other is _$SelectableTextStateImpl &&
+            (identical(other.showCursor, showCursor) ||
+                other.showCursor == showCursor) &&
+            (identical(other.cursorWidth, cursorWidth) ||
+                other.cursorWidth == cursorWidth) &&
+            (identical(other.cursorHeight, cursorHeight) ||
+                other.cursorHeight == cursorHeight) &&
+            (identical(other.cursorRadius, cursorRadius) ||
+                other.cursorRadius == cursorRadius) &&
+            (identical(other.selectionWidthStyle, selectionWidthStyle) ||
+                other.selectionWidthStyle == selectionWidthStyle) &&
+            (identical(other.selectionHeightStyle, selectionHeightStyle) ||
+                other.selectionHeightStyle == selectionHeightStyle) &&
+            (identical(other.dragStartBehavior, dragStartBehavior) ||
+                other.dragStartBehavior == dragStartBehavior) &&
+            (identical(other.enableInteractiveSelection,
+                    enableInteractiveSelection) ||
+                other.enableInteractiveSelection ==
+                    enableInteractiveSelection) &&
+            (identical(other.selectionControls, selectionControls) ||
+                other.selectionControls == selectionControls) &&
+            (identical(other.scrollPhysics, scrollPhysics) ||
+                other.scrollPhysics == scrollPhysics) &&
+            (identical(other.textWidthBasis, textWidthBasis) ||
+                other.textWidthBasis == textWidthBasis));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(showCursor),
-      const DeepCollectionEquality().hash(cursorWidth),
-      const DeepCollectionEquality().hash(cursorHeight),
-      const DeepCollectionEquality().hash(cursorRadius),
-      const DeepCollectionEquality().hash(selectionWidthStyle),
-      const DeepCollectionEquality().hash(selectionHeightStyle),
-      const DeepCollectionEquality().hash(dragStartBehavior),
-      const DeepCollectionEquality().hash(enableInteractiveSelection),
-      const DeepCollectionEquality().hash(selectionControls),
-      const DeepCollectionEquality().hash(scrollPhysics),
-      const DeepCollectionEquality().hash(textWidthBasis));
+      showCursor,
+      cursorWidth,
+      cursorHeight,
+      cursorRadius,
+      selectionWidthStyle,
+      selectionHeightStyle,
+      dragStartBehavior,
+      enableInteractiveSelection,
+      selectionControls,
+      scrollPhysics,
+      textWidthBasis);
 
   @JsonKey(ignore: true)
   @override
-  _$$_SelectableTextStateCopyWith<_$_SelectableTextState> get copyWith =>
-      __$$_SelectableTextStateCopyWithImpl<_$_SelectableTextState>(
+  @pragma('vm:prefer-inline')
+  _$$SelectableTextStateImplCopyWith<_$SelectableTextStateImpl> get copyWith =>
+      __$$SelectableTextStateImplCopyWithImpl<_$SelectableTextStateImpl>(
           this, _$identity);
 }
 
@@ -333,7 +338,7 @@ abstract class _SelectableTextState implements SelectableTextState {
       final bool enableInteractiveSelection,
       final TextSelectionControls? selectionControls,
       final ScrollPhysics? scrollPhysics,
-      final TextWidthBasis? textWidthBasis}) = _$_SelectableTextState;
+      final TextWidthBasis? textWidthBasis}) = _$SelectableTextStateImpl;
 
   @override
   bool get showCursor;
@@ -359,6 +364,6 @@ abstract class _SelectableTextState implements SelectableTextState {
   TextWidthBasis? get textWidthBasis;
   @override
   @JsonKey(ignore: true)
-  _$$_SelectableTextStateCopyWith<_$_SelectableTextState> get copyWith =>
+  _$$SelectableTextStateImplCopyWith<_$SelectableTextStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
