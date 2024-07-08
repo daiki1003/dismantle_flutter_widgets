@@ -23,8 +23,8 @@ class SelectableTextScreen extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final state = ref.watch(selectableTextViewModel);
-    final notifier = ref.watch(selectableTextViewModel.notifier);
+    final state = ref.watch(selectableTextViewModelProvider);
+    final notifier = ref.watch(selectableTextViewModelProvider.notifier);
 
     return Scaffold(
       appBar: AppBar(title: const Text('SelectableText')),

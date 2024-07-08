@@ -3,17 +3,17 @@ import 'dart:ui';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
-import 'package:hooks_riverpod/hooks_riverpod.dart';
-
 import 'package:dismantling/selectable_text/components/selectable_text_state.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-final selectableTextViewModel = StateNotifierProvider.autoDispose<
-    _SelectableTextViewModel, SelectableTextState>(
-  (ref) => _SelectableTextViewModel(),
-);
+part 'selectable_text_view_model.g.dart';
 
-class _SelectableTextViewModel extends StateNotifier<SelectableTextState> {
-  _SelectableTextViewModel() : super(SelectableTextState.empty());
+@riverpod
+class SelectableTextViewModel extends _$SelectableTextViewModel {
+  @override
+  SelectableTextState build() {
+    return SelectableTextState.empty();
+  }
 
   void showCursorToggled() {
     state = state.copyWith(showCursor: !state.showCursor);
