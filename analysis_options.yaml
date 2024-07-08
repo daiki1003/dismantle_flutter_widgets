@@ -4,3 +4,7 @@ analyzer:
   errors:
     sort_pub_dependencies: ignore
     directives_ordering: false
+
+  exclude: [
+    '**/*.freezed.dart',
+  ]
