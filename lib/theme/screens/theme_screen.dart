@@ -221,22 +221,18 @@ class _Cupertinos extends StatelessWidget {
           CupertinoButton(
             child: const Text('Show CupertinoActionSheet'),
             onPressed: () {
-              showBottomSheet<void>(
+              showBottomSheet(
                 context: context,
-                builder: (context) {
-                  return CupertinoActionSheet(
-                    title: const Text('Title'),
-                    message: const Text('Message'),
-                    actions: [
-                      CupertinoActionSheetAction(
-                        onPressed: () {
-                          Navigator.of(context).pop();
-                        },
-                        child: const Text('CupertinoActionSheetAction'),
-                      ),
-                    ],
-                  );
-                },
+                builder: (context) => CupertinoActionSheet(
+                  title: const Text('Title'),
+                  message: const Text('Message'),
+                  actions: [
+                    CupertinoActionSheetAction(
+                      onPressed: Navigator.of(context).pop,
+                      child: const Text('CupertinoActionSheetAction'),
+                    ),
+                  ],
+                ),
               );
             },
           ),
@@ -592,24 +588,20 @@ class _MaterialComponents extends StatelessWidget {
             ),
           ),
           TextButton(
-            onPressed: () {
-              showBottomSheet<void>(
-                context: context,
-                builder: (context) {
-                  return const SizedBox(
-                    width: double.infinity,
-                    height: 200,
-                    child: Row(
-                      children: [
-                        Icon(Icons.pentagon),
-                        SizedBox(width: 20),
-                        Text('asdf'),
-                      ],
-                    ),
-                  );
-                },
-              );
-            },
+            onPressed: () => showBottomSheet(
+              context: context,
+              builder: (context) => const SizedBox(
+                width: double.infinity,
+                height: 200,
+                child: Row(
+                  children: [
+                    Icon(Icons.pentagon),
+                    SizedBox(width: 20),
+                    Text('asdf'),
+                  ],
+                ),
+              ),
+            ),
             child: const Text('BottomSheet'),
           ),
           const ExpansionTile(
