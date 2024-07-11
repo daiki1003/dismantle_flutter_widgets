@@ -7,7 +7,9 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:intersperse/intersperse.dart';
 
-import 'package:dismantling/components/select_button.dart';
+import 'package:dismantling/components/select_menu.dart';
+import 'package:dismantling/components/slider_menu.dart';
+import 'package:dismantling/components/toggle_menu.dart';
 import 'package:dismantling/selectable_text/view_model/selectable_text_view_model.dart';
 
 class SelectableTextScreen extends HookConsumerWidget {
@@ -65,13 +67,13 @@ class SelectableTextScreen extends HookConsumerWidget {
                   child: Column(
                     children: [
                       ...<Widget>[
-                        _ToggleButton(
+                        ToggleMenu(
                           text: 'showCursor',
                           value: state.showCursor,
                           onToggled: (value) => notifier.showCursorToggled(),
                         ),
                         if (state.showCursor) ...[
-                          _SliderMenu(
+                          SliderMenu(
                             label: 'cursorWidth',
                             value: state.cursorWidth,
                             min: 1,
@@ -79,7 +81,7 @@ class SelectableTextScreen extends HookConsumerWidget {
                             divisions: 19,
                             onChanged: notifier.cursorWidthUpdated,
                           ),
-                          _SliderMenu(
+                          SliderMenu(
                             label: 'cursorHeight',
                             value: state.cursorHeight ?? 1,
                             min: 1,
@@ -88,7 +90,7 @@ class SelectableTextScreen extends HookConsumerWidget {
                             onChanged: notifier.cursorHeightUpdated,
                           ),
                           // TODO(ashdik): Add Radius.elliptical version
-                          _SliderMenu(
+                          SliderMenu(
                             label: 'cursorRadius',
                             value: state.cursorRadius?.x ?? 0,
                             min: 0,
@@ -101,27 +103,27 @@ class SelectableTextScreen extends HookConsumerWidget {
                             },
                           ),
                         ],
-                        _ToggleButton(
+                        ToggleMenu(
                           text: 'enableInteractiveSelection',
                           value: state.enableInteractiveSelection,
                           onToggled: (value) =>
                               notifier.enableInteractiveSelectionToggled(),
                         ),
-                        SelectButton<BoxWidthStyle>(
+                        SelectMenu<BoxWidthStyle>(
                           label: 'selectionWidthStyle',
                           choices: BoxWidthStyle.values,
                           value: state.selectionWidthStyle,
                           valueTextBuilder: (value) => value.name,
                           onSelected: notifier.selectionWidthStyleUpdated,
                         ),
-                        SelectButton<BoxHeightStyle>(
+                        SelectMenu<BoxHeightStyle>(
                           label: 'selectionHeightStyle',
                           choices: BoxHeightStyle.values,
                           value: state.selectionHeightStyle,
                           valueTextBuilder: (value) => value.name,
                           onSelected: notifier.selectionHeightStyleUpdated,
                         ),
-                        SelectButton<DragStartBehavior>(
+                        SelectMenu<DragStartBehavior>(
                           label: 'dragStartBehavior',
                           choices: DragStartBehavior.values,
                           value: state.dragStartBehavior,
@@ -129,7 +131,7 @@ class SelectableTextScreen extends HookConsumerWidget {
                           onSelected: notifier.dragStartBehaviorUpdated,
                         ),
                         // TODO(ashdik): Investigate how to apply dynamically.
-                        SelectButton<TextSelectionControls>(
+                        SelectMenu<TextSelectionControls>(
                           label: 'selectionControls (未対応)',
                           choices: [
                             cupertinoTextSelectionControls,
@@ -147,7 +149,7 @@ class SelectableTextScreen extends HookConsumerWidget {
                           },
                           onSelected: notifier.selectionControlsUpdated,
                         ),
-                        SelectButton<ScrollPhysics>(
+                        SelectMenu<ScrollPhysics>(
                           label: 'scrollPhysics',
                           choices: const [
                             NeverScrollableScrollPhysics(),
@@ -173,16 +175,14 @@ class SelectableTextScreen extends HookConsumerWidget {
                           },
                           onSelected: notifier.scrollPhysicsUpdated,
                         ),
-                        SelectButton<TextWidthBasis>(
+                        SelectMenu<TextWidthBasis>(
                           label: 'textWidthBasis',
                           choices: TextWidthBasis.values,
                           value: state.textWidthBasis,
                           valueTextBuilder: (value) => value.name,
                           onSelected: notifier.textWidthBasisUpdated,
                         ),
-                      ].intersperse(
-                        const SizedBox(height: 40),
-                      ),
+                      ].intersperse(const SizedBox(height: 16)),
                     ],
                   ),
                 ),
@@ -191,91 +191,6 @@ class SelectableTextScreen extends HookConsumerWidget {
           ),
         ),
       ),
-    );
-  }
-}
-
-class _ToggleButton extends StatelessWidget {
-  const _ToggleButton({
-    required this.text,
-    required this.value,
-    required this.onToggled,
-  });
-
-  final String text;
-  final bool value;
-  final ValueChanged<bool> onToggled;
-
-  @override
-  Widget build(BuildContext context) {
-    return OutlinedButton(
-      style: OutlinedButton.styleFrom(
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-      ),
-      child: Text(
-        '$text: $value',
-        style: const TextStyle(
-          fontSize: 16,
-          fontWeight: FontWeight.bold,
-        ),
-      ),
-      onPressed: () => onToggled(!value),
-    );
-  }
-}
-
-class _SliderMenu extends StatelessWidget {
-  const _SliderMenu({
-    required this.label,
-    required this.value,
-    required this.min,
-    required this.max,
-    required this.divisions,
-    required this.onChanged,
-  });
-
-  final String label;
-  final double value;
-  final double min;
-  final double max;
-  final int divisions;
-
-  final ValueChanged<double> onChanged;
-
-  @override
-  Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        Text(
-          label,
-          style: theme.textTheme.titleLarge!.copyWith(
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        const SizedBox(height: 20),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(min.toString(), style: theme.textTheme.bodySmall),
-            Text(
-              value.toString(),
-              style: theme.textTheme.titleLarge!.copyWith(
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            Text(max.toString(), style: theme.textTheme.bodySmall),
-          ],
-        ),
-        Slider.adaptive(
-          value: value,
-          min: min,
-          max: max,
-          divisions: divisions,
-          onChanged: onChanged,
-        ),
-      ],
     );
   }
 }
