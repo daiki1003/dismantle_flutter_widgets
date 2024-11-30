@@ -6,5 +6,7 @@ analyzer:
     directives_ordering: false
 
   exclude: [
+    '**/mason/**',
     '**/*.freezed.dart',
+    '**/*.g.dart',
   ]
