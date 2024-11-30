@@ -575,7 +575,7 @@ class _MaterialComponents extends StatelessWidget {
             },
             child: const Text('AlertDialog'),
           ),
-          ButtonBar(
+          OverflowBar(
             alignment: MainAxisAlignment.center,
             children: List.generate(
               6,
