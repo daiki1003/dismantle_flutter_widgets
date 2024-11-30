@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:intersperse/intersperse.dart';
 
@@ -41,7 +42,7 @@ class ListViewScreen extends HookConsumerWidget {
         ),
         child: InkWell(
           onTap: () => print('tapped: $item'),
-        child: Center(
+          child: Center(
             child: Text('item: $item', style: theme.titleLarge),
           ),
         ),
@@ -49,6 +50,8 @@ class ListViewScreen extends HookConsumerWidget {
     }
 
     const prototypeItem = SizedBox(height: 25, width: 200);
+
+    final scrollState = useValueNotifier<ScrollNotification?>(null);
 
     return Scaffold(
       appBar: AppBar(title: const Text('ListView')),
@@ -60,80 +63,126 @@ class ListViewScreen extends HookConsumerWidget {
               SizedBox(
                 height: MediaQuery.sizeOf(context).height * 0.4,
                 child: Scrollbar(
-                  child: switch (state.constructorType) {
-                    ListViewConstructorType.normal => ListView(
-                        scrollDirection: state.scrollDirection,
-                        reverse: state.reverse,
-                        primary: state.primary,
-                        physics: state.physics,
-                        shrinkWrap: state.shrinkWrap,
-                        itemExtent: state.itemExtent,
-                        prototypeItem:
-                            state.withPrototypeItem ? prototypeItem : null,
-                        addAutomaticKeepAlives: state.addAutomaticKeepAlives,
-                        addRepaintBoundaries: state.addRepaintBoundaries,
-                        addSemanticIndexes: state.addSemanticIndexes,
-                        cacheExtent: state.cacheExtent,
-                        semanticChildCount: state.semanticChildCount,
-                        dragStartBehavior: state.dragStartBehavior,
-                        keyboardDismissBehavior: state.keyboardDismissBehavior,
-                        restorationId: state.withRestorationId ? 'test' : null,
-                        clipBehavior: state.clipBehavior,
-                        hitTestBehavior: state.hitTestBehavior,
-                        children: List.generate(
-                          state.itemCount,
-                          createColorBox,
+                  child: NotificationListener<ScrollNotification>(
+                    onNotification: (notification) {
+                      scrollState.value = notification;
+                      return true;
+                    },
+                    child: switch (state.constructorType) {
+                      ListViewConstructorType.normal => ListView(
+                          scrollDirection: state.scrollDirection,
+                          reverse: state.reverse,
+                          primary: state.primary,
+                          physics: state.physics,
+                          shrinkWrap: state.shrinkWrap,
+                          itemExtent: state.itemExtent,
+                          prototypeItem:
+                              state.withPrototypeItem ? prototypeItem : null,
+                          addAutomaticKeepAlives: state.addAutomaticKeepAlives,
+                          addRepaintBoundaries: state.addRepaintBoundaries,
+                          addSemanticIndexes: state.addSemanticIndexes,
+                          cacheExtent: state.cacheExtent,
+                          semanticChildCount: state.semanticChildCount,
+                          dragStartBehavior: state.dragStartBehavior,
+                          keyboardDismissBehavior:
+                              state.keyboardDismissBehavior,
+                          restorationId:
+                              state.withRestorationId ? 'test' : null,
+                          clipBehavior: state.clipBehavior,
+                          hitTestBehavior: state.hitTestBehavior,
+                          children: List.generate(
+                            state.itemCount,
+                            createColorBox,
+                          ),
                         ),
+                      ListViewConstructorType.builder => ListView.builder(
+                          scrollDirection: state.scrollDirection,
+                          reverse: state.reverse,
+                          primary: state.primary,
+                          physics: state.physics,
+                          shrinkWrap: state.shrinkWrap,
+                          itemExtent: state.itemExtent,
+                          prototypeItem:
+                              state.withPrototypeItem ? prototypeItem : null,
+                          addAutomaticKeepAlives: state.addAutomaticKeepAlives,
+                          addRepaintBoundaries: state.addRepaintBoundaries,
+                          addSemanticIndexes: state.addSemanticIndexes,
+                          cacheExtent: state.cacheExtent,
+                          semanticChildCount: state.semanticChildCount,
+                          dragStartBehavior: state.dragStartBehavior,
+                          keyboardDismissBehavior:
+                              state.keyboardDismissBehavior,
+                          restorationId:
+                              state.withRestorationId ? 'test' : null,
+                          clipBehavior: state.clipBehavior,
+                          hitTestBehavior: state.hitTestBehavior,
+                          itemCount: state.itemCount,
+                          itemBuilder: (context, index) =>
+                              createColorBox(index),
+                        ),
+                      ListViewConstructorType.separated => ListView.separated(
+                          scrollDirection: state.scrollDirection,
+                          reverse: state.reverse,
+                          primary: state.primary,
+                          physics: state.physics,
+                          shrinkWrap: state.shrinkWrap,
+                          // NOTICE: itemExtent is not supported.
+                          // itemExtent: state.itemExtent,
+                          // NOTICE: prototypeItem is not supported.
+                          // prototypeItem:
+                          //     state.withPrototypeItem ? prototypeItem : null,
+                          addAutomaticKeepAlives: state.addAutomaticKeepAlives,
+                          addRepaintBoundaries: state.addRepaintBoundaries,
+                          addSemanticIndexes: state.addSemanticIndexes,
+                          cacheExtent: state.cacheExtent,
+                          // NOTICE: semanticChildCount is not supported.
+                          // semanticChildCount: state.semanticChildCount,
+                          dragStartBehavior: state.dragStartBehavior,
+                          keyboardDismissBehavior:
+                              state.keyboardDismissBehavior,
+                          restorationId:
+                              state.withRestorationId ? 'test' : null,
+                          clipBehavior: state.clipBehavior,
+                          hitTestBehavior: state.hitTestBehavior,
+                          itemCount: state.itemCount,
+                          separatorBuilder: (context, index) => const Divider(),
+                          itemBuilder: (context, index) =>
+                              createColorBox(index),
+                        ),
+                    },
+                  ),
+                ),
+              ),
+              const SizedBox(height: 32),
+              SizedBox(
+                width: MediaQuery.sizeOf(context).width,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Scroll Notification',
+                      style: theme.titleLarge!.copyWith(
+                        fontWeight: FontWeight.bold,
                       ),
-                    ListViewConstructorType.builder => ListView.builder(
-                        scrollDirection: state.scrollDirection,
-                        reverse: state.reverse,
-                        primary: state.primary,
-                        physics: state.physics,
-                        shrinkWrap: state.shrinkWrap,
-                        itemExtent: state.itemExtent,
-                        prototypeItem:
-                            state.withPrototypeItem ? prototypeItem : null,
-                        addAutomaticKeepAlives: state.addAutomaticKeepAlives,
-                        addRepaintBoundaries: state.addRepaintBoundaries,
-                        addSemanticIndexes: state.addSemanticIndexes,
-                        cacheExtent: state.cacheExtent,
-                        semanticChildCount: state.semanticChildCount,
-                        dragStartBehavior: state.dragStartBehavior,
-                        keyboardDismissBehavior: state.keyboardDismissBehavior,
-                        restorationId: state.withRestorationId ? 'test' : null,
-                        clipBehavior: state.clipBehavior,
-                        hitTestBehavior: state.hitTestBehavior,
-                        itemCount: state.itemCount,
-                        itemBuilder: (context, index) => createColorBox(index),
-                      ),
-                    ListViewConstructorType.separated => ListView.separated(
-                        scrollDirection: state.scrollDirection,
-                        reverse: state.reverse,
-                        primary: state.primary,
-                        physics: state.physics,
-                        shrinkWrap: state.shrinkWrap,
-                        // NOTICE: itemExtent is not supported.
-                        // itemExtent: state.itemExtent,
-                        // NOTICE: prototypeItem is not supported.
-                        // prototypeItem:
-                        //     state.withPrototypeItem ? prototypeItem : null,
-                        addAutomaticKeepAlives: state.addAutomaticKeepAlives,
-                        addRepaintBoundaries: state.addRepaintBoundaries,
-                        addSemanticIndexes: state.addSemanticIndexes,
-                        cacheExtent: state.cacheExtent,
-                        // NOTICE: semanticChildCount is not supported.
-                        // semanticChildCount: state.semanticChildCount,
-                        dragStartBehavior: state.dragStartBehavior,
-                        keyboardDismissBehavior: state.keyboardDismissBehavior,
-                        restorationId: state.withRestorationId ? 'test' : null,
-                        clipBehavior: state.clipBehavior,
-                        hitTestBehavior: state.hitTestBehavior,
-                        itemCount: state.itemCount,
-                        separatorBuilder: (context, index) => const Divider(),
-                        itemBuilder: (context, index) => createColorBox(index),
-                      ),
-                  },
+                    ),
+                    const SizedBox(height: 8),
+                    ValueListenableBuilder(
+                      valueListenable: scrollState,
+                      builder: (context, value, _) {
+                        if (value != null) {
+                          return Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text('metrics: ${value.metrics}'),
+                              Text('depth: ${value.depth}'),
+                            ],
+                          );
+                        } else {
+                          return const SizedBox();
+                        }
+                      },
+                    ),
+                  ],
                 ),
               ),
               const SizedBox(height: 32),
