@@ -12,7 +12,7 @@ part of 'list_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$ListState {
@@ -36,8 +36,11 @@ mixin _$ListState {
       throw _privateConstructorUsedError;
   bool get withRestorationId => throw _privateConstructorUsedError;
   Clip get clipBehavior => throw _privateConstructorUsedError;
+  HitTestBehavior get hitTestBehavior => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ListState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $ListStateCopyWith<ListState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -65,7 +68,8 @@ abstract class $ListStateCopyWith<$Res> {
       DragStartBehavior dragStartBehavior,
       ScrollViewKeyboardDismissBehavior keyboardDismissBehavior,
       bool withRestorationId,
-      Clip clipBehavior});
+      Clip clipBehavior,
+      HitTestBehavior hitTestBehavior});
 }
 
 /// @nodoc
@@ -78,6 +82,8 @@ class _$ListStateCopyWithImpl<$Res, $Val extends ListState>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of ListState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -99,6 +105,7 @@ class _$ListStateCopyWithImpl<$Res, $Val extends ListState>
     Object? keyboardDismissBehavior = null,
     Object? withRestorationId = null,
     Object? clipBehavior = null,
+    Object? hitTestBehavior = null,
   }) {
     return _then(_value.copyWith(
       itemCount: null == itemCount
@@ -173,6 +180,10 @@ class _$ListStateCopyWithImpl<$Res, $Val extends ListState>
           ? _value.clipBehavior
           : clipBehavior // ignore: cast_nullable_to_non_nullable
               as Clip,
+      hitTestBehavior: null == hitTestBehavior
+          ? _value.hitTestBehavior
+          : hitTestBehavior // ignore: cast_nullable_to_non_nullable
+              as HitTestBehavior,
     ) as $Val);
   }
 }
@@ -203,7 +214,8 @@ abstract class _$$ListStateImplCopyWith<$Res>
       DragStartBehavior dragStartBehavior,
       ScrollViewKeyboardDismissBehavior keyboardDismissBehavior,
       bool withRestorationId,
-      Clip clipBehavior});
+      Clip clipBehavior,
+      HitTestBehavior hitTestBehavior});
 }
 
 /// @nodoc
@@ -214,6 +226,8 @@ class __$$ListStateImplCopyWithImpl<$Res>
       _$ListStateImpl _value, $Res Function(_$ListStateImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ListState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -235,6 +249,7 @@ class __$$ListStateImplCopyWithImpl<$Res>
     Object? keyboardDismissBehavior = null,
     Object? withRestorationId = null,
     Object? clipBehavior = null,
+    Object? hitTestBehavior = null,
   }) {
     return _then(_$ListStateImpl(
       itemCount: null == itemCount
@@ -309,6 +324,10 @@ class __$$ListStateImplCopyWithImpl<$Res>
           ? _value.clipBehavior
           : clipBehavior // ignore: cast_nullable_to_non_nullable
               as Clip,
+      hitTestBehavior: null == hitTestBehavior
+          ? _value.hitTestBehavior
+          : hitTestBehavior // ignore: cast_nullable_to_non_nullable
+              as HitTestBehavior,
     ));
   }
 }
@@ -334,7 +353,8 @@ class _$ListStateImpl implements _ListState {
       this.dragStartBehavior = DragStartBehavior.start,
       this.keyboardDismissBehavior = ScrollViewKeyboardDismissBehavior.manual,
       this.withRestorationId = true,
-      this.clipBehavior = Clip.hardEdge});
+      this.clipBehavior = Clip.hardEdge,
+      this.hitTestBehavior = HitTestBehavior.opaque});
 
   @override
   @JsonKey()
@@ -387,14 +407,17 @@ class _$ListStateImpl implements _ListState {
   @override
   @JsonKey()
   final Clip clipBehavior;
+  @override
+  @JsonKey()
+  final HitTestBehavior hitTestBehavior;
 
   @override
   String toString() {
-    return 'ListState(itemCount: $itemCount, constructorType: $constructorType, scrollDirection: $scrollDirection, reverse: $reverse, primary: $primary, physics: $physics, shrinkWrap: $shrinkWrap, itemExtent: $itemExtent, withPrototypeItem: $withPrototypeItem, addAutomaticKeepAlives: $addAutomaticKeepAlives, addRepaintBoundaries: $addRepaintBoundaries, addSemanticIndexes: $addSemanticIndexes, cacheExtent: $cacheExtent, semanticChildCount: $semanticChildCount, dragStartBehavior: $dragStartBehavior, keyboardDismissBehavior: $keyboardDismissBehavior, withRestorationId: $withRestorationId, clipBehavior: $clipBehavior)';
+    return 'ListState(itemCount: $itemCount, constructorType: $constructorType, scrollDirection: $scrollDirection, reverse: $reverse, primary: $primary, physics: $physics, shrinkWrap: $shrinkWrap, itemExtent: $itemExtent, withPrototypeItem: $withPrototypeItem, addAutomaticKeepAlives: $addAutomaticKeepAlives, addRepaintBoundaries: $addRepaintBoundaries, addSemanticIndexes: $addSemanticIndexes, cacheExtent: $cacheExtent, semanticChildCount: $semanticChildCount, dragStartBehavior: $dragStartBehavior, keyboardDismissBehavior: $keyboardDismissBehavior, withRestorationId: $withRestorationId, clipBehavior: $clipBehavior, hitTestBehavior: $hitTestBehavior)';
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ListStateImpl &&
@@ -431,32 +454,38 @@ class _$ListStateImpl implements _ListState {
             (identical(other.withRestorationId, withRestorationId) ||
                 other.withRestorationId == withRestorationId) &&
             (identical(other.clipBehavior, clipBehavior) ||
-                other.clipBehavior == clipBehavior));
+                other.clipBehavior == clipBehavior) &&
+            (identical(other.hitTestBehavior, hitTestBehavior) ||
+                other.hitTestBehavior == hitTestBehavior));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      itemCount,
-      constructorType,
-      scrollDirection,
-      reverse,
-      primary,
-      physics,
-      shrinkWrap,
-      itemExtent,
-      withPrototypeItem,
-      addAutomaticKeepAlives,
-      addRepaintBoundaries,
-      addSemanticIndexes,
-      cacheExtent,
-      semanticChildCount,
-      dragStartBehavior,
-      keyboardDismissBehavior,
-      withRestorationId,
-      clipBehavior);
+  int get hashCode => Object.hashAll([
+        runtimeType,
+        itemCount,
+        constructorType,
+        scrollDirection,
+        reverse,
+        primary,
+        physics,
+        shrinkWrap,
+        itemExtent,
+        withPrototypeItem,
+        addAutomaticKeepAlives,
+        addRepaintBoundaries,
+        addSemanticIndexes,
+        cacheExtent,
+        semanticChildCount,
+        dragStartBehavior,
+        keyboardDismissBehavior,
+        withRestorationId,
+        clipBehavior,
+        hitTestBehavior
+      ]);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ListState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ListStateImplCopyWith<_$ListStateImpl> get copyWith =>
@@ -482,7 +511,8 @@ abstract class _ListState implements ListState {
       final DragStartBehavior dragStartBehavior,
       final ScrollViewKeyboardDismissBehavior keyboardDismissBehavior,
       final bool withRestorationId,
-      final Clip clipBehavior}) = _$ListStateImpl;
+      final Clip clipBehavior,
+      final HitTestBehavior hitTestBehavior}) = _$ListStateImpl;
 
   @override
   int get itemCount;
@@ -521,7 +551,12 @@ abstract class _ListState implements ListState {
   @override
   Clip get clipBehavior;
   @override
-  @JsonKey(ignore: true)
+  HitTestBehavior get hitTestBehavior;
+
+  /// Create a copy of ListState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ListStateImplCopyWith<_$ListStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -87,4 +87,8 @@ class _ListViewModel extends StateNotifier<ListState> {
   void clipBehaviorUpdated(Clip clipBehavior) {
     state = state.clipBehaviorUpdated(clipBehavior);
   }
+
+  void hitTestBehaviorUpdated(HitTestBehavior hitTestBehavior) {
+    state = state.hitTestBehaviorUpdated(hitTestBehavior);
+  }
 }

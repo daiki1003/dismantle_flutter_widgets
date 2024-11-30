@@ -31,17 +31,19 @@ class ListViewScreen extends HookConsumerWidget {
     final theme = Theme.of(context).textTheme;
 
     Widget createColorBox(int index) {
-      return Container(
-        height: 25,
-        width: 200,
+      final item = index + 1;
+      return Material(
         color: Color.fromRGBO(
           Random().nextInt(255),
           Random().nextInt(255),
           Random().nextInt(255),
           1,
         ),
+        child: InkWell(
+          onTap: () => print('tapped: $item'),
         child: Center(
-          child: Text('item: ${index + 1}', style: theme.titleLarge),
+            child: Text('item: $item', style: theme.titleLarge),
+          ),
         ),
       );
     }
@@ -77,6 +79,7 @@ class ListViewScreen extends HookConsumerWidget {
                         keyboardDismissBehavior: state.keyboardDismissBehavior,
                         restorationId: state.withRestorationId ? 'test' : null,
                         clipBehavior: state.clipBehavior,
+                        hitTestBehavior: state.hitTestBehavior,
                         children: List.generate(
                           state.itemCount,
                           createColorBox,
@@ -100,6 +103,7 @@ class ListViewScreen extends HookConsumerWidget {
                         keyboardDismissBehavior: state.keyboardDismissBehavior,
                         restorationId: state.withRestorationId ? 'test' : null,
                         clipBehavior: state.clipBehavior,
+                        hitTestBehavior: state.hitTestBehavior,
                         itemCount: state.itemCount,
                         itemBuilder: (context, index) => createColorBox(index),
                       ),
@@ -124,6 +128,7 @@ class ListViewScreen extends HookConsumerWidget {
                         keyboardDismissBehavior: state.keyboardDismissBehavior,
                         restorationId: state.withRestorationId ? 'test' : null,
                         clipBehavior: state.clipBehavior,
+                        hitTestBehavior: state.hitTestBehavior,
                         itemCount: state.itemCount,
                         separatorBuilder: (context, index) => const Divider(),
                         itemBuilder: (context, index) => createColorBox(index),
@@ -262,6 +267,13 @@ class ListViewScreen extends HookConsumerWidget {
                         value: state.clipBehavior,
                         valueTextBuilder: (value) => value.toString(),
                         onSelected: notifier.clipBehaviorUpdated,
+                      ),
+                      SelectMenu<HitTestBehavior>(
+                        label: 'hitTestBehavior',
+                        choices: HitTestBehavior.values,
+                        value: state.hitTestBehavior,
+                        valueTextBuilder: (value) => value.name,
+                        onSelected: notifier.hitTestBehaviorUpdated,
                       ),
                     ].intersperse(const SizedBox(height: 32)).toList(),
                   ),
