@@ -4,6 +4,7 @@ analyzer:
   errors:
     sort_pub_dependencies: ignore
     directives_ordering: false
+    public_member_api_docs: ignore
 
   exclude: [
     '**/mason/**',
