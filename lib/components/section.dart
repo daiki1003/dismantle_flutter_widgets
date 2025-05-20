@@ -4,9 +4,9 @@ import 'package:intersperse/intersperse.dart';
 
 class Section extends StatelessWidget {
   const Section({
-    super.key,
     required this.sectionTitle,
     required this.children,
+    super.key,
   });
 
   final String sectionTitle;
