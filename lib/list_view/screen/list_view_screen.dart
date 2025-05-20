@@ -26,8 +26,8 @@ class ListViewScreen extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final state = ref.watch(listViewModel);
-    final notifier = ref.watch(listViewModel.notifier);
+    final state = ref.watch(listViewModelProvider);
+    final notifier = ref.watch(listViewModelProvider.notifier);
 
     final theme = Theme.of(context).textTheme;
 
