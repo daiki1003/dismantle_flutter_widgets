@@ -8,7 +8,7 @@ import 'package:dismantling/list_view/model/list_view_constructor_type.dart';
 part 'list_state.freezed.dart';
 
 @freezed
-class ListState with _$ListState {
+abstract class ListState with _$ListState {
   const factory ListState({
     @Default(100) int itemCount,
     @Default(ListViewConstructorType.normal)

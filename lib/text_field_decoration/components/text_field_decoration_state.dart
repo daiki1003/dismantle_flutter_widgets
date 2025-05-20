@@ -5,7 +5,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'text_field_decoration_state.freezed.dart';
 
 @freezed
-class TextFieldDecorationState with _$TextFieldDecorationState {
+abstract class TextFieldDecorationState with _$TextFieldDecorationState {
   factory TextFieldDecorationState({
     @Default(false) bool showsIcon,
     Color? iconColor,
@@ -56,8 +56,11 @@ class TextFieldDecorationState with _$TextFieldDecorationState {
     return TextFieldDecorationState();
   }
 
-  late final hasPrefixText = 0 < prefixTextLines;
-  late final hasSuffixText = 0 < suffixTextLines;
+  @override
+  late final bool hasPrefixText = 0 < prefixTextLines;
+
+  @override
+  late final bool hasSuffixText = 0 < suffixTextLines;
 }
 
 extension TextFieldDecorationStateEx on TextFieldDecorationState {
