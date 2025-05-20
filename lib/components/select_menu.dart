@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 
 class SelectMenu<T> extends StatelessWidget {
   const SelectMenu({
-    super.key,
     required this.label,
     required this.choices,
     required this.value,
     required this.valueTextBuilder,
     required this.onSelected,
+    super.key,
   });
 
   final String label;

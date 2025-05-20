@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 
 class SliderMenu extends StatelessWidget {
   const SliderMenu({
-    super.key,
     required this.label,
     required this.value,
     required this.min,
     required this.max,
     required this.divisions,
     required this.onChanged,
+    super.key,
   });
 
   final String label;

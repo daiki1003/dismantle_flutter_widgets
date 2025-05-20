@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 class ToggleMenu extends StatelessWidget {
   const ToggleMenu({
-    super.key,
     required this.text,
     required this.value,
     required this.onToggled,
+    super.key,
   });
 
   final String text;
