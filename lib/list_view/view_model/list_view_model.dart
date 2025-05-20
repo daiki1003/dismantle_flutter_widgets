@@ -1,18 +1,18 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
-import 'package:hooks_riverpod/hooks_riverpod.dart';
-
 import 'package:dismantling/list_view/components/list_state.dart';
 import 'package:dismantling/list_view/model/list_view_constructor_type.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-final listViewModel =
-    StateNotifierProvider.autoDispose<_ListViewModel, ListState>(
-  (ref) => _ListViewModel(),
-);
+part 'list_view_model.g.dart';
 
-class _ListViewModel extends StateNotifier<ListState> {
-  _ListViewModel() : super(ListState.empty());
+@riverpod
+class ListViewModel extends _$ListViewModel {
+  @override
+  ListState build() {
+    return ListState.empty();
+  }
 
   void itemCountUpdated(int itemCount) {
     state = state.itemCountUpdated(itemCount);
